@@ -1,0 +1,11 @@
+FORMAnalysis
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FORMAnalysis
+
+   
+   .. automethod:: __init__
+   
+

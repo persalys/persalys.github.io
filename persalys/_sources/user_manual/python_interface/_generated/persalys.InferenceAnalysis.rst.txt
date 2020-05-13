@@ -1,0 +1,11 @@
+InferenceAnalysis
+==========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: InferenceAnalysis
+
+   
+   .. automethod:: __init__
+   
+

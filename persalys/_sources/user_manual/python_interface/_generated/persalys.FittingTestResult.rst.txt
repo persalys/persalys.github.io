@@ -1,0 +1,11 @@
+FittingTestResult
+==========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FittingTestResult
+
+   
+   .. automethod:: __init__
+   
+

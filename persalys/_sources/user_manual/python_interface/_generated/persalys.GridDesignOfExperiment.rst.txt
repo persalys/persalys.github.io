@@ -1,0 +1,11 @@
+GridDesignOfExperiment
+===============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: GridDesignOfExperiment
+
+   
+   .. automethod:: __init__
+   
+

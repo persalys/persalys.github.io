@@ -1,0 +1,11 @@
+SobolResult
+====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SobolResult
+
+   
+   .. automethod:: __init__
+   
+

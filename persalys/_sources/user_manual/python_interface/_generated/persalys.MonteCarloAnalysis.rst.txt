@@ -1,0 +1,11 @@
+MonteCarloAnalysis
+===========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MonteCarloAnalysis
+
+   
+   .. automethod:: __init__
+   
+

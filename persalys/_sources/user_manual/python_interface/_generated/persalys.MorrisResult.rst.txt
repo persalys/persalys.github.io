@@ -1,0 +1,11 @@
+MorrisResult
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MorrisResult
+
+   
+   .. automethod:: __init__
+   
+

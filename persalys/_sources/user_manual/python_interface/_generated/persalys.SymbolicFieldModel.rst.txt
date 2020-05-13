@@ -1,0 +1,11 @@
+SymbolicFieldModel
+===========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SymbolicFieldModel
+
+   
+   .. automethod:: __init__
+   
+

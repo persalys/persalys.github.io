@@ -1,0 +1,11 @@
+MonteCarloReliabilityAnalysis
+======================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MonteCarloReliabilityAnalysis
+
+   
+   .. automethod:: __init__
+   
+

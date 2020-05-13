@@ -1,0 +1,11 @@
+LimitState
+===================
+
+.. currentmodule:: persalys
+
+.. autoclass:: LimitState
+
+   
+   .. automethod:: __init__
+   
+

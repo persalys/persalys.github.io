@@ -1,0 +1,883 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>User manual - Data analyses &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Field analyses" href="../field_analysis/user_manual_field_analysis.html" />
+    <link rel="prev" title="User manual - Probabilistic analyses" href="../probabilistic_analysis/user_manual_probabilistic_analysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../probabilistic_analysis/user_manual_probabilistic_analysis.html" title="User manual - Probabilistic analyses"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-manual-data-analyses">
+<h1>User manual - Data analyses<a class="headerlink" href="#user-manual-data-analyses" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>The interface allows to perform the following types of data analysis:</dt><dd><ul class="simple">
+<li><p>Data analyses to get moments, minimum, maximum, PDF, etc.</p></li>
+<li><p>Marginals inferences</p></li>
+<li><p>Dependence inferences</p></li>
+<li><p>Metamodels creation</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="data-analysis">
+<h2>1- Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creation">
+<h3>1-1 Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>A new sample analysis can be created through:</dt><dd><ul>
+<li><p>the context menu of the <strong>Definition</strong> item of the data model</p>
+<img alt="../../../_images/dataAnalysisdefContextMenu.png" class="align-center" src="../../../_images/dataAnalysisdefContextMenu.png" />
+</li>
+<li><p>the <strong>Data analysis</strong> box of the model diagram</p>
+<img alt="../../../_images/dataModelDiagramBoxes.png" class="align-center" src="../../../_images/dataModelDiagramBoxes.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>When the analysis is required, a new item is added in the study tree below the data model item.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/dataAnalysisWindow.png" class="align-center" src="../../../_images/dataAnalysisWindow.png" />
+</div>
+<div class="section" id="results">
+<span id="dataanalysisresult"></span><h3>1-2 Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished or stopped, the following window appears.</p>
+<img alt="../../../_images/data_model_analysis_summary.png" class="align-center" src="../../../_images/data_model_analysis_summary.png" />
+<p>The window shows numerous tabs, some of which are interactively linked (<strong>Table</strong>,
+<strong>Cobweb plot</strong>, <strong>Plot matrix</strong> and <strong>Scatter plot</strong> tabs):
+when the user selects points on one of these representations, the same points are
+automatically selected in the other tabs.</p>
+<ul>
+<li><p>The <strong>Summary</strong> tab summarizes the results of the analysis, for a selected variable (left column):
+sample size, elapsed time, moment estimates, empirical quantiles, minimum/maximum values, input
+values at extremum.</p></li>
+<li><p>The <strong>PDF/CDF</strong> tab presents the PDF/CDF of the variables
+together with a <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/kernel_smoothing.html">kernel smoothing</a> representation.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the graphic type: PDF (default) or CDF</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/data_model_analysis_PDF.png" class="align-center" src="../../../_images/data_model_analysis_PDF.png" />
+</li>
+<li><p>The <strong>Box plots</strong> tab presents the <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=14524285">box plot</a>
+of the variables.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/data_model_analysis_boxplot.png" class="align-center" src="../../../_images/data_model_analysis_boxplot.png" />
+</li>
+</ul>
+<ul id="dependencetab">
+<li><p>The <strong>Dependence</strong> tab displays the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/spearman_coefficient.html">Spearman’s matrix</a> estimate.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The cells are colored according to the value of the Spearman’s coefficient.</p></li>
+<li><p>Its context menu allows to export the table in a CSV file or as a PNG image.</p></li>
+<li><p>Select cells and Press Ctrl+C to copy values in the clipboard</p></li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/doe_dependence.png" class="align-center" src="../../../_images/doe_dependence.png" />
+</li>
+<li><p>The <strong>Table</strong> tab shows the input/output samples. The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/designOfExperimentTable.png" class="align-center" src="../../../_images/designOfExperimentTable.png" />
+</li>
+<li><p>The <strong>Cobweb plot</strong> tab displays the sample points.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click on columns to select curves (multiple selection possible)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/data_model_analysis_Cobweb.png" class="align-center" src="../../../_images/data_model_analysis_Cobweb.png" />
+</li>
+<li><p>The <strong>Plot matrix</strong> tab: histograms of the distribution of each variable (diagonal) and
+scatter plots between each couple of input/output variables (off-diagonal).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/data_model_analysis_plotmatrixYX.png" class="align-center" src="../../../_images/data_model_analysis_plotmatrixYX.png" />
+</li>
+<li><p>The <strong>Scatter plots</strong> tab displays the scatter plot of two parameters.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the variables to plot on X-axis and Y-axis (default: first output versus first input)</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/data_model_analysis_scatterplot.png" class="align-center" src="../../../_images/data_model_analysis_scatterplot.png" />
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="marginals-inference">
+<span id="inferenceanalysis"></span><h2>2- Marginals inference<a class="headerlink" href="#marginals-inference" title="Permalink to this headline">¶</a></h2>
+<p>The inference analysis allows to perform a Bayesian Information Criterion
+(<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/bic.html">BIC</a>) and
+a <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/kolmogorov_test.html">Kolmogorov-Smirnov</a>
+goodness-of-fit tests for 1-d continuous distributions.</p>
+<dl>
+<dt>New marginals inference can be created thanks to:</dt><dd><ul>
+<li><p>the context menu of the <strong>Definition</strong> item of the data model</p>
+<img alt="../../../_images/dataAnalysisdefContextMenu.png" class="align-center" src="../../../_images/dataAnalysisdefContextMenu.png" />
+</li>
+<li><p>the <strong>Marginals inference</strong> box of the model diagram</p>
+<img alt="../../../_images/dataModelDiagramBoxes.png" class="align-center" src="../../../_images/dataModelDiagramBoxes.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="definition">
+<span id="marginalsinferencewizard"></span><h3>2-1 Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/inference_wizard1.png" class="align-center" src="../../../_images/inference_wizard1.png" />
+<dl>
+<dt>When an analysis is required, a window appears, in order to set up:</dt><dd><ul>
+<li><p>the variables of interest (default: all variables are analysed) by checking off
+the corresponding line in the first table</p></li>
+<li><dl>
+<dt>the list of distributions to infer for each variable (default: Normal distribution):</dt><dd><ul>
+<li><p>The list of distributions can be different for each variable.</p></li>
+<li><p>Click on <strong>Apply the list of distributions to all variables</strong>
+in the context menu of a variable to set up the same list of distributions
+to the other checked variables.</p>
+<img alt="../../../_images/inference_wizard_applyToAll.png" class="align-center" src="../../../_images/inference_wizard_applyToAll.png" />
+</li>
+<li><p>To add a distribution, click on the <strong>Add</strong> combo box and select a distribution of the list
+which appears (or all of them with the <strong>All</strong> item):</p>
+<ul class="simple">
+<li><p>the distribution is added in the table</p></li>
+<li><p>the distribution is removed from the combo box</p></li>
+</ul>
+<img alt="../../../_images/inference_wizard_distributions_list.png" class="align-center" src="../../../_images/inference_wizard_distributions_list.png" />
+</li>
+<li><p>To remove a distribution, select it in the table and click on <strong>Remove</strong>.
+Press the Ctrl or Shift key to select multiple lines.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>the Kolmogorov-Smirnov level such that <img class="math" src="../../../_images/math/38db3a77036f97d2d9817cfbff1c8e568a1be8c0.svg" alt="\alpha = 1 - {\rm level}" style="vertical-align: -2px"/> is the risk of
+committing a Type I error, that is an incorrect rejection of a true null hypothesis
+(default: 0.05., expected: float in the range <img class="math" src="../../../_images/math/dc8e3836a4fdd802ec023b0dfee715d328ba96c7.svg" alt="]0, 1[" style="vertical-align: -5px"/>)</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="launch">
+<h3>2-2 Launch<a class="headerlink" href="#launch" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is required, a new item is added in the study tree below the data model item.</p>
+<dl class="simple">
+<dt>Its context menu has two actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window displaying the list of the parameters, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/inferenceWindow.png" class="align-center" src="../../../_images/inferenceWindow.png" />
+</div>
+<div class="section" id="marginalsinferenceresult">
+<span id="id1"></span><h3>2-3 Results<a class="headerlink" href="#marginalsinferenceresult" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished or stopped, a window appears.</p>
+<img alt="../../../_images/inference_resultWindow_tab_summary_PDF.png" class="align-center" src="../../../_images/inference_resultWindow_tab_summary_PDF.png" />
+<p>The results window gathers:</p>
+<ul>
+<li><dl>
+<dt>The <strong>Summary</strong> tab includes, for a selected variable (left column):</dt><dd><ul>
+<li><dl class="simple">
+<dt>a table of all the tested distributions, the associated Bayesian Information Criterion value and the p-value.</dt><dd><ul class="simple">
+<li><p>The last column indicates whether the distribution is accepted or not according to the given level.</p></li>
+<li><p>The distributions are sorted in increasing order of BIC values.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>for the selected distribution:</dt><dd><ul>
+<li><p>The <strong>PDF/CDF</strong> tab presents the PDF/CDF of the sample
+together with the distribution PDF.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the graphic type: PDF (default) or CDF</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>The <strong>Q-Q plot</strong> tab presents the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/graphical_fitting_test.html">Q-Q plot</a>
+which opposes the data quantiles to the quantiles of the tested distribution.</p>
+<img alt="../../../_images/inference_resultWindow_tab_summary_QQplot.png" class="align-center" src="../../../_images/inference_resultWindow_tab_summary_QQplot.png" />
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>The <strong>Parameters</strong> tab includes a table with the moments of the selected distribution
+and the values
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/parametric_estimation.html">estimate</a>
+of its native parameters.</p>
+<img alt="../../../_images/inference_resultWindow_tab_summary_parameters.png" class="align-center" src="../../../_images/inference_resultWindow_tab_summary_parameters.png" />
+<p><em>failed</em> in the <strong>Acceptation</strong> column means that an error occured when building a distribution
+with the given sample. Then, the <strong>Parameters</strong> tab shows the error message.</p>
+<img alt="../../../_images/inference_resultWindow_tab_summary_parameters_error_message.png" class="align-center" src="../../../_images/inference_resultWindow_tab_summary_parameters_error_message.png" />
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The result can be used in the <a class="reference internal" href="../probabilistic_analysis/user_manual_probabilistic_analysis.html#inferenceresultwizard"><span class="std std-ref">Probabilistic model window</span></a>.</p>
+</div>
+</div>
+<div class="section" id="dependence-inference">
+<span id="dependenceinference"></span><h2>3- Dependence inference<a class="headerlink" href="#dependence-inference" title="Permalink to this headline">¶</a></h2>
+<p>The dependence inference allows to infer copulas on the sample of the data model.</p>
+<dl>
+<dt>This analysis can be created thanks to:</dt><dd><ul>
+<li><p>the context menu of the <strong>Definition</strong> item of the relevant data model</p>
+<img alt="../../../_images/dataAnalysisdefContextMenu.png" class="align-center" src="../../../_images/dataAnalysisdefContextMenu.png" />
+</li>
+<li><p>the <strong>Dependence inference</strong> box of the model diagram</p>
+<img alt="../../../_images/dataModelDiagramBoxes.png" class="align-center" src="../../../_images/dataModelDiagramBoxes.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="dependenceinferencewizard">
+<span id="id2"></span><h3>3-1 Definition<a class="headerlink" href="#dependenceinferencewizard" title="Permalink to this headline">¶</a></h3>
+<p>When an analysis is required, a window appears:</p>
+<img alt="../../../_images/dependenceInference_wizard.png" class="align-center" src="../../../_images/dependenceInference_wizard.png" />
+<dl>
+<dt>The windows allows to set up:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the groups of variables to test:</dt><dd><ul>
+<li><dl class="simple">
+<dt>Select at least two variables of the model (left table):</dt><dd><ul>
+<li><p>Refer to the estimate of the <a class="reference internal" href="#dependencetab"><span class="std std-ref">Spearman’s matrix</span></a> in
+the data analysis result window to create groups</p></li>
+<li><p>For convenience, the list of groups may be set by default thanks to this estimate
+(if correlation between variables exists)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Click on the right arrow:</dt><dd><ul>
+<li><p>the group is added in the second table</p></li>
+<li><p>a third table appears with the default item <em>Normal</em></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/dependenceInference_wizardOneGroup.png" class="align-center" src="../../../_images/dependenceInference_wizardOneGroup.png" />
+<ul>
+<li><p>the copulas to infer on the groups:
+- Click on the <strong>Add</strong> combo box
+- Select a copula in the list (or all of them with the <strong>All</strong> item):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>For a pair of variables</em> : bivariate
+<a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Copula.html">copulas</a>
+are available (Ali-Mikhail-Haq, Clayton, Farlie-Gumbel-Morgenstern, Frank, Gumbel, Normal)</p></li>
+<li><p><em>For a group with more than two variables</em>: only the Normal copula is available
+(<strong>Add</strong> and <strong>Remove</strong> buttons are then disabled)</p></li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/dependenceInference_wizard_copulaList.png" class="align-center" src="../../../_images/dependenceInference_wizard_copulaList.png" />
+</li>
+</ul>
+</dd>
+<dt>To remove a group:</dt><dd><ul class="simple">
+<li><p>Select a group in the second table</p></li>
+<li><p>Click on the left arrow</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h3>3-2 Launch<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is required, a new item is added in the study tree below the data model item.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis;</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters;</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window displaying the list of the parameters, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/copulaInferenceWindow.png" class="align-center" src="../../../_images/copulaInferenceWindow.png" />
+</div>
+<div class="section" id="dependenceinferenceresult">
+<span id="id4"></span><h3>3-3 Results<a class="headerlink" href="#dependenceinferenceresult" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished or stopped, a window appears:</p>
+<img alt="../../../_images/copulaInference_resultWindow_tab_summary_PDF.png" class="align-center" src="../../../_images/copulaInference_resultWindow_tab_summary_PDF.png" />
+<p>The window gathers:</p>
+<ul>
+<li><dl>
+<dt>The <strong>Summary</strong> tab includes, for a selected set of variables:</dt><dd><ul>
+<li><p>a table of all the tested copulas</p></li>
+<li><dl>
+<dt>for the selected copula:</dt><dd><ul>
+<li><p>the <strong>PDF/CDF</strong> tab presents, for each pair of variables, the PDF/CDF of the sample
+together with the distribution PDF.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the graphic type: PDF (default) or CDF</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>the <strong>Kendall plot</strong> tab presents a visual fitting test for each pair of variables using the
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/graphical_fitting_test.html">Kendall plot</a>.
+This plot can be interpreted as a QQ-plot (for marginals): the more the curve fits
+the diagonal, the more adequate the dependence model is.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../../_images/copulaInference_resultWindow_tab_summary_Kendall.png" class="align-center" src="../../../_images/copulaInference_resultWindow_tab_summary_Kendall.png" />
+<ul>
+<li><p>the <strong>Parameters</strong> tab includes the parameters <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/parametric_estimation.html">estimate</a> of the selected copula.</p>
+<blockquote>
+<div><img alt="../../../_images/copulaInference_resultWindow_tab_summary_parameters.png" class="align-center" src="../../../_images/copulaInference_resultWindow_tab_summary_parameters.png" />
+<ul class="simple">
+<li><p><em>For the Gaussian copula</em>: the tab displays the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/spearman_coefficient.html">Spearman’s coefficients</a>.</p></li>
+<li><p><em>‘-‘</em> in the <strong>BIC</strong> column means that an error occured when building a copula
+with the given sample. Then, the <strong>Parameters</strong> tab shows the error message.</p></li>
+</ul>
+<img alt="../../../_images/copulaInference_resultWindow_tab_summary_parameters_ErrorMessage.png" class="align-center" src="../../../_images/copulaInference_resultWindow_tab_summary_parameters_ErrorMessage.png" />
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The result can be used in the <a class="reference internal" href="../probabilistic_analysis/user_manual_probabilistic_analysis.html#dependenceinferenceresultwizard"><span class="std std-ref">Probabilistic model window</span></a>.</p>
+</div>
+</div>
+<div class="section" id="metamodel-creation">
+<h2>4- Metamodel creation<a class="headerlink" href="#metamodel-creation" title="Permalink to this headline">¶</a></h2>
+<p>To perform this analysis, the data model or the design of experiments must contain an output sample.</p>
+<dl>
+<dt>A new metamodel can be created in 4 different ways:</dt><dd><ul>
+<li><p>the context menu of a design of experiments item</p>
+<img alt="../../../_images/doe_eval_ContextMenu.png" class="align-center" src="../../../_images/doe_eval_ContextMenu.png" />
+</li>
+<li><p>the <strong>Metamodel creation</strong> box of a physical model diagram</p>
+<img alt="../../../_images/physicalModel_Diagram_metamodelBox.png" class="align-center" src="../../../_images/physicalModel_Diagram_metamodelBox.png" />
+</li>
+<li><p>the context menu of the <strong>Definition</strong> item of a data model</p>
+<img alt="../../../_images/dataAnalysisdefContextMenu.png" class="align-center" src="../../../_images/dataAnalysisdefContextMenu.png" />
+</li>
+<li><p>the <strong>Metamodel creation</strong> box of a data model diagram</p>
+<img alt="../../../_images/dataModelDiagramBoxes.png" class="align-center" src="../../../_images/dataModelDiagramBoxes.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="metamodelwizard">
+<span id="id6"></span><h3>4-1 Definition<a class="headerlink" href="#metamodelwizard" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>When an analysis is required, a window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>the outputs of interest (<strong>Select outputs</strong> - default: all outputs are analyzed)</p></li>
+<li><p>the method: <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/meta_modeling/functional_chaos.html">Functional chaos</a> (default) or <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/meta_modeling/kriging.html">Kriging</a></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/metaModel_wizard.png" class="align-center" src="../../../_images/metaModel_wizard.png" />
+<div class="section" id="id7">
+<h4>4-1-1 Functional chaos<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/metaModel_functional_chaos_wizard.png" class="align-center" src="../../../_images/metaModel_functional_chaos_wizard.png" />
+<dl class="simple">
+<dt>The <strong>Functional chaos parameters</strong> window allows to define:</dt><dd><ul class="simple">
+<li><p><strong>Parameters</strong>: chaos degree (default: 2, expected: integer greater or equal to 1)</p></li>
+<li><p><strong>Advanced Parameters</strong> (default: hidden): sparse chaos (default: not sparse)</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id8">
+<h4>4-1-2 Kriging<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/metaModel_kriging_wizard.png" class="align-center" src="../../../_images/metaModel_kriging_wizard.png" />
+<dl>
+<dt>The <strong>Kriging parameters</strong> window allows to define:</dt><dd><ul>
+<li><dl>
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><em>The type of covariance model</em>: Squared exponential (default), Absolute exponential,
+Generalized exponential, Matérn model</p></li>
+<li><dl>
+<dt><em>Parameters of the covariance model</em> (default: hidden, visible if a model is choosen):</dt><dd><ul class="simple">
+<li><p><strong>Generalized exponential</strong>: parameter <strong>p</strong>,
+exponent of the euclidean norm (default: 1., positive float expected)</p></li>
+</ul>
+<img alt="../../../_images/kriging_p_parameter.png" class="align-center" src="../../../_images/kriging_p_parameter.png" />
+<ul class="simple">
+<li><p><strong>Matérn</strong>: coefficient <strong>nu</strong> (default: 1.5, positive float expected)</p></li>
+</ul>
+<img alt="../../../_images/kriging_nu_parameter.png" class="align-center" src="../../../_images/kriging_nu_parameter.png" />
+</dd>
+</dl>
+</li>
+<li><p><em>The type of the trend basis</em>: Constant (default), Linear or Quadratic</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Advanced Parameters</strong> are accessible for model covariance optimization (default: hidden):</dt><dd><ul class="simple">
+<li><p>Optimize the covariance model parameters (default: checked)</p></li>
+<li><p>Scales for each input (default: 1): To edit the scales, click on the “<strong>…</strong>” button to
+generate the input variables table and their scale through a wizard.</p></li>
+</ul>
+<img alt="../../../_images/kriging_scale_wizard1.png" class="align-center" src="../../../_images/kriging_scale_wizard1.png" />
+<ul class="simple">
+<li><p>Amplitude of the process (default: 1., positive float expected)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="validation">
+<h4>4-1-3 Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h4>
+<dl class="simple">
+<dt>In the following window, the generated metamodel can be validated, with three different methods:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><em>Analytically</em> (default): This method corresponds to an approximation of the Leave-one-out method result.</dt><dd><ul>
+<li><p>For more information about Kriging, see O. Dubrule, Cross Validation of Kriging in a Unique Neighborhood,
+Mathematical Geology,1983.</p></li>
+<li><p>For more information about Functional chaos, see G. Blatman, Adaptive sparse polynomial chaos
+expansions for uncertainty propagation and sensitivity analysis.,
+PhD thesis. Blaise Pascal University-Clermont II, France, 2009.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><em>Using a test sample</em>: The data sample is divided into two subsamples, by picking points randomly (default seed = 1):
+training sample (default: 80% of the sample points) and test sample
+(default: 20% of the sample points).
+A new metamodel is built with the training sample and is validated with the test sample.</p></li>
+<li><p><em>Using the</em> <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/meta_modeling/cross_validation.html">K-Fold</a> <em>method</em>:
+Define the number of folds (default: 5, expected: integer greater than 1) and specify how the
+folds are generated (default seed:1).</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/metaModel_validation_page.png" class="align-center" src="../../../_images/metaModel_validation_page.png" />
+</div>
+</div>
+<div class="section" id="id9">
+<h3>4-2 Results<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>When the window is validated, a new element appears in the study tree below the
+data model item or the design of experiments item.</p>
+<dl class="simple">
+<dt>The context menu of this item contains these actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Convert metamodel into physical model</strong> (default: disabled, enabled when the analysis
+is successfully finished): Add the metamodel in the study tree</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window displaying the list of the parameters, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/metaModelWindow.png" class="align-center" src="../../../_images/metaModelWindow.png" />
+<div class="section" id="functionalchaosresult">
+<span id="id10"></span><h4>4-2-1 Functional chaos<a class="headerlink" href="#functionalchaosresult" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/metaModel_result_window_plot.png" class="align-center" src="../../../_images/metaModel_result_window_plot.png" />
+<p>The results window gathers:</p>
+<ul>
+<li><dl>
+<dt>The <strong>Metamodel</strong> tab shows different information about the selected output (left column):</dt><dd><ul>
+<li><p>Number of points</p></li>
+<li><p>Relative error: <img class="math" src="../../../_images/math/d59ef60e92e853f0e2b1d75e9298bfccc1dc359b.svg" alt="\displaystyle rel = \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(y_i - \bar{y})^2}}" style="vertical-align: -19px"/></p></li>
+<li><p>Residual: <img class="math" src="../../../_images/math/94d3ec596fea190a780c58ebc02dcfef311b57a7.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -12px"/>.</p></li>
+<li><p>The fitting curve between the physical model output values (<strong>Real otput values</strong>) and the
+metamodel values (<strong>Prediction</strong>).
+The reference diagonal (in black) is built with the physical model output values.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>The <strong>Results</strong> tab presents different parameter, for a selected output (left column):</dt><dd><ul class="simple">
+<li><p>first and second order moments</p></li>
+<li><p>polynomial basis: dimension, maximum degree, full/truncated size</p></li>
+<li><p>part of variance explained by each polynom</p></li>
+</ul>
+<img alt="../../../_images/metaModel_result_window_moments.png" class="align-center" src="../../../_images/metaModel_result_window_moments.png" />
+</dd>
+</dl>
+</li>
+<li><p>The <strong>Sobol indices</strong> tab includes, for a selected output (left column):</p>
+<ul>
+<li><p>The graphic representation of the first and total order indices for each variable.
+Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><p>A summary table with the first and total order indices.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Select cells and Press Ctrl+C to copy values in the clipboard</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order.
+Sorting the table will automatically sort the indices on the graph.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The index corresponding to the interactions (below the table).</p></li>
+</ul>
+<p>If the Sobol’s indices estimates are incoherent, an <img alt="attentionButton" src="../../../_images/task-attention.png" /> will appear in the table.
+It is advised to refer to the associated warning message (tooltip of the <img alt="attentionButton" src="../../../_images/task-attention.png" />).</p>
+<img alt="../../../_images/metaModel_result_window_sobol_indices.png" class="align-center" src="../../../_images/metaModel_result_window_sobol_indices.png" />
+</li>
+<li><dl>
+<dt>The <strong>Validation</strong> tab (default: hidden; visible if a metamodel validation is required) shows for each method and selected output:</dt><dd><ul>
+<li><p>The metamodel predictivity coefficient: <img class="math" src="../../../_images/math/bcee0a3b6ee741011b425f152ab1ad1e68e3eb60.svg" alt="\displaystyle Q2 = 1 - \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(\bar{y} - y_i)^2}}" style="vertical-align: -19px"/></p></li>
+<li><p>The residual: <img class="math" src="../../../_images/math/94d3ec596fea190a780c58ebc02dcfef311b57a7.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -12px"/>.</p></li>
+<li><p><em>K-Fold</em> and <em>Test sample</em>: A plot showing the relation between the output values (physical
+model) and the predicted metamodel values. The relation is compared to a reference
+diagonal built with the physical model output values.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/metaModel_result_window_LOO_plot.png" class="align-center" src="../../../_images/metaModel_result_window_LOO_plot.png" />
+</li>
+<li><p><em>Analytical</em>: the Q2 value</p>
+<img alt="../../../_images/FC_analyticalValidation.png" class="align-center" src="../../../_images/FC_analyticalValidation.png" />
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The <strong>Parameters</strong> tab summarizes the parameters of the metamodel creation.</p>
+<img alt="../../../_images/metaModel_result_window_parameters.png" class="align-center" src="../../../_images/metaModel_result_window_parameters.png" />
+</li>
+</ul>
+</div>
+<div class="section" id="krigingresult">
+<span id="id11"></span><h4>4-2-2 Kriging<a class="headerlink" href="#krigingresult" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/metaModel_result_window_kriging_plot.png" class="align-center" src="../../../_images/metaModel_result_window_kriging_plot.png" />
+<p>The results window gathers:</p>
+<ul>
+<li><p>The <strong>Metamodel</strong> tab shows for a selected output the graphic relation between output values from
+the physical model (<strong>Real output values</strong>) and metamodel values (<strong>Prediction</strong>).
+The reference diagonal (in black) is built with the physical model output values.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>The <strong>Results</strong> tab presents the optimized covariance model parameters and the trend coefficients.</p>
+<img alt="../../../_images/metaModel_result_window_kriging_results.png" class="align-center" src="../../../_images/metaModel_result_window_kriging_results.png" />
+</li>
+<li><dl>
+<dt>If a metamodel validation is required, a <strong>Validation</strong> tab appears for the selected method and output:</dt><dd><ul>
+<li><p>The residual: <img class="math" src="../../../_images/math/94d3ec596fea190a780c58ebc02dcfef311b57a7.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -12px"/>.</p></li>
+<li><p>The metamodel predictivity coefficient: <img class="math" src="../../../_images/math/bcee0a3b6ee741011b425f152ab1ad1e68e3eb60.svg" alt="\displaystyle Q2 = 1 - \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(\bar{y} - y_i)^2}}" style="vertical-align: -19px"/></p></li>
+<li><p>A plot showing the relation between the output values (physical
+model) and the predicted metamodel values. The relation is compared to a reference
+diagonal built with the physical model output values.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/metaModel_result_window_LOO_plot.png" class="align-center" src="../../../_images/metaModel_result_window_LOO_plot.png" />
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The <strong>Parameters</strong> tab summarizes the parameters of the metamodel creation.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">User manual - Data analyses</a><ul>
+<li><a class="reference internal" href="#data-analysis">1- Data analysis</a><ul>
+<li><a class="reference internal" href="#creation">1-1 Creation</a></li>
+<li><a class="reference internal" href="#results">1-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#marginals-inference">2- Marginals inference</a><ul>
+<li><a class="reference internal" href="#definition">2-1 Definition</a></li>
+<li><a class="reference internal" href="#launch">2-2 Launch</a></li>
+<li><a class="reference internal" href="#marginalsinferenceresult">2-3 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependence-inference">3- Dependence inference</a><ul>
+<li><a class="reference internal" href="#dependenceinferencewizard">3-1 Definition</a></li>
+<li><a class="reference internal" href="#id3">3-2 Launch</a></li>
+<li><a class="reference internal" href="#dependenceinferenceresult">3-3 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metamodel-creation">4- Metamodel creation</a><ul>
+<li><a class="reference internal" href="#metamodelwizard">4-1 Definition</a><ul>
+<li><a class="reference internal" href="#id7">4-1-1 Functional chaos</a></li>
+<li><a class="reference internal" href="#id8">4-1-2 Kriging</a></li>
+<li><a class="reference internal" href="#validation">4-1-3 Validation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">4-2 Results</a><ul>
+<li><a class="reference internal" href="#functionalchaosresult">4-2-1 Functional chaos</a></li>
+<li><a class="reference internal" href="#krigingresult">4-2-2 Kriging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../probabilistic_analysis/user_manual_probabilistic_analysis.html"
+                        title="previous chapter">User manual - Probabilistic analyses</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../field_analysis/user_manual_field_analysis.html"
+                        title="next chapter">User manual - Field analyses</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/data_analysis/user_manual_data_analysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../probabilistic_analysis/user_manual_probabilistic_analysis.html" title="User manual - Probabilistic analyses"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

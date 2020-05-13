@@ -1,0 +1,11 @@
+TaylorExpansionMomentsResult
+=====================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: TaylorExpansionMomentsResult
+
+   
+   .. automethod:: __init__
+   
+

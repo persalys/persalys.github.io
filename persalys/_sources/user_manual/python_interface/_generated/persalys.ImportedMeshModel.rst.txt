@@ -1,0 +1,11 @@
+ImportedMeshModel
+==========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: ImportedMeshModel
+
+   
+   .. automethod:: __init__
+   
+

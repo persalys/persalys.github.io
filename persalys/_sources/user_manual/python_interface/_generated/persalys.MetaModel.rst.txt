@@ -1,0 +1,11 @@
+MetaModel
+==================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MetaModel
+
+   
+   .. automethod:: __init__
+   
+

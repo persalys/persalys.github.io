@@ -1,0 +1,2602 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Validation &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bibliography" href="../../bibliography.html" />
+    <link rel="prev" title="Architecture considerations" href="../architecture/architecture.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../bibliography.html" title="Bibliography"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../architecture/architecture.html" title="Architecture considerations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../developer_manual.html" accesskey="U">Developer manual</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="validation">
+<h1>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="test-case-1-cogeneration">
+<h2>Test case 1: Cogeneration<a class="headerlink" href="#test-case-1-cogeneration" title="Permalink to this headline">¶</a></h2>
+<p>This test-case originates from <a class="reference internal" href="../../bibliography.html#protootgui2014" id="id1"><span>[ProtoOTGUI2014]</span></a> and can be found in python/test/t_Cogeneration_std.py.</p>
+<dl class="simple">
+<dt>The purpose of this example is to check:</dt><dd><ul class="simple">
+<li><p>The Central tendency analysis using the Taylor Expansions;</p></li>
+<li><p>the default values calculated for the parameters of a parametric analysis.</p></li>
+</ul>
+</dd>
+</dl>
+<p>The obtained results must be equal to the analytical values.</p>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Show/Hide Code</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="kn">import</span> <span class="nn">openturns.testing</span>
+<span class="kn">import</span> <span class="nn">persalys</span>
+
+<span class="n">myStudy</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Study</span><span class="p">(</span><span class="s1">&#39;myStudy&#39;</span><span class="p">)</span>
+
+<span class="c1"># Model</span>
+<span class="n">dist_Q</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">10200</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">dist_E</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">dist_C</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="mi">10200</span><span class="p">,</span> <span class="n">dist_Q</span><span class="p">,</span> <span class="s1">&#39;Primary energy (W.h)&#39;</span><span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">dist_E</span><span class="p">,</span> <span class="s1">&#39;Produced electric energy (W.h)&#39;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="n">dist_C</span><span class="p">,</span> <span class="s1">&#39;Valued thermal energy (W.h)&#39;</span><span class="p">)</span>
+<span class="n">Ep</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;Ep&#39;</span><span class="p">,</span> <span class="s1">&#39;Primary energy savings (W.h)&#39;</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span>
+    <span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Q</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">C</span><span class="p">],</span> <span class="p">[</span><span class="n">Ep</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;1-(Q/((E/((1-0.05)*0.54))+(C/0.8)))&#39;</span><span class="p">])</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="n">outputSample</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.060036508072</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0812679132055</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0684295269203</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0892876773294</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0292238907867</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0511512752497</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0378920382755</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.0594339324804</span><span class="p">]]</span>
+
+
+<span class="c1"># Design of Experiment - Parametric analysis ##</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridDesignOfExperiment</span><span class="o">.</span><span class="n">GetDefaultBounds</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[[</span><span class="n">bounds</span><span class="o">.</span><span class="n">getLowerBound</span><span class="p">()[</span><span class="n">i</span><span class="p">],</span> <span class="n">bounds</span><span class="o">.</span><span class="n">getUpperBound</span><span class="p">()[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">aDesign</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;aDesign_0&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">aDesign</span><span class="p">)</span>
+<span class="n">aDesign</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="n">outputSample</span><span class="p">,</span> <span class="n">aDesign</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span><span class="o">.</span><span class="n">getDesignOfExperiment</span><span class="p">()</span><span class="o">.</span><span class="n">getOutputSample</span><span class="p">(),</span> <span class="mf">1e-16</span><span class="p">)</span>
+
+<span class="c1"># Taylor Expansions ##</span>
+<span class="n">taylorExpansionsMoments</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">TaylorExpansionMomentsAnalysis</span><span class="p">(</span>
+    <span class="s1">&#39;myTaylorExpansionMoments&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">taylorExpansionsMoments</span><span class="p">)</span>
+<span class="n">taylorExpansionsMoments</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">taylorExpansionsMomentsResult</span> <span class="o">=</span> <span class="n">taylorExpansionsMoments</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.059730458221</span><span class="p">,</span> <span class="n">taylorExpansionsMomentsResult</span><span class="o">.</span><span class="n">getMeanFirstOrder</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1e-13</span><span class="p">)</span>
+
+<span class="c1"># Monte Carlo ##</span>
+<span class="n">montecarlo</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">MonteCarloAnalysis</span><span class="p">(</span><span class="s1">&#39;myMonteCarlo&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">montecarlo</span><span class="o">.</span><span class="n">setMaximumCalls</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">montecarlo</span><span class="o">.</span><span class="n">setMaximumCoefficientOfVariation</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">montecarlo</span><span class="p">)</span>
+<span class="n">montecarlo</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">montecarloResult</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.0597109963361</span><span class="p">,</span> <span class="n">montecarloResult</span><span class="o">.</span><span class="n">getMean</span><span class="p">()[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1e-13</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.0114128746587</span><span class="p">,</span> <span class="n">montecarloResult</span><span class="o">.</span><span class="n">getStandardDeviation</span><span class="p">()[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1e-13</span><span class="p">)</span>
+
+<span class="n">meanCI</span> <span class="o">=</span> <span class="n">montecarloResult</span><span class="o">.</span><span class="n">getMeanConfidenceInterval</span><span class="p">()</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.0590036320343</span><span class="p">,</span> <span class="n">meanCI</span><span class="o">.</span><span class="n">getLowerBound</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1e-13</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.0604183606379</span><span class="p">,</span> <span class="n">meanCI</span><span class="o">.</span><span class="n">getUpperBound</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1e-13</span><span class="p">)</span>
+<span class="n">stdCi</span> <span class="o">=</span> <span class="n">montecarloResult</span><span class="o">.</span><span class="n">getStdConfidenceInterval</span><span class="p">()</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.0109336748621</span><span class="p">,</span> <span class="n">stdCi</span><span class="o">.</span><span class="n">getLowerBound</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1e-13</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.0119363302339</span><span class="p">,</span> <span class="n">stdCi</span><span class="o">.</span><span class="n">getUpperBound</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1e-13</span><span class="p">)</span>
+
+<span class="c1"># Sobol ##</span>
+<span class="n">sobol</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SobolAnalysis</span><span class="p">(</span><span class="s1">&#39;mySobol&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">sobol</span><span class="o">.</span><span class="n">setReplicationSize</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">sobol</span><span class="o">.</span><span class="n">setMaximumCalls</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sobol</span><span class="p">)</span>
+<span class="n">sobol</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">sobolResult</span> <span class="o">=</span> <span class="n">sobol</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">firstOrderIndicesValues</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span> <span class="mf">0.643987</span><span class="p">,</span> <span class="mf">0.0183602</span><span class="p">,</span> <span class="mf">0.255834</span> <span class="p">]]</span>
+<span class="n">totalIndicesValues</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span> <span class="mf">0.610267</span><span class="p">,</span> <span class="mf">0.0494237</span><span class="p">,</span> <span class="mf">0.280706</span> <span class="p">]]</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="n">firstOrderIndicesValues</span><span class="p">,</span> <span class="n">sobolResult</span><span class="o">.</span><span class="n">getFirstOrderIndices</span><span class="p">(),</span> <span class="mf">1e-6</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="n">totalIndicesValues</span><span class="p">,</span> <span class="n">sobolResult</span><span class="o">.</span><span class="n">getTotalIndices</span><span class="p">(),</span> <span class="mf">1e-6</span><span class="p">)</span>
+
+<span class="c1"># SRC ##</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SRCAnalysis</span><span class="p">(</span><span class="s1">&#39;mySRC&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+<span class="n">src</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">srcResult</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.628946</span><span class="p">,</span> <span class="n">srcResult</span><span class="o">.</span><span class="n">getIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1e-5</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.0476118</span><span class="p">,</span> <span class="n">srcResult</span><span class="o">.</span><span class="n">getIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mf">1e-5</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.318226</span><span class="p">,</span> <span class="n">srcResult</span><span class="o">.</span><span class="n">getIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="mf">1e-5</span><span class="p">)</span>
+
+<span class="c1"># Chaos ##</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10035.5</span><span class="p">,</span><span class="mf">10072.1</span><span class="p">,</span><span class="mf">10108.6</span><span class="p">,</span><span class="mf">10145.2</span><span class="p">,</span><span class="mf">10181.7</span><span class="p">,</span><span class="mf">10218.3</span><span class="p">,</span><span class="mf">10254.8</span><span class="p">,</span><span class="mf">10291.4</span><span class="p">,</span><span class="mf">10327.9</span><span class="p">,</span><span class="mf">10364.5</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">2975.33</span><span class="p">,</span><span class="mf">2980.81</span><span class="p">,</span><span class="mf">2986.29</span><span class="p">,</span><span class="mf">2991.78</span><span class="p">,</span><span class="mf">2997.26</span><span class="p">,</span><span class="mf">3002.74</span><span class="p">,</span><span class="mf">3008.22</span><span class="p">,</span><span class="mf">3013.71</span><span class="p">,</span><span class="mf">3019.19</span><span class="p">,</span><span class="mf">3024.67</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">3901.31</span><span class="p">,</span><span class="mf">3923.24</span><span class="p">,</span><span class="mf">3945.17</span><span class="p">,</span><span class="mf">3967.1</span><span class="p">,</span><span class="mf">3989.03</span><span class="p">,</span><span class="mf">4010.97</span><span class="p">,</span><span class="mf">4032.9</span><span class="p">,</span><span class="mf">4054.83</span><span class="p">,</span><span class="mf">4076.76</span><span class="p">,</span><span class="mf">4098.69</span><span class="p">]]</span>
+
+<span class="n">design_1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;aDesign_1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="n">design_1</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">design_1</span><span class="p">)</span>
+
+<span class="n">chaos</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FunctionalChaosAnalysis</span><span class="p">(</span><span class="s1">&#39;chaos_0&#39;</span><span class="p">,</span> <span class="n">design_1</span><span class="p">)</span>
+<span class="n">chaos</span><span class="o">.</span><span class="n">setChaosDegree</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">chaos</span><span class="o">.</span><span class="n">setSparseChaos</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">chaos</span><span class="p">)</span>
+<span class="n">chaos</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">chaosResult</span> <span class="o">=</span> <span class="n">chaos</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.6356916720224053</span><span class="p">,</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span><span class="o">.</span><span class="n">getFirstOrderIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1e-16</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.04806204987068495</span><span class="p">,</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span><span class="o">.</span><span class="n">getFirstOrderIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mf">1e-17</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.31620207904361813</span><span class="p">,</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span><span class="o">.</span><span class="n">getFirstOrderIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="mf">1e-17</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.6357266809805613</span><span class="p">,</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span><span class="o">.</span><span class="n">getTotalIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1e-16</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.04807585948286413</span><span class="p">,</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span><span class="o">.</span><span class="n">getTotalIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mf">1e-17</span><span class="p">)</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span>
+    <span class="mf">0.3162416585998657</span><span class="p">,</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span><span class="o">.</span><span class="n">getTotalIndices</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="mf">1e-17</span><span class="p">)</span>
+
+<span class="c1"># script</span>
+<span class="n">script</span> <span class="o">=</span> <span class="n">myStudy</span><span class="o">.</span><span class="n">getPythonScript</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="problem-statement">
+<h3>1- Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="inputs">
+<h4>1-1 Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Stochastic variables:</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 50%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Distribution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Q</p></td>
+<td><p>Primary energy</p></td>
+<td><p>Normal(10200, 100)</p></td>
+</tr>
+<tr class="row-odd"><td><p>E</p></td>
+<td><p>Produced electric energy</p></td>
+<td><p>Normal(3000, 15)</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>Valued thermal energy</p></td>
+<td><p>Normal(4000, 60)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="output">
+<h4>1-2 Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h4>
+<p>Primary energy savings <img class="math" src="../../_images/math/01f68bff3d36420aab1e14d00e2690675be34cfb.svg" alt="E_p" style="vertical-align: -5px"/></p>
+<div class="math">
+<p><img src="../../_images/math/6f3cb5da012096a1c60babf99b84e0abe007261b.svg" alt="Ep = 1-\frac{Q}{\frac{E}{0.54(1-0.05)}+\frac{C}{0.8}}"/></p>
+</div></div>
+</div>
+<div class="section" id="central-tendency-analysis">
+<h3>2- Central tendency analysis<a class="headerlink" href="#central-tendency-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>2-1 Inputs<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>The central tendency analysis is performed with the Taylor Expansions method.</p>
+</div>
+<div class="section" id="results">
+<h4>3-1 Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="values">
+<h5>3-1-1 Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h5>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 27%" />
+<col style="width: 29%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>First order mean</p></th>
+<th class="head"><p>Second order mean</p></th>
+<th class="head"><p>Standard deviation</p></th>
+<th class="head"><p>Variance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.0597305</p></td>
+<td><p>0.0596787</p></td>
+<td><p>0.0115612</p></td>
+<td><p>0.000133661</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="deterministic-parametric-analysis">
+<h3>3- Deterministic parametric analysis<a class="headerlink" href="#deterministic-parametric-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>3-1 Inputs<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>The minimum and the maximum values are computed automatically thanks to
+the distribution of the variables. The minimum value is the quantile at the
+probability of 0.05 and the maximum one is the quantile at the probability of
+0.95. The number of used values per variable is by default 2.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Max</p></th>
+<th class="head"><p>Number of values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Q</p></td>
+<td><p>10035.5</p></td>
+<td><p>10364.5</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>E</p></td>
+<td><p>2975.33</p></td>
+<td><p>3024.67</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>3901.31</p></td>
+<td><p>4098.69</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h4>3-2 Results<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h5>3-2-1 Values<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Q</p></th>
+<th class="head"><p>E</p></th>
+<th class="head"><p>C</p></th>
+<th class="head"><p>Ep</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10035.5</p></td>
+<td><p>2975.33</p></td>
+<td><p>3901.31</p></td>
+<td><p>0.0600365</p></td>
+</tr>
+<tr class="row-odd"><td><p>10364.5</p></td>
+<td><p>2975.33</p></td>
+<td><p>3901.31</p></td>
+<td><p>0.0292239</p></td>
+</tr>
+<tr class="row-even"><td><p>10035.5</p></td>
+<td><p>3024.67</p></td>
+<td><p>3901.31</p></td>
+<td><p>0.0684295</p></td>
+</tr>
+<tr class="row-odd"><td><p>10364.5</p></td>
+<td><p>3024.67</p></td>
+<td><p>3901.31</p></td>
+<td><p>0.037892</p></td>
+</tr>
+<tr class="row-even"><td><p>10035.5</p></td>
+<td><p>2975.33</p></td>
+<td><p>4098.69</p></td>
+<td><p>0.0812679</p></td>
+</tr>
+<tr class="row-odd"><td><p>10364.5</p></td>
+<td><p>2975.33</p></td>
+<td><p>4098.69</p></td>
+<td><p>0.0511513</p></td>
+</tr>
+<tr class="row-even"><td><p>10035.5</p></td>
+<td><p>3024.67</p></td>
+<td><p>4098.69</p></td>
+<td><p>0.0892877</p></td>
+</tr>
+<tr class="row-odd"><td><p>10364.5</p></td>
+<td><p>3024.67</p></td>
+<td><p>4098.69</p></td>
+<td><p>0.0594339</p></td>
+</tr>
+</tbody>
+</table>
+<p>The points are generated according to the structure of a box design of experiments.
+This deterministic design of experiments has 8 points obtained by regularly discretizing
+the pavement <img class="math" src="../../_images/math/2926885ef605a853a07ed65952326d040cb18df3.svg" alt="[10035.5, 10364.5] \times [2975.33, 3024.67] \times [3901.31, 4098.69]" style="vertical-align: -5px"/>.</p>
+<p>The minimum value of <img class="math" src="../../_images/math/59ea136439287861e4d0e3ea5fce6bc1150d9141.svg" alt="Ep" style="vertical-align: -4px"/> is 0.0292239 with X=[10364.5 2975.33 3901.31].
+The maximum value of <img class="math" src="../../_images/math/59ea136439287861e4d0e3ea5fce6bc1150d9141.svg" alt="Ep" style="vertical-align: -4px"/> is 0.0892877 with X=[10035.5 3024.67 4098.69].</p>
+</div>
+<div class="section" id="figures">
+<h5>3-2-1 Figures<a class="headerlink" href="#figures" title="Permalink to this headline">¶</a></h5>
+<a class="reference internal image-reference" href="../../_images/min_max_result_cogeneration.png"><img alt="../../_images/min_max_result_cogeneration.png" class="align-center" src="../../_images/min_max_result_cogeneration.png" style="width: 443px; height: 340px;" /></a>
+<a class="reference internal image-reference" href="../../_images/result_cogeneration_ep_vs_q.png"><img alt="../../_images/result_cogeneration_ep_vs_q.png" class="align-center" src="../../_images/result_cogeneration_ep_vs_q.png" style="width: 443px; height: 340px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="reference">
+<h3>4- Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="test-case-2-flood">
+<h2>Test case 2: Flood<a class="headerlink" href="#test-case-2-flood" title="Permalink to this headline">¶</a></h2>
+<p>This test-case originates from <a class="reference internal" href="../../bibliography.html#protootgui2014" id="id6"><span>[ProtoOTGUI2014]</span></a> and can be found in python/test/t_Crue_std.py.</p>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Show/Hide Code</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># coding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="kn">import</span> <span class="nn">openturns.testing</span>
+<span class="kn">import</span> <span class="nn">persalys</span>
+
+<span class="n">myStudy</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Study</span><span class="p">(</span><span class="s1">&#39;myStudy&#39;</span><span class="p">)</span>
+
+<span class="c1"># Model</span>
+<span class="n">dist_Q</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">TruncatedDistribution</span><span class="p">(</span>
+    <span class="n">ot</span><span class="o">.</span><span class="n">Gumbel</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="mf">558.</span><span class="p">,</span> <span class="mf">1013.</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">TruncatedDistribution</span><span class="o">.</span><span class="n">LOWER</span><span class="p">)</span>
+<span class="n">dist_Ks</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">TruncatedDistribution</span><span class="p">(</span>
+    <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">TruncatedDistribution</span><span class="o">.</span><span class="n">LOWER</span><span class="p">)</span>
+<span class="n">dist_Zv</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mf">49.0</span><span class="p">,</span> <span class="mf">51.0</span><span class="p">)</span>
+<span class="n">dist_Zm</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mf">54.0</span><span class="p">,</span> <span class="mf">56.0</span><span class="p">)</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="mf">1000.</span><span class="p">,</span> <span class="n">dist_Q</span><span class="p">,</span> <span class="s1">&#39;Débit maximal annuel (m3/s)&#39;</span><span class="p">)</span>
+<span class="n">Ks</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;Ks&#39;</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="n">dist_Ks</span><span class="p">,</span> <span class="s1">&#39;Strickler (m^(1/3)/s)&#39;</span><span class="p">)</span>
+<span class="n">Zv</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;Zv&#39;</span><span class="p">,</span> <span class="mf">50.</span><span class="p">,</span> <span class="n">dist_Zv</span><span class="p">,</span> <span class="s1">&#39;Côte de la rivière en aval (m)&#39;</span><span class="p">)</span>
+<span class="n">Zm</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;Zm&#39;</span><span class="p">,</span> <span class="mf">55.</span><span class="p">,</span> <span class="n">dist_Zm</span><span class="p">,</span> <span class="s1">&#39;Côte de la rivière en amont (m)&#39;</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;Surverse (m)&#39;</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Q</span><span class="p">,</span> <span class="n">Ks</span><span class="p">,</span> <span class="n">Zv</span><span class="p">,</span> <span class="n">Zm</span><span class="p">],</span> <span class="p">[</span>
+                                        <span class="n">S</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;(Q/(Ks*300.*sqrt((Zm-Zv)/5000)))^(3.0/5.0)+Zv-55.5-3.&#39;</span><span class="p">])</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># limit state ##</span>
+<span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">&#39;limitState1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Greater</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">limitState</span><span class="p">)</span>
+
+<span class="c1"># Monte Carlo ##</span>
+<span class="n">montecarlo</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">MonteCarloReliabilityAnalysis</span><span class="p">(</span>
+    <span class="s1">&#39;myMonteCarlo&#39;</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
+<span class="n">montecarlo</span><span class="o">.</span><span class="n">setMaximumCalls</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">montecarlo</span><span class="p">)</span>
+
+<span class="n">montecarlo</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">montecarloResult</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">montecarloResult</span><span class="o">.</span><span class="n">getSimulationResult</span><span class="p">()</span><span class="o">.</span><span class="n">getProbabilityEstimate</span><span class="p">(),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">)</span>
+
+<span class="c1"># FORM-IS ##</span>
+<span class="n">formIS</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FORMImportanceSamplingAnalysis</span><span class="p">(</span><span class="s1">&#39;myformIS&#39;</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
+<span class="n">formIS</span><span class="o">.</span><span class="n">setMaximumCoefficientOfVariation</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">formIS</span><span class="o">.</span><span class="n">setMaximumCalls</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">formIS</span><span class="o">.</span><span class="n">setBlockSize</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">myStudy</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">formIS</span><span class="p">)</span>
+
+<span class="n">formIS</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">formISResult</span> <span class="o">=</span> <span class="n">formIS</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+
+<span class="c1"># Comparaison</span>
+<span class="n">openturns</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">formISResult</span><span class="o">.</span><span class="n">getSimulationResult</span><span class="p">()</span><span class="o">.</span><span class="n">getProbabilityEstimate</span><span class="p">(),</span> <span class="mf">0.000142088</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">)</span>
+
+<span class="c1"># script</span>
+<span class="n">script</span> <span class="o">=</span> <span class="n">myStudy</span><span class="o">.</span><span class="n">getPythonScript</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+<span class="n">exec</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>1- Problem statement<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>1-1 Inputs<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Stochastic variables:</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 37%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Distribution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Q</p></td>
+<td><p>River flow</p></td>
+<td><p>Gumbel(alpha=0.00179211, beta=1013)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ks</p></td>
+<td><p>Manning-Strickler factor</p></td>
+<td><p>Normal(30, 7.5)</p></td>
+</tr>
+<tr class="row-even"><td><p>Zm</p></td>
+<td><p>River’s depth upstream</p></td>
+<td><p>Uniform(54,56)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Zv</p></td>
+<td><p>River’s depth downstream</p></td>
+<td><p>Uniform(49, 51)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h4>1-2 Output<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>Difference between the dike height and the water level <img class="math" src="../../_images/math/48d4bef401100837082e815e844eb99c27f38322.svg" alt="S" style="vertical-align: -1px"/></p>
+<div class="math">
+<p><img src="../../_images/math/d40ee642e26de649e790d404c69f3cbbef5da2fa.svg" alt="S = \left(\frac{Q}{Ks\times300\times\sqrt{(Zm-Zv)/5000}}\right)^{(3/5) +Zv-55.5-3}"/></p>
+</div></div>
+</div>
+<div class="section" id="reliability-analysis">
+<h3>2- Reliability analysis<a class="headerlink" href="#reliability-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h4>2-1 Inputs<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>The limit state is defined by</p>
+<div class="math">
+<p><img src="../../_images/math/3003bcee40577ea0b1955d42ad8f2d799ff0efa1.svg" alt="S &gt; 0"/></p>
+</div><p>The analysis is performed with the Monte Carlo method with the following parameters:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Maximum calls</p></td>
+<td><p>10000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Maximum coefficient of variation</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>Seed</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Block size</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h4>3-1 Results<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id12">
+<h5>3-1-1 Values<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h5>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 27%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Failure probability</p></th>
+<th class="head"><p>Coefficient of variation</p></th>
+<th class="head"><p>Confidence interval at 95%</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.0006</p></td>
+<td><p>0.408126</p></td>
+<td><p><img class="math" src="../../_images/math/fffeb27f99f6a8cbfb9fb5e961bcbc5baa64811a.svg" alt="\left[0.000120053; 0.00107995\right]" style="vertical-align: -5px"/></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h5>3-1-1 Figures<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h5>
+<a class="reference internal image-reference" href="../../_images/result_crue_MC_histo_S.png"><img alt="../../_images/result_crue_MC_histo_S.png" class="align-center" src="../../_images/result_crue_MC_histo_S.png" style="width: 443px; height: 340px;" /></a>
+<a class="reference internal image-reference" href="../../_images/result_crue_MC_convergence.png"><img alt="../../_images/result_crue_MC_convergence.png" class="align-center" src="../../_images/result_crue_MC_convergence.png" style="width: 443px; height: 340px;" /></a>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="test-case-3-gauge">
+<h2>Test case 3: Gauge<a class="headerlink" href="#test-case-3-gauge" title="Permalink to this headline">¶</a></h2>
+<p>This test-case originates from <a class="reference internal" href="../../bibliography.html#jauge2014" id="id14"><span>[Jauge2014]</span></a> and can be found in python/test/t_Gauge_std.py.</p>
+<dl class="simple">
+<dt>The purpose of this example is to check:</dt><dd><ul class="simple">
+<li><p>Test the xml file loading;</p></li>
+<li><p>The Central tendency analysis using the Taylor Expansions.</p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="../../_images/case_gauge.png"><img alt="../../_images/case_gauge.png" class="align-center" src="../../_images/case_gauge.png" style="width: 443px; height: 340px;" /></a>
+<div class="section" id="id15">
+<h3>1- Problem statement<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h4>1-1 Inputs<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Deterministic variable:</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 61%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hauteur</p></td>
+<td><p>Height of the cube</p></td>
+<td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Stochastic variable:</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 48%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Distribution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Conductivity</p></td>
+<td><p>Heat conduction coefficient</p></td>
+<td><p>Normal(0.5, 0.01)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id17">
+<h4>1-2 Output<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<p>An average temperature on the superior surface ‘temptop’.</p>
+</div>
+</div>
+<div class="section" id="xml-file-loading">
+<h3>2- XML file loading<a class="headerlink" href="#xml-file-loading" title="Permalink to this headline">¶</a></h3>
+<p>When loading the XML file the window illustrated below is completed. When clicking
+on the <strong>Evaluate</strong> button, the computed output value must be <img class="math" src="../../_images/math/5e782e7abdcdbc552547dfb5b5f8580c62a3029f.svg" alt="1906.79" style="vertical-align: -1px"/>.</p>
+<div class="section" id="figure">
+<h4>2-1 Figure<a class="headerlink" href="#figure" title="Permalink to this headline">¶</a></h4>
+<a class="reference internal image-reference" href="../../_images/case_Gauge_loading.png"><img alt="../../_images/case_Gauge_loading.png" class="align-center" src="../../_images/case_Gauge_loading.png" style="width: 443px; height: 340px;" /></a>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>3- Central tendency analysis<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h4>3-1 Inputs<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<p>Because of a temporary problem with the module of Code_Aster, it is necessary to
+uncheck <strong>Parallelize status</strong> before launching analyses using Code_Aster solver.
+In the same window, choose the machine which will launch the analysis.</p>
+<img alt="../../_images/YACS_scheme_parameters.png" class="align-center" src="../../_images/YACS_scheme_parameters.png" />
+<p>The central tendency analysis is performed with the Taylor Expansions method.</p>
+</div>
+<div class="section" id="id20">
+<h4>3-2 Results<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id21">
+<h5>3-2-1 Values<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h5>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 27%" />
+<col style="width: 29%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>First order mean</p></th>
+<th class="head"><p>Second order mean</p></th>
+<th class="head"><p>Standard deviation</p></th>
+<th class="head"><p>Variance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2020</p></td>
+<td><p>2020.8</p></td>
+<td><p>40</p></td>
+<td><p>1600</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="graphical-validation">
+<h2>Graphical validation<a class="headerlink" href="#graphical-validation" title="Permalink to this headline">¶</a></h2>
+<p>Find here the procedure to validate the graphical interface</p>
+<div class="section" id="open">
+<h3>Open<a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>open persalys</p>
+<ul class="simple">
+<li><p>there are a Menu bar, a Tool bar, a Python console, a status bar</p></li>
+<li><p>a window with 3 buttons (New study/Open study/Import Python script) appears</p></li>
+</ul>
+<img alt="../../_images/welcomeWindow.png" class="align-center" src="../../_images/welcomeWindow.png" />
+</li>
+</ul>
+</div>
+<div class="section" id="console-python">
+<h3>Console Python<a class="headerlink" href="#console-python" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>open persalys</p></li>
+<li><p>click Menu-&gt;View-&gt;Window-&gt;Python Console</p>
+<ul>
+<li><p>console hidden</p></li>
+</ul>
+</li>
+<li><p>click Menu-&gt;View-&gt;Window-&gt;Python Console</p>
+<ul>
+<li><p>console shown</p></li>
+</ul>
+</li>
+<li><p>close the console</p>
+<ul>
+<li><p>console hidden</p></li>
+</ul>
+</li>
+<li><p>click Menu-&gt;View-&gt;Window-&gt;Python Console</p>
+<ul>
+<li><p>console shown</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="open-documentation">
+<h3>Open documentation<a class="headerlink" href="#open-documentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>click Menu-&gt;Help-&gt;User’s manual</p>
+<ul>
+<li><p>the documentation is opened in a web browser</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="new-study">
+<h3>New Study<a class="headerlink" href="#new-study" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>click on button New study in the mdiArea</p>
+<ul class="simple">
+<li><p>item Study_0 appears in the tree view</p></li>
+<li><p>a ‘study’ window with 3(+2) buttons appears:
+- Symbolic model
+- Python model
+- YACS model (optional)
+- FMI model (optional)
+- Data model</p></li>
+</ul>
+</li>
+<li><p>click Menu-&gt;File-&gt;New</p>
+<ul class="simple">
+<li><p>item Study_1 appears in the tree view
+- the item is associated with a ‘study’ window</p></li>
+</ul>
+</li>
+<li><p>click icon New Study in the Tool bar</p>
+<ul class="simple">
+<li><p>item Study_2 appears in the tree view
+- the item is associated with a ‘study’ window</p></li>
+</ul>
+</li>
+<li><p>press keys CTRL + N</p>
+<ul class="simple">
+<li><p>item Study_3 appears in the tree view
+- the item is associated with a ‘study’ window</p></li>
+</ul>
+<img alt="../../_images/otstudyWindow.png" class="align-center" src="../../_images/otstudyWindow.png" />
+</li>
+</ul>
+</div>
+<div class="section" id="rename-study">
+<h3>Rename Study<a class="headerlink" href="#rename-study" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>double click on Study_2 item, rename Study_2 by myOTStudy, press enter</p>
+<ul>
+<li><p>the item is renamed</p></li>
+</ul>
+</li>
+<li><p>right click on Study_3 item, on the context menu which appears click on Rename, rename Study_2 by myOTStudy2, press enter</p>
+<ul>
+<li><p>the item is renamed</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="save-open-study">
+<h3>Save/open Study<a class="headerlink" href="#save-open-study" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>save myOTStudy with Menu-&gt;File-&gt;save, close with Menu-&gt;File-&gt;close, reopen with Menu-&gt;File-&gt;open</p></li>
+<li><p>right click on myOTStudy, choose Rename, rename myOTStudy by myOTStudy1, save myOTStudy1 with the icon of the tool bar, close with right click + close, reopen with the icon of the tool bar</p></li>
+<li><p>rename myOTStudy1 by myOTStudy2, save myOTStudy2 in pressing CTRL + S, close with right click + close, reopen with press keys CTRL + O</p></li>
+<li><p>rename myOTStudy2 by myOTStudy3, save myOTStudy3 with right click + save, close with right click + close, reopen with press keys CTRL + O</p></li>
+</ul>
+</div>
+<div class="section" id="export-import-study">
+<h3>Export/Import Study<a class="headerlink" href="#export-import-study" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>export myOTStudy3 with right click + Export Python, name the file test.py</p></li>
+<li><p>close the interface with Menu-&gt;File-&gt;Exit</p>
+<ul>
+<li><p>close without saving all the studies (except myOTStudy3)</p></li>
+</ul>
+</li>
+<li><p>open the interface</p></li>
+<li><p>click on button Import Python script in the mdiArea</p>
+<ul>
+<li><p>choose test.py</p></li>
+</ul>
+</li>
+<li><p>click on the icon Import Python of the tool bar</p>
+<ul>
+<li><p>a message box appears to close opened studies, click OK</p></li>
+<li><p>a message box appears to save the current study, click close without saving</p></li>
+<li><p>choose the script test.py</p></li>
+</ul>
+</li>
+<li><p>close myOTStudy3</p></li>
+<li><p>click on Menu-&gt;File-&gt;Import Python…</p>
+<ul>
+<li><p>choose test.py</p></li>
+</ul>
+</li>
+<li><p>close the interface in pressing CTRL + Q</p>
+<ul>
+<li><p>close without saving</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="models">
+<h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>open the interface</p></li>
+<li><p>Import the file python/test/test_deterministic_analyses.py</p></li>
+<li><p>click on ‘Definition’ child item of ‘symbolicModel’ item</p>
+<img alt="../../_images/model1.png" class="align-center" src="../../_images/model1.png" />
+</li>
+<li><dl class="simple">
+<dt>click on ‘Check model’ button below the outputs table</dt><dd><ul class="simple">
+<li><p>fake_var is not evaluated</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>select lines 1 of the outputs table</dt><dd><ul class="simple">
+<li><p>first header item is checked</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on ‘Check model’ button</dt><dd><ul class="simple">
+<li><p>fake_var is evaluated</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>change x2 value to 1.5 + press enter</dt><dd><ul class="simple">
+<li><p>outputs values are reinitialized</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>unselect all outputs</p></li>
+<li><dl class="simple">
+<dt>click on ‘Check model’ button</dt><dd><ul class="simple">
+<li><p>nothing appends</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>check fake_var + change its formula to ‘x1 +’</p></li>
+<li><dl class="simple">
+<dt>click on ‘Check model’ button</dt><dd><ul class="simple">
+<li><p>error message ‘Errors found when parsing expression etc.’</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>unselect fake_var + select y0, fake_y0 and y1</p></li>
+<li><p>change x2 value to 1.2 + press enter</p></li>
+<li><p>check the doc link</p></li>
+<li><p>click on ‘Definition’ child item of ‘pythonModel’ item</p>
+<img alt="../../_images/model2.png" class="align-center" src="../../_images/model2.png" />
+</li>
+<li><p>check the doc link</p></li>
+<li><p>click on ‘Definition’ child item of ‘fixedDataModel’ item</p>
+<img alt="../../_images/model4.png" class="align-center" src="../../_images/model4.png" />
+<ul class="simple">
+<li><p>click on reload button : nothing appends</p></li>
+</ul>
+</li>
+<li><p>click on ‘Definition’ child item of ‘importDataModel’ item</p>
+<img alt="../../_images/model3.png" class="align-center" src="../../_images/model3.png" />
+<ul class="simple">
+<li><p>click on reload button : nothing appends</p></li>
+</ul>
+</li>
+<li><p>check the doc link</p></li>
+</ul>
+</div>
+<div class="section" id="deterministic-analyses">
+<h3>Deterministic analyses<a class="headerlink" href="#deterministic-analyses" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Each analysis item is associated with a window with a table of parameters (optional), a progress bar and a button ‘Run’ and a disabled button ‘Stop’</p></li>
+<li><p>Check all the analyses wizards -&gt; Right click on each item and choose Modify :</p>
+<ul>
+<li><p>Evaluation : item evaluation1</p>
+<img alt="../../_images/evaluation_wizard.png" class="align-center" src="../../_images/evaluation_wizard.png" />
+<ul>
+<li><p>deselect fake_y0</p></li>
+<li><p>check the values : [0.2, 1.2, 1]</p></li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+<img alt="../../_images/evaluation_window.png" class="align-center" src="../../_images/evaluation_window.png" />
+</li>
+<li><p>check result window</p>
+<img alt="../../_images/evaluation_result.png" class="align-center" src="../../_images/evaluation_result.png" />
+<ul class="simple">
+<li><p>results only for y0 and y1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Optimization : item optim</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/optimization_wizard_1st_page.png" class="align-center" src="../../_images/optimization_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>selected output : y1</p></li>
+<li><p>method : TNC</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<ul class="simple">
+<li><p>x1 and x2 checked</p></li>
+<li><p>starting point : [0.2, 1.2, 1.]</p></li>
+<li><p>check table behavior:</p>
+<ul>
+<li><p>unselect line : lower and upper bounds columns are disabled</p></li>
+<li><p>unselect a lower bound : -inf symbol</p></li>
+<li><p>unselect an upper bound : +inf symbol</p></li>
+<li><p>if lower &gt; upper bound : variable name in red, tooltip on the name and can not validate the page</p></li>
+<li><p>if upper &lt; lower bound : variable name in red, tooltip on the name and can not validate the page</p></li>
+<li><p>if starting point not in the interval [lower bound, upper bound] : variable name in red, tooltip on the name and can not validate the page</p></li>
+</ul>
+</li>
+<li><p>set lower bounds : [0, 0, 0.9]</p></li>
+<li><p>set upper bounds : [10, 10, 1.1]</p></li>
+</ul>
+<img alt="../../_images/optimization_wizard_2nd_page.png" class="align-center" src="../../_images/optimization_wizard_2nd_page.png" />
+</li>
+<li><p>Third page check the values :</p>
+<img alt="../../_images/optimization_wizard_3rd_page.png" class="align-center" src="../../_images/optimization_wizard_3rd_page.png" />
+<ul class="simple">
+<li><p>Problem type : Minimization</p></li>
+<li><p>Number of function evaluations : 150</p></li>
+<li><p>Absolute/Relative/Residual/Constraint error : 1e-6</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/optimization_result.png" class="align-center" src="../../_images/optimization_result.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : Result - Convergence - Parameters - Model</p></li>
+<li><p>Convergence tab : 2 tabs : Optimal value - Error</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Morris : aMorris item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/morris_wizard_1st_page.png" class="align-center" src="../../_images/morris_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>selected output : y0</p></li>
+<li><p>method : Morris</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<ul class="simple">
+<li><p>3 lines</p></li>
+<li><p>check table behavior:</p>
+<ul>
+<li><p>if lower &gt; upper bound : variable name in red, tooltip on the name and can not validate the page</p></li>
+<li><p>if upper &lt; lower bound : variable name in red, tooltip on the name and can not validate the page</p></li>
+</ul>
+</li>
+<li><p>set lower bounds : [0, 0, 0.9]</p></li>
+<li><p>set upper bounds : [10, 10, 1.1]</p></li>
+</ul>
+<img alt="../../_images/morris_wizard_2nd_page.png" class="align-center" src="../../_images/morris_wizard_2nd_page.png" />
+</li>
+<li><p>Third page check the values :</p>
+<img alt="../../_images/morris_wizard_3rd_page.png" class="align-center" src="../../_images/morris_wizard_3rd_page.png" />
+<ul class="simple">
+<li><p>Number of trajectories : 10</p></li>
+<li><p>Level : 4</p></li>
+<li><p>Seed : 2</p></li>
+<li><p>Number of simulations : 40</p></li>
+<li><p>check page behavior:</p>
+<ul>
+<li><p>if Number of trajectories : 11 -&gt; Number of simulations : 44</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/morris_result.png" class="align-center" src="../../_images/morris_result.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : Elementary effects - Table - Cobweb plot - Plot matrix - Scatter plots - Parameters - Model</p></li>
+<li><p>Elementary effects tab : 2 tabs : Graph (mu*, sigma) - Graph (mu*, mu)</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check the tabs (Table - Cobweb plot - Plot matrix - Scatter plots) are linked :
+do several selections in a tab and check the selection is the same in the others tabs</p></li>
+<li><p>check Elementary effects tab behavior:</p>
+<ul>
+<li><p>selection of points in the graphs (right click + draw rectangle) : a context menu appears with items : De/select the points</p></li>
+<li><p>click on the x-axis : move the green vertical line. Check the line’s position is synchronized on the two graphs</p></li>
+<li><p>all points at the left of the green line on the graphs correspond to the lines of the table with a cross in the No effect column</p></li>
+<li><p>the blue points on the graphs correspond to the selected lines of the table</p></li>
+<li><p>the red points on the graphs correspond to the unselected lines of the table</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>check the reuse of the Morris result by the Probabilistic model :</p>
+<ul>
+<li><p>create a Probabilistic model for symbolicModel (right click on Definition item below symbolicModel)</p></li>
+<li><p>On the window which appears, select all variables of the table</p>
+<img alt="../../_images/probaModelAll.png" class="align-center" src="../../_images/probaModelAll.png" />
+</li>
+<li><p>Click on the ‘Import Morris result’ button below the table</p></li>
+<li><p>a wizard appears</p>
+<img alt="../../_images/morrisResultWizard.png" class="align-center" src="../../_images/morrisResultWizard.png" />
+</li>
+<li><p>check the table is read-only</p></li>
+<li><p>click on Finish</p></li>
+<li><p>check that x_2 and x_3 are unselected</p></li>
+<li><p>uncheck x_1</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Calibration : item calibration</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/calibrationWizard_1stPage.png" class="align-center" src="../../_images/calibrationWizard_1stPage.png" />
+<ul class="simple">
+<li><p>Observations : observations</p></li>
+<li><p>Observed variables : [x1, y0]</p></li>
+<li><p>Number of observations : 100</p></li>
+<li><p>method : Non linear Gaussian</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/calibrationWizard_2ndPage.png" class="align-center" src="../../_images/calibrationWizard_2ndPage.png" />
+<ul class="simple">
+<li><p>x2 checked, x3 unchecked</p></li>
+<li><p>values : [1.2, 1.1]</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Third page check the values :</p>
+<img alt="../../_images/calibrationWizard_3rdPage.png" class="align-center" src="../../_images/calibrationWizard_3rdPage.png" />
+<ul class="simple">
+<li><p>only x2 in the table.</p></li>
+<li><p>the mean is disabled</p></li>
+<li><p>the mean is 1.2 and sigma is 0.12</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Fourth page :</p>
+<img alt="../../_images/calibrationWizard_4thPage.png" class="align-center" src="../../_images/calibrationWizard_4thPage.png" />
+<ul class="simple">
+<li><p>only y0 in the table</p></li>
+<li><p>the mean is disabled</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Fifth page :</p>
+<img alt="../../_images/calibrationWizard_5thPage.png" class="align-center" src="../../_images/calibrationWizard_5thPage.png" />
+<ul class="simple">
+<li><p>confidence interval length : 0.99</p></li>
+<li><p>estimation by Bootstrap resampling : checked</p></li>
+<li><p>sample size : 25</p></li>
+<li><p>Number of evaluations : 50</p></li>
+<li><p>Errors : 1e-6</p></li>
+<li><p>Maximum number of evaluations : 1250</p></li>
+</ul>
+</li>
+<li><p>click on the Back button 3 times to go on the second page :</p>
+<ul class="simple">
+<li><p>select x3</p></li>
+<li><p>change the value of x2 to 1.3</p></li>
+<li><p>click on Continue button</p></li>
+<li><p>the table of the third page has 2 rows : x2 and x3</p></li>
+<li><p>the mean of x2 is 1.3 and sigma is 0.13</p></li>
+</ul>
+</li>
+<li><p>click on the Back button 2 times to go on the first page :</p>
+<ul class="simple">
+<li><p>select Linear Gaussian method</p></li>
+<li><p>continue</p></li>
+<li><p>the table of the second page has not been changed</p></li>
+<li><p>continue</p></li>
+<li><p>the third and fourth pages are the same</p></li>
+<li><p>continue</p></li>
+<li><p>the next page is :</p></li>
+</ul>
+<img alt="../../_images/calibrationWizard_lastPage_linear.png" class="align-center" src="../../_images/calibrationWizard_lastPage_linear.png" />
+</li>
+<li><p>click on the Back button 2 times to go on the first page :</p>
+<ul class="simple">
+<li><p>select Linear least squares method</p></li>
+<li><p>continue</p></li>
+<li><p>the table of the second page has not been changed</p></li>
+<li><p>the next page is the last one :</p></li>
+</ul>
+<img alt="../../_images/calibrationWizard_lastPage_linear.png" class="align-center" src="../../_images/calibrationWizard_lastPage_linear.png" />
+<ul class="simple">
+<li><p>confidence interval length : 0.99</p></li>
+</ul>
+</li>
+<li><p>click on the Back button 2 times to go on the first page :</p>
+<ul class="simple">
+<li><p>select Nonlinear least squares method</p></li>
+<li><p>continue</p></li>
+<li><p>the table of the second page has not been changed</p></li>
+<li><p>the next page is the last one :</p></li>
+</ul>
+<img alt="../../_images/calibrationWizard_5thPage.png" class="align-center" src="../../_images/calibrationWizard_5thPage.png" />
+</li>
+<li><p>click on the Cancel button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/calibration_result_optimal.png" class="align-center" src="../../_images/calibration_result_optimal.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : θ - Prediction - Parameters - Model</p></li>
+<li><p>θ tab : 2 tabs : Optimal - PDF</p></li>
+<li><dl class="simple">
+<dt>Prediction tab<span class="classifier">4 tabs</span><span class="classifier">Table - vs Observations - vs Inputs - Residuals</span></dt><dd><ul>
+<li><p>check the 3 first tabs with Paraview graphs are linked (do several selections in a tab and check the selection is the same in the others tabs)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="designs-of-experiments">
+<h4>Designs of experiments<a class="headerlink" href="#designs-of-experiments" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>check the wizards:</p>
+<ul>
+<li><p>right click on fixedDesign and choose Modify :</p>
+<ul>
+<li><p>First page :</p>
+<img alt="../../_images/design_1_wizard_1st_page.png" class="align-center" src="../../_images/design_1_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>type : Full factorial design</p></li>
+<li><p>check the doc link (Help button)</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page :</p>
+<img alt="../../_images/design_1_wizard_2nd_page.png" class="align-center" src="../../_images/design_1_wizard_2nd_page.png" />
+<ul>
+<li><p>no selected line</p></li>
+<li><p>first and second columns are not editable</p></li>
+<li><p>the bounds and levels are disabled</p></li>
+<li><p>all levels are equal to 1</p></li>
+<li><p>check wizard behavior :</p>
+<ul class="simple">
+<li><p>sixth column items : change combo box item to Delta</p>
+<ul>
+<li><p>values changed : all deltas values are ‘-‘</p></li>
+</ul>
+</li>
+<li><p>first header item : check all</p>
+<ul>
+<li><p>third column is disabled</p></li>
+<li><p>other columns are enabled</p></li>
+<li><p>the Deltas are [0.04, 0.24, 0.2]</p></li>
+</ul>
+</li>
+<li><p>sixth column items : change combo box item to Levels</p>
+<ul>
+<li><p>values changed : all levels values are equal to 2</p></li>
+</ul>
+</li>
+<li><p>first header item : uncheck all</p></li>
+<li><p>check second line</p></li>
+<li><p>line 2 : change lower bound to 10, press enter</p>
+<ul>
+<li><p>‘x2’ is red and its tooltip is: ‘The lower bound must be less than the upper bound’</p></li>
+</ul>
+</li>
+<li><p>line 2 : change upper bound to 0, press enter</p>
+<ul>
+<li><p>‘x2’ is red and its tooltip is: ‘The lower bound must be less than the upper bound’</p></li>
+</ul>
+</li>
+<li><p>sixth column items : change combo box item to Delta</p>
+<ul>
+<li><p>all deltas values are ‘-‘</p></li>
+</ul>
+</li>
+<li><p>line 2 : change upper bound to 20 and Delta to 15, press enter</p>
+<ul>
+<li><p>error message : The delta must be greater or equal to 0 and less than the interval length</p></li>
+</ul>
+</li>
+<li><p>line 2 : change delta to 0.5, press enter</p>
+<ul>
+<li><p>size of the design of experiments : 21</p></li>
+</ul>
+</li>
+<li><p>check all lines one by one :</p>
+<ul>
+<li><p>first header item is checked</p></li>
+<li><p>size of the design of experiments : 84</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>click on Finish button:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the window is updated : check the sample size is 84</p></li>
+<li><p>the Evaluation item is removed</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>right click on grid and choose Modify :</p>
+<ul>
+<li><dl class="simple">
+<dt>First page :</dt><dd><ul class="simple">
+<li><p>type : Full factorial design</p></li>
+<li><p>continue</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Second page :</p>
+<img alt="../../_images/design_2_wizard_2nd_page.png" class="align-center" src="../../_images/design_2_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>x1 and x2 checked</p></li>
+<li><p>lower bounds : [0.5, 0.5]</p></li>
+<li><p>upper bounds : [9.5, 9.5]</p></li>
+<li><p>levels : [7, 7]</p></li>
+<li><dl class="simple">
+<dt>sixth column items<span class="classifier">change combo box item to Delta</span></dt><dd><ul>
+<li><p>deltas : [1.5, 1.5]</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>size of the design of experiments : 49</p></li>
+<li><p>cancel</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>right click on importDesign and choose Modify :</p>
+<ul>
+<li><dl class="simple">
+<dt>First page :</dt><dd><ul class="simple">
+<li><p>type : Imported design</p></li>
+<li><p>continue</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Second page :</p>
+<img alt="../../_images/design_3_wizard_2nd_page.png" class="align-center" src="../../_images/design_3_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>Data file : data.csv</p></li>
+<li><p>header items : [‘x1’, ‘’, ‘x2’, ‘x3’]</p></li>
+<li><p>when changing a combo box item : the error message ‘Each variable must be associated with one column’ appears</p></li>
+<li><p>set the second header item to ‘x2’ and the third one to ‘’</p></li>
+<li><p>finish</p></li>
+<li><p>check the design of experiments window is updated : check the values of x2 have changed</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>check the evaluation result window :</p>
+<ul>
+<li><p>right click on importDesign, choose Evaluate :</p>
+<img alt="../../_images/design_3_evaluation_wizard.png" class="align-center" src="../../_images/design_3_evaluation_wizard.png" />
+<ul>
+<li><p>deselect fake_y0</p></li>
+<li><p>click on the Finish button</p></li>
+<li><p>an item ‘Evaluation’ appears in the tree view</p></li>
+<li><p>a window appears with a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the run button</p></li>
+<li><p>the evaluation is launched</p></li>
+<li><p>check result window :</p>
+<img alt="../../_images/design_3_Table.png" class="align-center" src="../../_images/design_3_Table.png" />
+<ul class="simple">
+<li><p>10 tabs : Summary - PDF/CDF - Boxplots - Dependence - Table - Cobweb plot - Plot matrix - Scatter plot - Parameters - Model</p></li>
+<li><p>Summary and PDF/CDF tabs :</p>
+<ul>
+<li><p>when changing the variable, the tabs are updated</p></li>
+</ul>
+</li>
+<li><p>Other Plots tabs and Table tab :</p>
+<ul>
+<li><p>when clicking on the tab, the list view has been hidden</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check the tabs with Paraview graphs are linked (do several selections in a tab and check the selection is the same in the others tabs)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>right click on onePointDesign, choose Evaluate :</p>
+<blockquote>
+<div><ul>
+<li><p>a wizard appears, click on the Finish button</p></li>
+<li><p>an item ‘Evaluation’ appears in the tree view</p></li>
+<li><p>a window appears with a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on ‘Run’ button</p></li>
+<li><p>check result window :</p>
+<img alt="../../_images/DOE_result_model2_one_point.png" class="align-center" src="../../_images/DOE_result_model2_one_point.png" />
+<ul class="simple">
+<li><p>4 tabs : Summary - Table - Parameters - Model</p></li>
+<li><p>Summary tab :</p>
+<ul>
+<li><p>a list view with a variable appears at the left side of the window</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>right click on twoPointsDesign, choose Evaluate :</p>
+<blockquote>
+<div><ul>
+<li><p>a wizard appears, click on the Finish button</p></li>
+<li><p>an item ‘Evaluation’ appears in the tree view</p></li>
+<li><p>a window appears with a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on ‘Run’ button</p></li>
+<li><p>check result window :</p>
+<img alt="../../_images/DOE_result_model2_two_points.png" class="align-center" src="../../_images/DOE_result_model2_two_points.png" />
+<ul class="simple">
+<li><p>4 tabs : Summary - Table - Parameters - Model</p></li>
+<li><p>Summary tab :</p>
+<ul>
+<li><p>a list view with a variable appears at the left side of the window</p></li>
+</ul>
+</li>
+<li><p>Table tab has 3 tabs: Table - Failed points - Cobweb plot</p>
+<ul>
+<li><p>check the cobweb plot has 4 columns. The fourth one is named ‘Status 0: failed; 1: ok’.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>save the study, close it, reopen it, check all windows are correctly build, close the study.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="probabilistic-analyses">
+<h3>Probabilistic analyses<a class="headerlink" href="#probabilistic-analyses" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Import the file python/test/test_probabilistic_analyses.py</p></li>
+<li><p>Each analysis item is associated with a window with a table of parameters (optional), a progress bar and a button ‘Run’ and a disabled button ‘Stop’</p></li>
+<li><p>Check all the analyses wizards -&gt; Right click on each item and choose Modify :</p>
+<ul>
+<li><p>Monte Carlo : MonteCarlo item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/monteCarlo_central_tendency_wizard_1st_page.png" class="align-center" src="../../_images/monteCarlo_central_tendency_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>method : Monte-Carlo</p></li>
+<li><p>selected outputs : y0 and y1</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/monteCarlo_central_tendency_wizard_2nd_page.png" class="align-center" src="../../_images/monteCarlo_central_tendency_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>Accuracy disabled : 0.01</p></li>
+<li><p>max time : 16m40s</p></li>
+<li><p>max calls : 1000</p></li>
+<li><p>block size : 100</p></li>
+<li><p>confidence interval disabled : 0.95</p></li>
+<li><p>seed : 2</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/monteCarlo_central_tendency_result.png" class="align-center" src="../../_images/monteCarlo_central_tendency_result.png" />
+<ul>
+<li><p>left side : 4 variables in the list view</p></li>
+<li><p>right side, tabs : Summary - PDF/CDF - Box plots - Table - Cobweb plot - Plot matrix - Scatter plots - Parameters - Model</p></li>
+<li><p>when changing the variable, the tabs are updated</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check the tabs (Table - Cobweb plot - Plot matrix - Scatter plots) are linked :
+do several selections in a tab and check the selection is the same in the others tabs</p></li>
+<li><p>Summary tab :</p>
+<ul class="simple">
+<li><p>2 types of extrema tables: one for the outputs y0 and y1 and one for the inputs x1 and x2</p></li>
+</ul>
+<img alt="../../_images/monteCarlo_central_tendency_result_input_table.png" class="align-center" src="../../_images/monteCarlo_central_tendency_result_input_table.png" />
+<ul class="simple">
+<li><p>Moments estimates table has only 2 columns : Estimate and Value</p></li>
+</ul>
+</li>
+<li><p>check on the tabs (Table - Cobweb plot - Plot matrix - Scatter plots - Parameters - Model) : the list view is hidden</p></li>
+<li><p>check tables are well drawn</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Taylor : Taylor item</p>
+<img alt="../../_images/taylor_central_tendency_wizard.png" class="align-center" src="../../_images/taylor_central_tendency_wizard.png" />
+<ul>
+<li><p>check the values:</p>
+<ul class="simple">
+<li><p>selected outputs : y1 and y0</p></li>
+<li><p>method : Taylor expansion</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/taylor_central_tendency_result.png" class="align-center" src="../../_images/taylor_central_tendency_result.png" />
+<ul class="simple">
+<li><p>left side : 2 variables in the list view</p></li>
+<li><p>right side : 1 Summary tab</p></li>
+<li><p>check table is well drawn</p></li>
+<li><p>when changing the variable, the tabs are updated</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Monte Carlo reliability : MonteCarloReliability item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/monteCarlo_reliability_wizard_1st_page.png" class="align-center" src="../../_images/monteCarlo_reliability_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>limit state : aLimitState</p></li>
+<li><p>method : Monte-Carlo</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/monteCarlo_reliability_wizard_2nd_page.png" class="align-center" src="../../_images/monteCarlo_reliability_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>Accuracy is disabled : 0.01</p></li>
+<li><p>max time : 16m40s</p></li>
+<li><p>max calls : 1000</p></li>
+<li><p>block size : 100</p></li>
+<li><p>seed : 2</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/monteCarlo_reliability_result.png" class="align-center" src="../../_images/monteCarlo_reliability_result.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : Summary - Histogram - Convergence graph - Parameters - Model</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check tables are well drawn</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>FORM IS reliability : FORM_IS item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/FORM_IS_reliability_1st_page.png" class="align-center" src="../../_images/FORM_IS_reliability_1st_page.png" />
+<ul class="simple">
+<li><p>method : FORM - Importance sampling</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/FORM_IS_reliability_2nd_page.png" class="align-center" src="../../_images/FORM_IS_reliability_2nd_page.png" />
+<ul class="simple">
+<li><p>Accuracy is disabled : 0.01</p></li>
+<li><p>max time : 16m40s</p></li>
+<li><p>max calls : 1000</p></li>
+<li><p>block size : 100</p></li>
+<li><p>seed : 2</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Third page check the values:</p>
+<img alt="../../_images/FORM_IS_reliability_3rd_page.png" class="align-center" src="../../_images/FORM_IS_reliability_3rd_page.png" />
+<ul>
+<li><p>Algorithm : Abdo-Rackwitz</p></li>
+<li><p>Physical starting point : 5; 5</p>
+<ul class="simple">
+<li><p>click on button ‘…’</p></li>
+<li><p>set the value of x2 to 5.5</p></li>
+<li><p>press Finish button</p></li>
+<li><p>Physical starting point : 5; 5.5</p></li>
+</ul>
+<img alt="../../_images/FORM_IS_reliability_starting_point_wizard.png" class="align-center" src="../../_images/FORM_IS_reliability_starting_point_wizard.png" />
+</li>
+<li><p>Maximum number of evaluations : 100000</p></li>
+<li><p>Absolute error : 0.001</p></li>
+<li><p>Relative/Residual/Constraint error : 1e-5</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/FORM_IS_reliability_result.png" class="align-center" src="../../_images/FORM_IS_reliability_result.png" />
+<ul>
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : Summary - Histogram - Convergence graph - FORM results - Parameters- Model</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>FORM results tab :</p>
+<img alt="../../_images/FORM_IS_reliability_FORM_results_tab.png" class="align-center" src="../../_images/FORM_IS_reliability_FORM_results_tab.png" />
+<ul class="simple">
+<li><p>4 sub-tabs : Summary - Design point - Sensitivities - Parameters</p></li>
+</ul>
+</li>
+<li><p>check tables are well drawn</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>FORM : FORM item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/FORM_wizard_1st_page.png" class="align-center" src="../../_images/FORM_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>method : FORM</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/FORM_wizard_2nd_page.png" class="align-center" src="../../_images/FORM_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>Algorithm : Abdo-Rackwitz</p></li>
+<li><p>Physical starting point : 5; 5</p></li>
+<li><p>Maximum number of evaluations : 100000</p></li>
+<li><p>Absolute error : 0.001</p></li>
+<li><p>Relative/Residual/Constraint error : 1e-5</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/FORM_result.png" class="align-center" src="../../_images/FORM_result.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : Summary - Design point - Sensitivities - Parameters - Model</p></li>
+<li><p>check tables are well drawn</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>SORM : SORM item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/SORM_wizard_1st_page.png" class="align-center" src="../../_images/SORM_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>method : FORM</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/FORM_wizard_2nd_page.png" class="align-center" src="../../_images/FORM_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>Algorithm : Abdo-Rackwitz</p></li>
+<li><p>Physical starting point : 5; 5</p></li>
+<li><p>Maximum number of evaluations : 100000</p></li>
+<li><p>Absolute error : 0.001</p></li>
+<li><p>Relative/Residual/Constraint error : 1e-5</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/SORM_result.png" class="align-center" src="../../_images/SORM_result.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : Summary - Design point - Sensitivities - Parameters - Model</p></li>
+<li><p>check tables are well drawn</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Sobol : Sobol item</p>
+<ul>
+<li><p>Pop-up with an error message appears : ‘The model must have an independent copula etc’</p></li>
+<li><p>click on the ‘Probabilistic model’ item</p>
+<ul class="simple">
+<li><p>click on the ‘Dependence’ tab of the window which appears</p></li>
+<li><p>in the cell x1-x2 : write 0, press enter</p></li>
+<li><p>click on the Sobol item, right click on it and choose Modify</p></li>
+</ul>
+</li>
+<li><p>First page check the values :</p>
+<img alt="../../_images/sobol_wizard_1st_page.png" class="align-center" src="../../_images/sobol_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>selected outputs : y0 and y1</p></li>
+<li><p>method : Sobol</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/sobol_wizard_2nd_page.png" class="align-center" src="../../_images/sobol_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>max confidence interval length : 0.01</p></li>
+<li><p>max time : 16m40s</p></li>
+<li><p>max calls : 1000</p></li>
+<li><p>replication size : 100</p></li>
+<li><p>block size : 100</p></li>
+<li><p>number of calls by iteration : 400</p></li>
+<li><p>confidence level : 0.95</p></li>
+<li><p>seed : 2</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/sobol_result.png" class="align-center" src="../../_images/sobol_result.png" />
+<ul class="simple">
+<li><p>left side : 2 variables in the list view</p></li>
+<li><p>right side, tabs : Indices - Summary - Parameters - Model</p></li>
+<li><p>when changing the variable, the Indices tab is updated</p></li>
+<li><p>when indices plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>Indices tab :</p>
+<ul>
+<li><p>can not zoom the plot</p></li>
+<li><p>Click on the 2 last sections headers of the table :</p>
+<ul>
+<li><p>the table values are sorted</p></li>
+<li><p>the plot is updated</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>check tables are well drawn</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>SRC : SRC item</p>
+<ul>
+<li><p>First page check the values:</p>
+<img alt="../../_images/src_wizard_1st_page.png" class="align-center" src="../../_images/src_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>selected outputs : y0 and y1</p></li>
+<li><p>method : SRC</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/src_wizard_2nd_page.png" class="align-center" src="../../_images/src_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>sample size : 1000</p></li>
+<li><p>block size : 1</p></li>
+<li><p>seed : 2</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/src_result.png" class="align-center" src="../../_images/src_result.png" />
+<ul class="simple">
+<li><p>left side : 2 variables in the list view</p></li>
+<li><p>right side, tabs : Indices - Parameters - Model</p></li>
+<li><p>when changing the variable, the Indices tab is updated</p></li>
+<li><p>when indices plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>Indices tab :</p>
+<ul>
+<li><p>can not zoom the plot</p></li>
+<li><p>click on the ‘Input’/’Index’/’Signed index’ section headers of the table :</p>
+<ul>
+<li><p>the table values are sorted</p></li>
+<li><p>the plot is updated</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Kriging : kriging item</p>
+<ul>
+<li><p>First page check the values:</p>
+<img alt="../../_images/kriging_wizard_1st_page.png" class="align-center" src="../../_images/kriging_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>design of experiments : design_1</p></li>
+<li><p>selected outputs : y0, y1</p></li>
+<li><p>method : Kriging</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/kriging_wizard_2nd_page.png" class="align-center" src="../../_images/kriging_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>covariance model : Matérn</p></li>
+<li><p>nu : 1.5</p></li>
+<li><p>trend : Linear</p></li>
+<li><p>optimize covariance model parameters : checked</p></li>
+<li><p>scale : 1; 1</p></li>
+<li><p>amplitude : 1</p></li>
+</ul>
+</li>
+<li><p>on the line Scale click on the button ‘…’</p>
+<ul class="simple">
+<li><p>a wizard appears : stochastic inputs x1 and x2 are listed</p></li>
+</ul>
+</li>
+<li><p>change the scale value of x1 to 2, then finish</p>
+<img alt="../../_images/kriging_scale_wizard.png" class="align-center" src="../../_images/kriging_scale_wizard.png" />
+</li>
+<li><p>change the amplitude value to 2</p>
+<img alt="../../_images/kriging_wizard_scale_amplitude_updated.png" class="align-center" src="../../_images/kriging_wizard_scale_amplitude_updated.png" />
+</li>
+<li><p>continue</p></li>
+<li><p>Third page check the values :</p>
+<img alt="../../_images/kriging_wizard_3rd_page.png" class="align-center" src="../../_images/kriging_wizard_3rd_page.png" />
+<ul class="simple">
+<li><p>all methods are checked</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check the Kriging result window :</p>
+<img alt="../../_images/kriging_result.png" class="align-center" src="../../_images/kriging_result.png" />
+<ul>
+<li><p>left side : 2 variables in the list view</p></li>
+<li><p>right side, tabs : MetaModel - Results - Validation - Parameters - Model</p></li>
+<li><p>when changing the variable, the tabs are updated</p></li>
+<li><p>Metamodel tab : only the plot on the tab</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check tables are well drawn</p></li>
+<li><p>Validation tab has 3 tabs : Analytical, Test sample, K-Fold</p>
+<img alt="../../_images/kriging_validation_result.png" class="align-center" src="../../_images/kriging_validation_result.png" />
+</li>
+</ul>
+</li>
+<li><p>right click on the kriging item : choose ‘Convert metamodel into physical model’</p>
+<ul class="simple">
+<li><p>a new item MetaModel_0 appears in the tree view</p></li>
+<li><p>click on its sub-item named ‘Definition’</p></li>
+<li><p>change the value of x2 to 1.6</p></li>
+<li><p>click on the Check model button</p></li>
+</ul>
+<img alt="../../_images/kriging_new_model.png" class="align-center" src="../../_images/kriging_new_model.png" />
+</li>
+<li><p>right click on the sub-item of design_3 named ‘Evaluation’ and choose New metamodel</p>
+<ul class="simple">
+<li><p>choose the Kriging method, select all the validation methods:</p></li>
+</ul>
+<img alt="../../_images/design_3_kriging_wizard.png" class="align-center" src="../../_images/design_3_kriging_wizard.png" />
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button and click immediately on the Stop button</p></li>
+<li><p>The result window does not contain the Validation tab</p></li>
+</ul>
+<img alt="../../_images/design_3_result.png" class="align-center" src="../../_images/design_3_result.png" />
+</li>
+</ul>
+</li>
+<li><p>Functional chaos : chaos_1 item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/chaos_1_wizard_1st_page.png" class="align-center" src="../../_images/chaos_1_wizard_1st_page.png" />
+<ul class="simple">
+<li><p>design of experiments : probaDesign</p></li>
+<li><p>selected outputs : y1</p></li>
+<li><p>method : Functional chaos</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<img alt="../../_images/chaos_1_wizard_2nd_page.png" class="align-center" src="../../_images/chaos_1_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>degree : 7</p></li>
+<li><p>sparse : checked</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Third page check the values :</p>
+<img alt="../../_images/chaos_1_wizard_3rd_page.png" class="align-center" src="../../_images/chaos_1_wizard_3rd_page.png" />
+<ul class="simple">
+<li><p>all validation methods are checked</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/chaos_result.png" class="align-center" src="../../_images/chaos_result.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : MetaModel - Summary - Sobol indices - Validation - Parameters - Model</p></li>
+<li><p>Metamodel tab : plot + Relative error table</p></li>
+<li><p>when metamodel plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check tables are well drawn</p></li>
+<li><p>Validation tab has 3 tabs : Analytical, Test sample, K-Fold</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>chaos_2</p>
+<ul class="simple">
+<li><p>click on the ‘Run’ button</p></li>
+<li><p>error message : ‘No results are available…’</p></li>
+<li><p>right click on the item design_2 and choose Evaluate</p></li>
+<li><p>a wizard appears, deselect fake_y0, click one the Finish button</p></li>
+<li><p>a window appears, click on the ‘Run’ button</p></li>
+<li><p>right click on the item chaos_2 and click on Modify</p></li>
+</ul>
+<img alt="../../_images/chaos_2_wizard.png" class="align-center" src="../../_images/chaos_2_wizard.png" />
+<ul>
+<li><p>First page check the values :</p>
+<ul class="simple">
+<li><p>design of experiments : design_2</p></li>
+<li><p>selected outputs : y0, y1</p></li>
+<li><p>method : Functional chaos</p></li>
+</ul>
+</li>
+<li><p>Second page check the values :</p>
+<ul class="simple">
+<li><p>degree : 2</p></li>
+<li><p>sparse : checked</p></li>
+<li><p>continue</p></li>
+</ul>
+</li>
+<li><p>Third page check the values :</p>
+<ul class="simple">
+<li><p>only Analytically is checked</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/chaos_2_result.png" class="align-center" src="../../_images/chaos_2_result.png" />
+<ul class="simple">
+<li><p>left side: 2 variables in the list view</p></li>
+<li><p>right side: tabs MetaModel - Summary - Sobol indices - Validation - Parameters</p></li>
+<li><p>Metamodel tab : plot + Relative error table</p></li>
+<li><p>when changing the variable, the tabs are updated</p></li>
+<li><p>when metamodel plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check tables are well drawn</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Data analysis : DataAnalysis item</p>
+<ul>
+<li><p>the item is associated with a window with a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+<li><p>check result window :</p>
+<img alt="../../_images/data_analysis_result.png" class="align-center" src="../../_images/data_analysis_result.png" />
+<ul class="simple">
+<li><p>left side: 4 variables in the list view</p>
+<ul>
+<li><p>x_1 the output is the first item of the list</p></li>
+</ul>
+</li>
+<li><p>right side, tabs : Summary - PDF/CDF - Box plots - Dependence - Table - Cobweb plot - Plot matrix - Scatter plots</p></li>
+<li><p>when changing the variable, the tabs (Summary - PDF/CDF - Box plots) are updated</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check the tabs (Table - Cobweb plot - Plot matrix - Scatter plots) are linked :
+do several selections in a tab and check the selection is the same in the others tabs</p></li>
+<li><p>check on the tabs (Table - Cobweb plot - Plot matrix - Scatter plots - Parameters) : the list view is hidden</p></li>
+<li><p>Summary tab:</p>
+<ul>
+<li><p>check tables are well drawn</p></li>
+<li><p>2 types of extrema tables: one for the output x_1 and one for inputs x_0, x_1 and x_3</p></li>
+<li><p>Moments estimates table has the columns : Estimate - Value - Confidence interval at 95%</p></li>
+<li><p>there are bounds only for Mean and Standard deviation</p></li>
+<li><p>check probability and quantile spinboxes behavior</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Inference analysis : inference item</p>
+<img alt="../../_images/inference_wizard.png" class="align-center" src="../../_images/inference_wizard.png" />
+<ul>
+<li><p>right click on the item ‘inference’ and choose ‘Modify’. Check the wizard behavior :</p>
+<ul class="simple">
+<li><p>check all / uncheck all</p></li>
+<li><p>no wheel event on Add button</p></li>
+<li><p>an uncheck line == right side of the wizard disabled</p></li>
+<li><p>choose item ‘All’ in the list of Add button =&gt; add all distributions in the list</p></li>
+<li><p>remove items in the distributions table : use ctrl key (to select items one by one), use shift key (to select adjacent items)</p></li>
+<li><p>select a variable + empty the distributions list + click on Finish</p>
+<ul>
+<li><p>error message ‘At least one distribution etc.’</p></li>
+</ul>
+</li>
+<li><p>unselect all</p></li>
+<li><p>select x_0 and add all the distributions</p></li>
+<li><p>select x_1 and add the Beta distribution</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/inference_result.png" class="align-center" src="../../_images/inference_result.png" />
+<ul>
+<li><p>left side : 2 variables in the list view</p></li>
+<li><p>right side, tab : Summary</p></li>
+<li><p>when changing the variable, the tabs are updated</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>the right side of the window contains 2 parts : a distributions list and 3 tabs PDF/CDF - Q-Q Plot - Parameters</p></li>
+<li><p>when selecting a distribution, the tab widget is updated</p></li>
+<li><p>check tables are well drawn</p></li>
+<li><p>select x_0</p></li>
+<li><p>select InverseNormal/LogUniform :</p>
+<ul class="simple">
+<li><p>PDF/CDF and Q-Q Plot tabs are disabled</p></li>
+<li><p>the Parameters tab contains an error message</p></li>
+</ul>
+<img alt="../../_images/inference_result_error.png" class="align-center" src="../../_images/inference_result_error.png" />
+</li>
+</ul>
+</li>
+<li><p>check the reuse of the inference result by the Probabilistic model :</p>
+<ul>
+<li><p>go on the Probabilistic model window of model1, tab ‘Marginals’</p></li>
+<li><p>select the x3 variable</p></li>
+<li><p>choose Inference result in the combo box of the variable x_3</p></li>
+<li><p>a wizard appears, check its behavior (update of the tables when changing the items selection, etc.)</p>
+<img alt="../../_images/inferenceResultWizard.png" class="align-center" src="../../_images/inferenceResultWizard.png" />
+</li>
+<li><p>choose inference/x_0/Weibull, click on Finish</p></li>
+<li><p>check that the distribution of x_3 is Weibull now</p></li>
+<li><p>unselect x_3</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Copula inference : copulaInference item</p>
+<img alt="../../_images/copula_inference_wizard.png" class="align-center" src="../../_images/copula_inference_wizard.png" />
+<ul>
+<li><p>right click on the item ‘copulaInference’ and choose ‘Modify’. Check the wizard behavior :</p>
+<ul class="simple">
+<li><p>check all / uncheck all + left/right arrow buttons</p></li>
+<li><p>no wheel event on Add button</p></li>
+<li><p>choose item ‘All’ in the list of Add button =&gt; add all copulas in the list</p></li>
+<li><p>remove items in the copulas table : use ctrl key (to select items one by one), use shift key (to select adjacent items)</p></li>
+<li><p>add/remove groups with the arrows</p></li>
+<li><p>if there are at least 3 variables in a group : only the Normal copula is proposed</p></li>
+<li><p>select a variable + empty the copulas list + click on Finish</p>
+<ul>
+<li><p>error message ‘At least one copula etc.’</p></li>
+</ul>
+</li>
+<li><p>unselect all</p></li>
+<li><p>select [x_0,x_3] and add the Normal and Gumbel copulas</p></li>
+<li><p>select [x_2,x_3] and add all the copulas</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/copula_inference_result.png" class="align-center" src="../../_images/copula_inference_result.png" />
+<ul>
+<li><p>left side: 1 set of variables in the list view</p></li>
+<li><p>right side, 1 tab : Summary</p></li>
+<li><p>the right side of the window contains 2 parts : a copulas list and 3 tabs : PDF/CDF - Kendall Plot - Parameters</p></li>
+<li><p>when selecting a copula, the tab widget is updated</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check tables are well drawn</p></li>
+<li><p>select [x_2,x_3]</p></li>
+<li><p>select Ali-Mikhail-Haq / Farlie-Gumbel-Morgenstern :</p>
+<ul class="simple">
+<li><p>PDF/CDF and Kendall Plot tabs are disabled</p></li>
+<li><p>the Parameters tab contains an error message</p></li>
+</ul>
+<img alt="../../_images/copula_inference_resultError.png" class="align-center" src="../../_images/copula_inference_resultError.png" />
+</li>
+</ul>
+</li>
+<li><p>check the reuse of the copula inference result by the Probabilistic model :</p>
+<ul>
+<li><p>go on the Probabilistic model window of model1, tab ‘Dependence’</p></li>
+<li><p>choose Inference result in the combo box of the [x_1,x_2] group</p></li>
+<li><p>a wizard appears, check its behavior (update of the tables when changing the items selection, etc.)</p>
+<img alt="../../_images/copulaInferenceResultWizard.png" class="align-center" src="../../_images/copulaInferenceResultWizard.png" />
+</li>
+<li><p>choose copulaInference/[x_2, x_3]/Gumbel, click on Finish</p></li>
+<li><p>check that the copula is Gumbel now</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id22">
+<h4>Designs of experiments<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>check the wizard:</p>
+<ul>
+<li><p>right click on probaDesign and choose Modify :</p>
+<ul>
+<li><dl class="simple">
+<dt>First page :</dt><dd><ul class="simple">
+<li><p>type : Probabilistic design</p></li>
+<li><p>continue</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Second page :</p>
+<img alt="../../_images/design_4_wizard_2nd_page.png" class="align-center" src="../../_images/design_4_wizard_2nd_page.png" />
+<ul class="simple">
+<li><p>Monte Carlo selected</p></li>
+<li><p>LHS disabled: check the tooltip is ‘The physical model does not have an independent copula’</p></li>
+<li><p>sample size : 100</p></li>
+<li><p>seed : 0</p></li>
+<li><p>cancel</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>save the study, close it, reopen it, check all windows are correctly built, close the study.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="field-analyses">
+<h3>Field analyses<a class="headerlink" href="#field-analyses" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Import the file python/test/test_field_analyses.py</p></li>
+<li><p>Each analysis item is associated with a window with a table of parameters (optional), a progress bar and a button ‘Run’ and a disabled button ‘Stop’</p></li>
+<li><p>Check all the analyses wizards -&gt; Right click on each item and choose Modify :</p>
+<ul>
+<li><p>Monte Carlo : mcAnalysis item</p>
+<ul>
+<li><p>First page check the values :</p>
+<img alt="../../_images/fieldMonteCarlo_Wizard.png" class="align-center" src="../../_images/fieldMonteCarlo_Wizard.png" />
+<ul class="simple">
+<li><p>selected output : z</p></li>
+<li><p>max time : 16m40s</p></li>
+<li><p>max calls : 10</p></li>
+<li><p>block size : 5</p></li>
+<li><p>Karhunen-Loeve threshold : 2e-5</p></li>
+<li><p>seed : 2</p></li>
+</ul>
+</li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window :</p>
+<img alt="../../_images/fieldMonteCarlo_result.png" class="align-center" src="../../_images/fieldMonteCarlo_result.png" />
+<ul class="simple">
+<li><p>left side : 1 variable in the list view</p></li>
+<li><p>right side, tabs : Result - Input - Decomposition - Correlation - Parameters - Model</p></li>
+<li><p>Result tab, tabs : Trajectories - Mean trajectory - Functional bag chart - Bag chart - Table</p></li>
+<li><p>Input tab, tabs : Table - Plot matrix</p></li>
+<li><p>Decomposition tab, tabs : Modes - Eigenvalues - ξi</p></li>
+<li><p>ξi tab, tabs : PDF - Plot matrix</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+<li><p>check the tabs (Trajectories - Functional bag chart - Bag chart - Table) are linked :
+do several selections in a tab and check the selection is the same in the others tabs</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Evaluation : item evaluation</p>
+<img alt="../../_images/fieldEvaluation_Wizard.png" class="align-center" src="../../_images/fieldEvaluation_Wizard.png" />
+<ul>
+<li><p>selected outputs : z, z2</p></li>
+<li><p>check the values : [100, 55, 80, 16]</p></li>
+<li><p>click on the Finish button</p>
+<ul class="simple">
+<li><p>a window appears with a table of parameters, a progress bar and 2 buttons ‘Run’ and ‘Stop’</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+</ul>
+</li>
+<li><p>check result window</p>
+<img alt="../../_images/fieldEvaluation_result.png" class="align-center" src="../../_images/fieldEvaluation_result.png" />
+<ul class="simple">
+<li><p>left side : 2 variables in the list view</p></li>
+<li><p>right side, tabs : Result - Input - Parameters - Model</p></li>
+<li><p>Result tab, tabs : Trajectory - Table</p></li>
+<li><p>Input tab, tabs : Table</p></li>
+<li><p>when a plot is displayed, a Graph setting widget appears at the bottom of the tree view : check its behavior</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>save the study, close it, reopen it, check all windows are correctly built, close the study.</p></li>
+</ul>
+</div>
+<div class="section" id="diagrams">
+<h3>Diagrams<a class="headerlink" href="#diagrams" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="physical-model">
+<h4>Physical model<a class="headerlink" href="#physical-model" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>open the interface</p></li>
+<li><p>create a new Study</p></li>
+<li><dl class="simple">
+<dt>click on ‘Symbolic model’ button of the window of myOTStudy</dt><dd><ul class="simple">
+<li><p>the item SymbolicModel_0 appears in the tree view</p></li>
+<li><p>a new Physical model diagram window appears in the mdiArea, check its behavior (cursor, arrow colors, buttons availability, messages text)</p></li>
+<li><p>only the ‘Model definition’ button is enabled</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../_images/physicalModelDiagramWindow.png" class="align-center" src="../../_images/physicalModelDiagramWindow.png" />
+</li>
+<li><dl class="simple">
+<dt>click on ‘Model definition’ button of the diagram: an item ‘Definition’ appears</dt><dd><ul class="simple">
+<li><p>add an input : the ‘Design of experiments creation’ and ‘Probabilistic model definition’ buttons of the diagram are enabled</p></li>
+<li><p>add an output, set its formula to X0 : the ‘Model evaluation’, ‘Optimization’ buttons of the diagram are enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Model evaluation’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>In the model window<span class="classifier">add a second input</span></dt><dd><ul class="simple">
+<li><p>the ‘Screening’ and ‘Observations’ buttons of the diagram is enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Screening’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Optimization’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Observations’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, import a sample with at least 2 columns, click on Finish</p></li>
+<li><p>the ‘Calibration’ button of the diagram is enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>redo the previous action</p></li>
+<li><dl class="simple">
+<dt>click on the ‘Calibration’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, there are 2 items in the combo box in Observations group box, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Design of experiments creation’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Continue button on the first page</p></li>
+<li><p>on the second page : select X0, set Levels = 20, click on Finish</p></li>
+<li><p>the ‘Design of experiments evaluation’ button of the diagram is enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>redo the previous action with Levels = 40</p></li>
+<li><dl class="simple">
+<dt>click on the ‘Design of experiments evaluation’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, there are 2 items in the combo box in Design of experiments group box, click on Finish, an item ‘Evaluation’ appears, click on it</p></li>
+<li><p>click on the ‘Run’ button</p></li>
+<li><p>the ‘MetaModel creation’ button of the diagram is enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘MetaModel creation’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Continue button then on Finish button</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Probabilistic model definition’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a window appears, select X0</p></li>
+<li><p>the ‘Sensitivity’, ‘Central tendency’ and ‘Limit state definition’ buttons of the diagram are enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Sensitivity’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Central tendency’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Limit state definition’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a window appears</p></li>
+<li><p>the ‘Reliability’ button of the diagram is enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>redo the previous action</p></li>
+<li><dl class="simple">
+<dt>click on the ‘Reliability’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, there are 2 items in the combo box in Limit state group box, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="data-model">
+<h4>Data model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><dl class="simple">
+<dt>click on ‘Data model’ button of the window of myOTStudy</dt><dd><ul class="simple">
+<li><p>the item dataModel_0 appears in the tree view</p></li>
+<li><p>a new Data model diagram window appears in the mdiArea, check its behavior (cursor, arrow colors, buttons availability, messages text)</p></li>
+<li><p>only the ‘Model definition’ button is enabled</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../_images/dataModelDiagramWindow.png" class="align-center" src="../../_images/dataModelDiagramWindow.png" />
+</li>
+<li><dl class="simple">
+<dt>click on ‘Model definition’ button of the diagram: an item ‘Definition’ appears</dt><dd><ul class="simple">
+<li><p>click on the ‘…’ button, import the file data.csv</p></li>
+<li><p>the first three columns are inputs and the last one is an output</p></li>
+<li><p>all the buttons are enabled in the diagram</p></li>
+<li><p>check that ‘Dependence inference’ button is enabled only if there are more than one variable</p></li>
+<li><p>check that ‘Metamodel creation’ button is enabled only if there are at least one output and one input</p></li>
+<li><p>if all the columns are disabled, all the buttons of the diagram are disabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>save the current study, reopen</dt><dd><ul class="simple">
+<li><p>in the window of the ‘Definition’ item of the data model : click on the reload button</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="field-model">
+<h4>Field model<a class="headerlink" href="#field-model" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><dl class="simple">
+<dt>click on ‘Symbolic Field model’ button of the window of myOTStudy</dt><dd><ul class="simple">
+<li><p>the item SymbolicModel_1 appears in the tree view</p></li>
+<li><p>a new model diagram window appears in the mdiArea, check its behavior (cursor, arrow colors, buttons availability, messages text)</p></li>
+<li><p>only the ‘Model definition’ button is enabled</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../_images/fieldModel_diagramWindow.png" class="align-center" src="../../_images/fieldModel_diagramWindow.png" />
+</li>
+<li><dl class="simple">
+<dt>click on ‘Model definition’ button of the diagram: an item ‘Definition’ appears</dt><dd><ul class="simple">
+<li><p>add an input : the ‘Probabilistic model definition’ button of the diagram is enabled</p></li>
+<li><p>add an output : the ‘Model evaluation’ button of the diagram is enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Model evaluation’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Probabilistic model definition’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a window appears, select X0</p></li>
+<li><p>the  ‘Central tendency’ button of the diagram is enabled</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>click on the ‘Central tendency’ button of the diagram</dt><dd><ul class="simple">
+<li><p>a wizard appears, click on Cancel</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Validation</a><ul>
+<li><a class="reference internal" href="#test-case-1-cogeneration">Test case 1: Cogeneration</a><ul>
+<li><a class="reference internal" href="#problem-statement">1- Problem statement</a><ul>
+<li><a class="reference internal" href="#inputs">1-1 Inputs</a></li>
+<li><a class="reference internal" href="#output">1-2 Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#central-tendency-analysis">2- Central tendency analysis</a><ul>
+<li><a class="reference internal" href="#id2">2-1 Inputs</a></li>
+<li><a class="reference internal" href="#results">3-1 Results</a><ul>
+<li><a class="reference internal" href="#values">3-1-1 Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deterministic-parametric-analysis">3- Deterministic parametric analysis</a><ul>
+<li><a class="reference internal" href="#id3">3-1 Inputs</a></li>
+<li><a class="reference internal" href="#id4">3-2 Results</a><ul>
+<li><a class="reference internal" href="#id5">3-2-1 Values</a></li>
+<li><a class="reference internal" href="#figures">3-2-1 Figures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference">4- Reference</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-case-2-flood">Test case 2: Flood</a><ul>
+<li><a class="reference internal" href="#id7">1- Problem statement</a><ul>
+<li><a class="reference internal" href="#id8">1-1 Inputs</a></li>
+<li><a class="reference internal" href="#id9">1-2 Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reliability-analysis">2- Reliability analysis</a><ul>
+<li><a class="reference internal" href="#id10">2-1 Inputs</a></li>
+<li><a class="reference internal" href="#id11">3-1 Results</a><ul>
+<li><a class="reference internal" href="#id12">3-1-1 Values</a></li>
+<li><a class="reference internal" href="#id13">3-1-1 Figures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-case-3-gauge">Test case 3: Gauge</a><ul>
+<li><a class="reference internal" href="#id15">1- Problem statement</a><ul>
+<li><a class="reference internal" href="#id16">1-1 Inputs</a></li>
+<li><a class="reference internal" href="#id17">1-2 Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xml-file-loading">2- XML file loading</a><ul>
+<li><a class="reference internal" href="#figure">2-1 Figure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id18">3- Central tendency analysis</a><ul>
+<li><a class="reference internal" href="#id19">3-1 Inputs</a></li>
+<li><a class="reference internal" href="#id20">3-2 Results</a><ul>
+<li><a class="reference internal" href="#id21">3-2-1 Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#graphical-validation">Graphical validation</a><ul>
+<li><a class="reference internal" href="#open">Open</a></li>
+<li><a class="reference internal" href="#console-python">Console Python</a></li>
+<li><a class="reference internal" href="#open-documentation">Open documentation</a></li>
+<li><a class="reference internal" href="#new-study">New Study</a></li>
+<li><a class="reference internal" href="#rename-study">Rename Study</a></li>
+<li><a class="reference internal" href="#save-open-study">Save/open Study</a></li>
+<li><a class="reference internal" href="#export-import-study">Export/Import Study</a></li>
+<li><a class="reference internal" href="#models">Models</a></li>
+<li><a class="reference internal" href="#deterministic-analyses">Deterministic analyses</a><ul>
+<li><a class="reference internal" href="#designs-of-experiments">Designs of experiments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#probabilistic-analyses">Probabilistic analyses</a><ul>
+<li><a class="reference internal" href="#id22">Designs of experiments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#field-analyses">Field analyses</a></li>
+<li><a class="reference internal" href="#diagrams">Diagrams</a><ul>
+<li><a class="reference internal" href="#physical-model">Physical model</a></li>
+<li><a class="reference internal" href="#data-model">Data model</a></li>
+<li><a class="reference internal" href="#field-model">Field model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../architecture/architecture.html"
+                        title="previous chapter">Architecture considerations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../bibliography.html"
+                        title="next chapter">Bibliography</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/developer_manual/validation/validation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../bibliography.html" title="Bibliography"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../architecture/architecture.html" title="Architecture considerations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../developer_manual.html" >Developer manual</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,11 @@
+FORMImportanceSamplingAnalysis
+=======================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FORMImportanceSamplingAnalysis
+
+   
+   .. automethod:: __init__
+   
+

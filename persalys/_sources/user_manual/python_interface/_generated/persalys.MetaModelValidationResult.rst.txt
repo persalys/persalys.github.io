@@ -1,0 +1,11 @@
+MetaModelValidationResult
+==================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MetaModelValidationResult
+
+   
+   .. automethod:: __init__
+   
+

@@ -1,0 +1,11 @@
+KrigingAnalysis
+========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: KrigingAnalysis
+
+   
+   .. automethod:: __init__
+   
+

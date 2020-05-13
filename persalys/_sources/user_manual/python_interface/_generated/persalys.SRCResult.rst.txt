@@ -1,0 +1,11 @@
+SRCResult
+==================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SRCResult
+
+   
+   .. automethod:: __init__
+   
+

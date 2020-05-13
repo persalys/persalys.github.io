@@ -1,0 +1,11 @@
+CalibrationAnalysis
+============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CalibrationAnalysis
+
+   
+   .. automethod:: __init__
+   
+
