@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SimulationReliabilityResult &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DesignOfExperiment" href="persalys.DesignOfExperiment.html" />
+    <link rel="prev" title="SORMAnalysis" href="persalys.SORMAnalysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.DesignOfExperiment.html" title="DesignOfExperiment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.SORMAnalysis.html" title="SORMAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SimulationReliabilityResult</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="simulationreliabilityresult">
+<h1>SimulationReliabilityResult<a class="headerlink" href="#simulationreliabilityresult" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="persalys.SimulationReliabilityResult">
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">SimulationReliabilityResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get simulation results from a reliability analysis using Monte Carlo or Importance Sampling method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.SimulationReliabilityResult.thisown" title="persalys.SimulationReliabilityResult.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getClassName" title="persalys.SimulationReliabilityResult.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getConvergenceSample" title="persalys.SimulationReliabilityResult.getConvergenceSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getConvergenceSample</span></code></a>()</p></td>
+<td><p>Convergence sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getConvergenceSampleLowerBound" title="persalys.SimulationReliabilityResult.getConvergenceSampleLowerBound"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getConvergenceSampleLowerBound</span></code></a>()</p></td>
+<td><p>Convergence sample lower bound accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getConvergenceSampleUpperBound" title="persalys.SimulationReliabilityResult.getConvergenceSampleUpperBound"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getConvergenceSampleUpperBound</span></code></a>()</p></td>
+<td><p>Convergence sample upper bound accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getDesignOfExperiment" title="persalys.SimulationReliabilityResult.getDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDesignOfExperiment</span></code></a>()</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getElapsedTime" title="persalys.SimulationReliabilityResult.getElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getElapsedTime</span></code></a>()</p></td>
+<td><p>Elapsed time in seconds to perform the analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getId" title="persalys.SimulationReliabilityResult.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getName" title="persalys.SimulationReliabilityResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getShadowedId" title="persalys.SimulationReliabilityResult.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getSimulationResult" title="persalys.SimulationReliabilityResult.getSimulationResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSimulationResult</span></code></a>()</p></td>
+<td><p>Simulation result accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.getVisibility" title="persalys.SimulationReliabilityResult.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.hasName" title="persalys.SimulationReliabilityResult.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.hasVisibleName" title="persalys.SimulationReliabilityResult.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.setName" title="persalys.SimulationReliabilityResult.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.setShadowedId" title="persalys.SimulationReliabilityResult.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SimulationReliabilityResult.setVisibility" title="persalys.SimulationReliabilityResult.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getClassName">
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getConvergenceSample">
+<code class="sig-name descname">getConvergenceSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getConvergenceSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convergence sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Convergence sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getConvergenceSampleLowerBound">
+<code class="sig-name descname">getConvergenceSampleLowerBound</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getConvergenceSampleLowerBound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convergence sample lower bound accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Convergence sample lower bound</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getConvergenceSampleUpperBound">
+<code class="sig-name descname">getConvergenceSampleUpperBound</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getConvergenceSampleUpperBound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convergence sample upper bound accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Convergence sample upper bound</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getDesignOfExperiment">
+<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>design</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments containing the analysed points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getElapsedTime">
+<code class="sig-name descname">getElapsedTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getElapsedTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Elapsed time in seconds to perform the analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>time</strong><span class="classifier">double</span></dt><dd><p>Elapsed time in seconds to perform the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getId">
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getName">
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getShadowedId">
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getSimulationResult">
+<code class="sig-name descname">getSimulationResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getSimulationResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulation result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.SimulationResult.html#openturns.SimulationResult" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.SimulationResult</span></code></a></span></dt><dd><p>Simulation result</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.getVisibility">
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.hasName">
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.hasVisibleName">
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.setName">
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.setShadowedId">
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.setVisibility">
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SimulationReliabilityResult.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.SimulationReliabilityResult.thisown">
+<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.SimulationReliabilityResult.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.SORMAnalysis.html"
+                        title="previous chapter">SORMAnalysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.DesignOfExperiment.html"
+                        title="next chapter">DesignOfExperiment</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.SimulationReliabilityResult.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.DesignOfExperiment.html" title="DesignOfExperiment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.SORMAnalysis.html" title="SORMAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SimulationReliabilityResult</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

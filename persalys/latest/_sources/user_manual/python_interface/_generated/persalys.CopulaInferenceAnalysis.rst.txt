@@ -1,0 +1,11 @@
+﻿CopulaInferenceAnalysis
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CopulaInferenceAnalysis
+
+   
+   .. automethod:: __init__
+   
+

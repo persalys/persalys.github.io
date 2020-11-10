@@ -1,0 +1,11 @@
+﻿ProbabilisticDesignOfExperiment
+========================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: ProbabilisticDesignOfExperiment
+
+   
+   .. automethod:: __init__
+   
+

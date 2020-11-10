@@ -1,0 +1,11 @@
+﻿SRCAnalysis
+====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SRCAnalysis
+
+   
+   .. automethod:: __init__
+   
+

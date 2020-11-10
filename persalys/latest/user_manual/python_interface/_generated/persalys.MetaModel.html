@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaModel &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="CouplingInputFile" href="persalys.CouplingInputFile.html" />
+    <link rel="prev" title="DataModel" href="persalys.DataModel.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.CouplingInputFile.html" title="CouplingInputFile"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MetaModel</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="metamodel">
+<h1>MetaModel<a class="headerlink" href="#metamodel" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="persalys.MetaModel">
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">MetaModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metamodel.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>function</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Function (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.MetaModel.thisown" title="persalys.MetaModel.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.addInput" title="persalys.MetaModel.addInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addInput</span></code></a>(input)</p></td>
+<td><p>Add an input variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.addOutput" title="persalys.MetaModel.addOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addOutput</span></code></a>(output)</p></td>
+<td><p>Add an output variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.clearInputs" title="persalys.MetaModel.clearInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearInputs</span></code></a>()</p></td>
+<td><p>Remove all the input variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.clearOutputs" title="persalys.MetaModel.clearOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearOutputs</span></code></a>()</p></td>
+<td><p>Remove all the output variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getClassName" title="persalys.MetaModel.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getCopula" title="persalys.MetaModel.getCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCopula</span></code></a>()</p></td>
+<td><p>Copula accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getDistribution" title="persalys.MetaModel.getDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDistribution</span></code></a>()</p></td>
+<td><p>Distribution accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getFunction" title="persalys.MetaModel.getFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the underlying function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getId" title="persalys.MetaModel.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getInputByName" title="persalys.MetaModel.getInputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputByName</span></code></a>(*args)</p></td>
+<td><p>Input variable accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getInputDimension" title="persalys.MetaModel.getInputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputDimension</span></code></a>()</p></td>
+<td><p>Number of input variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getInputNames" title="persalys.MetaModel.getInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputNames</span></code></a>()</p></td>
+<td><p>Input variable names accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getInputRandomVector" title="persalys.MetaModel.getInputRandomVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputRandomVector</span></code></a>()</p></td>
+<td><p>Input random vector accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getInputs" title="persalys.MetaModel.getInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputs</span></code></a>()</p></td>
+<td><p>Input variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getMeshModel" title="persalys.MetaModel.getMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMeshModel</span></code></a>()</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getName" title="persalys.MetaModel.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getOutputByName" title="persalys.MetaModel.getOutputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputByName</span></code></a>(*args)</p></td>
+<td><p>Output variable accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getOutputDimension" title="persalys.MetaModel.getOutputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputDimension</span></code></a>()</p></td>
+<td><p>Number of output variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getOutputNames" title="persalys.MetaModel.getOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputNames</span></code></a>()</p></td>
+<td><p>Output variable names accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getOutputRandomVector" title="persalys.MetaModel.getOutputRandomVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputRandomVector</span></code></a>(outputNames)</p></td>
+<td><p>Output random vector accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getOutputs" title="persalys.MetaModel.getOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputs</span></code></a>()</p></td>
+<td><p>Output variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getPointToFieldFunction" title="persalys.MetaModel.getPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPointToFieldFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the underlying function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getProcessNumber" title="persalys.MetaModel.getProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getProcessNumber</span></code></a>()</p></td>
+<td><p>Number of concurrent processes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getPythonScript" title="persalys.MetaModel.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Python script accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getRestrictedFunction" title="persalys.MetaModel.getRestrictedFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the function restricted to its stochastic inputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getRestrictedPointToFieldFunction" title="persalys.MetaModel.getRestrictedPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedPointToFieldFunction</span></code></a>(outputNames)</p></td>
+<td><p>Accessor to the field function restricted to its stochastic inputs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getSelectedOutputsNames" title="persalys.MetaModel.getSelectedOutputsNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSelectedOutputsNames</span></code></a>()</p></td>
+<td><p>Accessor to the selected outputs names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getShadowedId" title="persalys.MetaModel.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.getStochasticInputNames" title="persalys.MetaModel.getStochasticInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStochasticInputNames</span></code></a>()</p></td>
+<td><p>Accessor to the names of the stochastic input variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.getVisibility" title="persalys.MetaModel.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.hasInputNamed" title="persalys.MetaModel.hasInputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasInputNamed</span></code></a>(inputName)</p></td>
+<td><p>Check if an input has the given name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.hasMesh" title="persalys.MetaModel.hasMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasMesh</span></code></a>()</p></td>
+<td><p>Whether the model has a mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.hasName" title="persalys.MetaModel.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.hasOutputNamed" title="persalys.MetaModel.hasOutputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasOutputNamed</span></code></a>(outputName)</p></td>
+<td><p>Check if an output has the given name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.hasStochasticInputs" title="persalys.MetaModel.hasStochasticInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasStochasticInputs</span></code></a>()</p></td>
+<td><p>Whether it contains stochastic variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.hasVisibleName" title="persalys.MetaModel.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.isParallel" title="persalys.MetaModel.isParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isParallel</span></code></a>()</p></td>
+<td><p>Whether the evaluations of the model are parallelized.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.isValid" title="persalys.MetaModel.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>()</p></td>
+<td><p>Whether it is valid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.removeInput" title="persalys.MetaModel.removeInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeInput</span></code></a>(inputName)</p></td>
+<td><p>Remove an input variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.removeOutput" title="persalys.MetaModel.removeOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeOutput</span></code></a>(outputName)</p></td>
+<td><p>Remove an output variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.selectOutput" title="persalys.MetaModel.selectOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selectOutput</span></code></a>(outputName, selected)</p></td>
+<td><p>Select output.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setCopula" title="persalys.MetaModel.setCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCopula</span></code></a>(inputNames, copula)</p></td>
+<td><p>Copula accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setDistribution" title="persalys.MetaModel.setDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistribution</span></code></a>(inputName, distribution)</p></td>
+<td><p>Input distribution accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setDistributionParametersType" title="persalys.MetaModel.setDistributionParametersType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistributionParametersType</span></code></a>(inputName, …)</p></td>
+<td><p>Input distribution parameter type accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setFiniteDifferenceStep" title="persalys.MetaModel.setFiniteDifferenceStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFiniteDifferenceStep</span></code></a>(inputName, step)</p></td>
+<td><p>Finite difference step accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setFunction" title="persalys.MetaModel.setFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFunction</span></code></a>(function)</p></td>
+<td><p>Metamodel function accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setInputDescription" title="persalys.MetaModel.setInputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputDescription</span></code></a>(inputName, description)</p></td>
+<td><p>Input description accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setInputName" title="persalys.MetaModel.setInputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputName</span></code></a>(inputName, newName)</p></td>
+<td><p>Input variable name accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setInputStochastic" title="persalys.MetaModel.setInputStochastic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputStochastic</span></code></a>(inputName, stoch)</p></td>
+<td><p>Whether the input variable is stochastic.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setInputValue" title="persalys.MetaModel.setInputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputValue</span></code></a>(inputName, value)</p></td>
+<td><p>Input variable value accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setInputs" title="persalys.MetaModel.setInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputs</span></code></a>(inputs)</p></td>
+<td><p>Input variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setMeshModel" title="persalys.MetaModel.setMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMeshModel</span></code></a>(meshModel)</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setName" title="persalys.MetaModel.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setOutputDescription" title="persalys.MetaModel.setOutputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputDescription</span></code></a>(outputName, description)</p></td>
+<td><p>Output description accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setOutputName" title="persalys.MetaModel.setOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputName</span></code></a>(outputName, newName)</p></td>
+<td><p>Output variable name accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setOutputValue" title="persalys.MetaModel.setOutputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputValue</span></code></a>(outputName, value)</p></td>
+<td><p>Output variable name accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setOutputs" title="persalys.MetaModel.setOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputs</span></code></a>(outputs)</p></td>
+<td><p>Output variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setParallel" title="persalys.MetaModel.setParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setParallel</span></code></a>(flag)</p></td>
+<td><p>Whether the evaluations of the model are parallelized.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setProcessNumber" title="persalys.MetaModel.setProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setProcessNumber</span></code></a>(processNumber)</p></td>
+<td><p>Number of concurrent processes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MetaModel.setShadowedId" title="persalys.MetaModel.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MetaModel.setVisibility" title="persalys.MetaModel.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 60%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>getEvalTime</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>setEvalTime</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="persalys.MetaModel.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.addInput">
+<code class="sig-name descname">addInput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.addInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an input variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>New variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.addOutput">
+<code class="sig-name descname">addOutput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">output</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.addOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an output variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>output</strong><span class="classifier"><a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>New variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.clearInputs">
+<code class="sig-name descname">clearInputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.clearInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all the input variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.clearOutputs">
+<code class="sig-name descname">clearOutputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.clearOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all the output variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getClassName">
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getCopula">
+<code class="sig-name descname">getCopula</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getCopula" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copula accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>copula</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Copula.html#openturns.Copula" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Copula</span></code></a></span></dt><dd><p>The copula</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getDistribution">
+<code class="sig-name descname">getDistribution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>Distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.ComposedDistribution</span></code></a></span></dt><dd><p>The composed distribution (marginals and dependence)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getFunction">
+<code class="sig-name descname">getFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying function.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the outputs to be evaluated (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>function</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Function evaluating the outputs</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getId">
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getInputByName">
+<code class="sig-name descname">getInputByName</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getInputByName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input variable accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getInputDimension">
+<code class="sig-name descname">getInputDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getInputDimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of input variables accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dimension</strong><span class="classifier">int</span></dt><dd><p>Number of input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getInputNames">
+<code class="sig-name descname">getInputNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getInputNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Input variable names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getInputRandomVector">
+<code class="sig-name descname">getInputRandomVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getInputRandomVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input random vector accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.RandomVector</span></code></a></span></dt><dd><p>Input random vector</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getInputs">
+<code class="sig-name descname">getInputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getMeshModel">
+<code class="sig-name descname">getMeshModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getMeshModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getName">
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getOutputByName">
+<code class="sig-name descname">getOutputByName</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getOutputByName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output variable accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getOutputDimension">
+<code class="sig-name descname">getOutputDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getOutputDimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of output variables accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dimension</strong><span class="classifier">int</span></dt><dd><p>Number of output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getOutputNames">
+<code class="sig-name descname">getOutputNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getOutputNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Ouput variable names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getOutputRandomVector">
+<code class="sig-name descname">getOutputRandomVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getOutputRandomVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output random vector accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.RandomVector</span></code></a></span></dt><dd><p>Output random vector</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getOutputs">
+<code class="sig-name descname">getOutputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getPointToFieldFunction">
+<code class="sig-name descname">getPointToFieldFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getPointToFieldFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying function.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the outputs to be evaluated (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>function</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointToFieldFunction</span></code></span></dt><dd><p>Function evaluating the outputs along the mesh nodes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getProcessNumber">
+<code class="sig-name descname">getProcessNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getProcessNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getPythonScript">
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getRestrictedFunction">
+<code class="sig-name descname">getRestrictedFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getRestrictedFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the function restricted to its stochastic inputs.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Output variables (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>restricted</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Stochastic function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getRestrictedPointToFieldFunction">
+<code class="sig-name descname">getRestrictedPointToFieldFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getRestrictedPointToFieldFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the field function restricted to its stochastic inputs.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Output variables (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>restricted</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointToFieldFunction</span></code></span></dt><dd><p>Stochastic field function (for model with mesh)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getSelectedOutputsNames">
+<code class="sig-name descname">getSelectedOutputsNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getSelectedOutputsNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the selected outputs names.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Selected outputs names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getShadowedId">
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getStochasticInputNames">
+<code class="sig-name descname">getStochasticInputNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getStochasticInputNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the names of the stochastic input variables.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Names of the stochastic input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.getVisibility">
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.hasInputNamed">
+<code class="sig-name descname">hasInputNamed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.hasInputNamed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if an input has the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether an input has the given name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.hasMesh">
+<code class="sig-name descname">hasMesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.hasMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the model has a mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasMesh</strong><span class="classifier">bool</span></dt><dd><p>Whether the model has a mesh</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.hasName">
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.hasOutputNamed">
+<code class="sig-name descname">hasOutputNamed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.hasOutputNamed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if an output has the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether an output has the given name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.hasStochasticInputs">
+<code class="sig-name descname">hasStochasticInputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.hasStochasticInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether it contains stochastic variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether it contains stochastic variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.hasVisibleName">
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.isParallel">
+<code class="sig-name descname">isParallel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.isParallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the evaluations of the model are parallelized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isParallel</strong><span class="classifier">bool</span></dt><dd><p>Whether the evaluations of the model are parallelized (available only for the Python model)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.isValid">
+<code class="sig-name descname">isValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.isValid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether it is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isValid</strong><span class="classifier">bool</span></dt><dd><p>Whether it is valid</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.removeInput">
+<code class="sig-name descname">removeInput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.removeInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an input variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.removeOutput">
+<code class="sig-name descname">removeOutput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.removeOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an output variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.selectOutput">
+<code class="sig-name descname">selectOutput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">selected</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.selectOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Output name</p>
+</dd>
+<dt><strong>isSelected</strong><span class="classifier">bool</span></dt><dd><p>Whether it is selected</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setCopula">
+<code class="sig-name descname">setCopula</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputNames</span></em>, <em class="sig-param"><span class="n">copula</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setCopula" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copula accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>copula</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Copula.html#openturns.Copula" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Copula</span></code></a></span></dt><dd><p>The copula</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setDistribution">
+<code class="sig-name descname">setDistribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">distribution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Variable distribution</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setDistributionParametersType">
+<code class="sig-name descname">setDistributionParametersType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">distributionParametersType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setDistributionParametersType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input distribution parameter type accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>parametersType</strong><span class="classifier">int</span></dt><dd><p>Distribution parameter type accessor</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setFiniteDifferenceStep">
+<code class="sig-name descname">setFiniteDifferenceStep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">step</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finite difference step accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>step</strong><span class="classifier">float</span></dt><dd><p>Finite difference step used to define the gradient of the model’s function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setFunction">
+<code class="sig-name descname">setFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">function</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metamodel function accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>function</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Metamodel function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setInputDescription">
+<code class="sig-name descname">setInputDescription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">description</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setInputDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input description accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Description text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setInputName">
+<code class="sig-name descname">setInputName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">newName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setInputName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>newName</strong><span class="classifier">str</span></dt><dd><p>New name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setInputStochastic">
+<code class="sig-name descname">setInputStochastic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">stoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setInputStochastic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the input variable is stochastic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>isStochastic</strong><span class="classifier">bool</span></dt><dd><p>Whether the input variable is stochastic</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setInputValue">
+<code class="sig-name descname">setInputValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setInputValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input variable value accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>New value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setInputs">
+<code class="sig-name descname">setInputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setMeshModel">
+<code class="sig-name descname">setMeshModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">meshModel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setMeshModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setName">
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setOutputDescription">
+<code class="sig-name descname">setOutputDescription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">description</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setOutputDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output description accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Description text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setOutputName">
+<code class="sig-name descname">setOutputName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">newName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setOutputName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>newName</strong><span class="classifier">str</span></dt><dd><p>New name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setOutputValue">
+<code class="sig-name descname">setOutputValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setOutputValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>New value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setOutputs">
+<code class="sig-name descname">setOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setParallel">
+<code class="sig-name descname">setParallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setParallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the evaluations of the model are parallelized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isParallel</strong><span class="classifier">bool</span></dt><dd><p>Whether the evaluations of the model are parallelized (available only for the Python model)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setProcessNumber">
+<code class="sig-name descname">setProcessNumber</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">processNumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setProcessNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setShadowedId">
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.setVisibility">
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModel.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.MetaModel.thisown">
+<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.MetaModel.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.DataModel.html"
+                        title="previous chapter">DataModel</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.CouplingInputFile.html"
+                        title="next chapter">CouplingInputFile</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.MetaModel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.CouplingInputFile.html" title="CouplingInputFile"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MetaModel</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

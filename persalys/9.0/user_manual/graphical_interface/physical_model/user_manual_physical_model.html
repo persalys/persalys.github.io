@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User manual - Define a physical model &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Define a field model" href="../field_model/user_manual_field_model.html" />
+    <link rel="prev" title="User manual - First steps" href="../getting_started/user_manual_getting_started.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../field_model/user_manual_field_model.html" title="User manual - Define a field model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../getting_started/user_manual_getting_started.html" title="User manual - First steps"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a physical model</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-manual-define-a-physical-model">
+<h1>User manual - Define a physical model<a class="headerlink" href="#user-manual-define-a-physical-model" title="Permalink to this headline">¶</a></h1>
+<p>This section introduces the models defined with a vectorial function.</p>
+<dl class="simple">
+<dt>Several types of physical models are available:</dt><dd><ul class="simple">
+<li><p><strong>Symbolic model</strong>: Physical model defined with analytical formulas</p></li>
+<li><p><strong>Python model</strong>: Physical model defined with a Python script</p></li>
+<li><p><strong>Coupling model</strong>: Physical model to wrap an external code using file-exchange</p></li>
+<li><p><strong>YACS model</strong>: Physical model defined with a YACS scheme (optional)</p></li>
+<li><p><strong>FMI model</strong>: Physical model defined with a FMU file (optional)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="creation">
+<h2>1- Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>There are several ways to create a new model:</dt><dd><ul>
+<li><p>Select an item in the context menu of the study item</p>
+<img alt="../../../_images/studyItemContextMenu.png" class="align-center" src="../../../_images/studyItemContextMenu.png" />
+</li>
+<li><p>Click on a button of the study window</p>
+<img alt="../../../_images/studyWindowButtons.png" class="align-center" src="../../../_images/studyWindowButtons.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>The creation of a physical model adds a new element in the study tree, below the <strong>Physical models</strong> section.</p>
+<dl class="simple">
+<dt>Different actions are available through the context menu of the model (by right click):</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the model</p></li>
+<li><p><strong>Define the model</strong>: Open a new window to define the model</p></li>
+<li><p><strong>Duplicate the model</strong>: Create a copy of the model in the study tree</p></li>
+<li><p><strong>Remove</strong>: Remove the model and all the analyses depending on it</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/physicalModelNameContextMenu.png" class="align-center" src="../../../_images/physicalModelNameContextMenu.png" />
+<p id="vectmodeldiagram">The item is associated with a <strong>Study workflow</strong> window.</p>
+<img alt="../../../_images/physicalModelDiagram.png" class="align-center" src="../../../_images/physicalModelDiagram.png" />
+<p>This diagram displays the possible actions an user can perform in real time. An action
+is active when its box is in dark green and when a previous one is valid. A box is disabled when its box
+is in light green, and the previous one is not valid.
+When the mouse pointer is hovered over a box, an information message appears at the bottom of
+the window in order to specify what sort of actions the box proposes. If the box is disabled the
+message indicates why the previous one is not valid.</p>
+<p>On the screenshot above, the mouse points over the <strong>Probabilistic model definition</strong> box: here the
+action is <strong>Define stochastic input variables and the dependence</strong> (below the main window), but
+this action is available only if the user defines at least one input variable in the physical model. So,
+here the only option of the user is to complete the model.</p>
+</div>
+<div class="section" id="definition">
+<h2>2- Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>To define a physical model:</dt><dd><ul>
+<li><p>Select <strong>Define the model</strong> in the context menu of the model item</p>
+<img alt="../../../_images/physicalModelNameContextMenu.png" class="align-center" src="../../../_images/physicalModelNameContextMenu.png" />
+</li>
+<li><p>Click on the <strong>Model definition</strong> box of the model diagram</p>
+<img alt="../../../_images/modeldefBox.png" class="align-center" src="../../../_images/modeldefBox.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>When the definition is required, a new item named <strong>Definition</strong> appears in the study tree.</p>
+<dl class="simple">
+<dt>Its context menu proposes these actions:</dt><dd><ul class="simple">
+<li><p><strong>Probabilistic model</strong>: Create stochastic input variables and dependence</p></li>
+<li><p><strong>Observations</strong>: Import observations of variables of the model</p></li>
+<li><p><strong>Design of experiments</strong>: Create a new design of experiments</p></li>
+<li><p><strong>Evaluation</strong>: Evaluate the model at a point</p></li>
+<li><p><strong>Screening</strong>: Perform a screening analysis</p></li>
+<li><p><strong>Optimization</strong>: Perform an optimization</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu.png" />
+<p>The new item <strong>Definition</strong> is associated with a window in the main frame, whose title is the name of
+the chosen physical model. In this window, the user can specify the model variables (<strong>Definition</strong> tab)
+and the finite difference step of each variable (<strong>Differentiation</strong> tab).</p>
+<div class="section" id="symbolic-model-define-a-physical-model-with-analytical-formulas">
+<span id="vectsymbolicmodel"></span><h3>2-1 <em>Symbolic model</em>: define a physical model with analytical formulas<a class="headerlink" href="#symbolic-model-define-a-physical-model-with-analytical-formulas" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/symbolicPhysicalModel.png" class="align-center" src="../../../_images/symbolicPhysicalModel.png" />
+<dl class="simple">
+<dt>Define variables in the <strong>Definition</strong> tab:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Inputs</strong> section allows to:</dt><dd><ul>
+<li><p>Add/remove inputs (<strong>Add</strong>/<strong>Remove</strong> button)</p></li>
+<li><p>Rename variables (default: (X0, X1, …), expected: string (alphanumeric characters only)) (<strong>Name</strong> column)</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Assign a value to the inputs (default: 0, expected: floating points or integers) (<strong>Value</strong> column)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Outputs</strong> section allows to:</dt><dd><ul>
+<li><p>Add/remove outputs (<strong>Add</strong>/<strong>Remove</strong> button)</p></li>
+<li><p>Enable/disable one or several variables, by checking off the corresponding line (default: all output lines are checked off).
+To perform the analyses, at least one output must be selected.</p></li>
+<li><p>Rename variables (default: (Y0, Y1, …), expected: string (alphanumeric characters only)) (<strong>Name</strong> column)</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Define the mathematical relationships between the input and output variables (<strong>Formula</strong> column).
+Note that the language used here differs from Python (see corresponding syntax for operators,
+mathematical functions and constants below).</p></li>
+<li><p>Launch the computation of the selected output values based on inputs and formula (<strong>Check model</strong> button).
+It shall be used to test the physical model. To save the output values, the user
+should use a <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="available-operators">
+<span id="availablesymbolsmodel"></span><h4>Available operators<a class="headerlink" href="#available-operators" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>= (assignment)</p></li>
+<li><p>&lt;= (less or equal)</p></li>
+<li><p>&gt;= (greater or equal)</p></li>
+<li><p>!= (not equal)</p></li>
+<li><p>== (equal)</p></li>
+<li><p>&gt; (greater than)</p></li>
+<li><p>&lt; (less than)</p></li>
+<li><p>+ (addition)</p></li>
+<li><p>- (subtraction)</p></li>
+<li><p>* (multiplication)</p></li>
+<li><p>/ (division)</p></li>
+<li><p>^ (raise x to the power of y)</p></li>
+</ul>
+</div>
+<div class="section" id="available-functions">
+<h4>Available functions<a class="headerlink" href="#available-functions" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>sin</p></li>
+<li><p>cos</p></li>
+<li><p>tan</p></li>
+<li><p>asin</p></li>
+<li><p>acos</p></li>
+<li><p>atan</p></li>
+<li><p>sinh</p></li>
+<li><p>cosh</p></li>
+<li><p>tanh</p></li>
+<li><p>asinh</p></li>
+<li><p>acosh</p></li>
+<li><p>atanh</p></li>
+<li><p>log2</p></li>
+<li><p>log10</p></li>
+<li><p>log</p></li>
+<li><p>ln</p></li>
+<li><p>lngamma</p></li>
+<li><p>gamma</p></li>
+<li><p>exp</p></li>
+<li><p>erf</p></li>
+<li><p>erfc</p></li>
+<li><p>sqrt</p></li>
+<li><p>cbrt</p></li>
+<li><p>besselJ0</p></li>
+<li><p>besselJ1</p></li>
+<li><p>besselY0</p></li>
+<li><p>besselY1</p></li>
+<li><p>sign</p></li>
+<li><p>rint</p></li>
+<li><p>abs</p></li>
+<li><p>min</p></li>
+<li><p>max</p></li>
+<li><p>avg</p></li>
+<li><p>sum</p></li>
+<li><p>floor</p></li>
+<li><p>ceil</p></li>
+<li><p>trunc</p></li>
+<li><p>round</p></li>
+</ul>
+</div>
+<div class="section" id="available-constants">
+<h4>Available constants<a class="headerlink" href="#available-constants" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>e_</p></li>
+<li><p>pi_</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="python-model-define-a-physical-model-with-a-python-editor">
+<span id="vectpythonmodel"></span><h3>2-2 <em>Python model</em>: define a physical model with a Python editor<a class="headerlink" href="#python-model-define-a-physical-model-with-a-python-editor" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/pythonPhysicalModel_default1.png" class="align-center" src="../../../_images/pythonPhysicalModel_default1.png" />
+<dl class="simple">
+<dt>The model definition window contains:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Python editor</strong> allows to define the model with the function <strong>_exec</strong> which:</dt><dd><ul>
+<li><p>takes floating point arguments (detected as the inputs of the model) (default: X0)</p></li>
+<li><p>returns a float or a sequence of floats (detected as the outputs of the model) (default: Y0 = X0)</p></li>
+<li><p>can use other statements defined in the Python editor</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Inputs</strong> section allows to:</dt><dd><ul>
+<li><p>List the inputs detected from the function <strong>_exec</strong></p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Assign a value to the inputs (default: 0, expected: floating points or integers) (<strong>Value</strong> column)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Outputs</strong> section allows to:</dt><dd><ul>
+<li><p>List the outputs detected from the function <strong>_exec</strong></p></li>
+<li><p>Enable/disable one or several variables, by checking off the corresponding line (default: all output lines are checked off).
+To perform the analyses, at least one output must be selected.</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Require the parallelization of the computations (<strong>Enable multiprocessing</strong> button)</p></li>
+<li><p>Launch the computation of the selected output values based on inputs, and the Python function (<strong>Check model</strong> button).
+It shall be used to test the physical model. To save the output values, the user
+should use a <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Here is an example of a more complex model definition:</p>
+<img alt="../../../_images/pythonPhysicalModel1.png" class="align-center" src="../../../_images/pythonPhysicalModel1.png" />
+<p>Here is an example of an error message transmission, when we tried to compute sqrt(C=-450):</p>
+<img alt="../../../_images/pythonPhysicalModel_error1.png" class="align-center" src="../../../_images/pythonPhysicalModel_error1.png" />
+</div>
+<div class="section" id="coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange">
+<span id="vectcouplingmodel"></span><h3>2-3 <em>Coupling model</em>: define a physical model to wrap an external code using file-exchange<a class="headerlink" href="#coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange" title="Permalink to this headline">¶</a></h3>
+<p>A physical model can be defined to wrap an external code. I/O can be
+cached in dedicated files. Remember to clear it when significant
+changes are made on the model. Working directory (local temp area by
+default) can be explicitely set. The checkbox allows the user to keep
+the working directory once the model has run. The <strong>Check model</strong>
+button runs the model on the defined input values. It shall be used to
+test the physical model. To save the output values, the user should
+use the <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p>
+<p>A coupling model is divided into steps (one per tab), each with
+its own parameters.</p>
+<p>Step definition is divided into several categories:</p>
+<ul class="simple">
+<li><p>Command: used to define the command calling the external code. This
+can be empty if one decides to set a pre-processing. In addition I/O
+encoding (utf-8/latin-1) and command timeout (-1 for no time out)
+can be set.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Command.png" class="align-center" src="../../../_images/CPM_Command.png" />
+<ul class="simple">
+<li><p>Inputs: used to locate the template file that will be used to
+generate inputs files for the command. Each input variable is
+associated to a token that will tell the coupling model code where
+to find it in the input file. Template file correctness can be
+evaluated using the “check input button”. Template and generated
+input files will be displayed side-by-side for visual inspection and
+validation.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Input.png" class="align-center" src="../../../_images/CPM_Input.png" />
+<ul class="simple">
+<li><p>Resources: used to locate the files required by the command
+(executable, configuration files, etc..)</p></li>
+</ul>
+<img alt="../../../_images/CPM_Resource.png" class="align-center" src="../../../_images/CPM_Resource.png" />
+<ul class="simple">
+<li><p>Outputs: used to specify the output file name and specify where to
+find the output variables in it. Similarly to the Inputs section,
+output varaibles are associated to a token. In addition, numerical
+format can be specified as in <a class="reference external" href="https://pyformat.info/">https://pyformat.info/</a> set of “new
+rules”. Generated output files can be inspected using the “check
+output button”. When clicked it will ask the user to choose a
+generated output file and will try to retrieve the output variables
+values.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Output.png" class="align-center" src="../../../_images/CPM_Output.png" />
+<ul class="simple">
+<li><p>Additional processing (Optional): A python editor (similar to the
+one in the PythonModel) can be used to set a pre/post processing
+function. Variables form preceding steps and/or intermediate/output
+variables can be defined and manipulated here.</p></li>
+</ul>
+<img alt="../../../_images/CPM_ExtraProcessing.png" class="align-center" src="../../../_images/CPM_ExtraProcessing.png" />
+</div>
+<div class="section" id="yacs-model-define-a-physical-model-with-an-xml-file">
+<span id="vectyacsmodel"></span><h3>2-4 <em>YACS model</em>: define a physical model with an XML file<a class="headerlink" href="#yacs-model-define-a-physical-model-with-an-xml-file" title="Permalink to this headline">¶</a></h3>
+<p>A physical model can be defined by loading an XML file, previously generated for example with Salome,
+which contains:</p>
+<ul class="simple">
+<li><p>Definitions for the input and output variables;</p></li>
+<li><p>Computation parameters;</p></li>
+<li><p>Actions to be performed to evaluate the model (for instance, a call to Code_Aster solver)</p></li>
+</ul>
+<p>The <strong>Check model</strong> button computes the output values based on inputs and the YACS scheme. It shall be
+used to test the physical model. To save the output values, the user should use the <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p>
+</div>
+<div class="section" id="fmi-model-define-a-physical-model-from-an-fmu-file">
+<span id="vectfmimodel"></span><h3>2-5 <em>FMI model</em>: define a physical model from an FMU file<a class="headerlink" href="#fmi-model-define-a-physical-model-from-an-fmu-file" title="Permalink to this headline">¶</a></h3>
+<p>A physical model can be defined by loading a FMU file, previously generated
+by OpenModelica for example.</p>
+<img alt="../../../_images/FMIPhysicalModel1.png" class="align-center" src="../../../_images/FMIPhysicalModel1.png" />
+<p>The <strong>Properties</strong> tab allows to select the FMU file and to display its properties.</p>
+<p>The <strong>Variables</strong> tab describes the model variables.
+The main array shows the list of the variables.
+While the variability and causality are read-only FMI attributes,
+one may want to change whether how variables are used regarding the physical
+model: disabled, input or output in the <em>I/O</em> column under the following constraints:</p>
+<ul class="simple">
+<li><p>A variable of causality <em>Input</em> cannot be disabled</p></li>
+<li><p>A variable of causality <em>Output</em> or <em>Local</em> cannot be used as input</p></li>
+<li><p>A variable of causality <em>Input</em> or <em>Parameter</em> cannot be used as output</p></li>
+</ul>
+<img alt="../../../_images/FMIPhysicalModel2.png" class="align-center" src="../../../_images/FMIPhysicalModel2.png" />
+<p>By default, all the variables appear in the array and some filters allow
+to modify the currently listed variables.</p>
+<p>The <strong>Check model</strong> button runs the model once.
+The output values are displayed in the <strong>Value</strong> column.</p>
+</div>
+<div class="section" id="differentiation-tab">
+<span id="differentiationtab"></span><h3>2-6 Differentiation tab<a class="headerlink" href="#differentiation-tab" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/differentiation_tab.png" class="align-center" src="../../../_images/differentiation_tab.png" />
+<p>The <strong>Differentiation</strong> tab enables the user to define the finite difference step of each input variable.
+By default each step is equal to 1e-7.
+These steps are used to set the gradient of the model function with the first order non-centered finite difference scheme
+and its hessian with the second order centered finite difference scheme.</p>
+<p>First order non-centered finite difference scheme:</p>
+<div class="math">
+<p><img src="../../../_images/math/60a94aca6f3e40dba58460e654f31e389112f5c2.svg" alt="\frac{\partial f_j}{\partial x_i} \approx \frac{f_j(x + \epsilon_i) - f_j(x)}
+                                               {\epsilon_i}"/></p>
+</div><p>Second order centered finite difference scheme:</p>
+<div class="math">
+<p><img src="../../../_images/math/2419d5f44d91ad2d05c0d75612c4477df5a96e57.svg" alt="\frac{\partial^2 f_k}{\partial x_i \partial x_j} \approx
+                                   \frac{
+                                      f_k(x + \epsilon_i + \epsilon_j) -
+                                      f_k(x + \epsilon_i - \epsilon_j) +
+                                      f_k(x - \epsilon_i - \epsilon_j) -
+                                      f_k(x - \epsilon_i + \epsilon_j)}
+                                   {4 \epsilon_i \epsilon_j}"/></p>
+</div></div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">User manual - Define a physical model</a><ul>
+<li><a class="reference internal" href="#creation">1- Creation</a></li>
+<li><a class="reference internal" href="#definition">2- Definition</a><ul>
+<li><a class="reference internal" href="#symbolic-model-define-a-physical-model-with-analytical-formulas">2-1 <em>Symbolic model</em>: define a physical model with analytical formulas</a><ul>
+<li><a class="reference internal" href="#available-operators">Available operators</a></li>
+<li><a class="reference internal" href="#available-functions">Available functions</a></li>
+<li><a class="reference internal" href="#available-constants">Available constants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-model-define-a-physical-model-with-a-python-editor">2-2 <em>Python model</em>: define a physical model with a Python editor</a></li>
+<li><a class="reference internal" href="#coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange">2-3 <em>Coupling model</em>: define a physical model to wrap an external code using file-exchange</a></li>
+<li><a class="reference internal" href="#yacs-model-define-a-physical-model-with-an-xml-file">2-4 <em>YACS model</em>: define a physical model with an XML file</a></li>
+<li><a class="reference internal" href="#fmi-model-define-a-physical-model-from-an-fmu-file">2-5 <em>FMI model</em>: define a physical model from an FMU file</a></li>
+<li><a class="reference internal" href="#differentiation-tab">2-6 Differentiation tab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../getting_started/user_manual_getting_started.html"
+                        title="previous chapter">User manual - First steps</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../field_model/user_manual_field_model.html"
+                        title="next chapter">User manual - Define a field model</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/physical_model/user_manual_physical_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../field_model/user_manual_field_model.html" title="User manual - Define a field model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../getting_started/user_manual_getting_started.html" title="User manual - First steps"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a physical model</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,11 @@
+﻿DesignOfExperiment
+===========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DesignOfExperiment
+
+   
+   .. automethod:: __init__
+   
+

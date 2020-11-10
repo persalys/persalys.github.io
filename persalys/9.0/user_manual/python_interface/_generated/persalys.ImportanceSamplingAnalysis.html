@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImportanceSamplingAnalysis &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FORMAnalysis" href="persalys.FORMAnalysis.html" />
+    <link rel="prev" title="FORMImportanceSamplingAnalysis" href="persalys.FORMImportanceSamplingAnalysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.FORMAnalysis.html" title="FORMAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FORMImportanceSamplingAnalysis.html" title="FORMImportanceSamplingAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ImportanceSamplingAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="importancesamplinganalysis">
+<h1>ImportanceSamplingAnalysis<a class="headerlink" href="#importancesamplinganalysis" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="persalys.ImportanceSamplingAnalysis">
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">ImportanceSamplingAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run importance sampling for reliability analysis.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>limitState</strong><span class="classifier"><a class="reference internal" href="persalys.LimitState.html#persalys.LimitState" title="persalys.LimitState"><code class="xref py py-class docutils literal notranslate"><span class="pre">LimitState</span></code></a></span></dt><dd><p>Limit state</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the limit state:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">&#39;ls1&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Process the reliability analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ImportanceSamplingAnalysis</span><span class="p">(</span><span class="s1">&#39;myAnalysis&#39;</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setStandardSpaceDesignPoint</span><span class="p">([</span><span class="o">-</span><span class="mf">1.59388</span><span class="p">,</span><span class="mf">0.998942</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pf</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getSimulationResult</span><span class="p">()</span><span class="o">.</span><span class="n">getProbabilityEstimate</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.thisown" title="persalys.ImportanceSamplingAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getBlockSize" title="persalys.ImportanceSamplingAnalysis.getBlockSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBlockSize</span></code></a>()</p></td>
+<td><p>Block size accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getClassName" title="persalys.ImportanceSamplingAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getErrorMessage" title="persalys.ImportanceSamplingAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getId" title="persalys.ImportanceSamplingAnalysis.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getInterestVariables" title="persalys.ImportanceSamplingAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getLimitState" title="persalys.ImportanceSamplingAnalysis.getLimitState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLimitState</span></code></a>()</p></td>
+<td><p>Limit-state accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getMaximumCalls" title="persalys.ImportanceSamplingAnalysis.getMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCalls</span></code></a>()</p></td>
+<td><p>Maximum calls accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getMaximumCoefficientOfVariation" title="persalys.ImportanceSamplingAnalysis.getMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCoefficientOfVariation</span></code></a>()</p></td>
+<td><p>Maximum coefficient of variation accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getMaximumElapsedTime" title="persalys.ImportanceSamplingAnalysis.getMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumElapsedTime</span></code></a>()</p></td>
+<td><p>Maximum elapsed time accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getName" title="persalys.ImportanceSamplingAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getPhysicalModel" title="persalys.ImportanceSamplingAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getPythonScript" title="persalys.ImportanceSamplingAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getResult" title="persalys.ImportanceSamplingAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Result accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getSeed" title="persalys.ImportanceSamplingAnalysis.getSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSeed</span></code></a>()</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getShadowedId" title="persalys.ImportanceSamplingAnalysis.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getStandardSpaceDesignPoint" title="persalys.ImportanceSamplingAnalysis.getStandardSpaceDesignPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStandardSpaceDesignPoint</span></code></a>()</p></td>
+<td><p>Accessor to standard space design point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getVisibility" title="persalys.ImportanceSamplingAnalysis.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.getWarningMessage" title="persalys.ImportanceSamplingAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.hasName" title="persalys.ImportanceSamplingAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.hasValidResult" title="persalys.ImportanceSamplingAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.hasVisibleName" title="persalys.ImportanceSamplingAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.isReliabilityAnalysis" title="persalys.ImportanceSamplingAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.isRunning" title="persalys.ImportanceSamplingAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.run" title="persalys.ImportanceSamplingAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setBlockSize" title="persalys.ImportanceSamplingAnalysis.setBlockSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlockSize</span></code></a>(size)</p></td>
+<td><p>Block size accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setInterestVariables" title="persalys.ImportanceSamplingAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(outputsNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setMaximumCalls" title="persalys.ImportanceSamplingAnalysis.setMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCalls</span></code></a>(maxi)</p></td>
+<td><p>Maximum calls accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setMaximumCoefficientOfVariation" title="persalys.ImportanceSamplingAnalysis.setMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCoefficientOfVariation</span></code></a>(coef)</p></td>
+<td><p>Maximum coefficient of variation accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setMaximumElapsedTime" title="persalys.ImportanceSamplingAnalysis.setMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumElapsedTime</span></code></a>(seconds)</p></td>
+<td><p>Maximum elapsed time accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setName" title="persalys.ImportanceSamplingAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setSeed" title="persalys.ImportanceSamplingAnalysis.setSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSeed</span></code></a>(seed)</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setShadowedId" title="persalys.ImportanceSamplingAnalysis.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setStandardSpaceDesignPoint" title="persalys.ImportanceSamplingAnalysis.setStandardSpaceDesignPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setStandardSpaceDesignPoint</span></code></a>(point)</p></td>
+<td><p>Accessor to standard space design point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.ImportanceSamplingAnalysis.setVisibility" title="persalys.ImportanceSamplingAnalysis.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getBlockSize">
+<code class="sig-name descname">getBlockSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getBlockSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block size accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>size</strong><span class="classifier">int</span></dt><dd><p>Number of terms in the probability simulation estimator grouped together.
+It is set by default to 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getClassName">
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getErrorMessage">
+<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getId">
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getInterestVariables">
+<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getLimitState">
+<code class="sig-name descname">getLimitState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getLimitState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit-state accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>limitState</strong><span class="classifier"><a class="reference internal" href="persalys.LimitState.html#persalys.LimitState" title="persalys.LimitState"><code class="xref py py-class docutils literal notranslate"><span class="pre">LimitState</span></code></a></span></dt><dd><p>The Limit-state.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getMaximumCalls">
+<code class="sig-name descname">getMaximumCalls</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getMaximumCalls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum calls accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCalls</strong><span class="classifier">positive int</span></dt><dd><p>The maximum calls of the function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getMaximumCoefficientOfVariation">
+<code class="sig-name descname">getMaximumCoefficientOfVariation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum coefficient of variation accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCoef</strong><span class="classifier">double</span></dt><dd><p>The maximum coefficient of variation. It is set by default to 0.01.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getMaximumElapsedTime">
+<code class="sig-name descname">getMaximumElapsedTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum elapsed time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxTime</strong><span class="classifier">positive int</span></dt><dd><p>The maximum elapsed time in seconds. It is set by default to 60 seconds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getName">
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getPhysicalModel">
+<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getPythonScript">
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getResult">
+<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.SimulationReliabilityResult.html#persalys.SimulationReliabilityResult" title="persalys.SimulationReliabilityResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulationReliabilityResult</span></code></a></span></dt><dd><p>Result</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getSeed">
+<code class="sig-name descname">getSeed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getShadowedId">
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getStandardSpaceDesignPoint">
+<code class="sig-name descname">getStandardSpaceDesignPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getStandardSpaceDesignPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to standard space design point.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>point</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd><p>Standard space design point. It is the mean of the Normal distribution used to sample.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getVisibility">
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.getWarningMessage">
+<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.hasName">
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.hasValidResult">
+<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.hasVisibleName">
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.isReliabilityAnalysis">
+<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.isRunning">
+<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setBlockSize">
+<code class="sig-name descname">setBlockSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setBlockSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block size accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>size</strong><span class="classifier">int</span></dt><dd><p>Number of terms in the probability simulation estimator grouped together.
+It is set by default to 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setInterestVariables">
+<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputsNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setMaximumCalls">
+<code class="sig-name descname">setMaximumCalls</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">maxi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setMaximumCalls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum calls accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCalls</strong><span class="classifier">positive int</span></dt><dd><p>The maximum calls of the function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setMaximumCoefficientOfVariation">
+<code class="sig-name descname">setMaximumCoefficientOfVariation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coef</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum coefficient of variation accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCoef</strong><span class="classifier">double</span></dt><dd><p>The maximum coefficient of variation. It is set by default to 0.01.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setMaximumElapsedTime">
+<code class="sig-name descname">setMaximumElapsedTime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seconds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum elapsed time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxTime</strong><span class="classifier">positive int</span></dt><dd><p>The maximum elapsed time in seconds. It is set by default to 60 seconds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setName">
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setSeed">
+<code class="sig-name descname">setSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setShadowedId">
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setStandardSpaceDesignPoint">
+<code class="sig-name descname">setStandardSpaceDesignPoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">point</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setStandardSpaceDesignPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to standard space design point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>point</strong><span class="classifier">sequence of float</span></dt><dd><p>Standard space design point. It is the mean of the Normal distribution used to sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.setVisibility">
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.ImportanceSamplingAnalysis.thisown">
+<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.ImportanceSamplingAnalysis.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.FORMImportanceSamplingAnalysis.html"
+                        title="previous chapter">FORMImportanceSamplingAnalysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.FORMAnalysis.html"
+                        title="next chapter">FORMAnalysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.ImportanceSamplingAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.FORMAnalysis.html" title="FORMAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FORMImportanceSamplingAnalysis.html" title="FORMImportanceSamplingAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ImportanceSamplingAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

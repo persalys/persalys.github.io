@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KrigingAnalysis &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MetaModelAnalysisResult" href="persalys.MetaModelAnalysisResult.html" />
+    <link rel="prev" title="FunctionalChaosAnalysis" href="persalys.FunctionalChaosAnalysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.MetaModelAnalysisResult.html" title="MetaModelAnalysisResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FunctionalChaosAnalysis.html" title="FunctionalChaosAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">KrigingAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="kriginganalysis">
+<h1>KrigingAnalysis<a class="headerlink" href="#kriginganalysis" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="persalys.KrigingAnalysis">
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">KrigingAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Kriging analysis.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>designOfExperiment</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ot</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="o">.</span><span class="n">SetSeed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">xi1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi1&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xi2</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi2&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xi3</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi3&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;y0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">xi1</span><span class="p">,</span> <span class="n">xi2</span><span class="p">,</span> <span class="n">xi3</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;sin(xi1) + 7. * (sin(xi2)) ^ 2 + 0.1 * xi3^4 * sin(xi1)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the design of experiments:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ProbabilisticDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;aDesign&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;LHS&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Create the Kriging Analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">KrigingAnalysis</span><span class="p">(</span><span class="s1">&#39;kriging&#39;</span><span class="p">,</span> <span class="n">aDesign</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span><span class="o">.</span><span class="n">setBasis</span><span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">LinearBasisFactory</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span><span class="o">.</span><span class="n">setCovarianceModel</span><span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">GeneralizedExponential</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span><span class="o">.</span><span class="n">setLeaveOneOutValidation</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">krigingResult</span> <span class="o">=</span> <span class="n">kriging</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.KrigingAnalysis.thisown" title="persalys.KrigingAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.analyticalValidation" title="persalys.KrigingAnalysis.analyticalValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">analyticalValidation</span></code></a>()</p></td>
+<td><p>Whether an analytical validation is requested.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getBasis" title="persalys.KrigingAnalysis.getBasis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBasis</span></code></a>()</p></td>
+<td><p>Trend basis accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getClassName" title="persalys.KrigingAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getCovarianceModel" title="persalys.KrigingAnalysis.getCovarianceModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCovarianceModel</span></code></a>()</p></td>
+<td><p>Covariance model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getDesignOfExperiment" title="persalys.KrigingAnalysis.getDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDesignOfExperiment</span></code></a>()</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getEffectiveInputSample" title="persalys.KrigingAnalysis.getEffectiveInputSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEffectiveInputSample</span></code></a>()</p></td>
+<td><p>Effective input sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getEffectiveOutputSample" title="persalys.KrigingAnalysis.getEffectiveOutputSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEffectiveOutputSample</span></code></a>()</p></td>
+<td><p>Effective output sample accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getErrorMessage" title="persalys.KrigingAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getId" title="persalys.KrigingAnalysis.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getInterestVariables" title="persalys.KrigingAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getKFoldValidationNumberOfFolds" title="persalys.KrigingAnalysis.getKFoldValidationNumberOfFolds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getKFoldValidationNumberOfFolds</span></code></a>()</p></td>
+<td><p>Number of folds accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getKFoldValidationSeed" title="persalys.KrigingAnalysis.getKFoldValidationSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getKFoldValidationSeed</span></code></a>()</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getName" title="persalys.KrigingAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getOptimizeParameters" title="persalys.KrigingAnalysis.getOptimizeParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOptimizeParameters</span></code></a>()</p></td>
+<td><p>Accessor to the covariance model parameters optimization flag.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getPythonScript" title="persalys.KrigingAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getResult" title="persalys.KrigingAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Results accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getShadowedId" title="persalys.KrigingAnalysis.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getTestSampleValidationPercentageOfPoints" title="persalys.KrigingAnalysis.getTestSampleValidationPercentageOfPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTestSampleValidationPercentageOfPoints</span></code></a>()</p></td>
+<td><p>Percentage of points accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getTestSampleValidationSeed" title="persalys.KrigingAnalysis.getTestSampleValidationSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTestSampleValidationSeed</span></code></a>()</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getVisibility" title="persalys.KrigingAnalysis.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.getWarningMessage" title="persalys.KrigingAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.hasName" title="persalys.KrigingAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.hasValidResult" title="persalys.KrigingAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.hasVisibleName" title="persalys.KrigingAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.isReliabilityAnalysis" title="persalys.KrigingAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.isRunning" title="persalys.KrigingAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.kFoldValidation" title="persalys.KrigingAnalysis.kFoldValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">kFoldValidation</span></code></a>()</p></td>
+<td><p>Whether a k-Fold cross-validation is requested.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.leaveOneOutValidation" title="persalys.KrigingAnalysis.leaveOneOutValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">leaveOneOutValidation</span></code></a>()</p></td>
+<td><p>Whether a validation by leave-one-out is requested.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.run" title="persalys.KrigingAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setAnalyticalValidation" title="persalys.KrigingAnalysis.setAnalyticalValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setAnalyticalValidation</span></code></a>(validation)</p></td>
+<td><p>Whether an analytical validation is requested.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setBasis" title="persalys.KrigingAnalysis.setBasis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBasis</span></code></a>(basis)</p></td>
+<td><p>Trend basis accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setCovarianceModel" title="persalys.KrigingAnalysis.setCovarianceModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCovarianceModel</span></code></a>(model)</p></td>
+<td><p>Covariance model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setInterestVariables" title="persalys.KrigingAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setKFoldValidation" title="persalys.KrigingAnalysis.setKFoldValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setKFoldValidation</span></code></a>(validation)</p></td>
+<td><p>Whether a k-Fold cross-validation is requested.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setKFoldValidationNumberOfFolds" title="persalys.KrigingAnalysis.setKFoldValidationNumberOfFolds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setKFoldValidationNumberOfFolds</span></code></a>(nbFolds)</p></td>
+<td><p>Number of folds accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setKFoldValidationSeed" title="persalys.KrigingAnalysis.setKFoldValidationSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setKFoldValidationSeed</span></code></a>(seed)</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setLeaveOneOutValidation" title="persalys.KrigingAnalysis.setLeaveOneOutValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setLeaveOneOutValidation</span></code></a>(validation)</p></td>
+<td><p>Whether it is sparse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setName" title="persalys.KrigingAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object’s name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setOptimizeParameters" title="persalys.KrigingAnalysis.setOptimizeParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOptimizeParameters</span></code></a>(optimize)</p></td>
+<td><p>Accessor to the covariance model parameters optimization flag.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setShadowedId" title="persalys.KrigingAnalysis.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object’s shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setTestSampleValidation" title="persalys.KrigingAnalysis.setTestSampleValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setTestSampleValidation</span></code></a>(validation)</p></td>
+<td><p>Whether a validation with a test sample is requested.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setTestSampleValidationPercentageOfPoints" title="persalys.KrigingAnalysis.setTestSampleValidationPercentageOfPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setTestSampleValidationPercentageOfPoints</span></code></a>(…)</p></td>
+<td><p>Percentage of points accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setTestSampleValidationSeed" title="persalys.KrigingAnalysis.setTestSampleValidationSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setTestSampleValidationSeed</span></code></a>(seed)</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.setVisibility" title="persalys.KrigingAnalysis.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object’s visibility state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.KrigingAnalysis.testSampleValidation" title="persalys.KrigingAnalysis.testSampleValidation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">testSampleValidation</span></code></a>()</p></td>
+<td><p>Whether a validation with a test sample is requested.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.analyticalValidation">
+<code class="sig-name descname">analyticalValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.analyticalValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether an analytical validation is requested.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether an analytical validation is requested.
+This method corresponds to an approximation of the Leave-one-out method result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getBasis">
+<code class="sig-name descname">getBasis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getBasis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trend basis accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>basis</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Basis.html#openturns.Basis" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Basis</span></code></a></span></dt><dd><p>Trend basis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getClassName">
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getCovarianceModel">
+<code class="sig-name descname">getCovarianceModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getCovarianceModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Covariance model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.CovarianceModel</span></code></a></span></dt><dd><p>Covariance model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getDesignOfExperiment">
+<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getEffectiveInputSample">
+<code class="sig-name descname">getEffectiveInputSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getEffectiveInputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effective input sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Sample of all the input variables if all of them are deterministic.
+Otherwise, sample of the stochastic input variables.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getEffectiveOutputSample">
+<code class="sig-name descname">getEffectiveOutputSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getEffectiveOutputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effective output sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Sample of the interest output variables.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getErrorMessage">
+<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getId">
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getInterestVariables">
+<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getKFoldValidationNumberOfFolds">
+<code class="sig-name descname">getKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of folds accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>folds</strong><span class="classifier">int</span></dt><dd><p>Number of folds. By default it is 3.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getKFoldValidationSeed">
+<code class="sig-name descname">getKFoldValidationSeed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed value for k-Fold cross-validation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getName">
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getOptimizeParameters">
+<code class="sig-name descname">getOptimizeParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getOptimizeParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the covariance model parameters optimization flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>optimize</strong><span class="classifier">bool</span></dt><dd><p>Whether to optimize the covariance model parameters</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getPythonScript">
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getResult">
+<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Results accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.KrigingAnalysisResult.html#persalys.KrigingAnalysisResult" title="persalys.KrigingAnalysisResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">KrigingAnalysisResult</span></code></a></span></dt><dd><p>Results</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getShadowedId">
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getTestSampleValidationPercentageOfPoints">
+<code class="sig-name descname">getTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of points accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>percentage</strong><span class="classifier">int</span></dt><dd><p>Percentage of points used to validate the metamodel. By default it is 20%.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getTestSampleValidationSeed">
+<code class="sig-name descname">getTestSampleValidationSeed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed value for the validation with a test sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getVisibility">
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.getWarningMessage">
+<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.hasName">
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.hasValidResult">
+<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.hasVisibleName">
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.isReliabilityAnalysis">
+<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.isRunning">
+<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.kFoldValidation">
+<code class="sig-name descname">kFoldValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.kFoldValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a k-Fold cross-validation is requested.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether a k-Fold cross-validation is requested</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.leaveOneOutValidation">
+<code class="sig-name descname">leaveOneOutValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.leaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a validation by leave-one-out is requested.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether a validation by leave-one-out is requested</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setAnalyticalValidation">
+<code class="sig-name descname">setAnalyticalValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setAnalyticalValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether an analytical validation is requested.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether an analytical validation is requested.
+This method corresponds to an approximation of the Leave-one-out method result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setBasis">
+<code class="sig-name descname">setBasis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">basis</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setBasis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trend basis accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>basis</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Basis.html#openturns.Basis" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Basis</span></code></a></span></dt><dd><p>Trend basis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setCovarianceModel">
+<code class="sig-name descname">setCovarianceModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setCovarianceModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Covariance model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.CovarianceModel</span></code></a></span></dt><dd><p>Covariance model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setInterestVariables">
+<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">variablesNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setKFoldValidation">
+<code class="sig-name descname">setKFoldValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setKFoldValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a k-Fold cross-validation is requested.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether a k-Fold cross-validation is requested</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setKFoldValidationNumberOfFolds">
+<code class="sig-name descname">setKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nbFolds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of folds accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>folds</strong><span class="classifier">int</span></dt><dd><p>Number of folds. By default it is 3.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setKFoldValidationSeed">
+<code class="sig-name descname">setKFoldValidationSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed value for k-Fold cross-validation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setLeaveOneOutValidation">
+<code class="sig-name descname">setLeaveOneOutValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setLeaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether it is sparse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether a validation by leave-one-out is requested</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setName">
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setOptimizeParameters">
+<code class="sig-name descname">setOptimizeParameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimize</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setOptimizeParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the covariance model parameters optimization flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>optimize</strong><span class="classifier">bool</span></dt><dd><p>Whether to optimize the covariance model parameters</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setShadowedId">
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setTestSampleValidation">
+<code class="sig-name descname">setTestSampleValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setTestSampleValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a validation with a test sample is requested.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether a validation with a test sample is requested.
+The data sample is dividing into two sub-samples: a training sample
+(default: 80% of the sample points) and a test sample (default:
+20% of the sample points). A new metamodel is built
+with the training sample and is validated with the test sample.
+The points are randomly picked in the data sample (by default the seed is 1).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setTestSampleValidationPercentageOfPoints">
+<code class="sig-name descname">setTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">percentage</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of points accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>percentage</strong><span class="classifier">int</span></dt><dd><p>Percentage of points used to validate the metamodel. By default it is 20%.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setTestSampleValidationSeed">
+<code class="sig-name descname">setTestSampleValidationSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed value for the validation with a test sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.setVisibility">
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.testSampleValidation">
+<code class="sig-name descname">testSampleValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.KrigingAnalysis.testSampleValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a validation with a test sample is requested.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>validation</strong><span class="classifier">bool</span></dt><dd><p>Whether a validation with a test sample is requested.
+The data sample is dividing into two sub-samples: a training sample
+(default: 80% of the sample points) and a test sample (default:
+20% of the sample points). A new metamodel is built
+with the training sample and is validated with the test sample.
+The points are randomly picked in the data sample (by default the seed is 1).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="persalys.KrigingAnalysis.thisown">
+<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.KrigingAnalysis.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.FunctionalChaosAnalysis.html"
+                        title="previous chapter">FunctionalChaosAnalysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.MetaModelAnalysisResult.html"
+                        title="next chapter">MetaModelAnalysisResult</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.KrigingAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.MetaModelAnalysisResult.html" title="MetaModelAnalysisResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FunctionalChaosAnalysis.html" title="FunctionalChaosAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">KrigingAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

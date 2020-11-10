@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User manual - Deterministic analyses &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Probabilistic analyses" href="../probabilistic_analysis/user_manual_probabilistic_analysis.html" />
+    <link rel="prev" title="User manual - Define a data model" href="../data_model/user_manual_data_model.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../probabilistic_analysis/user_manual_probabilistic_analysis.html" title="User manual - Probabilistic analyses"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../data_model/user_manual_data_model.html" title="User manual - Define a data model"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Deterministic analyses</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-manual-deterministic-analyses">
+<h1>User manual - Deterministic analyses<a class="headerlink" href="#user-manual-deterministic-analyses" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>The interface allows the user to launch the following types of deterministic analysis:</dt><dd><ul class="simple">
+<li><p>Designs of experiments for model evaluations on a set of input values</p></li>
+<li><p>Model evaluations</p></li>
+<li><p>Screening</p></li>
+<li><p>Optimization</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="designs-of-experiments">
+<span id="deterministicstudy"></span><h2>1- Designs of experiments<a class="headerlink" href="#designs-of-experiments" title="Permalink to this headline">¶</a></h2>
+<p>The user may defined a set of input values and then evaluate output variable at these points.</p>
+<div class="section" id="design-of-experiments-creation">
+<h3>1-1 Design of experiments creation<a class="headerlink" href="#design-of-experiments-creation" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>Create a new design of experiment through:</dt><dd><ul>
+<li><p>The <strong>Design of experiments</strong> item in the context menu of the relevant model in the study tree
+(item <strong>Definition</strong> and item <strong>Probabilistic model</strong> if it exists)</p>
+<img alt="../../../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu.png" />
+</li>
+<li><p>The <strong>Design of experiments creation</strong> box of the model diagram</p>
+<img alt="../../../_images/deterministicBoxes.png" class="align-center" src="../../../_images/deterministicBoxes.png" />
+</li>
+<li><p>The <strong>New design of experiments</strong> item in the context menu of the <strong>Designs of experiments</strong> item</p>
+<img alt="../../../_images/doe_contextMenu.png" class="align-center" src="../../../_images/doe_contextMenu.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p id="doeinputwizard">In the resulting window, the user has to choose between three types of design prior to
+click on the <strong>Continue</strong> button:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Full factorial design</p></li>
+<li><p>Probabilistic design</p></li>
+<li><p>Imported design</p></li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/designOfExperiment.png" class="align-center" src="../../../_images/designOfExperiment.png" />
+<p>If the model does not contain stochastic input variables the <strong>Probabilistic</strong> item is disabled.</p>
+<div class="section" id="deterministic-design">
+<h4>1-1-1 Deterministic design<a class="headerlink" href="#deterministic-design" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/designOfExperimentDeterministic.png" class="align-center" src="../../../_images/designOfExperimentDeterministic.png" />
+<p>This window enables to create a points grid by regularly discretizing a pavement with the number of
+points specified in each direction.</p>
+<p>The table lists all the input variables of the physical model.
+The user can choose the ones which vary and the ones which are fixed.
+A variable is fixed when the corresponding row is unselected (default: all variables
+are unselected and the grid contains only one point).</p>
+<ul>
+<li><p><strong>Fixed input variables</strong>:
+The user can define the value of the variable (default: value in
+the physical model definition). The values are expected to be floating points or integer.</p></li>
+<li><p><strong>Varying input variables</strong>:
+The user has to define the lower and upper bound for the variable. The values
+of the variable will be regularly spaced between the bounds. The bounds are always points of the grid.</p>
+<p>The number of values is defined in the sixth column.
+The combo boxes of the fifth column have two items <strong>Levels=</strong> (default) and <strong>Delta=</strong>.</p>
+<ul class="simple">
+<li><p><strong>Levels</strong>: the user gives the number of points (default: 2).</p></li>
+<li><p><strong>Delta</strong>: the user gives the space between two points (default: (upper bound - lower bound)).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="probabilistic-design">
+<h4>1-1-2 Probabilistic design<a class="headerlink" href="#probabilistic-design" title="Permalink to this headline">¶</a></h4>
+<p>Define a probabilistic model to make this option available.</p>
+<img alt="../../../_images/designOfExperimentProba.png" class="align-center" src="../../../_images/designOfExperimentProba.png" />
+<p>If stochastic input variables are present in the model, the <strong>Probabilistic</strong> item can be
+selected in the <strong>Input Sample definition</strong> window. Then the next window allows to specify:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the type of the design: LHS (Latin Hyper Cube), Monte Carlo, Quasi-Monte Carlo.
+If input variables are correlated, LHS design is not available</p></li>
+<li><p>the size of the design of experiments</p></li>
+<li><p>the seed of the random generator (default: 0, positive integer expected)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="import-data">
+<h4>1-1-3 Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/designOfExperimentImport.png" class="align-center" src="../../../_images/designOfExperimentImport.png" />
+<p>The user can also import a design of experiments, from an external file. It is then necessary
+to set the link between the columns of the imported design and the input variables of the
+physical model, by clicking on the column name (default : first column for the first input
+variable, second column for the second input variable, etc…).</p>
+</div>
+<div class="section" id="design-of-experiments-input-sample">
+<span id="doeinputwindow"></span><h4>1-1-4 Design of experiments: input sample<a class="headerlink" href="#design-of-experiments-input-sample" title="Permalink to this headline">¶</a></h4>
+<p>When the input sample is defined, a new element appears in the study
+tree, below <strong>Designs of experiments</strong>.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the design of experiments</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the design of experiments parameters
+(modify the inputs values leads to remove the output values from the design of experiments)</p></li>
+<li><p><strong>Export data</strong>: Export the design of experiments into a file</p></li>
+<li><p><strong>Evaluate</strong>: Open a setting window to evaluate the model at the input points
+(if the design of experiments contains already output values, this item is disabled)</p></li>
+<li><p><strong>Remove</strong>: Remove the design of experiments from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>A new window also appears:</p>
+<img alt="../../../_images/doe_inputWindow.png" class="align-center" src="../../../_images/doe_inputWindow.png" />
+<p>The window shows numerous tabs, some of which are interactively linked (<strong>Table</strong>,
+<strong>Cobweb plot</strong>, <strong>Plot matrix</strong> and <strong>Scatter plot</strong> tabs):
+when the user selects points on one of these representations, the same points are
+automatically selected in the other tabs.</p>
+<ul>
+<li><p>The <strong>Summary</strong> tab describes the input sample: sample size,
+minimum/maximum values of the selected variable (left column)</p></li>
+<li><p>The <strong>Dependence</strong> tab displays the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/spearman_coefficient.html">Spearman’s matrix</a> estimate.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The cells are colored according to the value of the Spearman’s coefficient.</p></li>
+<li><p>Its context menu allows to export the table in a CSV file or as a PNG image.</p></li>
+<li><p>Select cells and Press Ctrl+C to copy values in the clipboard</p></li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/inDOE_dependence.png" class="align-center" src="../../../_images/inDOE_dependence.png" />
+</li>
+<li><p>The <strong>Table</strong> tab contains all the points of the input sample. The table can be exported (<strong>Export</strong> button).</p>
+<ul>
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul class="simple">
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/designOfExperimentTableX.png" class="align-center" src="../../../_images/designOfExperimentTableX.png" />
+</li>
+</ul>
+</li>
+<li><p>The <strong>Cobweb plot</strong> tab displays all the points of the input sample.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click on columns to select curves (multiple selection possible)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/inDOE_cobweb.png" class="align-center" src="../../../_images/inDOE_cobweb.png" />
+</li>
+<li><p>The <strong>Plot matrix</strong> tab: histograms of the distribution of each variable (diagonal) and
+scatter plots between each couple of input variables (off-diagonal).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/inDOE_plotMatrix.png" class="align-center" src="../../../_images/inDOE_plotMatrix.png" />
+</li>
+<li><p>The <strong>Scatter plots</strong> tab displays the scatter plot of two parameters.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the variables to plot on X-axis and Y-axis (default: first versus second input)</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/inDOE_scatterPlot.png" class="align-center" src="../../../_images/inDOE_scatterPlot.png" />
+</li>
+<li><p>The <strong>Parameters</strong> tab lists the design parameters.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="design-of-experiments-evaluation">
+<h3>1-2 Design of experiments: evaluation<a class="headerlink" href="#design-of-experiments-evaluation" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>New design of experiments can be evaluated through:</dt><dd><ul>
+<li><p>the <strong>Evaluate</strong> item in the context menu of the relevant design in the study tree</p>
+<img alt="../../../_images/designOfExperimentContextMenu.png" class="align-center" src="../../../_images/designOfExperimentContextMenu.png" />
+</li>
+<li><p>the <strong>Design of experiments evaluation</strong> box of the model diagram</p>
+<img alt="../../../_images/doeEvalBox.png" class="align-center" src="../../../_images/doeEvalBox.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="definition">
+<span id="doeevalwizard"></span><h4>1-2-1 Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h4>
+<dl>
+<dt>When an evaluation is required, a window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>the output variables of interest: at least one must be selected to validate the window</p></li>
+<li><p>the block size – the number of runs launched simultaneously – for parallelization
+purposes (default=1; expected= integer). It must be less than the input sample size.</p></li>
+</ul>
+<img alt="../../../_images/designOfExperimentEvaluationWizard.png" class="align-center" src="../../../_images/designOfExperimentEvaluationWizard.png" />
+</dd>
+</dl>
+<p>If the window is required by clicking on the box of the model diagram,
+it lists all the designs of experiments of the model in the combo box of the
+<strong>Design of experiments</strong> section.</p>
+</div>
+<div class="section" id="launch">
+<h4>1-2-2 Launch<a class="headerlink" href="#launch" title="Permalink to this headline">¶</a></h4>
+<p>When the <strong>Design of experiment: Evaluation</strong> window is validated, a new element <strong>Evaluation</strong> appears
+in the study tree, below the relevant design of experiments item.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Modify</strong>: Reopen the setting window to change the evaluation parameters;</p></li>
+<li><p><strong>Metamodel</strong>: Create a new metamodel.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a progress bar
+and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/analysisWindow.png" class="align-center" src="../../../_images/analysisWindow.png" />
+</div>
+<div class="section" id="results">
+<span id="doeevalresult"></span><h4>1-2-3 Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h4>
+<p>When the analysis is finished or stopped, the following window appears.</p>
+<img alt="../../../_images/designOfExperimentMinMax.png" class="align-center" src="../../../_images/designOfExperimentMinMax.png" />
+<p>The window shows numerous tabs, some of which are interactively linked (<strong>Table</strong>,
+<strong>Cobweb plot</strong>, <strong>Plot matrix</strong> and <strong>Scatter plot</strong> tabs):
+when the user selects points on one of these representations, the same points are
+automatically selected in the other tabs.</p>
+<ul>
+<li><p>The <strong>Summary</strong> tab summarizes the results of the design, for a selected variable (left column):
+sample size, minimum/maximum values, input values at
+the extrema of the outputs, moments estimates and empirical quantiles.</p></li>
+<li><p>The <strong>PDF/CDF</strong> tab presents the PDF/CDF of the variables
+together with a <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/kernel_smoothing.html">kernel smoothing</a> representation.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the graphic type: PDF (default) or CDF</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/doePDF.png" class="align-center" src="../../../_images/doePDF.png" />
+</li>
+<li><p>The <strong>Box plots</strong> tab presents the <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=14524285">box plot</a>
+of the variables. They are rescaled for each variable (<img class="math" src="../../../_images/math/89eeb8b800583dae465b69c788fd609c2cef1ac6.svg" alt="x" style="vertical-align: -1px"/>), using mean (<img class="math" src="../../../_images/math/c34f546443e0618dbd387cbf2891f08ca50a9d98.svg" alt="\mu" style="vertical-align: -4px"/>) and standard deviation (<img class="math" src="../../../_images/math/94008af5f7576ad2374028cb90e8aa975d93b01e.svg" alt="\sigma" style="vertical-align: -1px"/>): <img class="math" src="../../../_images/math/3763ed0f1a1d182d350d7c17085cb43c5e310220.svg" alt="y = (x - \mu)/\sigma" style="vertical-align: -5px"/></p>
+<ul>
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul class="simple">
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/doeBoxPlot.png" class="align-center" src="../../../_images/doeBoxPlot.png" />
+</li>
+</ul>
+</li>
+<li><p>The <strong>Dependence</strong> tab displays the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/spearman_coefficient.html">Spearman’s matrix</a> estimate.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The cells are colored according to the value of the Spearman’s coefficient.</p></li>
+<li><p>Its context menu allows to export the table in a CSV file or as a PNG image.</p></li>
+<li><p>Select cells and Press Ctrl+C to copy values in the clipboard</p></li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/doe_dependence.png" class="align-center" src="../../../_images/doe_dependence.png" />
+</li>
+<li><p>The <strong>Table</strong> tab shows the input/output samples and additional tabs, if some points
+failed or were not evaluated (see below). The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/designOfExperimentTable.png" class="align-center" src="../../../_images/designOfExperimentTable.png" />
+</li>
+<li><p>The <strong>Cobweb plot</strong> tab displays all the points of the design of experiments.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click on columns to select curves (multiple selection possible)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/designOfExperimentCobweb.png" class="align-center" src="../../../_images/designOfExperimentCobweb.png" />
+</li>
+<li><p>The <strong>Plot matrix</strong> tab: histograms of the distribution of each variable (diagonal) and
+scatter plots between each couple of input/output variables (off-diagonal).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/designOfExperimentPlotMatrix.png" class="align-center" src="../../../_images/designOfExperimentPlotMatrix.png" />
+</li>
+<li><p>The <strong>Scatter plots</strong> tab displays the scatter plot of two parameters.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the variables to plot on X-axis and Y-axis (default: first output versus first input)</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/designOfExperimentScatter.png" class="align-center" src="../../../_images/designOfExperimentScatter.png" />
+</li>
+<li><p>The <strong>Parameters</strong> tab lists the evaluation parameters.</p>
+<blockquote>
+<div><img alt="../../../_images/designOfExperimentParameters.png" class="align-center" src="../../../_images/designOfExperimentParameters.png" />
+</div></blockquote>
+</li>
+<li><p>The <strong>Model</strong> tab shows the model content used to perform the analysis.</p></li>
+</ul>
+<dl>
+<dt>Particular situations:</dt><dd><ul>
+<li><p>In some cases, points can fail (i.e. division by zero):
+the <strong>Table</strong> tab will then show additional tabs:</p>
+<img alt="../../../_images/designOfExperimentTableIfFailedPoints.png" class="align-center" src="../../../_images/designOfExperimentTableIfFailedPoints.png" />
+<ul>
+<li><p>The <strong>Table</strong> tab shows the input/output samples</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>The <strong>Failed points</strong> tab shows all the failed input points</p></li>
+<li><p>The <strong>Cobweb plot</strong> tab displays all the input points. The status
+of each point is shown in the last column <strong>Status</strong> (failed points=0; evaluated points=1).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click on columns to select curves (multiple selection possible)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/failedPointsCobweb.png" class="align-center" src="../../../_images/failedPointsCobweb.png" />
+<p>On the figure above, the failed values are due to null values
+for the <em>Ks</em> input variable.</p>
+</li>
+<li><p>The <strong>Scatter plot</strong> tab displays the scatter plot of two parameters (default: first
+versus second input), with failed points in red and evaluated points in green.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the variables to plot on X-axis and Y-axis (default: first output versus first input)</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/failedPointsScatter.png" class="align-center" src="../../../_images/failedPointsScatter.png" />
+<p>On the figure above, the failed values are due to null values
+for the <em>Ks</em> input variable.</p>
+</li>
+</ul>
+</li>
+<li><p>Some points can also end up not being evaluated (i.e. interrupted analysis). The <strong>Table</strong>
+tab then displays informative tabs about these points:</p>
+<ul>
+<li><p>The list of these points in the <strong>Non-evaluated points</strong> tab</p></li>
+<li><p>The position of these points (non-evaluated points in blue and evaluated ones in green)
+in the <strong>Scatter plot</strong> tab (default: first vs second input plot).
+Graph parameters can be set up in the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window.</p>
+<img alt="../../../_images/notEvaluatedPointsScatter.png" class="align-center" src="../../../_images/notEvaluatedPointsScatter.png" />
+</li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="model-evaluation">
+<span id="modelevaluation"></span><h2>2- Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>The user may evaluate the physical model for defined input values.</p>
+<dl>
+<dt>Create a new model evaluation through:</dt><dd><ul>
+<li><p>The <strong>Definition</strong> item in the context menu of the relevant model in the study tree</p>
+<img alt="../../../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu.png" />
+</li>
+<li><p>The <strong>Model evaluation</strong> box of the model diagram</p>
+<img alt="../../../_images/deterministicBoxes.png" class="align-center" src="../../../_images/deterministicBoxes.png" />
+</li>
+<li><p>The <strong>New evaluation</strong> item in the context menu of the <strong>Evaluation</strong> section</p>
+<img alt="../../../_images/evaluation_contextMenu.png" class="align-center" src="../../../_images/evaluation_contextMenu.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="vectmodelevalwizard">
+<span id="id2"></span><h3>2-1 Definition<a class="headerlink" href="#vectmodelevalwizard" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/modelEvaluation.png" class="align-center" src="../../../_images/modelEvaluation.png" />
+<dl class="simple">
+<dt>When an evaluation is required, a window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>The outputs of interest (<strong>Select outputs</strong> - default: all outputs are evaluated).
+At least one variable must be selected to validate the window.</p></li>
+<li><p>The value of the input variables (default: value in the physical model definition).
+The values are expected to be floating points or integer.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h3>2-2 Launch<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>When the <strong>Model Evaluation</strong> window is validated, a new element appears in the study
+tree, below <strong>Evaluation</strong>.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/evaluationWindow.png" class="align-center" src="../../../_images/evaluationWindow.png" />
+</div>
+<div class="section" id="modelevalresult">
+<span id="id4"></span><h3>2-3 Results<a class="headerlink" href="#modelevalresult" title="Permalink to this headline">¶</a></h3>
+<p>When the evaluation is finished, a result window appears. It gathers the coordinates of
+the evaluation point and the corresponding output values.</p>
+<img alt="../../../_images/modelEvaluationResults.png" class="align-center" src="../../../_images/modelEvaluationResults.png" />
+</div>
+</div>
+<div class="section" id="screening">
+<h2>3- Screening<a class="headerlink" href="#screening" title="Permalink to this headline">¶</a></h2>
+<p>The interface proposes one method of screening, the <a class="reference external" href="http://openturns.github.io/otmorris/master/user_manual/user_manual.html">Morris method</a>.</p>
+<dl>
+<dt>New screening analysis can be created thanks to:</dt><dd><ul>
+<li><p>the <strong>Screening</strong> item in the context menu of the relevant model in the study tree</p>
+<img alt="../../../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu.png" />
+</li>
+<li><p>the <strong>Screening</strong> box of the model diagram</p>
+<img alt="../../../_images/deterministicBoxes.png" class="align-center" src="../../../_images/deterministicBoxes.png" />
+</li>
+<li><p>the <strong>New Analysis</strong> item in the context menu of the <strong>Screening</strong> section</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="screeningwizard">
+<span id="id5"></span><h3>3-1 Definition<a class="headerlink" href="#screeningwizard" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>When the analysis is required, the following window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>The outputs of interest (<strong>Select outputs</strong> - default: all outputs are analyzed)</p></li>
+<li><p>The screening <strong>Method</strong> (only the Morris method is available for now)</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/morrisWizard_FirstPage.png" class="align-center" src="../../../_images/morrisWizard_FirstPage.png" />
+<p>The next window enables the user to define the lower and upper bounds of each variable.
+The values of the variables will be regularly spaced between these bounds.</p>
+<img alt="../../../_images/morrisWizard_secondPage.png" class="align-center" src="../../../_images/morrisWizard_secondPage.png" />
+<dl class="simple">
+<dt>In the third window (<strong>Morris Parameters</strong>), the user can set up:</dt><dd><ul class="simple">
+<li><p>The number of trajectories (default:10; integer expected)</p></li>
+<li><p>The level to define a regular grid (default: 5; integer expected)</p></li>
+<li><p><strong>Advanced Parameters</strong> (default: hidden): the seed of the random generator (default: 0,
+positive integer expected)</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/morrisWizard_thirdPage.png" class="align-center" src="../../../_images/morrisWizard_thirdPage.png" />
+</div>
+<div class="section" id="id6">
+<h3>3-2 Launch<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>When the « Screening analysis » window is validated, a new element appears in
+the study tree, below <strong>Screening</strong>.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/morrisWindow.png" class="align-center" src="../../../_images/morrisWindow.png" />
+</div>
+<div class="section" id="morrisresult">
+<span id="id7"></span><h3>3-3 Results<a class="headerlink" href="#morrisresult" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished or stopped, a result window appears.</p>
+<img alt="../../../_images/morrisResultWindow.png" class="align-center" src="../../../_images/morrisResultWindow.png" />
+<p>On the left of the result window, the <strong>Outputs</strong> section allows the user to select the result to display.</p>
+<p>The results window gathers several tabs:</p>
+<ul>
+<li><p>The <strong>Elementary effects</strong> tab presents for a selected output (left column):
+a table with the effects of each input variable and the mean of the absolute value (<img class="math" src="../../../_images/math/7539847d934b26e2581253c3a2a312407c520de4.svg" alt="\mu*" style="vertical-align: -4px"/>),
+the standard deviation (<img class="math" src="../../../_images/math/94008af5f7576ad2374028cb90e8aa975d93b01e.svg" alt="\sigma" style="vertical-align: -1px"/>) and the mean (<img class="math" src="../../../_images/math/c34f546443e0618dbd387cbf2891f08ca50a9d98.svg" alt="\mu" style="vertical-align: -4px"/>) of the elementary effects.
+These values are plotted in the graphs <img class="math" src="../../../_images/math/f399a1b3035b5ccaca8e598b63c0b9a47e6c88ee.svg" alt="(\mu*, \sigma)" style="vertical-align: -5px"/> and <img class="math" src="../../../_images/math/8c49cf848de5ec6a6fa23541c636bfc8f78aee22.svg" alt="(\mu*, \mu)" style="vertical-align: -5px"/>.</p>
+<img alt="../../../_images/morrisGraph.png" class="align-center" src="../../../_images/morrisGraph.png" />
+<p>The types of effects are determined automatically according to two criteria
+modeled by two lines in the graph <img class="math" src="../../../_images/math/f399a1b3035b5ccaca8e598b63c0b9a47e6c88ee.svg" alt="(\mu*, \sigma)" style="vertical-align: -5px"/>:</p>
+<ul>
+<li><p>the green vertical dotted line, called <em>No effect boundary</em> is defined by:</p>
+<p><img class="math" src="../../../_images/math/a9116b84da0ef7a535c5e7b959fa694a3fc2ced9.svg" alt="\mu_b* = \frac{max(\mu_i*) - min(\mu_i*)}{2}" style="vertical-align: -6px"/>, (with <img class="math" src="../../../_images/math/901588d6da402f89e9a0c33e1fc300a1acbd8001.svg" alt="i" style="vertical-align: -1px"/> in <img class="math" src="../../../_images/math/3d92657c4a91a9532f1a225e3247eb93a2ef0157.svg" alt="[0, N]" style="vertical-align: -5px"/> and <img class="math" src="../../../_images/math/8093b4819e350167fdf86a3e0fb0914670de70d5.svg" alt="N" style="vertical-align: -1px"/> the number of inputs).</p>
+<dl class="simple">
+<dt>It separates the variables into two groups:</dt><dd><ul class="simple">
+<li><p>the variables which have no effect (<img class="math" src="../../../_images/math/7ff8833692e1cc3b7fd2f58aeeaa1e342924e52b.svg" alt="\mu_i &lt; \mu_b*" style="vertical-align: -4px"/>)</p></li>
+<li><p>the variables which have an effect (<img class="math" src="../../../_images/math/7ff8833692e1cc3b7fd2f58aeeaa1e342924e52b.svg" alt="\mu_i &lt; \mu_b*" style="vertical-align: -4px"/>)</p></li>
+</ul>
+</dd>
+</dl>
+<p>This boundary <img class="math" src="../../../_images/math/6a3d7e88231f3eebf0bedf119ec0ade32341adea.svg" alt="\mu_b*" style="vertical-align: -4px"/> can be changed by the user by clicking (left-click) on the X-axis.</p>
+</li>
+<li><p>the blue dotted line, called ‘cv = 0.5’ is defined by: <img class="math" src="../../../_images/math/cc55844ed8b37108d8715722e324cca183d206c6.svg" alt="cv = \frac{\sigma_i}{\mu_i*} = 0.5" style="vertical-align: -9px"/>.</p>
+<dl class="simple">
+<dt>It separates the variables into two groups:</dt><dd><ul class="simple">
+<li><p>the variables which have a linear effect (<img class="math" src="../../../_images/math/8c159a3f5f40e48b825faf870b7875f759763ccf.svg" alt="\frac{\sigma_i}{\mu_i*} &lt;= 0.5" style="vertical-align: -9px"/>)</p></li>
+<li><p>the variables which have a non-linear effect or interaction (<img class="math" src="../../../_images/math/72ebcfc061f755c30dc8bddaff2ca4f25532fc34.svg" alt="\frac{\sigma_i}{\mu_i*} &gt; 0.5" style="vertical-align: -9px"/>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>On the graph <img class="math" src="../../../_images/math/8c49cf848de5ec6a6fa23541c636bfc8f78aee22.svg" alt="(\mu*, \mu)" style="vertical-align: -5px"/>, the blue lines separate the variables into two groups:</dt><dd><ul class="simple">
+<li><p>the monotonic variables (<img class="math" src="../../../_images/math/d59e81b0a322ade9941d2b099ebcf6f83c8f20a4.svg" alt="|\mu_i| \simeq \mu_i*" style="vertical-align: -5px"/>)</p></li>
+<li><p>the non-monotonic variables (<img class="math" src="../../../_images/math/c222e9b3dda1da3979db85de8ac5ddb0ee0bfe9c.svg" alt="|\mu_i| &lt; \mu_i*" style="vertical-align: -5px"/>)</p></li>
+</ul>
+</dd>
+</dl>
+<p>The sign of <img class="math" src="../../../_images/math/790b3d2ddd03990cd3ceacdb7c1862724abed83e.svg" alt="\mu_i" style="vertical-align: -4px"/> gives the direction of the effect.</p>
+</li>
+</ul>
+<p>By default, in the table, the variables with no effect are unselected.</p>
+<dl class="simple">
+<dt>The user can de/select variables manually by:</dt><dd><ul class="simple">
+<li><p>changing the state of the check button associated with the variable in the table</p></li>
+<li><p>de/selecting points in the graphs (select point with a right-click, then click on de/select
+button of the context menu which appears).</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/morrisGraph_selection.png" class="align-center" src="../../../_images/morrisGraph_selection.png" />
+<p>The selection of the influential variables is saved. This result can be used in
+the probabilistic model definition window to transform the non-influential
+stochastic variables into deterministic variables.</p>
+</li>
+<li><p>The <strong>Table</strong> tab shows the sample generated by the Morris method and the resulting output values.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>The <strong>Cobweb plot</strong> tab displays the sample.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click on columns to select curves (multiple selection possible)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/morrisCobweb.png" class="align-center" src="../../../_images/morrisCobweb.png" />
+</li>
+<li><p>The <strong>Plot matrix</strong> tab: histograms of the distribution of each variable (diagonal) and
+scatter plots between each couple of input/output variables (off-diagonal).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/morrisPlotMatrix.png" class="align-center" src="../../../_images/morrisPlotMatrix.png" />
+</li>
+<li><p>The <strong>Scatter plots</strong> tab displays the scatter plot of two parameters.</p>
+<ul>
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the variables to plot on X-axis and Y-axis (default: first output versus first input)</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul class="simple">
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/morrisScatter.png" class="align-center" src="../../../_images/morrisScatter.png" />
+</li>
+</ul>
+</li>
+<li><p>The <strong>Parameters</strong> tab reminds the user of all the parameters values used to perform the analysis.</p></li>
+<li><p>The <strong>Model</strong> tab shows the model content used to perform the analysis.</p></li>
+</ul>
+</div>
+<div class="section" id="use-results">
+<span id="screeningresultwizard"></span><h3>3-4 Use results<a class="headerlink" href="#use-results" title="Permalink to this headline">¶</a></h3>
+<p>In the <a class="reference internal" href="../probabilistic_analysis/user_manual_probabilistic_analysis.html#probamodel"><span class="std std-ref">probabilistic model</span></a> definition window, click on the button <strong>Import Morris result</strong>
+placed below the table.</p>
+<img alt="../../../_images/probaModelBefore.png" class="align-center" src="../../../_images/probaModelBefore.png" />
+<p>The followed window appears (only if a result exists):</p>
+<img alt="../../../_images/morrisResultWizard1.png" class="align-center" src="../../../_images/morrisResultWizard1.png" />
+<p>Select the suitable result and click on the <strong>Finish</strong> button.
+The probabilistic model is modified as follows:</p>
+<img alt="../../../_images/probaModelAfter.png" class="align-center" src="../../../_images/probaModelAfter.png" />
+<p>Of course loading a result while all the input variables are already deterministic will not work…</p>
+</div>
+</div>
+<div class="section" id="optimization">
+<h2>4- Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h2>
+<p>The user may <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/numerical_methods/optimization_algorithm.html">optimize</a> the physical model.</p>
+<dl>
+<dt>New model optimization can be created through:</dt><dd><ul>
+<li><p>the <strong>Optimization</strong> item in the context menu of the relevant model in the study tree</p>
+<img alt="../../../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu.png" />
+</li>
+<li><p>the <strong>Optimization</strong> box of the model diagram</p>
+<img alt="../../../_images/deterministicBoxes.png" class="align-center" src="../../../_images/deterministicBoxes.png" />
+</li>
+<li><p>the <strong>New Analysis</strong> context menu of the <strong>Optimization</strong> section</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="optimizationwizard">
+<span id="id8"></span><h3>4-1 Definition<a class="headerlink" href="#optimizationwizard" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>When this analysis is required, the following window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>The output of interest (<strong>Select output</strong> - default: the first output is analyzed)</p></li>
+<li><p>The method of optimization (default: Cobyla).
+The two first methods <strong>Cobyla</strong> and <strong>TNC</strong> are proposed by OpenTURNS.
+The other methods are solvers from the non-linear optimization library
+<a class="reference external" href="https://nlopt.readthedocs.io/en/latest/">NLopt</a> (if it is installed).</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/optimizationWizardFirstPage.png" class="align-center" src="../../../_images/optimizationWizardFirstPage.png" />
+<dl class="simple">
+<dt>In the table of the next window:</dt><dd><ul class="simple">
+<li><p><em>First column</em>: Select the inputs which will vary by checking off the corresponding line
+(default: all inputs vary)
+At least one input must vary.</p></li>
+<li><p><em>Second column</em>: description of the variables (defined in the model)</p></li>
+<li><p><em>Third column</em>: Define the starting point of the optimization
+(default: value in the physical model definition)</p></li>
+<li><p><em>Fourth and Fifth columns</em>: Define the bounds of the variable inputs.
+The lower bound must be less than the upper bound.
+Check off/uncheck a cell to make the bound finite/infinite.
+The interval must contain the initial value (third column).</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/optimizationWizardSecondPage.png" class="align-center" src="../../../_images/optimizationWizardSecondPage.png" />
+<p>The values of the table are expected to be floating points or integer.</p>
+<dl class="simple">
+<dt>When a rule is not respected:</dt><dd><ul class="simple">
+<li><p>the input name is colored in red</p></li>
+<li><p>an error message appears when clicking on the <strong>Continue</strong> button</p></li>
+<li><p>it is impossible to go to the next page</p></li>
+</ul>
+</dd>
+<dt>In the third window set up:</dt><dd><ul class="simple">
+<li><p>the type of the optimization: Minimization or Maximization (default: Minimization)</p></li>
+<li><dl class="simple">
+<dt>the stopping criteria:</dt><dd><ul>
+<li><p>the maximum number of function evaluations (default: 100, positive integer expected)</p></li>
+<li><p>the errors: absolute, relative, residual and constraint errors (default: 1e-5, positive float expected)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/optimizationWizardThirdPage.png" class="align-center" src="../../../_images/optimizationWizardThirdPage.png" />
+</div>
+<div class="section" id="id9">
+<h3>4-2 Launch<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>When the « Optimization » window is validated, a new element appears in the study tree, below
+<strong>Optimization</strong>.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/optimizationWindow.png" class="align-center" src="../../../_images/optimizationWindow.png" />
+<p>Click on the <strong>Start</strong> button to launch the analysis.</p>
+</div>
+<div class="section" id="optimresult">
+<span id="id10"></span><h3>4-3 Results<a class="headerlink" href="#optimresult" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished, a result window appears.</p>
+<img alt="../../../_images/optimizationResultWindow.png" class="align-center" src="../../../_images/optimizationResultWindow.png" />
+<p>The results window gathers the following tabs:</p>
+<ul>
+<li><dl class="simple">
+<dt>The <strong>Result</strong> tab includes:</dt><dd><ul class="simple">
+<li><p>The optimal point</p></li>
+<li><dl class="simple">
+<dt>The optimization stopping criteria value:</dt><dd><ul>
+<li><p>The number of function evaluations;</p></li>
+<li><p>The errors: absolute, relative, residual and constraint errors.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The <strong>Convergence</strong> tab includes:</dt><dd><ul class="simple">
+<li><p>The optimal value convergence graph</p></li>
+<li><p>The convergence graph of the errors</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/optimizationResultWindowConvergence.png" class="align-center" src="../../../_images/optimizationResultWindowConvergence.png" />
+</li>
+<li><p>The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p></li>
+<li><p>The <strong>Model</strong> tab shows the model content used to perform the analysis.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="observations">
+<h2>5- Observations<a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h2>
+<p>To perform a calibration analysis, define first observations for at least one output and one input.</p>
+<div class="section" id="observationwizard">
+<span id="id11"></span><h3>5-1 Definition<a class="headerlink" href="#observationwizard" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../_images/designOfExperimentImport.png" class="align-center" src="../../../_images/designOfExperimentImport.png" />
+<p>Import a data file. Then set the link between columns of the imported data
+and variables of the physical model by clicking on the column name (default : first column for the first input
+variable, second column for the first output variable).
+Define observations for at least one output and one input.</p>
+</div>
+<div class="section" id="observationwindow">
+<span id="id12"></span><h3>5-2 Results<a class="headerlink" href="#observationwindow" title="Permalink to this headline">¶</a></h3>
+<p>When the sample is defined, a new element appears in the study tree, below <strong>Calibration</strong>.
+This item is associated with a window showing a table of the observation values.</p>
+<img alt="../../../_images/observations_window.png" class="align-center" src="../../../_images/observations_window.png" />
+</div>
+</div>
+<div class="section" id="calibration">
+<h2>6- Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h2>
+<p>The interface proposes to <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/code_calibration.html">calibrate</a> the physical model.</p>
+<dl>
+<dt>New model calibration can be created through:</dt><dd><ul>
+<li><p>the <strong>Calibration</strong> item in the context menu of the relevant Observations in the study tree</p>
+<img alt="../../../_images/observations_contextMenu.png" class="align-center" src="../../../_images/observations_contextMenu.png" />
+</li>
+<li><p>the <strong>Calibration</strong> box of the model diagram</p>
+<img alt="../../../_images/obs_calibration_boxes.png" class="align-center" src="../../../_images/obs_calibration_boxes.png" />
+</li>
+<li><p>the <strong>New Analysis</strong> context menu of the <strong>Calibration</strong> section</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="calibrationwizard">
+<span id="id13"></span><h3>6-1 Definition<a class="headerlink" href="#calibrationwizard" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>When this analysis is required, the following window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>The observations of interest</p></li>
+<li><p>The method: <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/code_calibration.html#linear-least-squares">Linear least squares</a> (default),
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/code_calibration.html#non-linear-least-squares">Non linear least squares</a>,
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/gaussian_calibration.html#linear-gaussian-calibration-bayesian-blue">Linear Gaussian</a>,
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/gaussian_calibration.html#non-linear-gaussian-calibration-3dvar">Non linear Gaussian</a></p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/calibrationWizard_FirstPage.png" class="align-center" src="../../../_images/calibrationWizard_FirstPage.png" />
+<dl class="simple">
+<dt>In the table of the next window:</dt><dd><ul class="simple">
+<li><p><em>First column</em>: Select the inputs which will be calibrated by checking off the corresponding line
+(default: all inputs are calibrated)
+At least one input must be calibrated.</p></li>
+<li><p><em>Second column</em>: description of the variables (defined in the model)</p></li>
+<li><p><em>Third column</em>: Define the reference point of the calibration
+(default: value in the physical model definition)</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/calibrationWizard_SecondPage.png" class="align-center" src="../../../_images/calibrationWizard_SecondPage.png" />
+<p>The values of the table are expected to be floating points or integer.</p>
+<dl class="simple">
+<dt>When a rule is not respected:</dt><dd><ul class="simple">
+<li><p>an error message appears when clicking on the <strong>Continue</strong> button</p></li>
+<li><p>it is impossible to go to the next page</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="gaussian-methods">
+<h4>6-1-1 Gaussian methods<a class="headerlink" href="#gaussian-methods" title="Permalink to this headline">¶</a></h4>
+<p>In the next window set up the prior distribution covariance matrix.
+The window lists automatically the calibrated input variables in the table.
+The mean values are defined in the table of the previous window.</p>
+<img alt="../../../_images/calibrationWizard_gaussianPrior.png" class="align-center" src="../../../_images/calibrationWizard_gaussianPrior.png" />
+<p>In the next window define the covariance matrix of the output observations error.
+The window lists automatically the observed output variables in the table.
+The mean is zero. Default standard deviation is 0.1.</p>
+<img alt="../../../_images/calibrationWizard_gaussianError.png" class="align-center" src="../../../_images/calibrationWizard_gaussianError.png" />
+</div>
+<div class="section" id="linear-methods">
+<h4>6-1-2 Linear methods<a class="headerlink" href="#linear-methods" title="Permalink to this headline">¶</a></h4>
+<p>In the last window set up the confidence interval length of the posterior distribution.</p>
+<img alt="../../../_images/calibrationWizard_lastPage_linear1.png" class="align-center" src="../../../_images/calibrationWizard_lastPage_linear1.png" />
+</div>
+<div class="section" id="non-linear-methods">
+<h4>6-1-3 Non linear methods<a class="headerlink" href="#non-linear-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="simple">
+<dt>In the last window set up:</dt><dd><ul class="simple">
+<li><p>the confidence interval length of the posterior distribution</p></li>
+<li><dl class="simple">
+<dt>computation of the confidence interval by Bootstrap resampling (default: checked)</dt><dd><ul>
+<li><p>the sample size (default: 100, positive integer expected)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the optimization stopping criteria:</dt><dd><ul>
+<li><p>the maximum number of function evaluations (default: 100, positive integer expected)</p></li>
+<li><p>the errors: absolute, relative, residual and constraint errors (default: 1e-5, positive float expected)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/calibrationWizard_lastPage_nonlinear.png" class="align-center" src="../../../_images/calibrationWizard_lastPage_nonlinear.png" />
+</div>
+</div>
+<div class="section" id="id14">
+<h3>6-2 Launch<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>When the « Calibration » window is validated, a new element appears in the study tree, below
+the observations item.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/calibrationWindow.png" class="align-center" src="../../../_images/calibrationWindow.png" />
+<p>Click on the <strong>Start</strong> button to launch the analysis.</p>
+</div>
+<div class="section" id="calibrationresult">
+<span id="id15"></span><h3>6-3 Results<a class="headerlink" href="#calibrationresult" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished, a result window appears.</p>
+<img alt="../../../_images/calibration_ResultWindow.png" class="align-center" src="../../../_images/calibration_ResultWindow.png" />
+<p>It shows numerous tabs, some of which are interactively linked (Table, vs Observations, vs Inputs tabs):
+when the user selects points on one of these representations, the same points are automatically selected in the other tabs.</p>
+<p>The results window gathers the following tabs:</p>
+<ul>
+<li><dl class="simple">
+<dt>The <strong>θ</strong> tab includes:</dt><dd><ul class="simple">
+<li><p>The optimal point and its confidence interval (<strong>Optimal</strong> tab)</p></li>
+<li><p>The prior and posterior PDF of the calibrated inputs (<strong>PDF</strong> tab)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>The <strong>Prediction</strong> tab includes, for a selected output (left column):</dt><dd><ul>
+<li><p>The <strong>Table</strong> tab contains the observations, the prior and posterior values and the prior and posterior residuals values.
+The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/calibration_ResultWindow_table.png" class="align-center" src="../../../_images/calibration_ResultWindow_table.png" />
+</li>
+<li><p>The <strong>vs Observations</strong> tab displays the prior and posterior predictions vs the output observations.
+The calibration performed well when the predictions after calibration (i.e. the green points) are close to the
+the diagonal of the graph (i.e. the blue points).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the data to plot</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/calibration_ResultWindow_vsObs.png" class="align-center" src="../../../_images/calibration_ResultWindow_vsObs.png" />
+</li>
+<li><p>The <strong>vs Inputs</strong> tab displays the prior and posterior predictions vs the input observations.
+The calibration performed well when the predictions after calibration (i.e. the green points) are close to the
+observations (i.e. the blue points).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the data to plot and the variables to plot on X-axis (default: all predictions versus first observed input)</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/calibration_ResultWindow_vsIn.png" class="align-center" src="../../../_images/calibration_ResultWindow_vsIn.png" />
+</li>
+<li><p>The <strong>Residuals</strong> tab display the distribution of the residuals (blue curve) and
+the Probability Distribution Function values of the difference
+between the output observations and the prior (red curve) and posterior (green curve) output values.
+The calibration performed well when the distribution of the residuals is centered on zero and symmetric.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the data to plot</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/calibration_ResultWindow_residuals.png" class="align-center" src="../../../_images/calibration_ResultWindow_residuals.png" />
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p></li>
+<li><p>The <strong>Model</strong> tab shows the model content used to perform the analysis.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">User manual - Deterministic analyses</a><ul>
+<li><a class="reference internal" href="#designs-of-experiments">1- Designs of experiments</a><ul>
+<li><a class="reference internal" href="#design-of-experiments-creation">1-1 Design of experiments creation</a><ul>
+<li><a class="reference internal" href="#deterministic-design">1-1-1 Deterministic design</a></li>
+<li><a class="reference internal" href="#probabilistic-design">1-1-2 Probabilistic design</a></li>
+<li><a class="reference internal" href="#import-data">1-1-3 Import data</a></li>
+<li><a class="reference internal" href="#design-of-experiments-input-sample">1-1-4 Design of experiments: input sample</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#design-of-experiments-evaluation">1-2 Design of experiments: evaluation</a><ul>
+<li><a class="reference internal" href="#definition">1-2-1 Definition</a></li>
+<li><a class="reference internal" href="#launch">1-2-2 Launch</a></li>
+<li><a class="reference internal" href="#results">1-2-3 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-evaluation">2- Model evaluation</a><ul>
+<li><a class="reference internal" href="#vectmodelevalwizard">2-1 Definition</a></li>
+<li><a class="reference internal" href="#id3">2-2 Launch</a></li>
+<li><a class="reference internal" href="#modelevalresult">2-3 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#screening">3- Screening</a><ul>
+<li><a class="reference internal" href="#screeningwizard">3-1 Definition</a></li>
+<li><a class="reference internal" href="#id6">3-2 Launch</a></li>
+<li><a class="reference internal" href="#morrisresult">3-3 Results</a></li>
+<li><a class="reference internal" href="#use-results">3-4 Use results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optimization">4- Optimization</a><ul>
+<li><a class="reference internal" href="#optimizationwizard">4-1 Definition</a></li>
+<li><a class="reference internal" href="#id9">4-2 Launch</a></li>
+<li><a class="reference internal" href="#optimresult">4-3 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#observations">5- Observations</a><ul>
+<li><a class="reference internal" href="#observationwizard">5-1 Definition</a></li>
+<li><a class="reference internal" href="#observationwindow">5-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calibration">6- Calibration</a><ul>
+<li><a class="reference internal" href="#calibrationwizard">6-1 Definition</a><ul>
+<li><a class="reference internal" href="#gaussian-methods">6-1-1 Gaussian methods</a></li>
+<li><a class="reference internal" href="#linear-methods">6-1-2 Linear methods</a></li>
+<li><a class="reference internal" href="#non-linear-methods">6-1-3 Non linear methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id14">6-2 Launch</a></li>
+<li><a class="reference internal" href="#calibrationresult">6-3 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../data_model/user_manual_data_model.html"
+                        title="previous chapter">User manual - Define a data model</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../probabilistic_analysis/user_manual_probabilistic_analysis.html"
+                        title="next chapter">User manual - Probabilistic analyses</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/deterministic_analysis/user_manual_deterministic_analysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../probabilistic_analysis/user_manual_probabilistic_analysis.html" title="User manual - Probabilistic analyses"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../data_model/user_manual_data_model.html" title="User manual - Define a data model"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Deterministic analyses</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>
