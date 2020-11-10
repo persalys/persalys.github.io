@@ -1,0 +1,11 @@
+CouplingInputFile
+==========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CouplingInputFile
+
+   
+   .. automethod:: __init__
+   
+

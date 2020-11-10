@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User manual - Data analyses &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Data analyses</a></li> 
       </ul>
     </div>  
 
@@ -111,7 +113,7 @@ select the graphic type: PDF (default) or CDF</p></li>
 <img alt="../../../_images/data_model_analysis_PDF.png" class="align-center" src="../../../_images/data_model_analysis_PDF.png" />
 </li>
 <li><p>The <strong>Box plots</strong> tab presents the <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=14524285">box plot</a>
-of the variables.</p>
+of the variables. They are rescaled for each variable (<img class="math" src="../../../_images/math/dc5f6b2db62e4fc7088a9c0ee365d44a2ff252c6.svg" alt="x" style="vertical-align: 0px"/>), using mean (<img class="math" src="../../../_images/math/84cbacdf7fbac51259b2f759119217814751e6fb.svg" alt="\mu" style="vertical-align: -3px"/>) and standard deviation (<img class="math" src="../../../_images/math/736fbcd25ea5c4b2e69e40807f7fd673b95db2a3.svg" alt="\sigma" style="vertical-align: 0px"/>): <img class="math" src="../../../_images/math/a68977a58eec51eaa22fa79c2d04db2a345ac933.svg" alt="y = (x - \mu)/\sigma" style="vertical-align: -4px"/></p>
 <ul class="simple">
 <li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
 <li><dl class="simple">
@@ -245,9 +247,9 @@ Press the Ctrl or Shift key to select multiple lines.</p></li>
 </dd>
 </dl>
 </li>
-<li><p>the Kolmogorov-Smirnov level such that <img class="math" src="../../../_images/math/38db3a77036f97d2d9817cfbff1c8e568a1be8c0.svg" alt="\alpha = 1 - {\rm level}" style="vertical-align: -2px"/> is the risk of
+<li><p>the Kolmogorov-Smirnov level such that <img class="math" src="../../../_images/math/9dd39e329832893f30bc0b8b34ab7f8d00ea1127.svg" alt="\alpha = 1 - {\rm level}" style="vertical-align: -1px"/> is the risk of
 committing a Type I error, that is an incorrect rejection of a true null hypothesis
-(default: 0.05., expected: float in the range <img class="math" src="../../../_images/math/dc8e3836a4fdd802ec023b0dfee715d328ba96c7.svg" alt="]0, 1[" style="vertical-align: -5px"/>)</p></li>
+(default: 0.05., expected: float in the range <img class="math" src="../../../_images/math/83ebfa57ab79a9d1c38dbfc688419ad6e28deadd.svg" alt="]0, 1[" style="vertical-align: -4px"/>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -631,8 +633,8 @@ progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
 <li><dl>
 <dt>The <strong>Metamodel</strong> tab shows different information about the selected output (left column):</dt><dd><ul>
 <li><p>Number of points</p></li>
-<li><p>Relative error: <img class="math" src="../../../_images/math/d59ef60e92e853f0e2b1d75e9298bfccc1dc359b.svg" alt="\displaystyle rel = \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(y_i - \bar{y})^2}}" style="vertical-align: -19px"/></p></li>
-<li><p>Residual: <img class="math" src="../../../_images/math/94d3ec596fea190a780c58ebc02dcfef311b57a7.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -12px"/>.</p></li>
+<li><p>Relative error: <img class="math" src="../../../_images/math/4f130be6f4597260fdc1c3c593edd037351d2670.svg" alt="\displaystyle rel = \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(y_i - \bar{y})^2}}" style="vertical-align: -19px"/></p></li>
+<li><p>Residual: <img class="math" src="../../../_images/math/2fe3f2e9afa11677c02e46f836dbc6f08d6f9b6b.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -11px"/>.</p></li>
 <li><p>The fitting curve between the physical model output values (<strong>Real otput values</strong>) and the
 metamodel values (<strong>Prediction</strong>).
 The reference diagonal (in black) is built with the physical model output values.</p>
@@ -691,8 +693,8 @@ It is advised to refer to the associated warning message (tooltip of the <img al
 </li>
 <li><dl>
 <dt>The <strong>Validation</strong> tab (default: hidden; visible if a metamodel validation is required) shows for each method and selected output:</dt><dd><ul>
-<li><p>The metamodel predictivity coefficient: <img class="math" src="../../../_images/math/bcee0a3b6ee741011b425f152ab1ad1e68e3eb60.svg" alt="\displaystyle Q2 = 1 - \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(\bar{y} - y_i)^2}}" style="vertical-align: -19px"/></p></li>
-<li><p>The residual: <img class="math" src="../../../_images/math/94d3ec596fea190a780c58ebc02dcfef311b57a7.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -12px"/>.</p></li>
+<li><p>The metamodel predictivity coefficient: <img class="math" src="../../../_images/math/9d3276944d201667821ed3926930630489e51dbb.svg" alt="\displaystyle Q2 = 1 - \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(\bar{y} - y_i)^2}}" style="vertical-align: -19px"/></p></li>
+<li><p>The residual: <img class="math" src="../../../_images/math/2fe3f2e9afa11677c02e46f836dbc6f08d6f9b6b.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -11px"/>.</p></li>
 <li><p><em>K-Fold</em> and <em>Test sample</em>: A plot showing the relation between the output values (physical
 model) and the predicted metamodel values. The relation is compared to a reference
 diagonal built with the physical model output values.</p>
@@ -748,8 +750,8 @@ The reference diagonal (in black) is built with the physical model output values
 </li>
 <li><dl>
 <dt>If a metamodel validation is required, a <strong>Validation</strong> tab appears for the selected method and output:</dt><dd><ul>
-<li><p>The residual: <img class="math" src="../../../_images/math/94d3ec596fea190a780c58ebc02dcfef311b57a7.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -12px"/>.</p></li>
-<li><p>The metamodel predictivity coefficient: <img class="math" src="../../../_images/math/bcee0a3b6ee741011b425f152ab1ad1e68e3eb60.svg" alt="\displaystyle Q2 = 1 - \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(\bar{y} - y_i)^2}}" style="vertical-align: -19px"/></p></li>
+<li><p>The residual: <img class="math" src="../../../_images/math/2fe3f2e9afa11677c02e46f836dbc6f08d6f9b6b.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -11px"/>.</p></li>
+<li><p>The metamodel predictivity coefficient: <img class="math" src="../../../_images/math/9d3276944d201667821ed3926930630489e51dbb.svg" alt="\displaystyle Q2 = 1 - \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(\bar{y} - y_i)^2}}" style="vertical-align: -19px"/></p></li>
 <li><p>A plot showing the relation between the output values (physical
 model) and the predicted metamodel values. The relation is compared to a reference
 diagonal built with the physical model output values.</p>
@@ -778,6 +780,7 @@ diagonal built with the physical model output values.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -846,7 +849,7 @@ diagonal built with the physical model output values.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -865,7 +868,8 @@ diagonal built with the physical model output values.</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Data analyses</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

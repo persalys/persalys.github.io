@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LimitState &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">LimitState</a></li> 
       </ul>
     </div>  
 
@@ -46,9 +48,9 @@
             
   <div class="section" id="limitstate">
 <h1>LimitState<a class="headerlink" href="#limitstate" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.LimitState">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">LimitState</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">LimitState</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a limit state.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -82,14 +84,6 @@
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">&#39;ls1&#39;</span><span class="p">,</span> <span class="n">physicalModel</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.LimitState.thisown" title="persalys.LimitState.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -103,7 +97,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getId" title="persalys.LimitState.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>(self)</p></td>
 <td><p>Accessor to the object’s id.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getImplementation" title="persalys.LimitState.getImplementation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getImplementation</span></code></a>(self, \*args)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getImplementation" title="persalys.LimitState.getImplementation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getImplementation</span></code></a>(self)</p></td>
 <td><p>Accessor to the underlying implementation.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getName" title="persalys.LimitState.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>(self)</p></td>
@@ -152,15 +146,15 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -172,9 +166,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -186,9 +180,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getImplementation">
-<code class="sig-name descname">getImplementation</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getImplementation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getImplementation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getImplementation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the underlying implementation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -200,9 +194,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -214,9 +208,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getOperator">
-<code class="sig-name descname">getOperator</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOperator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOperator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOperator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Comparison operator accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -228,9 +222,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getOutputName">
-<code class="sig-name descname">getOutputName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOutputName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOutputName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOutputName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the name of output variable of interest in limit state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -242,9 +236,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getPhysicalModel">
-<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model for limit state accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -256,9 +250,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Python script for limit state accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -270,9 +264,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.getThreshold">
-<code class="sig-name descname">getThreshold</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getThreshold" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getThreshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getThreshold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Threshold value for limit state accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -284,9 +278,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.isValid">
-<code class="sig-name descname">isValid</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.isValid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isValid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.isValid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether limit state is valid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -298,9 +292,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -312,9 +306,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.setOperator">
-<code class="sig-name descname">setOperator</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">comparisonOperator</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOperator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setOperator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">comparisonOperator</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOperator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Comparison operator accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -326,9 +320,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.setOutputName">
-<code class="sig-name descname">setOutputName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOutputName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setOutputName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOutputName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the name of output variable of interest in limit state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -340,9 +334,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.LimitState.setThreshold">
-<code class="sig-name descname">setThreshold</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setThreshold" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setThreshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">threshold</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setThreshold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Threshold value for limit state accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -354,17 +348,12 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.LimitState.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.LimitState.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -395,7 +384,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -414,7 +403,8 @@
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">LimitState</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

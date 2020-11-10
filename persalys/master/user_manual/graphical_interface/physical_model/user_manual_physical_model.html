@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User manual - Define a physical model &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a physical model</a></li> 
       </ul>
     </div>  
 
@@ -51,6 +53,7 @@
 <dt>Several types of physical models are available:</dt><dd><ul class="simple">
 <li><p><strong>Symbolic model</strong>: Physical model defined with analytical formulas</p></li>
 <li><p><strong>Python model</strong>: Physical model defined with a Python script</p></li>
+<li><p><strong>Coupling model</strong>: Physical model to wrap an external code using file-exchange</p></li>
 <li><p><strong>YACS model</strong>: Physical model defined with a YACS scheme (optional)</p></li>
 <li><p><strong>FMI model</strong>: Physical model defined with a FMU file (optional)</p></li>
 </ul>
@@ -274,8 +277,62 @@ should use a <a class="reference internal" href="../deterministic_analysis/user_
 <p>Here is an example of an error message transmission, when we tried to compute sqrt(C=-450):</p>
 <img alt="../../../_images/pythonPhysicalModel_error1.png" class="align-center" src="../../../_images/pythonPhysicalModel_error1.png" />
 </div>
+<div class="section" id="coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange">
+<span id="vectcouplingmodel"></span><h3>2-3 <em>Coupling model</em>: define a physical model to wrap an external code using file-exchange<a class="headerlink" href="#coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange" title="Permalink to this headline">¶</a></h3>
+<p>A physical model can be defined to wrap an external code. I/O can be
+cached in dedicated files. Remember to clear it when significant
+changes are made on the model. Working directory (local temp area by
+default) can be explicitely set. The checkbox allows the user to keep
+the working directory once the model has run. The <strong>Check model</strong>
+button runs the model on the defined input values. It shall be used to
+test the physical model. To save the output values, the user should
+use the <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p>
+<p>A coupling model is divided into steps (one per tab), each with
+its own parameters.</p>
+<p>Step definition is divided into several categories:</p>
+<ul class="simple">
+<li><p>Command: used to define the command calling the external code. This
+can be empty if one decides to set a pre-processing. In addition I/O
+encoding (utf-8/latin-1) and command timeout (-1 for no time out)
+can be set.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Command.png" class="align-center" src="../../../_images/CPM_Command.png" />
+<ul class="simple">
+<li><p>Inputs: used to locate the template file that will be used to
+generate inputs files for the command. Each input variable is
+associated to a token that will tell the coupling model code where
+to find it in the input file. Template file correctness can be
+evaluated using the “check input button”. Template and generated
+input files will be displayed side-by-side for visual inspection and
+validation.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Input.png" class="align-center" src="../../../_images/CPM_Input.png" />
+<ul class="simple">
+<li><p>Resources: used to locate the files required by the command
+(executable, configuration files, etc..)</p></li>
+</ul>
+<img alt="../../../_images/CPM_Resource.png" class="align-center" src="../../../_images/CPM_Resource.png" />
+<ul class="simple">
+<li><p>Outputs: used to specify the output file name and specify where to
+find the output variables in it. Similarly to the Inputs section,
+output varaibles are associated to a token. In addition, numerical
+format can be specified as in <a class="reference external" href="https://pyformat.info/">https://pyformat.info/</a> set of “new
+rules”. Generated output files can be inspected using the “check
+output button”. When clicked it will ask the user to choose a
+generated output file and will try to retrieve the output variables
+values.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Output.png" class="align-center" src="../../../_images/CPM_Output.png" />
+<ul class="simple">
+<li><p>Additional processing (Optional): A python editor (similar to the
+one in the PythonModel) can be used to set a pre/post processing
+function. Variables form preceding steps and/or intermediate/output
+variables can be defined and manipulated here.</p></li>
+</ul>
+<img alt="../../../_images/CPM_ExtraProcessing.png" class="align-center" src="../../../_images/CPM_ExtraProcessing.png" />
+</div>
 <div class="section" id="yacs-model-define-a-physical-model-with-an-xml-file">
-<span id="vectyacsmodel"></span><h3>2-3 <em>YACS model</em>: define a physical model with an XML file<a class="headerlink" href="#yacs-model-define-a-physical-model-with-an-xml-file" title="Permalink to this headline">¶</a></h3>
+<span id="vectyacsmodel"></span><h3>2-4 <em>YACS model</em>: define a physical model with an XML file<a class="headerlink" href="#yacs-model-define-a-physical-model-with-an-xml-file" title="Permalink to this headline">¶</a></h3>
 <p>A physical model can be defined by loading an XML file, previously generated for example with Salome,
 which contains:</p>
 <ul class="simple">
@@ -287,7 +344,7 @@ which contains:</p>
 used to test the physical model. To save the output values, the user should use the <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p>
 </div>
 <div class="section" id="fmi-model-define-a-physical-model-from-an-fmu-file">
-<span id="vectfmimodel"></span><h3>2-4 <em>FMI model</em>: define a physical model from an FMU file<a class="headerlink" href="#fmi-model-define-a-physical-model-from-an-fmu-file" title="Permalink to this headline">¶</a></h3>
+<span id="vectfmimodel"></span><h3>2-5 <em>FMI model</em>: define a physical model from an FMU file<a class="headerlink" href="#fmi-model-define-a-physical-model-from-an-fmu-file" title="Permalink to this headline">¶</a></h3>
 <p>A physical model can be defined by loading a FMU file, previously generated
 by OpenModelica for example.</p>
 <img alt="../../../_images/FMIPhysicalModel1.png" class="align-center" src="../../../_images/FMIPhysicalModel1.png" />
@@ -309,7 +366,7 @@ to modify the currently listed variables.</p>
 The output values are displayed in the <strong>Value</strong> column.</p>
 </div>
 <div class="section" id="differentiation-tab">
-<span id="differentiationtab"></span><h3>2-5 Differentiation tab<a class="headerlink" href="#differentiation-tab" title="Permalink to this headline">¶</a></h3>
+<span id="differentiationtab"></span><h3>2-6 Differentiation tab<a class="headerlink" href="#differentiation-tab" title="Permalink to this headline">¶</a></h3>
 <img alt="../../../_images/differentiation_tab.png" class="align-center" src="../../../_images/differentiation_tab.png" />
 <p>The <strong>Differentiation</strong> tab enables the user to define the finite difference step of each input variable.
 By default each step is equal to 1e-7.
@@ -317,11 +374,11 @@ These steps are used to set the gradient of the model function with the first or
 and its hessian with the second order centered finite difference scheme.</p>
 <p>First order non-centered finite difference scheme:</p>
 <div class="math">
-<p><img src="../../../_images/math/c62bc3c2f3605ad722e2e7b5e32040637dcbbc40.svg" alt="\frac{\partial f_j}{\partial x_i} \approx \frac{f_j(x + \epsilon_i) - f_j(x)}
+<p><img src="../../../_images/math/3ce24affd1f21d4eace9aabfa322b7b5d80fd7be.svg" alt="\frac{\partial f_j}{\partial x_i} \approx \frac{f_j(x + \epsilon_i) - f_j(x)}
                                                {\epsilon_i}"/></p>
 </div><p>Second order centered finite difference scheme:</p>
 <div class="math">
-<p><img src="../../../_images/math/6dbde1b6077e9bde8e6f4d81f1d5f2bfee426164.svg" alt="\frac{\partial^2 f_k}{\partial x_i \partial x_j} \approx
+<p><img src="../../../_images/math/69ba683c9e4f1412e2f8e09fe8f182feb04b0b37.svg" alt="\frac{\partial^2 f_k}{\partial x_i \partial x_j} \approx
                                    \frac{
                                       f_k(x + \epsilon_i + \epsilon_j) -
                                       f_k(x + \epsilon_i - \epsilon_j) +
@@ -333,6 +390,7 @@ and its hessian with the second order centered finite difference scheme.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -353,9 +411,10 @@ and its hessian with the second order centered finite difference scheme.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#python-model-define-a-physical-model-with-a-python-editor">2-2 <em>Python model</em>: define a physical model with a Python editor</a></li>
-<li><a class="reference internal" href="#yacs-model-define-a-physical-model-with-an-xml-file">2-3 <em>YACS model</em>: define a physical model with an XML file</a></li>
-<li><a class="reference internal" href="#fmi-model-define-a-physical-model-from-an-fmu-file">2-4 <em>FMI model</em>: define a physical model from an FMU file</a></li>
-<li><a class="reference internal" href="#differentiation-tab">2-5 Differentiation tab</a></li>
+<li><a class="reference internal" href="#coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange">2-3 <em>Coupling model</em>: define a physical model to wrap an external code using file-exchange</a></li>
+<li><a class="reference internal" href="#yacs-model-define-a-physical-model-with-an-xml-file">2-4 <em>YACS model</em>: define a physical model with an XML file</a></li>
+<li><a class="reference internal" href="#fmi-model-define-a-physical-model-from-an-fmu-file">2-5 <em>FMI model</em>: define a physical model from an FMU file</a></li>
+<li><a class="reference internal" href="#differentiation-tab">2-6 Differentiation tab</a></li>
 </ul>
 </li>
 </ul>
@@ -384,7 +443,7 @@ and its hessian with the second order centered finite difference scheme.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -403,7 +462,8 @@ and its hessian with the second order centered finite difference scheme.</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a physical model</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

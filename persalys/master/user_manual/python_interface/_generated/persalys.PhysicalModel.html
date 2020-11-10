@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhysicalModel &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PhysicalModel</a></li> 
       </ul>
     </div>  
 
@@ -46,21 +48,13 @@
             
   <div class="section" id="physicalmodel">
 <h1>PhysicalModel<a class="headerlink" href="#physicalmodel" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.PhysicalModel">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">PhysicalModel</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">PhysicalModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model base class.</p>
 <p class="rubric">Notes</p>
 <p>Can only be used through its derived classes.
 See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#persalys.SymbolicPhysicalModel" title="persalys.SymbolicPhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SymbolicPhysicalModel</span></code></a>, <a class="reference internal" href="persalys.PythonPhysicalModel.html#persalys.PythonPhysicalModel" title="persalys.PythonPhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PythonPhysicalModel</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.PhysicalModel.thisown" title="persalys.PhysicalModel.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -83,16 +77,16 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getDistribution" title="persalys.PhysicalModel.getDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDistribution</span></code></a>(self)</p></td>
 <td><p>Distribution accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getFunction" title="persalys.PhysicalModel.getFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFunction</span></code></a>(self, \*args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getFunction" title="persalys.PhysicalModel.getFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFunction</span></code></a>(self, *args)</p></td>
 <td><p>Accessor to the underlying function.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getId" title="persalys.PhysicalModel.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>(self)</p></td>
 <td><p>Accessor to the object’s id.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getImplementation" title="persalys.PhysicalModel.getImplementation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getImplementation</span></code></a>(self, \*args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getImplementation" title="persalys.PhysicalModel.getImplementation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getImplementation</span></code></a>(self)</p></td>
 <td><p>Accessor to the underlying implementation.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getInputByName" title="persalys.PhysicalModel.getInputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputByName</span></code></a>(self, \*args)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getInputByName" title="persalys.PhysicalModel.getInputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputByName</span></code></a>(self, *args)</p></td>
 <td><p>Input variable accessor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getInputDimension" title="persalys.PhysicalModel.getInputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputDimension</span></code></a>(self)</p></td>
@@ -113,7 +107,7 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getName" title="persalys.PhysicalModel.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>(self)</p></td>
 <td><p>Accessor to the object’s name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getOutputByName" title="persalys.PhysicalModel.getOutputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputByName</span></code></a>(self, \*args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getOutputByName" title="persalys.PhysicalModel.getOutputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputByName</span></code></a>(self, *args)</p></td>
 <td><p>Output variable accessor.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getOutputDimension" title="persalys.PhysicalModel.getOutputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputDimension</span></code></a>(self)</p></td>
@@ -128,98 +122,104 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getOutputs" title="persalys.PhysicalModel.getOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputs</span></code></a>(self)</p></td>
 <td><p>Output variables accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getPointToFieldFunction" title="persalys.PhysicalModel.getPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPointToFieldFunction</span></code></a>(self, \*args)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getPointToFieldFunction" title="persalys.PhysicalModel.getPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPointToFieldFunction</span></code></a>(self, *args)</p></td>
 <td><p>Accessor to the underlying function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getPythonScript" title="persalys.PhysicalModel.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getProcessNumber" title="persalys.PhysicalModel.getProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getProcessNumber</span></code></a>(self)</p></td>
+<td><p>Number of concurrent processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getPythonScript" title="persalys.PhysicalModel.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>(self)</p></td>
 <td><p>Python script accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getRestrictedFunction" title="persalys.PhysicalModel.getRestrictedFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedFunction</span></code></a>(self, \*args)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getRestrictedFunction" title="persalys.PhysicalModel.getRestrictedFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedFunction</span></code></a>(self, *args)</p></td>
 <td><p>Accessor to the function restricted to its stochastic inputs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getRestrictedPointToFieldFunction" title="persalys.PhysicalModel.getRestrictedPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedPointToFieldFunction</span></code></a>(self, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getRestrictedPointToFieldFunction" title="persalys.PhysicalModel.getRestrictedPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedPointToFieldFunction</span></code></a>(self, …)</p></td>
 <td><p>Accessor to the field function restricted to its stochastic inputs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getSelectedOutputsNames" title="persalys.PhysicalModel.getSelectedOutputsNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSelectedOutputsNames</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getSelectedOutputsNames" title="persalys.PhysicalModel.getSelectedOutputsNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSelectedOutputsNames</span></code></a>(self)</p></td>
 <td><p>Accessor to the selected outputs names.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getStochasticInputNames" title="persalys.PhysicalModel.getStochasticInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStochasticInputNames</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.getStochasticInputNames" title="persalys.PhysicalModel.getStochasticInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStochasticInputNames</span></code></a>(self)</p></td>
 <td><p>Accessor to the names of the stochastic input variables.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasInputNamed" title="persalys.PhysicalModel.hasInputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasInputNamed</span></code></a>(self, inputName)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasInputNamed" title="persalys.PhysicalModel.hasInputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasInputNamed</span></code></a>(self, inputName)</p></td>
 <td><p>Check if an input has the given name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasMesh" title="persalys.PhysicalModel.hasMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasMesh</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasMesh" title="persalys.PhysicalModel.hasMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasMesh</span></code></a>(self)</p></td>
 <td><p>Whether the model has a mesh.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasOutputNamed" title="persalys.PhysicalModel.hasOutputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasOutputNamed</span></code></a>(self, outputName)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasOutputNamed" title="persalys.PhysicalModel.hasOutputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasOutputNamed</span></code></a>(self, outputName)</p></td>
 <td><p>Check if an output has the given name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasStochasticInputs" title="persalys.PhysicalModel.hasStochasticInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasStochasticInputs</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.hasStochasticInputs" title="persalys.PhysicalModel.hasStochasticInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasStochasticInputs</span></code></a>(self)</p></td>
 <td><p>Whether it contains stochastic variables.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.isParallel" title="persalys.PhysicalModel.isParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isParallel</span></code></a>(self)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.isParallel" title="persalys.PhysicalModel.isParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isParallel</span></code></a>(self)</p></td>
 <td><p>Whether the evaluations of the model are parallelized.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.isValid" title="persalys.PhysicalModel.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>(self)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.isValid" title="persalys.PhysicalModel.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>(self)</p></td>
 <td><p>Whether it is valid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.removeInput" title="persalys.PhysicalModel.removeInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeInput</span></code></a>(self, inputName)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.removeInput" title="persalys.PhysicalModel.removeInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeInput</span></code></a>(self, inputName)</p></td>
 <td><p>Remove an input variable.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.removeOutput" title="persalys.PhysicalModel.removeOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeOutput</span></code></a>(self, outputName)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.removeOutput" title="persalys.PhysicalModel.removeOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeOutput</span></code></a>(self, outputName)</p></td>
 <td><p>Remove an output variable.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.selectOutput" title="persalys.PhysicalModel.selectOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selectOutput</span></code></a>(self, outputName, selected)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.selectOutput" title="persalys.PhysicalModel.selectOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selectOutput</span></code></a>(self, outputName, selected)</p></td>
 <td><p>Select output.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setCopula" title="persalys.PhysicalModel.setCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCopula</span></code></a>(self, inputNames, copula)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setCopula" title="persalys.PhysicalModel.setCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCopula</span></code></a>(self, inputNames, copula)</p></td>
 <td><p>Copula accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setDistribution" title="persalys.PhysicalModel.setDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistribution</span></code></a>(self, inputName, distribution)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setDistribution" title="persalys.PhysicalModel.setDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistribution</span></code></a>(self, inputName, distribution)</p></td>
 <td><p>Input distribution accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setDistributionParametersType" title="persalys.PhysicalModel.setDistributionParametersType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistributionParametersType</span></code></a>(self, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setDistributionParametersType" title="persalys.PhysicalModel.setDistributionParametersType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistributionParametersType</span></code></a>(self, …)</p></td>
 <td><p>Input distribution parameter type accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setFiniteDifferenceStep" title="persalys.PhysicalModel.setFiniteDifferenceStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFiniteDifferenceStep</span></code></a>(self, inputName, step)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setFiniteDifferenceStep" title="persalys.PhysicalModel.setFiniteDifferenceStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFiniteDifferenceStep</span></code></a>(self, inputName, step)</p></td>
 <td><p>Finite difference step accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputDescription" title="persalys.PhysicalModel.setInputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputDescription</span></code></a>(self, inputName, description)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputDescription" title="persalys.PhysicalModel.setInputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputDescription</span></code></a>(self, inputName, description)</p></td>
 <td><p>Input description accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputName" title="persalys.PhysicalModel.setInputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputName</span></code></a>(self, inputName, newName)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputName" title="persalys.PhysicalModel.setInputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputName</span></code></a>(self, inputName, newName)</p></td>
 <td><p>Input variable name accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputStochastic" title="persalys.PhysicalModel.setInputStochastic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputStochastic</span></code></a>(self, inputName, stoch)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputStochastic" title="persalys.PhysicalModel.setInputStochastic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputStochastic</span></code></a>(self, inputName, stoch)</p></td>
 <td><p>Whether the input variable is stochastic.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputValue" title="persalys.PhysicalModel.setInputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputValue</span></code></a>(self, inputName, value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputValue" title="persalys.PhysicalModel.setInputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputValue</span></code></a>(self, inputName, value)</p></td>
 <td><p>Input variable value accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputs" title="persalys.PhysicalModel.setInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputs</span></code></a>(self, inputs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setInputs" title="persalys.PhysicalModel.setInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputs</span></code></a>(self, inputs)</p></td>
 <td><p>Input variables accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setMeshModel" title="persalys.PhysicalModel.setMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMeshModel</span></code></a>(self, meshModel)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setMeshModel" title="persalys.PhysicalModel.setMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMeshModel</span></code></a>(self, meshModel)</p></td>
 <td><p>Mesh model accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setName" title="persalys.PhysicalModel.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(self, name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setName" title="persalys.PhysicalModel.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(self, name)</p></td>
 <td><p>Accessor to the object’s name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputDescription" title="persalys.PhysicalModel.setOutputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputDescription</span></code></a>(self, outputName, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputDescription" title="persalys.PhysicalModel.setOutputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputDescription</span></code></a>(self, outputName, …)</p></td>
 <td><p>Output description accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputName" title="persalys.PhysicalModel.setOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputName</span></code></a>(self, outputName, newName)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputName" title="persalys.PhysicalModel.setOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputName</span></code></a>(self, outputName, newName)</p></td>
 <td><p>Output variable name accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputValue" title="persalys.PhysicalModel.setOutputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputValue</span></code></a>(self, outputName, value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputValue" title="persalys.PhysicalModel.setOutputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputValue</span></code></a>(self, outputName, value)</p></td>
 <td><p>Output variable name accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputs" title="persalys.PhysicalModel.setOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputs</span></code></a>(self, outputs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setOutputs" title="persalys.PhysicalModel.setOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputs</span></code></a>(self, outputs)</p></td>
 <td><p>Output variables accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setParallel" title="persalys.PhysicalModel.setParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setParallel</span></code></a>(self, flag)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setParallel" title="persalys.PhysicalModel.setParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setParallel</span></code></a>(self, flag)</p></td>
 <td><p>Whether the evaluations of the model are parallelized.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PhysicalModel.setProcessNumber" title="persalys.PhysicalModel.setProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setProcessNumber</span></code></a>(self, processNumber)</p></td>
+<td><p>Number of concurrent processes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -232,17 +232,23 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 <tr class="row-odd"><td><p><strong>GetClassName</strong></p></td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p><strong>getEvalTime</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setEvalTime</strong></p></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.addInput">
-<code class="sig-name descname">addInput</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">input</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.addInput" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">addInput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.addInput" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an input variable.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -254,9 +260,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.addOutput">
-<code class="sig-name descname">addOutput</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">output</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.addOutput" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">addOutput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">output</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.addOutput" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an output variable.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -268,9 +274,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -282,9 +288,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getCopula">
-<code class="sig-name descname">getCopula</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getCopula" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getCopula</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getCopula" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copula accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -296,9 +302,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getDistribution">
-<code class="sig-name descname">getDistribution</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getDistribution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDistribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getDistribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Distribution accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -310,9 +316,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getFunction">
-<code class="sig-name descname">getFunction</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getFunction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the underlying function.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -330,9 +336,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -344,9 +350,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getImplementation">
-<code class="sig-name descname">getImplementation</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getImplementation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getImplementation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getImplementation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the underlying implementation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -358,9 +364,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getInputByName">
-<code class="sig-name descname">getInputByName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputByName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInputByName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputByName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input variable accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -378,9 +384,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getInputDimension">
-<code class="sig-name descname">getInputDimension</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputDimension" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInputDimension</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputDimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of input variables accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -392,9 +398,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getInputNames">
-<code class="sig-name descname">getInputNames</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputNames" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInputNames</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputNames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input variable names accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -406,9 +412,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getInputRandomVector">
-<code class="sig-name descname">getInputRandomVector</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputRandomVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInputRandomVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputRandomVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input random vector accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -420,9 +426,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getInputs">
-<code class="sig-name descname">getInputs</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getInputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input variables accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -434,9 +440,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getMeshModel">
-<code class="sig-name descname">getMeshModel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getMeshModel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMeshModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getMeshModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mesh model accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -448,9 +454,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -462,9 +468,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getOutputByName">
-<code class="sig-name descname">getOutputByName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputByName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOutputByName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputByName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output variable accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -482,9 +488,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getOutputDimension">
-<code class="sig-name descname">getOutputDimension</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputDimension" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOutputDimension</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputDimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of output variables accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -496,9 +502,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getOutputNames">
-<code class="sig-name descname">getOutputNames</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputNames" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOutputNames</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputNames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output variable names accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -510,9 +516,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getOutputRandomVector">
-<code class="sig-name descname">getOutputRandomVector</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputRandomVector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOutputRandomVector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputRandomVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output random vector accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -524,9 +530,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getOutputs">
-<code class="sig-name descname">getOutputs</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output variables accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -538,9 +544,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getPointToFieldFunction">
-<code class="sig-name descname">getPointToFieldFunction</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getPointToFieldFunction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPointToFieldFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getPointToFieldFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the underlying function.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -558,9 +564,23 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
+<dt id="persalys.PhysicalModel.getProcessNumber">
+<code class="sig-name descname">getProcessNumber</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getProcessNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Python script accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -572,9 +592,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getRestrictedFunction">
-<code class="sig-name descname">getRestrictedFunction</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getRestrictedFunction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getRestrictedFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getRestrictedFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the function restricted to its stochastic inputs.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -592,9 +612,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getRestrictedPointToFieldFunction">
-<code class="sig-name descname">getRestrictedPointToFieldFunction</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getRestrictedPointToFieldFunction" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getRestrictedPointToFieldFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getRestrictedPointToFieldFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the field function restricted to its stochastic inputs.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -612,9 +632,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getSelectedOutputsNames">
-<code class="sig-name descname">getSelectedOutputsNames</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getSelectedOutputsNames" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getSelectedOutputsNames</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getSelectedOutputsNames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the selected outputs names.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -626,9 +646,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.getStochasticInputNames">
-<code class="sig-name descname">getStochasticInputNames</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getStochasticInputNames" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getStochasticInputNames</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.getStochasticInputNames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the names of the stochastic input variables.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -640,9 +660,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.hasInputNamed">
-<code class="sig-name descname">hasInputNamed</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasInputNamed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasInputNamed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasInputNamed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if an input has the given name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -660,9 +680,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.hasMesh">
-<code class="sig-name descname">hasMesh</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasMesh" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasMesh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the model has a mesh.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -674,9 +694,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.hasOutputNamed">
-<code class="sig-name descname">hasOutputNamed</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasOutputNamed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasOutputNamed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasOutputNamed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if an output has the given name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -694,9 +714,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.hasStochasticInputs">
-<code class="sig-name descname">hasStochasticInputs</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasStochasticInputs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasStochasticInputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.hasStochasticInputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether it contains stochastic variables.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -708,9 +728,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.isParallel">
-<code class="sig-name descname">isParallel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.isParallel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isParallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.isParallel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the evaluations of the model are parallelized.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -722,9 +742,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.isValid">
-<code class="sig-name descname">isValid</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.isValid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isValid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.isValid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether it is valid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -736,9 +756,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.removeInput">
-<code class="sig-name descname">removeInput</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.removeInput" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">removeInput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.removeInput" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove an input variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -750,9 +770,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.removeOutput">
-<code class="sig-name descname">removeOutput</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.removeOutput" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">removeOutput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.removeOutput" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove an output variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -764,9 +784,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.selectOutput">
-<code class="sig-name descname">selectOutput</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputName</em>, <em class="sig-param">selected</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.selectOutput" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">selectOutput</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">selected</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.selectOutput" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -780,9 +800,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setCopula">
-<code class="sig-name descname">setCopula</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputNames</em>, <em class="sig-param">copula</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setCopula" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setCopula</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputNames</span></em>, <em class="sig-param"><span class="n">copula</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setCopula" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copula accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -794,9 +814,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setDistribution">
-<code class="sig-name descname">setDistribution</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em>, <em class="sig-param">distribution</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setDistribution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setDistribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">distribution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setDistribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input distribution accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -810,9 +830,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setDistributionParametersType">
-<code class="sig-name descname">setDistributionParametersType</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em>, <em class="sig-param">distributionParametersType</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setDistributionParametersType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setDistributionParametersType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">distributionParametersType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setDistributionParametersType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input distribution parameter type accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -826,9 +846,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setFiniteDifferenceStep">
-<code class="sig-name descname">setFiniteDifferenceStep</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em>, <em class="sig-param">step</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setFiniteDifferenceStep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">step</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finite difference step accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -842,9 +862,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setInputDescription">
-<code class="sig-name descname">setInputDescription</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em>, <em class="sig-param">description</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputDescription" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInputDescription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">description</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputDescription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input description accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -858,9 +878,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setInputName">
-<code class="sig-name descname">setInputName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em>, <em class="sig-param">newName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInputName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">newName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input variable name accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -874,9 +894,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setInputStochastic">
-<code class="sig-name descname">setInputStochastic</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em>, <em class="sig-param">stoch</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputStochastic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInputStochastic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">stoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputStochastic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the input variable is stochastic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -890,9 +910,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setInputValue">
-<code class="sig-name descname">setInputValue</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputName</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputValue" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInputValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputName</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputValue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input variable value accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -906,9 +926,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setInputs">
-<code class="sig-name descname">setInputs</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">inputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setInputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input variables accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -920,9 +940,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setMeshModel">
-<code class="sig-name descname">setMeshModel</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">meshModel</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setMeshModel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setMeshModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">meshModel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setMeshModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mesh model accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -934,9 +954,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -948,9 +968,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setOutputDescription">
-<code class="sig-name descname">setOutputDescription</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputName</em>, <em class="sig-param">description</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputDescription" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setOutputDescription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">description</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputDescription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output description accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -964,9 +984,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setOutputName">
-<code class="sig-name descname">setOutputName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputName</em>, <em class="sig-param">newName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setOutputName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">newName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output variable name accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -980,9 +1000,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setOutputValue">
-<code class="sig-name descname">setOutputValue</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputName</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputValue" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setOutputValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputName</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputValue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output variable name accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -996,9 +1016,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setOutputs">
-<code class="sig-name descname">setOutputs</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputs</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setOutputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output variables accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -1010,9 +1030,9 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.PhysicalModel.setParallel">
-<code class="sig-name descname">setParallel</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">flag</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setParallel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setParallel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">flag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setParallel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the evaluations of the model are parallelized.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1024,10 +1044,18 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.PhysicalModel.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.PhysicalModel.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
+<dl class="py method">
+<dt id="persalys.PhysicalModel.setProcessNumber">
+<code class="sig-name descname">setProcessNumber</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">processNumber</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PhysicalModel.setProcessNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1035,6 +1063,7 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1065,7 +1094,7 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1084,7 +1113,8 @@ See <a class="reference internal" href="persalys.SymbolicPhysicalModel.html#pers
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PhysicalModel</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

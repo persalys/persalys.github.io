@@ -25,6 +25,21 @@ Model creation
     DataModel
     MetaModel
 
+Coupling model
+--------------
+
+.. currentmodule:: persalys
+
+.. autosummary::
+    :toctree: _generated/
+    :template: class.rst_t
+
+    CouplingInputFile
+    CouplingResourceFile
+    CouplingOutputFile
+    CouplingStep
+    CouplingPhysicalModel
+
 Model evaluation
 ----------------
 
@@ -195,3 +210,14 @@ Study storage
     :template: class.rst_t
 
     Study
+
+Function caching
+----------------
+
+.. currentmodule:: persalys
+
+.. autosummary::
+    :toctree: _generated/
+    :template: class.rst_t
+
+    FileMemoizeFunction

@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GridDesignOfExperiment &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GridDesignOfExperiment</a></li> 
       </ul>
     </div>  
 
@@ -46,9 +48,9 @@
             
   <div class="section" id="griddesignofexperiment">
 <h1>GridDesignOfExperiment<a class="headerlink" href="#griddesignofexperiment" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.GridDesignOfExperiment">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">GridDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">GridDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a grid design of experiments.</p>
 <dl>
 <dt>Available constructors:</dt><dd><p>GridDesignOfExperiment(<em>name, physicalModel</em>)</p>
@@ -90,14 +92,6 @@ physical model.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myDOE</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;myDOE&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.GridDesignOfExperiment.thisown" title="persalys.GridDesignOfExperiment.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -196,57 +190,36 @@ physical model.</p>
 </table>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 69%" />
-<col style="width: 31%" />
+<col style="width: 68%" />
+<col style="width: 32%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><strong>GetDefaultBounds</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>addObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>blockNotification</strong></p></td>
-<td></td>
-</tr>
 <tr class="row-even"><td><p><strong>canBeLaunched</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>getObserver</strong></p></td>
+<tr class="row-odd"><td><p><strong>getElapsedTime</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>getObservers</strong></p></td>
+<tr class="row-even"><td><p><strong>getParentObserver</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>getResult</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>notify</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>notifyAndRemove</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>removeAllObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>removeObserver</strong></p></td>
+<tr class="row-odd"><td><p><strong>getResult</strong></p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getBlockSize">
-<code class="sig-name descname">getBlockSize</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getBlockSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getBlockSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getBlockSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Block size accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -259,9 +232,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -273,9 +246,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getErrorMessage">
-<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getErrorMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -287,9 +260,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getFailedInputSample">
-<code class="sig-name descname">getFailedInputSample</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getFailedInputSample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getFailedInputSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getFailedInputSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Failed input sample accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -301,9 +274,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -315,9 +288,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getInterestVariables">
-<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -329,9 +302,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -343,9 +316,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getNotEvaluatedInputSample">
-<code class="sig-name descname">getNotEvaluatedInputSample</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getNotEvaluatedInputSample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getNotEvaluatedInputSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getNotEvaluatedInputSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Not evaluated input sample accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -357,9 +330,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getOriginalInputSample">
-<code class="sig-name descname">getOriginalInputSample</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getOriginalInputSample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOriginalInputSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getOriginalInputSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input sample accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -371,9 +344,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getPhysicalModel">
-<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -385,9 +358,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -399,9 +372,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getSeed">
-<code class="sig-name descname">getSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -413,9 +386,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -427,9 +400,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getValues">
-<code class="sig-name descname">getValues</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getValues" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getValues</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getValues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Values accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -441,9 +414,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -455,9 +428,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.getWarningMessage">
-<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.getWarningMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Warning message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -469,9 +442,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -483,9 +456,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.hasValidResult">
-<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.hasValidResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis has been run.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -497,9 +470,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -511,9 +484,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.isReliabilityAnalysis">
-<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis involves reliability.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -525,9 +498,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.isRunning">
-<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.isRunning" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.isRunning" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis is running.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -539,15 +512,15 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the analysis.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.setBlockSize">
-<code class="sig-name descname">setBlockSize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">size</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setBlockSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setBlockSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setBlockSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Block size accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -560,9 +533,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.setInterestVariables">
-<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">variablesNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -574,9 +547,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -588,9 +561,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.setSeed">
-<code class="sig-name descname">setSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">seed</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -602,9 +575,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -616,9 +589,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.setValues">
-<code class="sig-name descname">setValues</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setValues" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setValues</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">values</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setValues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Values accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -630,9 +603,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.GridDesignOfExperiment.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.GridDesignOfExperiment.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -644,17 +617,12 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.GridDesignOfExperiment.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.GridDesignOfExperiment.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -685,7 +653,7 @@ It is set by default to 1.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -704,7 +672,8 @@ It is set by default to 1.</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GridDesignOfExperiment</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

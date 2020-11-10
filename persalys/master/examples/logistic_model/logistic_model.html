@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistic model &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    
+    <link rel="shortcut icon" href="../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Developer manual" href="../../developer_manual/developer_manual.html" />
+    <link rel="prev" title="Deviation of a cantilever beam" href="../cantilever_beam/cantilever_beam.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../developer_manual/developer_manual.html" title="Developer manual"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../cantilever_beam/cantilever_beam.html" title="Deviation of a cantilever beam"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../examples.html" accesskey="U">Examples</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Logistic model</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="logistic-model">
+<h1>Logistic model<a class="headerlink" href="#logistic-model" title="Permalink to this headline">¶</a></h1>
+<p>Here we will demonstrate some coupling model capabilities on the
+<a class="reference external" href="https://openturns.github.io/openturns/latest/usecases/use_case_logistic.html">logistic model</a>
+from the OpenTURNS documentation.</p>
+<div class="section" id="problem-statement">
+<h2>1- Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<p>The logistic growth model is the differential equation:</p>
+<div class="math">
+<p><img src="../../_images/math/5113e9ef46b31551d69195e501cd16819cd5a4da.svg" alt="\frac{dy(t)}{dt} = ay(t) - by(t)^2"/></p>
+</div><p>for any <img class="math" src="../../_images/math/40f7d22385d34f1f001d562db6743b4e4ef53f20.svg" alt="t\in[t_0, t_{final}]" style="vertical-align: -5px"/>, with the initial condition:</p>
+<div class="math">
+<p><img src="../../_images/math/7d13a28e0d898bea9fe60484eeb2e23b0568e77c.svg" alt="y(t_0) = y_0"/></p>
+</div><p>where :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><img class="math" src="../../_images/math/c3ac442a13a7eb9dfbfbae7b772fda4366d2c3a1.svg" alt="a &gt; 0" style="vertical-align: 0px"/> and <img class="math" src="../../_images/math/ea8a45dd3af97a3c91415ad2b17cac44db420f64.svg" alt="b &gt; 0" style="vertical-align: 0px"/> are two real parameters,</p></li>
+<li><p><img class="math" src="../../_images/math/e5ceeaf267031d88ac0a833f29a4aa2c01bd6559.svg" alt="y(t)" style="vertical-align: -4px"/> is the size of the population at time <img class="math" src="../../_images/math/5e3f01147ce3e8ca3a77016e2a599d3e0bf9141b.svg" alt="t" style="vertical-align: 0px"/>,</p></li>
+<li><p><img class="math" src="../../_images/math/1a7bba8d4a4ff43dc5b0498234b5121caa2576d3.svg" alt="t_0" style="vertical-align: -2px"/> is the initial time,</p></li>
+<li><p><img class="math" src="../../_images/math/441571594c29787ba87cd6de5f32805c4699c946.svg" alt="y_0" style="vertical-align: -3px"/> is the initial population at time <img class="math" src="../../_images/math/06d292771d1d4c1b05626620abfab84d919a3691.svg" alt="t=t_0" style="vertical-align: -2px"/>,</p></li>
+<li><p><img class="math" src="../../_images/math/dc93a04fda4726bf5313ecc4e02106c046c96221.svg" alt="t_{final}" style="vertical-align: -5px"/> is the final time.</p></li>
+</ul>
+</div></blockquote>
+<p>The <img class="math" src="../../_images/math/fcc75b435678705821acfc4e7f6db378a96c8a12.svg" alt="a" style="vertical-align: 0px"/> parameter sets the growth rate of the population. The <img class="math" src="../../_images/math/264088e66f7c9f4e7077af81ba0fae157bf5b655.svg" alt="b" style="vertical-align: 0px"/> parameter acts as a competition parameter which limits the size of the population by increasing the competition between its members.</p>
+<p>In [1], the author uses this model to simulate the growth of the U.S. population. To do this, the author uses the U.S. census data from 1790 to 1910. For this time interval, R. Pearl and L. Reed [2] computed the following values of the parameters:</p>
+<div class="math">
+<p><img src="../../_images/math/4c9dfedf41c03734a8724bd32dbb34b63960007b.svg" alt="a = 0.03134, \qquad b = 1.5887 \times 10^{-10}."/></p>
+</div><p>Our goal is to use the logistic growth model in order to simulate the solution for a larger time interval, from 1790 to 2010:</p>
+<div class="math">
+<p><img src="../../_images/math/6d03336f71c627c8de6c9c39fa5ca9578503b95c.svg" alt="t_0 = 1790, \qquad t_{final} = 2010"/></p>
+</div><p>Then we can compare the predictions of this model with the real evolution of the U.S. population.</p>
+<p>We can prove that, if <img class="math" src="../../_images/math/23b2b14ec7b416a3720f346c37aebcb12f85c4c2.svg" alt="y_0 &gt; 0" style="vertical-align: -3px"/>, then the limit population is:</p>
+<div class="math">
+<p><img src="../../_images/math/391cb780f069fef4ee17b0e356cc759a6fa852f9.svg" alt="y_{limit} =\frac{a}{b}"/></p>
+</div><p>In 1790, the U.S. population was 3.9 Millions inhabitants:</p>
+<div class="math">
+<p><img src="../../_images/math/3ef28791b7f508812aaf9f3d22919603ff93e90f.svg" alt="y_0 = 3.9 \times 10^6."/></p>
+</div><p>We can prove that the exact solution of the ordinary differential equation is:</p>
+<div class="math">
+<p><img src="../../_images/math/83c2eb24e30f8cd4cd2e364c02468947e88c983b.svg" alt="y(t)=\frac{ay_0}{by_0+(a-by_0 ) \exp(-a(t-t_0)) }"/></p>
+</div><p>for any <img class="math" src="../../_images/math/40f7d22385d34f1f001d562db6743b4e4ef53f20.svg" alt="t\in[t_0, t_{final}]" style="vertical-align: -5px"/>.</p>
+</div>
+<div class="section" id="define-the-model">
+<h2>2- Define the model<a class="headerlink" href="#define-the-model" title="Permalink to this headline">¶</a></h2>
+<p>We will emulate an external code using a Python script in order to demonstrate the coupling model.</p>
+<p>First we need to create a template file named <em>input.txt.in</em> for our input variables with a text editor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y0</span><span class="o">=</span><span class="nd">@y0</span><span class="o">@</span>
+<span class="n">a</span><span class="o">=</span><span class="nd">@a</span><span class="o">@</span>
+<span class="n">b</span><span class="o">=</span><span class="nd">@b</span><span class="o">@</span>
+</pre></div>
+</div>
+<p>This file will define the input file passed to the external code with the actual input values.</p>
+<p>Then create a Python script named <em>program.py</em> that will act as the external code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="k">def</span> <span class="nf">logisticSolution</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="mf">1790.0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">y0</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">y0</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">y0</span><span class="p">)</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="n">exec</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;input.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">logisticSolution</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1790</span><span class="p">,</span> <span class="mi">2011</span><span class="p">)]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Y.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">Y</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.17g</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This script reads the actual input file <em>input.txt</em>, computes the Y time series
+according to y0, a, b and writes it into the <em>Y.txt</em> file.</p>
+<p>Now create a Python script named <em>post.py</em> that will allow to post-process the time series values:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;Y.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+<span class="n">Y_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">Y_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">Y_mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">Y_last</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Y_min=</span><span class="si">%.17g</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">Y_min</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Y_max=</span><span class="si">%.17g</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">Y_max</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Y_mean=</span><span class="si">%.17g</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">Y_mean</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Y_last=</span><span class="si">%.17g</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">Y_last</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This script reads the Y time series from the <em>Y.txt</em> file, computes the interest variables
+and write them into the <em>output.txt</em> file.</p>
+<p>Our coupling will consists in several steps:</p>
+<ul class="simple">
+<li><p>generating input variables from <em>input.txt.in</em></p></li>
+<li><p>running <em>program.py</em></p></li>
+<li><p>running <em>post.py</em></p></li>
+<li><p>reading output values from <em>output.txt</em></p></li>
+</ul>
+<div class="section" id="create-the-study">
+<h3>2-1 Create the study<a class="headerlink" href="#create-the-study" title="Permalink to this headline">¶</a></h3>
+<p>Click on the <img alt="newButton" src="../../_images/document-new22x22.png" /> in the tool bar to create a new study.</p>
+<img alt="../../_images/window_OTStudy_startUp.png" class="align-center" src="../../_images/window_OTStudy_startUp.png" />
+</div>
+<div class="section" id="create-the-coupling-physical-model">
+<h3>2-2 Create the coupling physical model<a class="headerlink" href="#create-the-coupling-physical-model" title="Permalink to this headline">¶</a></h3>
+<p>To define the physical model, click on the button <strong>Coupling model</strong>
+of the window shown above.</p>
+<p>The following window appears and a physicalModel item is added in the study tree:</p>
+<img alt="../../_images/physicalModelDiagram.png" class="align-center" src="../../_images/physicalModelDiagram.png" />
+<p>Click on the <strong>Model definition</strong> box of the model diagram to create the
+following window.</p>
+<img alt="../../_images/modelDefinition1.png" class="align-center" src="../../_images/modelDefinition1.png" />
+<p>Fill the <strong>Command</strong> box with <cite>python program.py</cite></p>
+<p>Go to the <em>Input</em> sub-tab, browse for the path to <em>input.txt.in</em> for the
+<strong>Template file</strong> field, and the <strong>Configured file</strong> field is automatically set to <em>input.txt</em>.</p>
+<p>Then add the y0, a and b variables and their token with surrounding &#64;
+to mimic the content of <em>input.txt.in</em>, and default values y0=3.9e6, a=0.03134, and b=1.5887e-10.</p>
+<img alt="../../_images/modelDefinition2.png" class="align-center" src="../../_images/modelDefinition2.png" />
+<p>Go to the <strong>Resource</strong> sub-tab, browse for the path to the <em>program.py</em> file.</p>
+<img alt="../../_images/modelDefinition3.png" class="align-center" src="../../_images/modelDefinition3.png" />
+<p>Now add a new <strong>Command</strong> tab (click on the + button) to add a new coupling step,
+a new “Command 2” tab is opened.</p>
+<p>Fill the <strong>Command</strong> box with <cite>python post.py</cite></p>
+<img alt="../../_images/modelDefinition4.png" class="align-center" src="../../_images/modelDefinition4.png" />
+<p>Go to the <strong>Resource</strong> sub-tab, browse for the path to the <em>post.py</em> file.</p>
+<img alt="../../_images/modelDefinition5.png" class="align-center" src="../../_images/modelDefinition5.png" />
+<p>Go to the <strong>Output</strong> sub-tab, fill the <em>Output file</em> field with <em>output.txt</em>
+then add the following output variables we defined in <em>post.py</em>, and set their corresponding tokens:</p>
+<ul class="simple">
+<li><p><em>Y_min</em></p></li>
+<li><p><em>Y_max</em></p></li>
+<li><p><em>Y_mean</em></p></li>
+<li><p><em>Y_last</em></p></li>
+</ul>
+<img alt="../../_images/modelDefinition6.png" class="align-center" src="../../_images/modelDefinition6.png" />
+<p>Click on the <strong>Check model</strong> button in the bottom, the elapsed time should
+appear on success.
+You can go to the <strong>Summary</strong> tab to read the output values.</p>
+<img alt="../../_images/good_defined_physicalModel1.png" class="align-center" src="../../_images/good_defined_physicalModel1.png" />
+<p>Another post-processing option to estimate the mean would be to use the
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.trapz.html">trapezoidal</a>
+or <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simps.html">Simpson</a> rule
+from scipy (in <em>post.py</em>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<span class="n">Y_mean</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">Y_mean</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now suppose that we want to estimate the mean of the population Y before it
+exceeds the threshold to 100 millions inhabitants.
+We first have to find the index where <em>y&gt;100e6</em>, then compute the mean from the
+partial time-series, else we fallback to a null value if the threshold is not
+exceeded (in <em>post.py</em>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mf">100e6</span><span class="p">)</span>
+    <span class="n">Y_mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Y</span><span class="p">[:</span><span class="n">idx</span><span class="p">])</span> <span class="o">/</span> <span class="n">idx</span>
+<span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+    <span class="n">Y_mean</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Logistic model</a><ul>
+<li><a class="reference internal" href="#problem-statement">1- Problem statement</a></li>
+<li><a class="reference internal" href="#define-the-model">2- Define the model</a><ul>
+<li><a class="reference internal" href="#create-the-study">2-1 Create the study</a></li>
+<li><a class="reference internal" href="#create-the-coupling-physical-model">2-2 Create the coupling physical model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../cantilever_beam/cantilever_beam.html"
+                        title="previous chapter">Deviation of a cantilever beam</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../developer_manual/developer_manual.html"
+                        title="next chapter">Developer manual</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/examples/logistic_model/logistic_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../developer_manual/developer_manual.html" title="Developer manual"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../cantilever_beam/cantilever_beam.html" title="Deviation of a cantilever beam"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../examples.html" >Examples</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Logistic model</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

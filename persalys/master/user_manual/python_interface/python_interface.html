@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User manual for the Python interface &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -34,7 +35,8 @@
           <a href="../graphical_interface/field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">Persalys documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../user_manual.html" accesskey="U">User manual</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../user_manual.html" accesskey="U">User manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual for the Python interface</a></li> 
       </ul>
     </div>  
 
@@ -91,6 +93,32 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.MetaModel.html#persalys.MetaModel" title="persalys.MetaModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaModel</span></code></a>(*args)</p></td>
 <td><p>Metamodel.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="coupling-model">
+<h2>Coupling model<a class="headerlink" href="#coupling-model" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CouplingInputFile.html#persalys.CouplingInputFile" title="persalys.CouplingInputFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingInputFile</span></code></a>(*args)</p></td>
+<td><p>Input file metadata for coupling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.CouplingResourceFile.html#persalys.CouplingResourceFile" title="persalys.CouplingResourceFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingResourceFile</span></code></a>(*args)</p></td>
+<td><p>Resource file metadata for coupling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CouplingOutputFile.html#persalys.CouplingOutputFile" title="persalys.CouplingOutputFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingOutputFile</span></code></a>(*args)</p></td>
+<td><p>Output file metadata for coupling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.CouplingStep.html#persalys.CouplingStep" title="persalys.CouplingStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingStep</span></code></a>(*args)</p></td>
+<td><p>Coupling step.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CouplingPhysicalModel.html#persalys.CouplingPhysicalModel" title="persalys.CouplingPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingPhysicalModel</span></code></a>(*args)</p></td>
+<td><p>File-exchange based coupling model.</p></td>
 </tr>
 </tbody>
 </table>
@@ -365,9 +393,24 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="function-caching">
+<h2>Function caching<a class="headerlink" href="#function-caching" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.FileMemoizeFunction.html#persalys.FileMemoizeFunction" title="persalys.FileMemoizeFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileMemoizeFunction</span></code></a>(*args)</p></td>
+<td><p>Function proxy with a CSV file cache.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -380,6 +423,7 @@
   <ul>
 <li><a class="reference internal" href="#">User manual for the Python interface</a><ul>
 <li><a class="reference internal" href="#model-creation">Model creation</a></li>
+<li><a class="reference internal" href="#coupling-model">Coupling model</a></li>
 <li><a class="reference internal" href="#model-evaluation">Model evaluation</a></li>
 <li><a class="reference internal" href="#optimization">Optimization</a></li>
 <li><a class="reference internal" href="#screening">Screening</a></li>
@@ -395,6 +439,7 @@
 <li><a class="reference internal" href="#data-analysis">Data analysis</a></li>
 <li><a class="reference internal" href="#metamodel">Metamodel</a></li>
 <li><a class="reference internal" href="#study-storage">Study storage</a></li>
+<li><a class="reference internal" href="#function-caching">Function caching</a></li>
 </ul>
 </li>
 </ul>
@@ -421,7 +466,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -439,7 +484,8 @@
           <a href="../graphical_interface/field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">Persalys documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../user_manual.html" >User manual</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../user_manual.html" >User manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual for the Python interface</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

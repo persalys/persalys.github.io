@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataAnalysisResult &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataAnalysisResult</a></li> 
       </ul>
     </div>  
 
@@ -46,18 +48,10 @@
             
   <div class="section" id="dataanalysisresult">
 <h1>DataAnalysisResult<a class="headerlink" href="#dataanalysisresult" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.DataAnalysisResult">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">DataAnalysisResult</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">DataAnalysisResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the results of a data analysis.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.DataAnalysisResult.thisown" title="persalys.DataAnalysisResult.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -151,15 +145,15 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getCDF">
-<code class="sig-name descname">getCDF</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getCDF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getCDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getCDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>CDF accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -171,9 +165,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -185,9 +179,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getCoefficientOfVariation">
-<code class="sig-name descname">getCoefficientOfVariation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getCoefficientOfVariation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coefficient of variation accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -199,9 +193,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getDesignOfExperiment">
-<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Design of experiments accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -213,9 +207,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getElapsedTime">
-<code class="sig-name descname">getElapsedTime</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getElapsedTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getElapsedTime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getElapsedTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Elapsed time in seconds to perform the analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -227,9 +221,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getFirstQuartile">
-<code class="sig-name descname">getFirstQuartile</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getFirstQuartile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getFirstQuartile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getFirstQuartile" title="Permalink to this definition">¶</a></dt>
 <dd><p>First quartile accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -241,9 +235,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -255,9 +249,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getKurtosis">
-<code class="sig-name descname">getKurtosis</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getKurtosis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getKurtosis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getKurtosis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kurtosis accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -269,9 +263,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getMax">
-<code class="sig-name descname">getMax</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMax" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMax</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMax" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -283,9 +277,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getMean">
-<code class="sig-name descname">getMean</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMean" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMean" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mean accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -297,9 +291,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getMeanConfidenceInterval">
-<code class="sig-name descname">getMeanConfidenceInterval</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMeanConfidenceInterval" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMeanConfidenceInterval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMeanConfidenceInterval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Confidence interval mean accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -317,9 +311,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getMedian">
-<code class="sig-name descname">getMedian</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMedian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMedian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMedian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Median accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -331,9 +325,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getMin">
-<code class="sig-name descname">getMin</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getMin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minimum accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -345,9 +339,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -359,9 +353,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getOutliers">
-<code class="sig-name descname">getOutliers</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getOutliers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOutliers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getOutliers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Outliers accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -373,9 +367,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getPDF">
-<code class="sig-name descname">getPDF</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getPDF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getPDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>PDF accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -387,9 +381,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -401,9 +395,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getSkewness">
-<code class="sig-name descname">getSkewness</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getSkewness" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getSkewness</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getSkewness" title="Permalink to this definition">¶</a></dt>
 <dd><p>Skewness accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -415,9 +409,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getStandardDeviation">
-<code class="sig-name descname">getStandardDeviation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getStandardDeviation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getStandardDeviation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getStandardDeviation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Standard deviation accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -429,9 +423,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getStdConfidenceInterval">
-<code class="sig-name descname">getStdConfidenceInterval</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getStdConfidenceInterval" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getStdConfidenceInterval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getStdConfidenceInterval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Confidence interval standard deviation accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -449,9 +443,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getThirdQuartile">
-<code class="sig-name descname">getThirdQuartile</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getThirdQuartile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getThirdQuartile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getThirdQuartile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Third quartile accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -463,9 +457,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getVariance">
-<code class="sig-name descname">getVariance</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getVariance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVariance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getVariance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Variance accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -477,9 +471,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -491,9 +485,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -505,9 +499,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -519,9 +513,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -533,9 +527,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -547,9 +541,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.DataAnalysisResult.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataAnalysisResult.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -561,17 +555,12 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.DataAnalysisResult.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.DataAnalysisResult.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -602,7 +591,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -621,7 +610,8 @@
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataAnalysisResult</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

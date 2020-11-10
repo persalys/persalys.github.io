@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORMAnalysis &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FORMAnalysis</a></li> 
       </ul>
     </div>  
 
@@ -46,9 +48,9 @@
             
   <div class="section" id="formanalysis">
 <h1>FORMAnalysis<a class="headerlink" href="#formanalysis" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.FORMAnalysis">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">FORMAnalysis</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">FORMAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Process a reliability analysis using the FORM method.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -87,14 +89,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">designPoint</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getStandardSpaceDesignPoint</span><span class="p">()</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.FORMAnalysis.thisown" title="persalys.FORMAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -184,51 +178,30 @@
 </table>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 69%" />
-<col style="width: 31%" />
+<col style="width: 68%" />
+<col style="width: 32%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>addObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>blockNotification</strong></p></td>
-<td></td>
-</tr>
 <tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>getObserver</strong></p></td>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>getObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>getParentObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>notify</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>notifyAndRemove</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>removeAllObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>removeObserver</strong></p></td>
+<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -240,9 +213,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getErrorMessage">
-<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -254,9 +227,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -268,9 +241,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getInterestVariables">
-<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -282,9 +255,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getLimitState">
-<code class="sig-name descname">getLimitState</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getLimitState" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getLimitState</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getLimitState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Limit-state accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -296,9 +269,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -310,9 +283,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getOptimizationAlgorithm">
-<code class="sig-name descname">getOptimizationAlgorithm</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getOptimizationAlgorithm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getOptimizationAlgorithm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getOptimizationAlgorithm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the optimization algorithm used to find the design point.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -325,9 +298,9 @@ the default used algorithm.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getPhysicalModel">
-<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -339,9 +312,9 @@ the default used algorithm.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getPhysicalStartingPoint">
-<code class="sig-name descname">getPhysicalStartingPoint</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getPhysicalStartingPoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPhysicalStartingPoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getPhysicalStartingPoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical starting point accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -354,9 +327,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -368,9 +341,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getResult">
-<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Result accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -382,9 +355,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -396,9 +369,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -410,9 +383,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.getWarningMessage">
-<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Warning message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -424,9 +397,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -438,9 +411,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.hasValidResult">
-<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis has been run.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -452,9 +425,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -466,9 +439,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.isReliabilityAnalysis">
-<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis involves reliability.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -480,9 +453,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.isRunning">
-<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis is running.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -494,15 +467,15 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the analysis.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.setInterestVariables">
-<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">outputsNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">outputsNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -514,9 +487,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -528,9 +501,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.setOptimizationAlgorithm">
-<code class="sig-name descname">setOptimizationAlgorithm</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">solver</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setOptimizationAlgorithm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setOptimizationAlgorithm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">solver</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setOptimizationAlgorithm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the optimization algorithm used to find the design point.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -543,9 +516,9 @@ the default used algorithm.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.setPhysicalStartingPoint">
-<code class="sig-name descname">setPhysicalStartingPoint</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">point</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setPhysicalStartingPoint" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setPhysicalStartingPoint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">point</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setPhysicalStartingPoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical starting point accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -558,9 +531,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -572,9 +545,9 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FORMAnalysis.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -586,17 +559,12 @@ distribution of the physical model</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.FORMAnalysis.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.FORMAnalysis.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -627,7 +595,7 @@ distribution of the physical model</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -646,7 +614,8 @@ distribution of the physical model</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FORMAnalysis</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

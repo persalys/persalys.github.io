@@ -1,0 +1,11 @@
+CouplingResourceFile
+=============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CouplingResourceFile
+
+   
+   .. automethod:: __init__
+   
+

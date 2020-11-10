@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InferenceAnalysis &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">InferenceAnalysis</a></li> 
       </ul>
     </div>  
 
@@ -46,9 +48,9 @@
             
   <div class="section" id="inferenceanalysis">
 <h1>InferenceAnalysis<a class="headerlink" href="#inferenceanalysis" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.InferenceAnalysis">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">InferenceAnalysis</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">InferenceAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform a Kolmogorov goodness-of-fit test for 1-D continuous distributions.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -83,14 +85,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">resultX0</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getFittingTestResultForVariable</span><span class="p">(</span><span class="s1">&#39;X0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.InferenceAnalysis.thisown" title="persalys.InferenceAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -177,51 +171,30 @@
 </table>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 69%" />
-<col style="width: 31%" />
+<col style="width: 68%" />
+<col style="width: 32%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>addObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>blockNotification</strong></p></td>
-<td></td>
-</tr>
 <tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>getObserver</strong></p></td>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>getObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>getParentObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>notify</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>notifyAndRemove</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>removeAllObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>removeObserver</strong></p></td>
+<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -233,9 +206,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getDesignOfExperiment">
-<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Design of experiments accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -247,9 +220,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getDistributionsFactories">
-<code class="sig-name descname">getDistributionsFactories</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">variableName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getDistributionsFactories" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDistributionsFactories</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">variableName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getDistributionsFactories" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the sequence of distributions to test for a variable.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -267,9 +240,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getErrorMessage">
-<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -281,9 +254,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -295,9 +268,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getInterestVariables">
-<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -309,14 +282,14 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getLevel">
-<code class="sig-name descname">getLevel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getLevel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getLevel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getLevel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Level accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl>
-<dt><strong>level</strong><span class="classifier">float, <img class="math" src="../../../_images/math/11fa5adc4120ebf71c9895fa5650fd363bcdf767.svg" alt="0 &lt; {\rm level} &lt; 1" style="vertical-align: -1px"/>, optional</span></dt><dd><p>The risk of committing a Type I error, that is an incorrect rejection of a true
+<dt><strong>level</strong><span class="classifier">float, <img class="math" src="../../../_images/math/c3a7e00de96af10a813c4460a7d4f727c25edcaa.svg" alt="0 &lt; {\rm level} &lt; 1" style="vertical-align: 0px"/>, optional</span></dt><dd><p>The risk of committing a Type I error, that is an incorrect rejection of a true
 null hypothesis</p>
 </dd>
 </dl>
@@ -324,9 +297,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -338,9 +311,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -352,9 +325,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getResult">
-<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Result accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -366,9 +339,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -380,9 +353,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -394,9 +367,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.getWarningMessage">
-<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Warning message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -408,9 +381,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -422,9 +395,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.hasValidResult">
-<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis has been run.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -436,9 +409,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -450,9 +423,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.isReliabilityAnalysis">
-<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis involves reliability.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -464,9 +437,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.isRunning">
-<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis is running.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -478,15 +451,15 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the analysis.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.setDistributionsFactories">
-<code class="sig-name descname">setDistributionsFactories</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">variableName</em>, <em class="sig-param">distributionsFactories</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setDistributionsFactories" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setDistributionsFactories</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">variableName</span></em>, <em class="sig-param"><span class="n">distributionsFactories</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setDistributionsFactories" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the sequence of distributions to test for a variable.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -500,9 +473,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.setInterestVariables">
-<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">variablesNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -514,14 +487,14 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.setLevel">
-<code class="sig-name descname">setLevel</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">level</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setLevel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setLevel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">level</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setLevel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Level accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>level</strong><span class="classifier">float, <img class="math" src="../../../_images/math/11fa5adc4120ebf71c9895fa5650fd363bcdf767.svg" alt="0 &lt; {\rm level} &lt; 1" style="vertical-align: -1px"/>, optional</span></dt><dd><p>The risk of committing a Type I error, that is an incorrect rejection of a true
+<dt><strong>level</strong><span class="classifier">float, <img class="math" src="../../../_images/math/c3a7e00de96af10a813c4460a7d4f727c25edcaa.svg" alt="0 &lt; {\rm level} &lt; 1" style="vertical-align: 0px"/>, optional</span></dt><dd><p>The risk of committing a Type I error, that is an incorrect rejection of a true
 null hypothesis</p>
 </dd>
 </dl>
@@ -529,9 +502,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -543,9 +516,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -557,9 +530,9 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.InferenceAnalysis.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -571,17 +544,12 @@ null hypothesis</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.InferenceAnalysis.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.InferenceAnalysis.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -612,7 +580,7 @@ null hypothesis</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -631,7 +599,8 @@ null hypothesis</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">InferenceAnalysis</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

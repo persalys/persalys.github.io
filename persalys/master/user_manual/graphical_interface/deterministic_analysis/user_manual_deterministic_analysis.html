@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User manual - Deterministic analyses &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Deterministic analyses</a></li> 
       </ul>
     </div>  
 
@@ -304,7 +306,7 @@ select the graphic type: PDF (default) or CDF</p></li>
 <img alt="../../../_images/doePDF.png" class="align-center" src="../../../_images/doePDF.png" />
 </li>
 <li><p>The <strong>Box plots</strong> tab presents the <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=14524285">box plot</a>
-of the variables.</p>
+of the variables. They are rescaled for each variable (<img class="math" src="../../../_images/math/dc5f6b2db62e4fc7088a9c0ee365d44a2ff252c6.svg" alt="x" style="vertical-align: 0px"/>), using mean (<img class="math" src="../../../_images/math/84cbacdf7fbac51259b2f759119217814751e6fb.svg" alt="\mu" style="vertical-align: -3px"/>) and standard deviation (<img class="math" src="../../../_images/math/736fbcd25ea5c4b2e69e40807f7fd673b95db2a3.svg" alt="\sigma" style="vertical-align: 0px"/>): <img class="math" src="../../../_images/math/a68977a58eec51eaa22fa79c2d04db2a345ac933.svg" alt="y = (x - \mu)/\sigma" style="vertical-align: -4px"/></p>
 <ul>
 <li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
 <li><dl class="simple">
@@ -585,41 +587,41 @@ progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
 <p>The results window gathers several tabs:</p>
 <ul>
 <li><p>The <strong>Elementary effects</strong> tab presents for a selected output (left column):
-a table with the effects of each input variable and the mean of the absolute value (<img class="math" src="../../../_images/math/63dfc50c3353976b45f1f64de15c70dcc0ed5f02.svg" alt="\mu*" style="vertical-align: -4px"/>),
-the standard deviation (<img class="math" src="../../../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: -1px"/>) and the mean (<img class="math" src="../../../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -4px"/>) of the elementary effects.
-These values are plotted in the graphs <img class="math" src="../../../_images/math/c89369a491672a78ac48299d3a182f92c42aeaaa.svg" alt="(\mu*, \sigma)" style="vertical-align: -5px"/> and <img class="math" src="../../../_images/math/036c9b0cb833b758077d5f180737e726fef36a29.svg" alt="(\mu*, \mu)" style="vertical-align: -5px"/>.</p>
+a table with the effects of each input variable and the mean of the absolute value (<img class="math" src="../../../_images/math/5a764c51bedd6b7721e83934c114c6e4d599b9dd.svg" alt="\mu*" style="vertical-align: -3px"/>),
+the standard deviation (<img class="math" src="../../../_images/math/736fbcd25ea5c4b2e69e40807f7fd673b95db2a3.svg" alt="\sigma" style="vertical-align: 0px"/>) and the mean (<img class="math" src="../../../_images/math/84cbacdf7fbac51259b2f759119217814751e6fb.svg" alt="\mu" style="vertical-align: -3px"/>) of the elementary effects.
+These values are plotted in the graphs <img class="math" src="../../../_images/math/8a3df3a5e5566d18a5b054163de7eaf4cd750237.svg" alt="(\mu*, \sigma)" style="vertical-align: -4px"/> and <img class="math" src="../../../_images/math/a2bd9b633f44aac447b8cb7260f96ddaa2cf226c.svg" alt="(\mu*, \mu)" style="vertical-align: -4px"/>.</p>
 <img alt="../../../_images/morrisGraph.png" class="align-center" src="../../../_images/morrisGraph.png" />
 <p>The types of effects are determined automatically according to two criteria
-modeled by two lines in the graph <img class="math" src="../../../_images/math/c89369a491672a78ac48299d3a182f92c42aeaaa.svg" alt="(\mu*, \sigma)" style="vertical-align: -5px"/>:</p>
+modeled by two lines in the graph <img class="math" src="../../../_images/math/8a3df3a5e5566d18a5b054163de7eaf4cd750237.svg" alt="(\mu*, \sigma)" style="vertical-align: -4px"/>:</p>
 <ul>
 <li><p>the green vertical dotted line, called <em>No effect boundary</em> is defined by:</p>
-<p><img class="math" src="../../../_images/math/9573eb31e6e54cb90998f4f8e886131729973440.svg" alt="\mu_b* = \frac{max(\mu_i*) - min(\mu_i*)}{2}" style="vertical-align: -6px"/>, (with <img class="math" src="../../../_images/math/517a2e3c3c2be03f1fc3218fdeb931bb1cc13abb.svg" alt="i" style="vertical-align: -1px"/> in <img class="math" src="../../../_images/math/41647fee95af380f906716b5ea5d889be8620cb6.svg" alt="[0, N]" style="vertical-align: -5px"/> and <img class="math" src="../../../_images/math/102ede67fa109b003c437414855466fdd4c5d990.svg" alt="N" style="vertical-align: -1px"/> the number of inputs).</p>
+<p><img class="math" src="../../../_images/math/ed5621e06cc74d22dcae45e700bc0f2d3ed70625.svg" alt="\mu_b* = \frac{max(\mu_i*) - min(\mu_i*)}{2}" style="vertical-align: -6px"/>, (with <img class="math" src="../../../_images/math/e6a99ea2d89b392a91fc6a0253a60d88ae0742c7.svg" alt="i" style="vertical-align: 0px"/> in <img class="math" src="../../../_images/math/f41b60368fc335af4aa265d707f4b6516044f91d.svg" alt="[0, N]" style="vertical-align: -4px"/> and <img class="math" src="../../../_images/math/3aa04fab413034052f1d8eb035c64b7df445faea.svg" alt="N" style="vertical-align: 0px"/> the number of inputs).</p>
 <dl class="simple">
 <dt>It separates the variables into two groups:</dt><dd><ul class="simple">
-<li><p>the variables which have no effect (<img class="math" src="../../../_images/math/15541828ed869f0dfad29eddaca6724f81ba03b2.svg" alt="\mu_i &lt; \mu_b*" style="vertical-align: -4px"/>)</p></li>
-<li><p>the variables which have an effect (<img class="math" src="../../../_images/math/15541828ed869f0dfad29eddaca6724f81ba03b2.svg" alt="\mu_i &lt; \mu_b*" style="vertical-align: -4px"/>)</p></li>
+<li><p>the variables which have no effect (<img class="math" src="../../../_images/math/adb957ddc9ea8fe2720957aaad75cc72f6ffb8ed.svg" alt="\mu_i &lt; \mu_b*" style="vertical-align: -3px"/>)</p></li>
+<li><p>the variables which have an effect (<img class="math" src="../../../_images/math/adb957ddc9ea8fe2720957aaad75cc72f6ffb8ed.svg" alt="\mu_i &lt; \mu_b*" style="vertical-align: -3px"/>)</p></li>
 </ul>
 </dd>
 </dl>
-<p>This boundary <img class="math" src="../../../_images/math/dfacce75146cd2c126dc0769e8ecc3e55cf47f90.svg" alt="\mu_b*" style="vertical-align: -4px"/> can be changed by the user by clicking (left-click) on the X-axis.</p>
+<p>This boundary <img class="math" src="../../../_images/math/7131ae9f7aed14ad5e9db6f60d8ae65456ac734f.svg" alt="\mu_b*" style="vertical-align: -3px"/> can be changed by the user by clicking (left-click) on the X-axis.</p>
 </li>
-<li><p>the blue dotted line, called ‘cv = 0.5’ is defined by: <img class="math" src="../../../_images/math/2e4f9cf2c69432a00336ceebaa36f74f5ebbbfd3.svg" alt="cv = \frac{\sigma_i}{\mu_i*} = 0.5" style="vertical-align: -9px"/>.</p>
+<li><p>the blue dotted line, called ‘cv = 0.5’ is defined by: <img class="math" src="../../../_images/math/6f1332b540f07fcb5a51314c92a9374ba5053220.svg" alt="cv = \frac{\sigma_i}{\mu_i*} = 0.5" style="vertical-align: -8px"/>.</p>
 <dl class="simple">
 <dt>It separates the variables into two groups:</dt><dd><ul class="simple">
-<li><p>the variables which have a linear effect (<img class="math" src="../../../_images/math/f21b2685d9992e7825cc97617cf5e269fd48a492.svg" alt="\frac{\sigma_i}{\mu_i*} &lt;= 0.5" style="vertical-align: -9px"/>)</p></li>
-<li><p>the variables which have a non-linear effect or interaction (<img class="math" src="../../../_images/math/df324fe6ed30e5da87b805b65213f18580052f83.svg" alt="\frac{\sigma_i}{\mu_i*} &gt; 0.5" style="vertical-align: -9px"/>)</p></li>
+<li><p>the variables which have a linear effect (<img class="math" src="../../../_images/math/1c77f50861cc49c970fa5cbe8fd8efef83298c47.svg" alt="\frac{\sigma_i}{\mu_i*} &lt;= 0.5" style="vertical-align: -8px"/>)</p></li>
+<li><p>the variables which have a non-linear effect or interaction (<img class="math" src="../../../_images/math/15211d85c64d5668a73e0eb31cbfb2db7525130c.svg" alt="\frac{\sigma_i}{\mu_i*} &gt; 0.5" style="vertical-align: -8px"/>)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>On the graph <img class="math" src="../../../_images/math/036c9b0cb833b758077d5f180737e726fef36a29.svg" alt="(\mu*, \mu)" style="vertical-align: -5px"/>, the blue lines separate the variables into two groups:</dt><dd><ul class="simple">
-<li><p>the monotonic variables (<img class="math" src="../../../_images/math/cefbe4411855a567084f350213a0b8502e49de3c.svg" alt="|\mu_i| \simeq \mu_i*" style="vertical-align: -5px"/>)</p></li>
-<li><p>the non-monotonic variables (<img class="math" src="../../../_images/math/615363b4da52820185b8cad2aef23e8beb7fdcab.svg" alt="|\mu_i| &lt; \mu_i*" style="vertical-align: -5px"/>)</p></li>
+<dt>On the graph <img class="math" src="../../../_images/math/a2bd9b633f44aac447b8cb7260f96ddaa2cf226c.svg" alt="(\mu*, \mu)" style="vertical-align: -4px"/>, the blue lines separate the variables into two groups:</dt><dd><ul class="simple">
+<li><p>the monotonic variables (<img class="math" src="../../../_images/math/e86d88b3aa840ff297a6da4eb5d15e523c94ad84.svg" alt="|\mu_i| \simeq \mu_i*" style="vertical-align: -4px"/>)</p></li>
+<li><p>the non-monotonic variables (<img class="math" src="../../../_images/math/4a054527e4d70c61646c61e631231489768c424e.svg" alt="|\mu_i| &lt; \mu_i*" style="vertical-align: -4px"/>)</p></li>
 </ul>
 </dd>
 </dl>
-<p>The sign of <img class="math" src="../../../_images/math/07defd780bfe346f82fe7021905228709041576c.svg" alt="\mu_i" style="vertical-align: -4px"/> gives the direction of the effect.</p>
+<p>The sign of <img class="math" src="../../../_images/math/8e7f7793371131647391117a273a557ad2310a14.svg" alt="\mu_i" style="vertical-align: -3px"/> gives the direction of the effect.</p>
 </li>
 </ul>
 <p>By default, in the table, the variables with no effect are unselected.</p>
@@ -1062,6 +1064,7 @@ select the data to plot</p></li>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1150,7 +1153,7 @@ select the data to plot</p></li>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1169,7 +1172,8 @@ select the data to plot</p></li>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Deterministic analyses</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

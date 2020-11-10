@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MetaModelValidationResult &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MetaModelValidationResult</a></li> 
       </ul>
     </div>  
 
@@ -46,18 +48,10 @@
             
   <div class="section" id="metamodelvalidationresult">
 <h1>MetaModelValidationResult<a class="headerlink" href="#metamodelvalidationresult" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.MetaModelValidationResult">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">MetaModelValidationResult</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">MetaModelValidationResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the base class for the results of a metamodel validation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.MetaModelValidationResult.thisown" title="persalys.MetaModelValidationResult.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -106,15 +100,15 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -126,9 +120,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -140,9 +134,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getMetaModelOutputSample">
-<code class="sig-name descname">getMetaModelOutputSample</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getMetaModelOutputSample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMetaModelOutputSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getMetaModelOutputSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output sample accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -154,9 +148,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validation method name accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -168,34 +162,34 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getQ2">
-<code class="sig-name descname">getQ2</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getQ2" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getQ2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getQ2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Q2 accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl>
 <dt><strong>q2</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd><p>The predictive squared correlation coefficient Q2 is defined as follows for
 each output of the model:
-<img class="math" src="../../../_images/math/3f129630dce1014b36f9edab04d7be171b3fd9ec.svg" alt="1 - \displaystyle \frac{\sum_{i=1}^N (y_i - \hat{y_i})^2}{(N-1) {\rm Var}\left[ \underline{Y} \right]}" style="vertical-align: -16px"/>
-with <img class="math" src="../../../_images/math/5489f02eeab1502af2c9b42b0fb0cf74de8106f5.svg" alt="\underline{Y}" style="vertical-align: -4px"/> the vector of the <img class="math" src="../../../_images/math/102ede67fa109b003c437414855466fdd4c5d990.svg" alt="N" style="vertical-align: -1px"/> model’s values
-<img class="math" src="../../../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -4px"/> and <img class="math" src="../../../_images/math/04d6d2d01acf66670875bf1cc98ee5d99c22a81c.svg" alt="\hat{y_i}" style="vertical-align: -4px"/> the prediction.</p>
+<img class="math" src="../../../_images/math/8279d6ae25dd63455ae8a847e8f2feb2e877a9ab.svg" alt="1 - \displaystyle \frac{\sum_{i=1}^N (y_i - \hat{y_i})^2}{(N-1) {\rm Var}\left[ \underline{Y} \right]}" style="vertical-align: -16px"/>
+with <img class="math" src="../../../_images/math/70729c836bbea2617a28f7bea9fe8d56b6c1fcb9.svg" alt="\underline{Y}" style="vertical-align: -3px"/> the vector of the <img class="math" src="../../../_images/math/3aa04fab413034052f1d8eb035c64b7df445faea.svg" alt="N" style="vertical-align: 0px"/> model’s values
+<img class="math" src="../../../_images/math/da815a6fe345e9ecd542a9d53a7dee5ab384d549.svg" alt="y_i" style="vertical-align: -3px"/> and <img class="math" src="../../../_images/math/d757ce82c9052d8ee0992b5f62c67cf17432a2c0.svg" alt="\hat{y_i}" style="vertical-align: -3px"/> the prediction.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getResiduals">
-<code class="sig-name descname">getResiduals</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getResiduals" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getResiduals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getResiduals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Residuals accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl>
 <dt><strong>error</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd><p>The errors are defined as follows for each output of the model:
-<img class="math" src="../../../_images/math/77fdb23d46a2e5c8fbc9d98ac31e0f19a8026737.svg" alt="\displaystyle \frac{\sqrt{\sum_{i=1}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -12px"/>
-with <img class="math" src="../../../_images/math/923126a1fbfd9fee24450d6d90fc2c7f1ef7b377.svg" alt="y_i" style="vertical-align: -4px"/> the <img class="math" src="../../../_images/math/102ede67fa109b003c437414855466fdd4c5d990.svg" alt="N" style="vertical-align: -1px"/> model’s values and <img class="math" src="../../../_images/math/04d6d2d01acf66670875bf1cc98ee5d99c22a81c.svg" alt="\hat{y_i}" style="vertical-align: -4px"/> the
+<img class="math" src="../../../_images/math/ffec6d04d6150d02e723b5b85e5369807f830d5b.svg" alt="\displaystyle \frac{\sqrt{\sum_{i=1}^N (y_i - \hat{y_i})^2}}{N}" style="vertical-align: -11px"/>
+with <img class="math" src="../../../_images/math/da815a6fe345e9ecd542a9d53a7dee5ab384d549.svg" alt="y_i" style="vertical-align: -3px"/> the <img class="math" src="../../../_images/math/3aa04fab413034052f1d8eb035c64b7df445faea.svg" alt="N" style="vertical-align: 0px"/> model’s values and <img class="math" src="../../../_images/math/d757ce82c9052d8ee0992b5f62c67cf17432a2c0.svg" alt="\hat{y_i}" style="vertical-align: -3px"/> the
 prediction.</p>
 </dd>
 </dl>
@@ -203,9 +197,9 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -217,9 +211,9 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -231,9 +225,9 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -245,9 +239,9 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -259,9 +253,9 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -273,9 +267,9 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -287,9 +281,9 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.MetaModelValidationResult.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MetaModelValidationResult.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -301,17 +295,12 @@ prediction.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.MetaModelValidationResult.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.MetaModelValidationResult.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -342,7 +331,7 @@ prediction.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -361,7 +350,8 @@ prediction.</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MetaModelValidationResult</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

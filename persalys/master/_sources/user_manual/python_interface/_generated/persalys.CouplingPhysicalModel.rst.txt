@@ -1,0 +1,11 @@
+CouplingPhysicalModel
+==============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CouplingPhysicalModel
+
+   
+   .. automethod:: __init__
+   
+

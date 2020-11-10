@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunctionalChaosAnalysis &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FunctionalChaosAnalysis</a></li> 
       </ul>
     </div>  
 
@@ -46,9 +48,9 @@
             
   <div class="section" id="functionalchaosanalysis">
 <h1>FunctionalChaosAnalysis<a class="headerlink" href="#functionalchaosanalysis" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.FunctionalChaosAnalysis">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">FunctionalChaosAnalysis</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">FunctionalChaosAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a Functional chaos analysis.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -95,14 +97,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sobolResult</span> <span class="o">=</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.thisown" title="persalys.FunctionalChaosAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -246,51 +240,30 @@
 </table>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 69%" />
-<col style="width: 31%" />
+<col style="width: 68%" />
+<col style="width: 32%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>addObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>blockNotification</strong></p></td>
-<td></td>
-</tr>
 <tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>getObserver</strong></p></td>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>getObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>getParentObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>notify</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>notifyAndRemove</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>removeAllObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>removeObserver</strong></p></td>
+<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.analyticalValidation">
-<code class="sig-name descname">analyticalValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.analyticalValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">analyticalValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.analyticalValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether an analytical validation is requested.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -303,9 +276,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getChaosDegree">
-<code class="sig-name descname">getChaosDegree</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getChaosDegree" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getChaosDegree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getChaosDegree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chaos degree accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -317,9 +290,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -331,9 +304,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getDesignOfExperiment">
-<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDesignOfExperiment</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Design of experiments accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -345,9 +318,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getDistribution">
-<code class="sig-name descname">getDistribution</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getDistribution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDistribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getDistribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input distribution accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -360,9 +333,9 @@ of Uniform laws if there is no stochastic input variable.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getEffectiveInputSample">
-<code class="sig-name descname">getEffectiveInputSample</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getEffectiveInputSample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getEffectiveInputSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getEffectiveInputSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective input sample accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -375,9 +348,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getEffectiveOutputSample">
-<code class="sig-name descname">getEffectiveOutputSample</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getEffectiveOutputSample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getEffectiveOutputSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getEffectiveOutputSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Effective output sample accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -389,9 +362,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getErrorMessage">
-<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -403,9 +376,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -417,9 +390,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getInterestVariables">
-<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -431,9 +404,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getKFoldValidationNumberOfFolds">
-<code class="sig-name descname">getKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of folds accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -445,9 +418,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getKFoldValidationSeed">
-<code class="sig-name descname">getKFoldValidationSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getKFoldValidationSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -459,9 +432,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -473,9 +446,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -487,9 +460,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getResult">
-<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Results accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -501,9 +474,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -515,9 +488,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getSparseChaos">
-<code class="sig-name descname">getSparseChaos</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getSparseChaos" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getSparseChaos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getSparseChaos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether it is sparse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -529,9 +502,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getTestSampleValidationPercentageOfPoints">
-<code class="sig-name descname">getTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Percentage of points accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -543,9 +516,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getTestSampleValidationSeed">
-<code class="sig-name descname">getTestSampleValidationSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getTestSampleValidationSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -557,9 +530,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -571,9 +544,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.getWarningMessage">
-<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Warning message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -585,9 +558,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -599,9 +572,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.hasValidResult">
-<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis has been run.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -613,9 +586,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -627,9 +600,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.isReliabilityAnalysis">
-<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis involves reliability.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -641,9 +614,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.isRunning">
-<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis is running.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -655,9 +628,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.kFoldValidation">
-<code class="sig-name descname">kFoldValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.kFoldValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">kFoldValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.kFoldValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether a k-Fold cross-validation is requested.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -669,9 +642,9 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.leaveOneOutValidation">
-<code class="sig-name descname">leaveOneOutValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.leaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">leaveOneOutValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.leaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether a validation by leave-one-out is requested.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -683,15 +656,15 @@ Otherwise, sample of the stochastic input variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the analysis.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setAnalyticalValidation">
-<code class="sig-name descname">setAnalyticalValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setAnalyticalValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setAnalyticalValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setAnalyticalValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether an analytical validation is requested.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -704,9 +677,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setChaosDegree">
-<code class="sig-name descname">setChaosDegree</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">degree</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setChaosDegree" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setChaosDegree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">degree</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setChaosDegree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chaos degree accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -718,9 +691,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setInterestVariables">
-<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">variablesNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -732,9 +705,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setKFoldValidation">
-<code class="sig-name descname">setKFoldValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setKFoldValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether a k-Fold cross-validation is requested.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -746,9 +719,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setKFoldValidationNumberOfFolds">
-<code class="sig-name descname">setKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">nbFolds</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">nbFolds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of folds accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -760,9 +733,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setKFoldValidationSeed">
-<code class="sig-name descname">setKFoldValidationSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">seed</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setKFoldValidationSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -774,9 +747,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setLeaveOneOutValidation">
-<code class="sig-name descname">setLeaveOneOutValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setLeaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setLeaveOneOutValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setLeaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether it is sparse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -788,9 +761,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -802,9 +775,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -816,9 +789,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setSparseChaos">
-<code class="sig-name descname">setSparseChaos</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">sparse</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setSparseChaos" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setSparseChaos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">sparse</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setSparseChaos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether it is sparse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -830,9 +803,9 @@ This method corresponds to an approximation of the Leave-one-out method result.<
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setTestSampleValidation">
-<code class="sig-name descname">setTestSampleValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setTestSampleValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">validation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether a validation with a test sample is requested.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -849,9 +822,9 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setTestSampleValidationPercentageOfPoints">
-<code class="sig-name descname">setTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">percentage</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">percentage</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Percentage of points accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -863,9 +836,9 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setTestSampleValidationSeed">
-<code class="sig-name descname">setTestSampleValidationSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">seed</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setTestSampleValidationSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -877,9 +850,9 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -891,9 +864,9 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FunctionalChaosAnalysis.testSampleValidation">
-<code class="sig-name descname">testSampleValidation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.testSampleValidation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">testSampleValidation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.testSampleValidation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether a validation with a test sample is requested.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -910,17 +883,12 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.FunctionalChaosAnalysis.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -951,7 +919,7 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -970,7 +938,8 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FunctionalChaosAnalysis</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User manual - Probabilistic analyses &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Probabilistic analyses</a></li> 
       </ul>
     </div>  
 
@@ -193,7 +195,7 @@ The copula parameters are accessible by clicking on the icon <img alt="infoButto
 <div><ul>
 <li><p><em>Normal copula</em>: the matrix values can be changed by clicking on the upper
 triangular part of the matrix (expected: floating points or integers in the
-<img class="math" src="../../../_images/math/6991dd7e7515b248097fa286e2a6c47e7a2c9b65.svg" alt="\left[-1; 1\right]" style="vertical-align: -5px"/> interval). The matrix must be definite positive:
+<img class="math" src="../../../_images/math/2e9c65daabf1d999cd06b37e886253ad8acada7e.svg" alt="\left[-1; 1\right]" style="vertical-align: -4px"/> interval). The matrix must be definite positive:
 If a value is not valid, an error message appears below and the previous value is kept.</p>
 <img alt="../../../_images/probabilisticModelCorrelation.png" class="align-center" src="../../../_images/probabilisticModelCorrelation.png" />
 </li>
@@ -333,7 +335,7 @@ the FORM algorithm starts from the result of the Importance sampling analysis</p
 <li><dl class="simple">
 <dt><strong>Stopping criteria</strong> of the algorithm (Select at least one criterion to validate the window):</dt><dd><ul>
 <li><p>the maximum coefficient of variation for the probability, (default: 0.01,
-expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/b3087be18d9ad841111346b7cd0087f3d495ab14.svg" alt="\left[0;1 \right]" style="vertical-align: -5px"/>)</p></li>
+expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/bb04e6fe047c9d8b0b1b1f63376ae31a5e797522.svg" alt="\left[0;1 \right]" style="vertical-align: -4px"/>)</p></li>
 <li><p>the maximum computation time in days(d), hours(h), minutes(m) or seconds(s) (default: one minute)</p></li>
 <li><p>the maximum sampling size (default: 10000, expected: integer)</p></li>
 </ul>
@@ -527,9 +529,9 @@ tab to display the tabs of a FORM result window.</p>
 <li><dl class="simple">
 <dt><strong>Stopping criteria</strong> of the algorithm (Select at least one criterion to validate the window):</dt><dd><ul>
 <li><p>the maximum coefficient of variation (CV) for the mean (
-<img class="math" src="../../../_images/math/4b68822a965dc6e50689b6974e6981fbbc9f5c71.svg" alt="CV = \frac{\sigma / \sqrt{n}}{\lvert \mu \rvert}" style="vertical-align: -9px"/> with <img class="math" src="../../../_images/math/fe942672a0f17044a3184fd82e088fe3d815aca0.svg" alt="n" style="vertical-align: -1px"/>: the number of simulations,
-<img class="math" src="../../../_images/math/31ab6a6bbd42adebf22e4d5a561eae303d3d6391.svg" alt="\mu" style="vertical-align: -4px"/>: the mean, <img class="math" src="../../../_images/math/6aac196b4744b263659766a6347722430e6245a4.svg" alt="\sigma" style="vertical-align: -1px"/>: the standard deviation), (default: 0.01,
-expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/b3087be18d9ad841111346b7cd0087f3d495ab14.svg" alt="\left[0;1 \right]" style="vertical-align: -5px"/>)</p></li>
+<img class="math" src="../../../_images/math/eaccb043bb22c5aab3d84870e6127673c044efa0.svg" alt="CV = \frac{\sigma / \sqrt{n}}{\lvert \mu \rvert}" style="vertical-align: -8px"/> with <img class="math" src="../../../_images/math/92b25875e65789bff5a82ba14ab79702d60ca1eb.svg" alt="n" style="vertical-align: 0px"/>: the number of simulations,
+<img class="math" src="../../../_images/math/84cbacdf7fbac51259b2f759119217814751e6fb.svg" alt="\mu" style="vertical-align: -3px"/>: the mean, <img class="math" src="../../../_images/math/736fbcd25ea5c4b2e69e40807f7fd673b95db2a3.svg" alt="\sigma" style="vertical-align: 0px"/>: the standard deviation), (default: 0.01,
+expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/bb04e6fe047c9d8b0b1b1f63376ae31a5e797522.svg" alt="\left[0;1 \right]" style="vertical-align: -4px"/>)</p></li>
 <li><p>the maximum computation time in days(d), hours(h), minutes(m) or seconds(s) (default: one minute)</p></li>
 <li><p>the maximum sampling size (default: 10000, expected: integer)</p></li>
 </ul>
@@ -543,7 +545,7 @@ purposes (default=1; expected= integer). It must be less than the maximum sampli
 <li><p>the seed of the random generator (default: 0, positive integer expected)</p></li>
 <li><p>require the computation of the confidence interval (default: checked)
 at a given level (default: 0.95, expected: floating point or integer,
-in the interval <img class="math" src="../../../_images/math/0090c5309bb7abf0262892ca12d4e6b1f4a99edd.svg" alt="\left[0;1 \right[" style="vertical-align: -5px"/>)</p></li>
+in the interval <img class="math" src="../../../_images/math/2d0221efaf6cb36b9b3f90a6dee3dbd9b68e9376.svg" alt="\left[0;1 \right[" style="vertical-align: -4px"/>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -606,7 +608,7 @@ select the graphic type: PDF (default) or CDF</p></li>
 <img alt="../../../_images/centralTendencyPDF.png" class="align-center" src="../../../_images/centralTendencyPDF.png" />
 </li>
 <li><p>The <strong>Box plots</strong> tab presents the <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=14524285">box plot</a>
-of the variables.</p>
+of the variables. They are rescaled for each variable (<img class="math" src="../../../_images/math/dc5f6b2db62e4fc7088a9c0ee365d44a2ff252c6.svg" alt="x" style="vertical-align: 0px"/>), using mean (<img class="math" src="../../../_images/math/84cbacdf7fbac51259b2f759119217814751e6fb.svg" alt="\mu" style="vertical-align: -3px"/>) and standard deviation (<img class="math" src="../../../_images/math/736fbcd25ea5c4b2e69e40807f7fd673b95db2a3.svg" alt="\sigma" style="vertical-align: 0px"/>): <img class="math" src="../../../_images/math/a68977a58eec51eaa22fa79c2d04db2a345ac933.svg" alt="y = (x - \mu)/\sigma" style="vertical-align: -4px"/></p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
@@ -737,7 +739,7 @@ mean (corresponding to the first and second order expansions), standard deviatio
 <li><dl class="simple">
 <dt><strong>Stopping criteria</strong> of the algorithm (Select at least one criterion to validate the window):</dt><dd><ul>
 <li><p>the maximum confidence interval length of the first order indices (default: 0.01,
-expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/b3087be18d9ad841111346b7cd0087f3d495ab14.svg" alt="\left[0;1 \right]" style="vertical-align: -5px"/>)</p></li>
+expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/bb04e6fe047c9d8b0b1b1f63376ae31a5e797522.svg" alt="\left[0;1 \right]" style="vertical-align: -4px"/>)</p></li>
 <li><p>the maximum computation time in days(d), hours(h), minutes(m) or seconds(s) (default: one minute)</p></li>
 <li><p>the maximum calls (default: 10000, expected: integer)</p></li>
 </ul>
@@ -750,7 +752,7 @@ expected: a floating point or an integer, in the interval <img class="math" src=
 <dt>the replication size (default=1000; expected= integer).</dt><dd><ul>
 <li><p>The label <strong>Number of calls by iteration</strong> is updated according to its value.</p></li>
 <li><dl class="simple">
-<dt>At each iteration of the algorithm, the model is evaluated <em>nbEval</em> times:</dt><dd><p><img class="math" src="../../../_images/math/04a1c1d5d5d8784d119824daf19a4b1b7e8cae53.svg" alt="nbEval = (nbInputs + 2) * replicationSize" style="vertical-align: -5px"/>
+<dt>At each iteration of the algorithm, the model is evaluated <em>nbEval</em> times:</dt><dd><p><img class="math" src="../../../_images/math/6389dc777b18f888a54877d77bd1f182c10ac0f1.svg" alt="nbEval = (nbInputs + 2) * replicationSize" style="vertical-align: -4px"/>
 with <em>nbInputs</em>, the number of stochastic input variables</p>
 </dd>
 </dl>
@@ -778,7 +780,7 @@ purposes (default=1; expected= integer).</p></li>
 </dd>
 </dl>
 <img alt="../../../_images/sensitivityAnalysisDefineSobol.png" class="align-center" src="../../../_images/sensitivityAnalysisDefineSobol.png" />
-<p>See the <a class="reference internal" href="../../../examples/examples.html#sobolexample"><span class="std std-ref">Sensitivity</span></a> section in the example guide.</p>
+<p>See the <a class="reference internal" href="../../../examples/cantilever_beam/cantilever_beam.html#sobolexample"><span class="std std-ref">Sensitivity</span></a> section in the example guide.</p>
 </div>
 <div class="section" id="src-indices">
 <h4>5-1-2 SRC indices<a class="headerlink" href="#src-indices" title="Permalink to this headline">¶</a></h4>
@@ -897,6 +899,7 @@ bottom of the window to warn the user the result can be false.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -985,7 +988,7 @@ bottom of the window to warn the user the result can be false.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1004,7 +1007,8 @@ bottom of the window to warn the user the result can be false.</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Probabilistic analyses</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

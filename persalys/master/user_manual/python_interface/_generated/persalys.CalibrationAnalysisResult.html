@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CalibrationAnalysisResult &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CalibrationAnalysisResult</a></li> 
       </ul>
     </div>  
 
@@ -46,18 +48,10 @@
             
   <div class="section" id="calibrationanalysisresult">
 <h1>CalibrationAnalysisResult<a class="headerlink" href="#calibrationanalysisresult" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.CalibrationAnalysisResult">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">CalibrationAnalysisResult</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">CalibrationAnalysisResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the results of a calibration analysis.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.CalibrationAnalysisResult.thisown" title="persalys.CalibrationAnalysisResult.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -79,12 +73,6 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CalibrationAnalysisResult.getName" title="persalys.CalibrationAnalysisResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>(self)</p></td>
 <td><p>Accessor to the object’s name.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CalibrationAnalysisResult.getOutputAtPosterior" title="persalys.CalibrationAnalysisResult.getOutputAtPosterior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputAtPosterior</span></code></a>(self)</p></td>
-<td><p>Output values at posterior point accessor.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CalibrationAnalysisResult.getOutputAtPrior" title="persalys.CalibrationAnalysisResult.getOutputAtPrior"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputAtPrior</span></code></a>(self)</p></td>
-<td><p>Output values at prior point accessor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.CalibrationAnalysisResult.getPosteriorResidualsPDF" title="persalys.CalibrationAnalysisResult.getPosteriorResidualsPDF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPosteriorResidualsPDF</span></code></a>(self)</p></td>
 <td><p>Posterior output residuals PDF accessor.</p></td>
@@ -115,15 +103,15 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getCalibrationResult">
-<code class="sig-name descname">getCalibrationResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getCalibrationResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getCalibrationResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getCalibrationResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calibration result accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -135,9 +123,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -149,9 +137,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getConfidenceInterval">
-<code class="sig-name descname">getConfidenceInterval</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getConfidenceInterval" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getConfidenceInterval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getConfidenceInterval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Confidence interval of the posterior distribution accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -163,9 +151,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -177,9 +165,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -191,37 +179,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.CalibrationAnalysisResult.getOutputAtPosterior">
-<code class="sig-name descname">getOutputAtPosterior</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getOutputAtPosterior" title="Permalink to this definition">¶</a></dt>
-<dd><p>Output values at posterior point accessor.</p>
-<dl class="field-list">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl>
-<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Output values evaluated at calibrated point (mean of the posterior distribution)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="persalys.CalibrationAnalysisResult.getOutputAtPrior">
-<code class="sig-name descname">getOutputAtPrior</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getOutputAtPrior" title="Permalink to this definition">¶</a></dt>
-<dd><p>Output values at prior point accessor.</p>
-<dl class="field-list">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl>
-<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Output values evaluated at prior point (mean of the prior distribution)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getPosteriorResidualsPDF">
-<code class="sig-name descname">getPosteriorResidualsPDF</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getPosteriorResidualsPDF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPosteriorResidualsPDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getPosteriorResidualsPDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Posterior output residuals PDF accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -234,9 +194,9 @@ between the output observations and the posterior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getPriorResidualsPDF">
-<code class="sig-name descname">getPriorResidualsPDF</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getPriorResidualsPDF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPriorResidualsPDF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getPriorResidualsPDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prior output residuals PDF accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -249,9 +209,9 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -263,9 +223,9 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -277,9 +237,9 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -291,9 +251,9 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -305,9 +265,9 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -319,9 +279,9 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -333,9 +293,9 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.CalibrationAnalysisResult.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysisResult.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -347,17 +307,12 @@ between the output observations and the prior output values</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.CalibrationAnalysisResult.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.CalibrationAnalysisResult.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -388,7 +343,7 @@ between the output observations and the prior output values</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -407,7 +362,8 @@ between the output observations and the prior output values</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CalibrationAnalysisResult</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

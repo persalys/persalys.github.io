@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Input</a></li> 
       </ul>
     </div>  
 
@@ -46,9 +48,9 @@
             
   <div class="section" id="input">
 <h1>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.Input">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">Input</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">Input</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an input variable.</p>
 <p>Represents an input variable.</p>
 <dl class="field-list">
@@ -73,14 +75,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.Input.thisown" title="persalys.Input.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -159,15 +153,15 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -179,9 +173,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getDescription">
-<code class="sig-name descname">getDescription</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDescription" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDescription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDescription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Description accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -193,9 +187,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getDistribution">
-<code class="sig-name descname">getDistribution</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDistribution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDistribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDistribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Distribution accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -207,9 +201,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getDistributionParametersType">
-<code class="sig-name descname">getDistributionParametersType</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDistributionParametersType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getDistributionParametersType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDistributionParametersType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Distribution parameters type accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -221,9 +215,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getFiniteDifferenceStep">
-<code class="sig-name descname">getFiniteDifferenceStep</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getFiniteDifferenceStep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finite difference step accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -235,9 +229,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -249,9 +243,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -263,9 +257,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Python script accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -277,9 +271,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -291,9 +285,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getValue">
-<code class="sig-name descname">getValue</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getValue" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getValue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default value accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -305,9 +299,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -319,9 +313,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -333,9 +327,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -347,9 +341,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.isStochastic">
-<code class="sig-name descname">isStochastic</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.isStochastic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isStochastic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.isStochastic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the variable is stochastic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -361,9 +355,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setDescription">
-<code class="sig-name descname">setDescription</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">description</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDescription" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setDescription</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">description</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDescription" title="Permalink to this definition">¶</a></dt>
 <dd><p>Description accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -375,9 +369,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setDistribution">
-<code class="sig-name descname">setDistribution</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">distribution</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDistribution" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setDistribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">distribution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDistribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Distribution accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -389,9 +383,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setDistributionParametersType">
-<code class="sig-name descname">setDistributionParametersType</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">distributionParametersType</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDistributionParametersType" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setDistributionParametersType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">distributionParametersType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDistributionParametersType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Distribution parameters type accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -403,9 +397,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setFiniteDifferenceStep">
-<code class="sig-name descname">setFiniteDifferenceStep</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">step</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setFiniteDifferenceStep</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">step</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finite difference step accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -421,11 +415,11 @@ scheme and the hessian function with the second order centered finite difference
 <p class="rubric">Notes</p>
 <p>First order non-centered finite difference scheme:</p>
 <div class="math">
-<p><img src="../../../_images/math/c62bc3c2f3605ad722e2e7b5e32040637dcbbc40.svg" alt="\frac{\partial f_j}{\partial x_i} \approx \frac{f_j(x + \epsilon_i) - f_j(x)}
+<p><img src="../../../_images/math/3ce24affd1f21d4eace9aabfa322b7b5d80fd7be.svg" alt="\frac{\partial f_j}{\partial x_i} \approx \frac{f_j(x + \epsilon_i) - f_j(x)}
                                                {\epsilon_i}"/></p>
 </div><p>Second order centered finite difference scheme:</p>
 <div class="math">
-<p><img src="../../../_images/math/6dbde1b6077e9bde8e6f4d81f1d5f2bfee426164.svg" alt="\frac{\partial^2 f_k}{\partial x_i \partial x_j} \approx
+<p><img src="../../../_images/math/69ba683c9e4f1412e2f8e09fe8f182feb04b0b37.svg" alt="\frac{\partial^2 f_k}{\partial x_i \partial x_j} \approx
                                    \frac{
                                       f_k(x + \epsilon_i + \epsilon_j) -
                                       f_k(x + \epsilon_i - \epsilon_j) +
@@ -434,9 +428,9 @@ scheme and the hessian function with the second order centered finite difference
                                    {4 \epsilon_i \epsilon_j}"/></p>
 </div></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -448,9 +442,9 @@ scheme and the hessian function with the second order centered finite difference
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -462,9 +456,9 @@ scheme and the hessian function with the second order centered finite difference
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setStochastic">
-<code class="sig-name descname">setStochastic</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">stoch</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setStochastic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setStochastic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">stoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setStochastic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the variable is stochastic.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -476,9 +470,9 @@ scheme and the hessian function with the second order centered finite difference
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setValue">
-<code class="sig-name descname">setValue</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setValue" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setValue</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setValue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default value accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -490,9 +484,9 @@ scheme and the hessian function with the second order centered finite difference
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.Input.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -504,17 +498,12 @@ scheme and the hessian function with the second order centered finite difference
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.Input.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.Input.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -545,7 +534,7 @@ scheme and the hessian function with the second order centered finite difference
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -564,7 +553,8 @@ scheme and the hessian function with the second order centered finite difference
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Input</a></li> 
       </ul>
     </div>
  <script type="text/javascript">

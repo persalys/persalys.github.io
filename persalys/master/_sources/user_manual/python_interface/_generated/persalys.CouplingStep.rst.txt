@@ -1,0 +1,11 @@
+CouplingStep
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CouplingStep
+
+   
+   .. automethod:: __init__
+   
+

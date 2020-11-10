@@ -1,0 +1,11 @@
+FileMemoizeFunction
+============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FileMemoizeFunction
+
+   
+   .. automethod:: __init__
+   
+

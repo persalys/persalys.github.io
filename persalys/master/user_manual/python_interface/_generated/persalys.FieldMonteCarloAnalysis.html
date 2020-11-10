@@ -1,19 +1,20 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FieldMonteCarloAnalysis &#8212; Persalys documentation</title>
     <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     
     <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,7 +36,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FieldMonteCarloAnalysis</a></li> 
       </ul>
     </div>  
 
@@ -46,9 +48,9 @@
             
   <div class="section" id="fieldmontecarloanalysis">
 <h1>FieldMonteCarloAnalysis<a class="headerlink" href="#fieldmontecarloanalysis" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="persalys.FieldMonteCarloAnalysis">
-<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">FieldMonteCarloAnalysis</code><span class="sig-paren">(</span><em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">persalys.</code><code class="sig-name descname">FieldMonteCarloAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run a Monte Carlo analysis for models with mesh.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -90,14 +92,6 @@
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.thisown" title="persalys.FieldMonteCarloAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -217,51 +211,30 @@
 </table>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 69%" />
-<col style="width: 31%" />
+<col style="width: 68%" />
+<col style="width: 32%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><strong>addObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>blockNotification</strong></p></td>
-<td></td>
-</tr>
 <tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>getObserver</strong></p></td>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>getObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>getParentObserver</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>notify</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>notifyAndRemove</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>removeAllObservers</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>removeObserver</strong></p></td>
+<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getBlockSize">
-<code class="sig-name descname">getBlockSize</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getBlockSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getBlockSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getBlockSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Block size accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -274,9 +247,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getClassName">
-<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -288,9 +261,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getErrorMessage">
-<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getErrorMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Error message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -302,9 +275,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getFailedInputSample">
-<code class="sig-name descname">getFailedInputSample</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getFailedInputSample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getFailedInputSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getFailedInputSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Failed input sample accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -316,9 +289,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getId">
-<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -330,9 +303,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getInterestVariables">
-<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -344,9 +317,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getKarhunenLoeveThreshold">
-<code class="sig-name descname">getKarhunenLoeveThreshold</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getKarhunenLoeveThreshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the limit ratio on eigenvalues.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -358,9 +331,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getMaximumCalls">
-<code class="sig-name descname">getMaximumCalls</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumCalls" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMaximumCalls</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumCalls" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum calls accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -372,9 +345,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getMaximumCoefficientOfVariation">
-<code class="sig-name descname">getMaximumCoefficientOfVariation</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMaximumCoefficientOfVariation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum coefficient of variation accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -386,9 +359,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getMaximumElapsedTime">
-<code class="sig-name descname">getMaximumElapsedTime</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getMaximumElapsedTime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum elapsed time accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -400,9 +373,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getName">
-<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -414,9 +387,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getPhysicalModel">
-<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPhysicalModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -428,9 +401,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getPythonScript">
-<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getPythonScript</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical model accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -442,9 +415,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getQuantileLevel">
-<code class="sig-name descname">getQuantileLevel</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getQuantileLevel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getQuantileLevel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getQuantileLevel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Probability level accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -456,9 +429,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getResult">
-<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Result accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
@@ -470,9 +443,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getSeed">
-<code class="sig-name descname">getSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -484,9 +457,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getShadowedId">
-<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -498,9 +471,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getVisibility">
-<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -512,9 +485,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.getWarningMessage">
-<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getWarningMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Warning message accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -526,9 +499,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.hasName">
-<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object is named.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -540,9 +513,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.hasValidResult">
-<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasValidResult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis has been run.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -554,9 +527,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.hasVisibleName">
-<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">hasVisibleName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test if the object has a distinguishable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -568,9 +541,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.isReliabilityAnalysis">
-<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis involves reliability.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -582,9 +555,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.isRunning">
-<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the analysis is running.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -596,15 +569,15 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the analysis.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setBlockSize">
-<code class="sig-name descname">setBlockSize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">size</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setBlockSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setBlockSize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setBlockSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Block size accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -617,9 +590,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setInterestVariables">
-<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setInterestVariables</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">variablesNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -631,9 +604,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setKarhunenLoeveThreshold">
-<code class="sig-name descname">setKarhunenLoeveThreshold</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setKarhunenLoeveThreshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">threshold</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the limit ratio on eigenvalues.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -645,9 +618,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setMaximumCalls">
-<code class="sig-name descname">setMaximumCalls</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">maxi</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumCalls" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setMaximumCalls</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">maxi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumCalls" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum calls accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -659,9 +632,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setMaximumCoefficientOfVariation">
-<code class="sig-name descname">setMaximumCoefficientOfVariation</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coef</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setMaximumCoefficientOfVariation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coef</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum coefficient of variation accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -673,9 +646,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setMaximumElapsedTime">
-<code class="sig-name descname">setMaximumElapsedTime</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">seconds</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setMaximumElapsedTime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">seconds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum elapsed time accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -687,9 +660,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setName">
-<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -701,23 +674,23 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setQuantileLevel">
-<code class="sig-name descname">setQuantileLevel</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">proba</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setQuantileLevel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setQuantileLevel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">proba</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setQuantileLevel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Probability level accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>level</strong><span class="classifier">float, <img class="math" src="../../../_images/math/733549d68d228805a6bdcaea36decbb69a47b77c.svg" alt="0 &lt; p &lt; 1" style="vertical-align: -4px"/></span></dt><dd><p>Probability level</p>
+<dt><strong>level</strong><span class="classifier">float, <img class="math" src="../../../_images/math/50cdf20cefe6c5825d832195b271f962c2db11ed.svg" alt="0 &lt; p &lt; 1" style="vertical-align: -3px"/></span></dt><dd><p>Probability level</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setSeed">
-<code class="sig-name descname">setSeed</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">seed</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setSeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setSeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">seed</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setSeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seed accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -729,9 +702,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setShadowedId">
-<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setShadowedId</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s shadowed id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -743,9 +716,9 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="persalys.FieldMonteCarloAnalysis.setVisibility">
-<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setVisibility</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">visible</span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the object’s visibility state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -757,17 +730,12 @@ It is set by default to 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="persalys.FieldMonteCarloAnalysis.thisown">
-<em class="property">property </em><code class="sig-name descname">thisown</code><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.thisown" title="Permalink to this definition">¶</a></dt>
-<dd><p>The membership flag</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -798,7 +766,7 @@ It is set by default to 1.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -817,7 +785,8 @@ It is set by default to 1.</p>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FieldMonteCarloAnalysis</a></li> 
       </ul>
     </div>
  <script type="text/javascript">
