@@ -1,0 +1,11 @@
+FixedDesignOfExperiment
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FixedDesignOfExperiment
+
+   
+   .. automethod:: __init__
+   
+

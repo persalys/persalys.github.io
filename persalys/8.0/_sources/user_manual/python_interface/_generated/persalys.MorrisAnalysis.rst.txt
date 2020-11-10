@@ -1,0 +1,11 @@
+MorrisAnalysis
+=======================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MorrisAnalysis
+
+   
+   .. automethod:: __init__
+   
+

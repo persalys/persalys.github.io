@@ -1,0 +1,11 @@
+GridMeshModel
+======================
+
+.. currentmodule:: persalys
+
+.. autoclass:: GridMeshModel
+
+   
+   .. automethod:: __init__
+   
+

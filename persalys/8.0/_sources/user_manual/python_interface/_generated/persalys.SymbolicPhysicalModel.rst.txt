@@ -1,0 +1,11 @@
+SymbolicPhysicalModel
+==============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SymbolicPhysicalModel
+
+   
+   .. automethod:: __init__
+   
+

@@ -1,0 +1,11 @@
+InferenceResult
+========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: InferenceResult
+
+   
+   .. automethod:: __init__
+   
+

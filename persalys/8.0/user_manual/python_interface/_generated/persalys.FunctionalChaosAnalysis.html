@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FunctionalChaosAnalysis &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '7.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="KrigingAnalysis" href="persalys.KrigingAnalysis.html" />
+    <link rel="prev" title="MetaModelAnalysis" href="persalys.MetaModelAnalysis.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.KrigingAnalysis.html" title="KrigingAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.MetaModelAnalysis.html" title="MetaModelAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="functionalchaosanalysis">
+<h1>FunctionalChaosAnalysis<a class="headerlink" href="#functionalchaosanalysis" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="persalys.FunctionalChaosAnalysis">
+<em class="property">class </em><code class="descclassname">persalys.</code><code class="descname">FunctionalChaosAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Functional chaos analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>Name</p>
+</div></blockquote>
+<p><strong>designOfExperiment</strong> : <a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal"><span class="pre">DesignOfExperiment</span></code></a></p>
+<blockquote class="last">
+<div><p>Design of experiments</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ot</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="o">.</span><span class="n">SetSeed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xi1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi1&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xi2</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi2&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xi3</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi3&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;y0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">xi1</span><span class="p">,</span> <span class="n">xi2</span><span class="p">,</span> <span class="n">xi3</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;sin(xi1) + 7. * (sin(xi2)) ^ 2 + 0.1 * xi3^4 * sin(xi1)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the design of experiments:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FixedDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;aDesign&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inputSample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">LHSExperiment</span><span class="p">(</span><span class="n">myPhysicalModel</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="mi">250</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span><span class="o">.</span><span class="n">setOriginalInputSample</span><span class="p">(</span><span class="n">inputSample</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Create the Functional Chaos Analysis:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chaos</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FunctionalChaosAnalysis</span><span class="p">(</span><span class="s1">&#39;chaos&#39;</span><span class="p">,</span> <span class="n">aDesign</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chaos</span><span class="o">.</span><span class="n">setChaosDegree</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chaos</span><span class="o">.</span><span class="n">setSparseChaos</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chaos</span><span class="o">.</span><span class="n">setLeaveOneOutValidation</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chaos</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chaosResult</span> <span class="o">=</span> <span class="n">chaos</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sobolResult</span> <span class="o">=</span> <span class="n">chaosResult</span><span class="o">.</span><span class="n">getSobolResult</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.analyticalValidation" title="persalys.FunctionalChaosAnalysis.analyticalValidation"><code class="xref py py-obj docutils literal"><span class="pre">analyticalValidation</span></code></a>()</td>
+<td>Whether an analytical validation is requested.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getChaosDegree" title="persalys.FunctionalChaosAnalysis.getChaosDegree"><code class="xref py py-obj docutils literal"><span class="pre">getChaosDegree</span></code></a>()</td>
+<td>Chaos degree accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getClassName" title="persalys.FunctionalChaosAnalysis.getClassName"><code class="xref py py-obj docutils literal"><span class="pre">getClassName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getDesignOfExperiment" title="persalys.FunctionalChaosAnalysis.getDesignOfExperiment"><code class="xref py py-obj docutils literal"><span class="pre">getDesignOfExperiment</span></code></a>()</td>
+<td>Design of experiments accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getDistribution" title="persalys.FunctionalChaosAnalysis.getDistribution"><code class="xref py py-obj docutils literal"><span class="pre">getDistribution</span></code></a>()</td>
+<td>Input distribution accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getEffectiveInputSample" title="persalys.FunctionalChaosAnalysis.getEffectiveInputSample"><code class="xref py py-obj docutils literal"><span class="pre">getEffectiveInputSample</span></code></a>()</td>
+<td>Effective input sample accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getEffectiveOutputSample" title="persalys.FunctionalChaosAnalysis.getEffectiveOutputSample"><code class="xref py py-obj docutils literal"><span class="pre">getEffectiveOutputSample</span></code></a>()</td>
+<td>Effective output sample accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getErrorMessage" title="persalys.FunctionalChaosAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal"><span class="pre">getErrorMessage</span></code></a>()</td>
+<td>Error message accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getId" title="persalys.FunctionalChaosAnalysis.getId"><code class="xref py py-obj docutils literal"><span class="pre">getId</span></code></a>()</td>
+<td>Accessor to the object’s id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getInterestVariables" title="persalys.FunctionalChaosAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">getInterestVariables</span></code></a>()</td>
+<td>Get the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationNumberOfFolds" title="persalys.FunctionalChaosAnalysis.getKFoldValidationNumberOfFolds"><code class="xref py py-obj docutils literal"><span class="pre">getKFoldValidationNumberOfFolds</span></code></a>()</td>
+<td>Number of folds accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationSeed" title="persalys.FunctionalChaosAnalysis.getKFoldValidationSeed"><code class="xref py py-obj docutils literal"><span class="pre">getKFoldValidationSeed</span></code></a>()</td>
+<td>Seed accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getName" title="persalys.FunctionalChaosAnalysis.getName"><code class="xref py py-obj docutils literal"><span class="pre">getName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getPythonScript" title="persalys.FunctionalChaosAnalysis.getPythonScript"><code class="xref py py-obj docutils literal"><span class="pre">getPythonScript</span></code></a>()</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getResult" title="persalys.FunctionalChaosAnalysis.getResult"><code class="xref py py-obj docutils literal"><span class="pre">getResult</span></code></a>()</td>
+<td>Results accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getShadowedId" title="persalys.FunctionalChaosAnalysis.getShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">getShadowedId</span></code></a>()</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getSparseChaos" title="persalys.FunctionalChaosAnalysis.getSparseChaos"><code class="xref py py-obj docutils literal"><span class="pre">getSparseChaos</span></code></a>()</td>
+<td>Whether it is sparse.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationPercentageOfPoints" title="persalys.FunctionalChaosAnalysis.getTestSampleValidationPercentageOfPoints"><code class="xref py py-obj docutils literal"><span class="pre">getTestSampleValidationPercentageOfPoints</span></code></a>()</td>
+<td>Percentage of points accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationSeed" title="persalys.FunctionalChaosAnalysis.getTestSampleValidationSeed"><code class="xref py py-obj docutils literal"><span class="pre">getTestSampleValidationSeed</span></code></a>()</td>
+<td>Seed accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getVisibility" title="persalys.FunctionalChaosAnalysis.getVisibility"><code class="xref py py-obj docutils literal"><span class="pre">getVisibility</span></code></a>()</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.getWarningMessage" title="persalys.FunctionalChaosAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal"><span class="pre">getWarningMessage</span></code></a>()</td>
+<td>Warning message accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.hasName" title="persalys.FunctionalChaosAnalysis.hasName"><code class="xref py py-obj docutils literal"><span class="pre">hasName</span></code></a>()</td>
+<td>Test if the object is named.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.hasValidResult" title="persalys.FunctionalChaosAnalysis.hasValidResult"><code class="xref py py-obj docutils literal"><span class="pre">hasValidResult</span></code></a>()</td>
+<td>Whether the analysis has been run.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.hasVisibleName" title="persalys.FunctionalChaosAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal"><span class="pre">hasVisibleName</span></code></a>()</td>
+<td>Test if the object has a distinguishable name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.isReliabilityAnalysis" title="persalys.FunctionalChaosAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal"><span class="pre">isReliabilityAnalysis</span></code></a>()</td>
+<td>Whether the analysis involves reliability.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.isRunning" title="persalys.FunctionalChaosAnalysis.isRunning"><code class="xref py py-obj docutils literal"><span class="pre">isRunning</span></code></a>()</td>
+<td>Whether the analysis is running.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.kFoldValidation" title="persalys.FunctionalChaosAnalysis.kFoldValidation"><code class="xref py py-obj docutils literal"><span class="pre">kFoldValidation</span></code></a>()</td>
+<td>Whether a k-Fold cross-validation is requested.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.leaveOneOutValidation" title="persalys.FunctionalChaosAnalysis.leaveOneOutValidation"><code class="xref py py-obj docutils literal"><span class="pre">leaveOneOutValidation</span></code></a>()</td>
+<td>Whether a validation by leave-one-out is requested.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.run" title="persalys.FunctionalChaosAnalysis.run"><code class="xref py py-obj docutils literal"><span class="pre">run</span></code></a>()</td>
+<td>Launch the analysis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setAnalyticalValidation" title="persalys.FunctionalChaosAnalysis.setAnalyticalValidation"><code class="xref py py-obj docutils literal"><span class="pre">setAnalyticalValidation</span></code></a>(validation)</td>
+<td>Whether an analytical validation is requested.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setChaosDegree" title="persalys.FunctionalChaosAnalysis.setChaosDegree"><code class="xref py py-obj docutils literal"><span class="pre">setChaosDegree</span></code></a>(degree)</td>
+<td>Chaos degree accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setInterestVariables" title="persalys.FunctionalChaosAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</td>
+<td>Set the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setKFoldValidation" title="persalys.FunctionalChaosAnalysis.setKFoldValidation"><code class="xref py py-obj docutils literal"><span class="pre">setKFoldValidation</span></code></a>(validation)</td>
+<td>Whether a k-Fold cross-validation is requested.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationNumberOfFolds" title="persalys.FunctionalChaosAnalysis.setKFoldValidationNumberOfFolds"><code class="xref py py-obj docutils literal"><span class="pre">setKFoldValidationNumberOfFolds</span></code></a>(nbFolds)</td>
+<td>Number of folds accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationSeed" title="persalys.FunctionalChaosAnalysis.setKFoldValidationSeed"><code class="xref py py-obj docutils literal"><span class="pre">setKFoldValidationSeed</span></code></a>(seed)</td>
+<td>Seed accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setLeaveOneOutValidation" title="persalys.FunctionalChaosAnalysis.setLeaveOneOutValidation"><code class="xref py py-obj docutils literal"><span class="pre">setLeaveOneOutValidation</span></code></a>(validation)</td>
+<td>Whether it is sparse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setName" title="persalys.FunctionalChaosAnalysis.setName"><code class="xref py py-obj docutils literal"><span class="pre">setName</span></code></a>(name)</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setShadowedId" title="persalys.FunctionalChaosAnalysis.setShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">setShadowedId</span></code></a>(id)</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setSparseChaos" title="persalys.FunctionalChaosAnalysis.setSparseChaos"><code class="xref py py-obj docutils literal"><span class="pre">setSparseChaos</span></code></a>(sparse)</td>
+<td>Whether it is sparse.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidation" title="persalys.FunctionalChaosAnalysis.setTestSampleValidation"><code class="xref py py-obj docutils literal"><span class="pre">setTestSampleValidation</span></code></a>(validation)</td>
+<td>Whether a validation with a test sample is requested.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationPercentageOfPoints" title="persalys.FunctionalChaosAnalysis.setTestSampleValidationPercentageOfPoints"><code class="xref py py-obj docutils literal"><span class="pre">setTestSampleValidationPercentageOfPoints</span></code></a>(…)</td>
+<td>Percentage of points accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationSeed" title="persalys.FunctionalChaosAnalysis.setTestSampleValidationSeed"><code class="xref py py-obj docutils literal"><span class="pre">setTestSampleValidationSeed</span></code></a>(seed)</td>
+<td>Seed accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.setVisibility" title="persalys.FunctionalChaosAnalysis.setVisibility"><code class="xref py py-obj docutils literal"><span class="pre">setVisibility</span></code></a>(visible)</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.FunctionalChaosAnalysis.testSampleValidation" title="persalys.FunctionalChaosAnalysis.testSampleValidation"><code class="xref py py-obj docutils literal"><span class="pre">testSampleValidation</span></code></a>()</td>
+<td>Whether a validation with a test sample is requested.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.analyticalValidation">
+<code class="descname">analyticalValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.analyticalValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether an analytical validation is requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether an analytical validation is requested.
+This method corresponds to an approximation of the Leave-one-out method result.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getChaosDegree">
+<code class="descname">getChaosDegree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getChaosDegree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chaos degree accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>degree</strong> : int</p>
+<blockquote class="last">
+<div><p>Chaos degree. It is set by default to 2</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getClassName">
+<code class="descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>class_name</strong> : str</p>
+<blockquote class="last">
+<div><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getDesignOfExperiment">
+<code class="descname">getDesignOfExperiment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal"><span class="pre">DesignOfExperiment</span></code></a></p>
+<blockquote class="last">
+<div><p>Design of experiments</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getDistribution">
+<code class="descname">getDistribution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input distribution accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>distribution</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.ComposedDistribution</span></code></a></p>
+<blockquote class="last">
+<div><p>The distribution defined in the probabilistic model or a distribution composed
+of Uniform laws if there is no stochastic input variable.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getEffectiveInputSample">
+<code class="descname">getEffectiveInputSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getEffectiveInputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effective input sample accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sample</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Sample</span></code></a></p>
+<blockquote class="last">
+<div><p>Sample of all the input variables if all of them are deterministic.
+Otherwise, sample of the stochastic input variables.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getEffectiveOutputSample">
+<code class="descname">getEffectiveOutputSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getEffectiveOutputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Effective output sample accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sample</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Sample</span></code></a></p>
+<blockquote class="last">
+<div><p>Sample of the interest output variables.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getErrorMessage">
+<code class="descname">getErrorMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Error message if the analysis failed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getId">
+<code class="descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getInterestVariables">
+<code class="descname">getInterestVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getKFoldValidationNumberOfFolds">
+<code class="descname">getKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of folds accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>folds</strong> : int</p>
+<blockquote class="last">
+<div><p>Number of folds. By default it is 3.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getKFoldValidationSeed">
+<code class="descname">getKFoldValidationSeed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>seed</strong> : int</p>
+<blockquote class="last">
+<div><p>Seed value for k-Fold cross-validation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getName">
+<code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getPythonScript">
+<code class="descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>script</strong> : str</p>
+<blockquote class="last">
+<div><p>Python script to replay the analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getResult">
+<code class="descname">getResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Results accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>result</strong> : <a class="reference internal" href="persalys.FunctionalChaosAnalysisResult.html#persalys.FunctionalChaosAnalysisResult" title="persalys.FunctionalChaosAnalysisResult"><code class="xref py py-class docutils literal"><span class="pre">FunctionalChaosAnalysisResult</span></code></a></p>
+<blockquote class="last">
+<div><p>Results</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getShadowedId">
+<code class="descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getSparseChaos">
+<code class="descname">getSparseChaos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getSparseChaos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether it is sparse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isSparse</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether it is sparse. By default, the chaos is not sparse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getTestSampleValidationPercentageOfPoints">
+<code class="descname">getTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of points accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>percentage</strong> : int</p>
+<blockquote class="last">
+<div><p>Percentage of points used to validate the metamodel. By default it is 20%.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getTestSampleValidationSeed">
+<code class="descname">getTestSampleValidationSeed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>seed</strong> : int</p>
+<blockquote class="last">
+<div><p>Seed value for the validation with a test sample</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getVisibility">
+<code class="descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.getWarningMessage">
+<code class="descname">getWarningMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Warning message which can appear during the analysis computation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.hasName">
+<code class="descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.hasValidResult">
+<code class="descname">hasValidResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasValidResult</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis has already been run</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.hasVisibleName">
+<code class="descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasVisibleName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty and not the default one.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.isReliabilityAnalysis">
+<code class="descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isReliabilityAnalysis</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis involves a reliability analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.isRunning">
+<code class="descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isRunning</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis is running</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.kFoldValidation">
+<code class="descname">kFoldValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.kFoldValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a k-Fold cross-validation is requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether a k-Fold cross-validation is requested</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.leaveOneOutValidation">
+<code class="descname">leaveOneOutValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.leaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a validation by leave-one-out is requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether a validation by leave-one-out is requested</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setAnalyticalValidation">
+<code class="descname">setAnalyticalValidation</code><span class="sig-paren">(</span><em>validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setAnalyticalValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether an analytical validation is requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether an analytical validation is requested.
+This method corresponds to an approximation of the Leave-one-out method result.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setChaosDegree">
+<code class="descname">setChaosDegree</code><span class="sig-paren">(</span><em>degree</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setChaosDegree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chaos degree accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>degree</strong> : int</p>
+<blockquote class="last">
+<div><p>Chaos degree</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setInterestVariables">
+<code class="descname">setInterestVariables</code><span class="sig-paren">(</span><em>variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setKFoldValidation">
+<code class="descname">setKFoldValidation</code><span class="sig-paren">(</span><em>validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a k-Fold cross-validation is requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether a k-Fold cross-validation is requested</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setKFoldValidationNumberOfFolds">
+<code class="descname">setKFoldValidationNumberOfFolds</code><span class="sig-paren">(</span><em>nbFolds</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationNumberOfFolds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of folds accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>folds</strong> : int</p>
+<blockquote class="last">
+<div><p>Number of folds. By default it is 3.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setKFoldValidationSeed">
+<code class="descname">setKFoldValidationSeed</code><span class="sig-paren">(</span><em>seed</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setKFoldValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>seed</strong> : int</p>
+<blockquote class="last">
+<div><p>Seed value for k-Fold cross-validation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setLeaveOneOutValidation">
+<code class="descname">setLeaveOneOutValidation</code><span class="sig-paren">(</span><em>validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setLeaveOneOutValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether it is sparse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether a validation by leave-one-out is requested</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setName">
+<code class="descname">setName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setShadowedId">
+<code class="descname">setShadowedId</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setSparseChaos">
+<code class="descname">setSparseChaos</code><span class="sig-paren">(</span><em>sparse</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setSparseChaos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether it is sparse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>isSparse</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether it is sparse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setTestSampleValidation">
+<code class="descname">setTestSampleValidation</code><span class="sig-paren">(</span><em>validation</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a validation with a test sample is requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether a validation with a test sample is requested.
+The data sample is dividing into two sub-samples: a training sample
+(default: 80% of the sample points) and a test sample (default:
+20% of the sample points). A new metamodel is built
+with the training sample and is validated with the test sample.
+The points are randomly picked in the data sample (by default the seed is 1).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setTestSampleValidationPercentageOfPoints">
+<code class="descname">setTestSampleValidationPercentageOfPoints</code><span class="sig-paren">(</span><em>percentage</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationPercentageOfPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentage of points accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>percentage</strong> : int</p>
+<blockquote class="last">
+<div><p>Percentage of points used to validate the metamodel. By default it is 20%.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setTestSampleValidationSeed">
+<code class="descname">setTestSampleValidationSeed</code><span class="sig-paren">(</span><em>seed</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setTestSampleValidationSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>seed</strong> : int</p>
+<blockquote class="last">
+<div><p>Seed value for the validation with a test sample</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.setVisibility">
+<code class="descname">setVisibility</code><span class="sig-paren">(</span><em>visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.FunctionalChaosAnalysis.testSampleValidation">
+<code class="descname">testSampleValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FunctionalChaosAnalysis.testSampleValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether a validation with a test sample is requested.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>validation</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether a validation with a test sample is requested.
+The data sample is dividing into two sub-samples: a training sample
+(default: 80% of the sample points) and a test sample (default:
+20% of the sample points). A new metamodel is built
+with the training sample and is validated with the test sample.
+The points are randomly picked in the data sample (by default the seed is 1).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.MetaModelAnalysis.html"
+                        title="previous chapter">MetaModelAnalysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.KrigingAnalysis.html"
+                        title="next chapter">KrigingAnalysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.FunctionalChaosAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.KrigingAnalysis.html" title="KrigingAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.MetaModelAnalysis.html" title="MetaModelAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

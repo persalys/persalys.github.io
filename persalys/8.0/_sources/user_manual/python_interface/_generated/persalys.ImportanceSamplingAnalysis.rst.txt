@@ -1,0 +1,11 @@
+ImportanceSamplingAnalysis
+===================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: ImportanceSamplingAnalysis
+
+   
+   .. automethod:: __init__
+   
+

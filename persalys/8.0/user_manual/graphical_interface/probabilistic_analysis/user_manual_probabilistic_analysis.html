@@ -1,0 +1,1100 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>User manual - Probabilistic analyses &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '7.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Data analyses" href="../data_analysis/user_manual_data_analysis.html" />
+    <link rel="prev" title="User manual - Deterministic analyses" href="../deterministic_analysis/user_manual_deterministic_analysis.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../data_analysis/user_manual_data_analysis.html" title="User manual - Data analyses"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../deterministic_analysis/user_manual_deterministic_analysis.html" title="User manual - Deterministic analyses"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-manual-probabilistic-analyses">
+<h1>User manual - Probabilistic analyses<a class="headerlink" href="#user-manual-probabilistic-analyses" title="Permalink to this headline">¶</a></h1>
+<p>In order to perform probabilistic analysis, build first a probabilistic model.</p>
+<div class="section" id="probabilistic-model">
+<span id="probamodel"></span><h2>1- Probabilistic model<a class="headerlink" href="#probabilistic-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="definition">
+<h3>1-1 Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>A new probabilistic model can be created through:</dt>
+<dd><ul class="first simple">
+<li>the <strong>Probabilistic model</strong> item in the context menu of the relevant model in the study tree</li>
+</ul>
+<img alt="../../../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu.png" />
+<ul class="simple">
+<li>the <strong>Probabilistic model definition</strong> box of the model diagram</li>
+</ul>
+<img alt="../../../_images/probaModelBox.png" class="last align-center" src="../../../_images/probaModelBox.png" />
+</dd>
+</dl>
+<p>A physical model contains only one probabilistic model.</p>
+<p>At the creation of a probabilistic model, a new item named <strong>Probabilistic model</strong> is added in the
+study tree below the physical model item.</p>
+<dl class="docutils">
+<dt>Its context menu contains the following actions:</dt>
+<dd><ul class="first simple">
+<li><strong>Design of experiments</strong>: Create a new design of experiments</li>
+<li><strong>Limit state</strong>: Create a new limit state</li>
+<li><strong>Central tendency</strong>: Create a new central tendency analysis</li>
+<li><strong>Sensitivity</strong>: Create a new sensitivity analysis</li>
+</ul>
+<img alt="../../../_images/probabilisticModelMarginals.png" class="last align-center" src="../../../_images/probabilisticModelMarginals.png" />
+</dd>
+</dl>
+<p>This item is associated with a window which has the <strong>Marginals</strong> and <strong>Dependence</strong> tabs.</p>
+</div>
+<div class="section" id="specify-the-distribution-parameters">
+<h3>1-2 Specify the distribution parameters<a class="headerlink" href="#specify-the-distribution-parameters" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Marginals</strong> tab allows to set up the input distributions.</p>
+<dl class="docutils">
+<dt>On the left, the user can choose stochastic input variables and their distribution.</dt>
+<dd><ul class="first simple">
+<li>Variables are deterministic by default: To make a variable stochastic, check the
+variable box.</li>
+<li>Variable distribution is Gaussian distribution by default. To change the distribution,
+select one among the proposed distributions in the combo box of the <strong>Distribution</strong>
+column.</li>
+</ul>
+<img alt="../../../_images/probabilisticModelDistributionsList.png" class="last align-center" src="../../../_images/probabilisticModelDistributionsList.png" />
+</dd>
+<dt>On the right, the user can display and set up different parameters.</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>For a deterministic input:</dt>
+<dd><ul class="first last simple">
+<li>display the input value, defined in the physical model</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>For a stochastic input:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>display the input distribution PDF</dt>
+<dd><ul class="first last simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the graphic type: PDF (default) or CDF</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Left-click to translate the graph</li>
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>set up its distribution parameters:</dt>
+<dd><ul class="first simple">
+<li>click on the icon <img alt="infoButton" src="../../../_images/documentinfo.png" /> to see the parameters definition</li>
+<li>Use floating points or integers, with respect to the distribution support to set up the parameters
+(If a value is not valid: the previous value is used and an error message appears at the bottom
+of the window)</li>
+<li>Check off <strong>Lower bound</strong> and/or <strong>Upper bound</strong> and set the bounds value
+to truncate the distribution</li>
+<li>with the <strong>Type</strong> combo box, select the suitable set of parameters to configure the
+distributions: LogNormal, Weibull and Gumbel</li>
+</ul>
+<img alt="../../../_images/paramTypeProbaModel.png" class="last align-center" src="../../../_images/paramTypeProbaModel.png" />
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p id="inferenceresultwizard">Among the proposed distributions, the user can find the <strong>Inference result</strong> item:
+If at least one <a class="reference internal" href="../data_analysis/user_manual_data_analysis.html#inferenceanalysis"><span class="std std-ref">inference analysis result</span></a> exists in a current study,
+clicking on the <strong>Inference result</strong> item will display the following window:</p>
+<blockquote>
+<div><img alt="../../../_images/inference_resultWizard.png" class="align-center" src="../../../_images/inference_resultWizard.png" />
+</div></blockquote>
+<p>Here the user can generate the inferred distribution for a variable of interest, from an
+existing inference analysis:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Choose an analysis result (<strong>Inference analysis</strong> combo box)</li>
+<li>Select the result for a variable (<strong>Variable</strong> combo box)</li>
+<li>Choose the best inferred distribution from the current distribution parameters:</li>
+</ul>
+</div></blockquote>
+<p>On the right, the <strong>Distribution parameters</strong> table shows the parameters of the current
+distribution.
+On the left, choose among the proposed distributions, the one fitting the best the current
+distribution (<strong>Distributions</strong> table). The <strong>BIC</strong>, <strong>p-value</strong> and the <strong>Acceptation</strong> columns
+give indications on the distributions for which the inference analysis worked well
+(high p-value, “yes” status)
+or not (low p-value, “no”/”failed” status). The distributions whose inference analysis failed
+are given for information:
+it is not possible to select them and validate the window.</p>
+</div>
+<div class="section" id="specify-dependence-between-variables">
+<h3>1-3 Specify dependence between variables<a class="headerlink" href="#specify-dependence-between-variables" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Dependence</strong> tab allows to set up dependence between variables. It is represented
+by <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/probabilistic_modeling/copulas.html">copulas</a>.</p>
+<img alt="../../../_images/probabilisticModelDependence.png" class="align-center" src="../../../_images/probabilisticModelDependence.png" />
+<p>On the left, all the stochastic input variables are listed.
+By default no dependence is set between these variables.
+To add dependence between variables, select at least two variables on the left list and click
+on the right arrow:</p>
+<blockquote>
+<div><img alt="../../../_images/selectVar_DependenceTab.png" class="align-center" src="../../../_images/selectVar_DependenceTab.png" />
+<img alt="../../../_images/defaultCopula_DependenceTab.png" class="align-center" src="../../../_images/defaultCopula_DependenceTab.png" />
+<ul>
+<li><p class="first">On the left list, the selected variables become disabled: thus, variables can only
+belong to one group at a time.</p>
+</li>
+<li><p class="first">In the middle, the selected variables appear, with their corresponding copula.
+By default, variables are independent: their default copula is the
+<a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.NormalCopula.html">Normal copula</a>,
+defined as a Spearman correlation matrix equal to the identity matrix (symmetry
+handled automatically).
+To change the copula type, select one in the combo box of the <strong>Copula</strong> column
+(Normal and Bivariate copulas are available).</p>
+<img alt="../../../_images/copulasList.png" class="align-center" src="../../../_images/copulasList.png" />
+</li>
+<li><p class="first">On the right, the user can set up the copula parameters and display the distribution.
+The copula parameters are accessible by clicking on the icon <img alt="infoButton" src="../../../_images/documentinfo.png" />.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><em>Normal copula</em>: the matrix values can be changed by clicking on the upper
+triangular part of the matrix (expected: floating points or integers in the
+<img class="math" src="../../../_images/math/a58c428ba458fec391b92c0d2b58ba9c6b2858b7.svg" alt="\left[-1; 1\right]"/> interval). The matrix must be definite positive:
+If a value is not valid, an error message appears below and the previous value is kept.</p>
+<img alt="../../../_images/probabilisticModelCorrelation.png" class="align-center" src="../../../_images/probabilisticModelCorrelation.png" />
+</li>
+<li><p class="first"><em>Bivariate copula</em>: only one parameter is defined (expected: floating points or integers)</p>
+<img alt="../../../_images/bivariateCopulaParam.png" class="align-center" src="../../../_images/bivariateCopulaParam.png" />
+</li>
+</ul>
+</div></blockquote>
+<p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the graphic type: PDF (default) or CDF</p>
+<dl class="docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last simple">
+<li>Left-click to translate the graph</li>
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>To remove an existing dependence, select the variables of interest in the middle table and click on
+the left arrow: the variables appear enabled again in the first table.</p>
+<p id="dependenceinferenceresultwizard">Among the proposed copulas, the user can find the <strong>Inference result</strong> item:
+If at least one <a class="reference internal" href="../data_analysis/user_manual_data_analysis.html#inferenceanalysis"><span class="std std-ref">inference analysis result</span></a> exists in a current study,
+clicking on the <strong>Inference result</strong> item will display the following window:</p>
+<blockquote>
+<div><img alt="../../../_images/dependenceInference_resultWizard.png" class="align-center" src="../../../_images/dependenceInference_resultWizard.png" />
+</div></blockquote>
+<dl class="docutils">
+<dt>Here the user can generate the inferred distribution, from an existing inference analysis:</dt>
+<dd><ul class="first last simple">
+<li>Choose an analysis result (<strong>Inference analysis</strong> combo box)</li>
+<li>Select the result for a group of variables (<strong>Group of variables</strong> combo box)</li>
+<li>The table below shows the list of copulas.
+The <strong>Bayesian Information Criterion</strong> is provided to inform about how well
+the inference analysis performed: if it failed (indicated by ‘-‘),
+the copula is kept listed for information but it is not possible to
+validate the window.
+Select a copula among the list: the current copula PDF, Kendall plot and parameters
+appear on the right.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="limit-state">
+<h2>2- Limit state<a class="headerlink" href="#limit-state" title="Permalink to this headline">¶</a></h2>
+<p>To perform a reliability analysis, define first a limit state
+(possible only if the model contains stochastic input variables).</p>
+<dl class="docutils">
+<dt>A new limit state can be created through:</dt>
+<dd><ul class="first last">
+<li><p class="first">the context menu of the probabilistic model item</p>
+<img alt="../../../_images/probabilisticModelContextMenu.png" class="align-center" src="../../../_images/probabilisticModelContextMenu.png" />
+</li>
+<li><p class="first">the <strong>Limit state definition</strong> box of the model diagram</p>
+<img alt="../../../_images/probaAnalysesBoxes.png" class="align-center" src="../../../_images/probaAnalysesBoxes.png" />
+</li>
+<li><p class="first">the context menu of the <strong>Reliability</strong> item (if it already exists)</p>
+</li>
+</ul>
+</dd>
+</dl>
+<p>When a limit state is required, a new element is added in the study tree below <strong>Reliability</strong>.</p>
+<dl class="docutils">
+<dt>Its context menu contains the following actions:</dt>
+<dd><ul class="first last simple">
+<li><strong>Rename</strong>: Rename the limit state</li>
+<li><strong>Threshold exceedance</strong>: Create a new threshold exceedance analysis</li>
+<li><strong>Remove</strong>: Remove the limit state and all the analyses depending on it</li>
+</ul>
+</dd>
+<dt>This item is associated with a window which allows to:</dt>
+<dd><ul class="first last simple">
+<li>Select the output of interest</li>
+<li><dl class="first docutils">
+<dt>Define the failure event by:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>selecting an operator:</dt>
+<dd><ul class="first last">
+<li>&lt;= (less or equal)</li>
+<li>&gt;= (greater or equal)</li>
+<li>&gt; (greater than)</li>
+<li>&lt; (less than)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>setting up the threshold defining the failure domain (default: 0., expected: floating points or integers)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/limitState.png" class="align-center" src="../../../_images/limitState.png" />
+</div>
+<div class="section" id="threshold-exceedance-analysis">
+<h2>3- Threshold exceedance analysis<a class="headerlink" href="#threshold-exceedance-analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>The user can require a computation of the probability of failure relative to the limit state through:</dt>
+<dd><ul class="first last">
+<li><p class="first">the context menu of the relevant limit state</p>
+<img alt="../../../_images/limitStateContextMenu.png" class="align-center" src="../../../_images/limitStateContextMenu.png" />
+</li>
+<li><p class="first">the <strong>Reliability</strong> box of the model diagram</p>
+<img alt="../../../_images/reliabilityBox.png" class="align-center" src="../../../_images/reliabilityBox.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="thresholdexceedancewizard">
+<span id="id1"></span><h3>3-1 Definition<a class="headerlink" href="#thresholdexceedancewizard" title="Permalink to this headline">¶</a></h3>
+<p>When an analysis is required, the following window appears to define its parameters.</p>
+<img alt="../../../_images/limitStateReliabilityAnalysis.png" class="align-center" src="../../../_images/limitStateReliabilityAnalysis.png" />
+<dl class="docutils">
+<dt>First, select a method:</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt>the simulation methods are:</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/monte_carlo_simulation.html">Monte Carlo</a></li>
+<li>FORM - <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/importance_simulation.html">Importance sampling</a>:
+the FORM algorithm starts from the result of the Importance sampling analysis</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>the approximation methods are:</dt>
+<dd><ul class="first last">
+<li>First Order Reliability Method (<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/form_approximation.html">FORM</a>)</li>
+<li>Second Order Reliability Method (<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/sorm_approximation.html">SORM</a>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Then, set up the algorithm parameters of the corresponding method:</p>
+<div class="section" id="simulation-methods">
+<h4>3-1-1 Simulation methods<a class="headerlink" href="#simulation-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>The <strong>Simulation methods</strong> window allows to define:</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt><strong>Stopping criteria</strong> of the algorithm (Select at least one criterion to validate the window):</dt>
+<dd><ul class="first last">
+<li>the maximum coefficient of variation for the probability, (default: 0.01,
+expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/58918840c9556792936431a34bdcdf331eb355b7.svg" alt="\left[0;1 \right]"/>)</li>
+<li>the maximum computation time in days(d), hours(h), minutes(m) or seconds(s) (default: one minute)</li>
+<li>the maximum sampling size (default: 10000, expected: integer)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><strong>Evaluation parameter</strong>: the block size – the number of runs launched simultaneously – for parallelization
+purposes (default=1; expected= integer). It must be less than the maximum sampling size.</li>
+<li><strong>Advanced Parameters</strong> (default: hidden): the seed of the random generator (default: 0,
+positive integer expected)</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/limitStateReliabilitySimu.png" class="align-center" src="../../../_images/limitStateReliabilitySimu.png" />
+</div>
+<div class="section" id="approximation-methods">
+<h4>3-1-2 Approximation methods<a class="headerlink" href="#approximation-methods" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>The window allows to define <strong>Optimization parameters</strong>:</dt>
+<dd><ul class="first last simple">
+<li>the algorithm method: Abdo-Rackwitz, Cobyla (default), SQP</li>
+<li>the starting point (default: means of the distributions of the stochastic inputs)</li>
+<li><dl class="first docutils">
+<dt><strong>Advanced Parameters</strong> (default: hidden): the stopping criteria</dt>
+<dd><ul class="first last">
+<li>the maximum number of iterations (default: 100, positive integer expected)</li>
+<li>the errors: absolute, relative, residual and constraint errors (default: 1e-5, positive float expected)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/limitStateReliabilityApprox.png" class="align-center" src="../../../_images/limitStateReliabilityApprox.png" />
+</div>
+</div>
+<div class="section" id="launch">
+<h3>3-2 Launch<a class="headerlink" href="#launch" title="Permalink to this headline">¶</a></h3>
+<p>When the window is validated, a new element appears in the study tree below the relevant
+limit state item in the <strong>Reliability</strong> section.</p>
+<dl class="docutils">
+<dt>Its context menu has the following actions:</dt>
+<dd><ul class="first last simple">
+<li><strong>Rename</strong>: Rename the analysis</li>
+<li><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</li>
+<li><strong>Remove</strong>: Remove the analysis from the study</li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/reliabilityWindow.png" class="align-center" src="../../../_images/reliabilityWindow.png" />
+</div>
+<div class="section" id="results">
+<h3>3-3 Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished or stopped, a new result window appears which content depends
+on the chosen algorithm.</p>
+<div class="section" id="reliamontecarloresult">
+<span id="id2"></span><h4>3-3-1 Monte Carlo<a class="headerlink" href="#reliamontecarloresult" title="Permalink to this headline">¶</a></h4>
+<p>On the left, the <strong>Output</strong> section recalls the analysed output.</p>
+<p>The results window gathers several tabs:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>The <strong>Summary</strong> tab shows:</dt>
+<dd><ul class="first simple">
+<li>the elapsed computation time</li>
+<li>the number of performed simulations (i.e. calls to the model)</li>
+<li>the failure probability estimate, its coefficient of variation and the corresponding
+confidence interval at 95%</li>
+</ul>
+<img alt="../../../_images/limitStateReliabilitySummary.png" class="last align-center" src="../../../_images/limitStateReliabilitySummary.png" />
+</dd>
+</dl>
+</li>
+<li><p class="first">The <strong>Histogram</strong> tab presents the histogram of the output sample. The red vertical line
+represents the threshold of the failure event.</p>
+<ul class="simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Left-click to translate the graph</li>
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/limitStateReliabilityHistogram.png" class="align-center" src="../../../_images/limitStateReliabilityHistogram.png" />
+</li>
+<li><dl class="first docutils">
+<dt>The <strong>Convergence graph</strong> tab presents the convergence of the probability estimate.</dt>
+<dd><ul class="first last simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Left-click to translate the graph</li>
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/limitStateReliabilityConvergence.png" class="align-center" src="../../../_images/limitStateReliabilityConvergence.png" />
+</li>
+<li><p class="first">The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="formresult">
+<span id="id3"></span><h4>3-3-2 FORM<a class="headerlink" href="#formresult" title="Permalink to this headline">¶</a></h4>
+<p>On the left, the <strong>Output</strong> section recalls the analysed output.</p>
+<p>The results window gathers several tabs:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>The <strong>Summary</strong> tab shows:</dt>
+<dd><ul class="first simple">
+<li>the failure probability and the Hasofer reliability index</li>
+<li><dl class="first docutils">
+<dt>the optimization stopping criteria value:</dt>
+<dd><ul class="first last">
+<li>the number of iterations</li>
+<li>the errors: absolute, relative, residual and constraint errors</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>the number of calls of the model</li>
+</ul>
+<img alt="../../../_images/limitStateReliabilityFORMSummary.png" class="last align-center" src="../../../_images/limitStateReliabilityFORMSummary.png" />
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The <strong>Design point</strong> tab gathers:</dt>
+<dd><ul class="first simple">
+<li>the coordinates of the design point in the standard space and in the physical space</li>
+<li>the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/importance_form.html">importance factors</a> of each variable</li>
+</ul>
+<img alt="../../../_images/limitStateReliabilityFORMDesignPoint.png" class="last align-center" src="../../../_images/limitStateReliabilityFORMDesignPoint.png" />
+</dd>
+</dl>
+</li>
+<li><p class="first">The <strong>Sensitivities</strong> tab gathers the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/sensitivity_form.html">sensitivities</a> of
+the failure probability and the reliability index to the parameters of the
+probabilistic input vector (marginals and dependence structure).</p>
+<blockquote>
+<div><img alt="../../../_images/limitStateReliabilityFORMSensitivities.png" class="align-center" src="../../../_images/limitStateReliabilityFORMSensitivities.png" />
+</div></blockquote>
+</li>
+<li><p class="first">The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p>
+</li>
+<li><p class="first">The <strong>Model</strong> tab shows the model content and the limit state used to perform the analysis.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="sormresult">
+<span id="id4"></span><h4>3-3-3 SORM<a class="headerlink" href="#sormresult" title="Permalink to this headline">¶</a></h4>
+<p>The SORM result window presents a similar tab organization to the FORM window, with additional
+three other methods to compute failure probability and reliability index:
+Breitung, Hohen-Bichler and Tvedt (<strong>Summary</strong> tab).</p>
+<img alt="../../../_images/sormResultWindow.png" class="align-center" src="../../../_images/sormResultWindow.png" />
+</div>
+<div class="section" id="form-is">
+<span id="formisresult"></span><h4>3-3-4 FORM-IS<a class="headerlink" href="#form-is" title="Permalink to this headline">¶</a></h4>
+<p>The FORM-IS result window contains the same tabs as the Monte Carlo result window and a <strong>FORM results</strong>
+tab to display the tabs of a FORM result window.</p>
+<img alt="../../../_images/limitStateReliabilityFORMIS.png" class="align-center" src="../../../_images/limitStateReliabilityFORMIS.png" />
+</div>
+</div>
+</div>
+<div class="section" id="central-tendency-analysis">
+<h2>4- Central tendency analysis<a class="headerlink" href="#central-tendency-analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>A new central tendency analysis can be created in 3 different ways:</dt>
+<dd><ul class="first last">
+<li><p class="first">the context menu of the probabilistic model item</p>
+<img alt="../../../_images/probabilisticModelContextMenu.png" class="align-center" src="../../../_images/probabilisticModelContextMenu.png" />
+</li>
+<li><p class="first">the <strong>Central tendency</strong> box of the model diagram</p>
+<img alt="../../../_images/probaAnalysesBoxes.png" class="align-center" src="../../../_images/probaAnalysesBoxes.png" />
+</li>
+<li><p class="first">the context menu of the <strong>Central tendency</strong> item (if it already exists)</p>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="centraltendencywizard">
+<span id="id5"></span><h3>4-1 Definition<a class="headerlink" href="#centraltendencywizard" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>When an analysis is required, a window appears, in order to set up:</dt>
+<dd><ul class="first last simple">
+<li>the outputs of interest (<strong>Select outputs</strong> - default: all outputs are analyzed)</li>
+<li>the method: <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/monte_carlo_moments.html">Monte Carlo sampling</a> (default) or <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/taylor_moments.html">Taylor Expansions</a> (second order)</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/centralTendency.png" class="align-center" src="../../../_images/centralTendency.png" />
+<div class="section" id="id6">
+<h4>4-1-1 Monte Carlo<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>The <strong>Monte Carlo parameters</strong> window allows to define:</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt><strong>Stopping criteria</strong> of the algorithm (Select at least one criterion to validate the window):</dt>
+<dd><ul class="first last">
+<li>the maximum coefficient of variation (CV) for the mean (
+<img class="math" src="../../../_images/math/2dd9d8c44e45023294f368005c2b9b8087a0fd93.svg" alt="CV = \frac{\sigma / \sqrt{n}}{\lvert \mu \rvert}"/> with <img class="math" src="../../../_images/math/dc50b6bc4de97b0c974cd4ba9d5243ef3192864a.svg" alt="n"/>: the number of simulations,
+<img class="math" src="../../../_images/math/bbdfba3f34876c71a27706eb12b647f73eb32d69.svg" alt="\mu"/>: the mean, <img class="math" src="../../../_images/math/f2e62171924bac3b973bb702eb391f3d4bb42625.svg" alt="\sigma"/>: the standard deviation), (default: 0.01,
+expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/58918840c9556792936431a34bdcdf331eb355b7.svg" alt="\left[0;1 \right]"/>)</li>
+<li>the maximum computation time in days(d), hours(h), minutes(m) or seconds(s) (default: one minute)</li>
+<li>the maximum sampling size (default: 10000, expected: integer)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><strong>Evaluation parameter</strong>: the block size – the number of runs launched simultaneously – for parallelization
+purposes (default=1; expected= integer). It must be less than the maximum sampling size.</li>
+<li><dl class="first docutils">
+<dt><strong>Advanced Parameters</strong> (default: hidden):</dt>
+<dd><ul class="first last">
+<li>the seed of the random generator (default: 0, positive integer expected)</li>
+<li>require the computation of the confidence interval (default: checked)
+at a given level (default: 0.95, expected: floating point or integer,
+in the interval <img class="math" src="../../../_images/math/6ed70335814381b602c4077d314c42cc23675a2f.svg" alt="\left[0;1 \right["/>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/centralTendencyMC.png" class="align-center" src="../../../_images/centralTendencyMC.png" />
+</div>
+<div class="section" id="id7">
+<h4>4-1-2 Taylor expansions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/centralTendencyTaylor.png" class="align-center" src="../../../_images/centralTendencyTaylor.png" />
+</div>
+</div>
+<div class="section" id="id8">
+<h3>4-2 Launch<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>When the window is validated, a new element appears in the study tree below <strong>Central tendency</strong>.</p>
+<dl class="docutils">
+<dt>Its context menu has the following actions:</dt>
+<dd><ul class="first last simple">
+<li><strong>Rename</strong>: Rename the analysis</li>
+<li><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</li>
+<li><strong>Remove</strong>: Remove the analysis from the study</li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/centralTendencyWindow.png" class="align-center" src="../../../_images/centralTendencyWindow.png" />
+</div>
+<div class="section" id="id9">
+<h3>4-3 Results<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished or stopped, a result window appears.</p>
+<div class="section" id="montecarloresult">
+<span id="id10"></span><h4>4-3-1 Monte Carlo<a class="headerlink" href="#montecarloresult" title="Permalink to this headline">¶</a></h4>
+<p>The Monte Carlo result window shows numerous tabs, some of which are interactively linked (<strong>Table</strong>,
+<strong>Cobweb plot</strong>, <strong>Plot matrix</strong> and <strong>Scatter plot</strong> tabs):
+when the user selects points on one of these representations, the same points are
+automatically selected in the other tabs.</p>
+<p>The results window gathers the following tabs:</p>
+<ul>
+<li><p class="first">The <strong>Summary</strong> tab summarizes the results of the analysis, for a selected variable (left column):
+the stopping criteria, moment estimates, empirical quantiles, minimum/maximum values, input values at
+extremum.</p>
+<img alt="../../../_images/centralTendencySummary.png" class="align-center" src="../../../_images/centralTendencySummary.png" />
+</li>
+<li><p class="first">The <strong>PDF/CDF</strong> tab presents the PDF/CDF of the variables
+together with a <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/kernel_smoothing.html">kernel smoothing</a> representation.</p>
+<ul class="simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the graphic type: PDF (default) or CDF</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Left-click to translate the graph</li>
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/centralTendencyPDF.png" class="align-center" src="../../../_images/centralTendencyPDF.png" />
+</li>
+<li><p class="first">The <strong>Box plots</strong> tab presents the <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=14524285">box plot</a>
+of the variables.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/centralTendencyBoxplot.png" class="align-center" src="../../../_images/centralTendencyBoxplot.png" />
+</li>
+<li><p class="first">The <strong>Dependence</strong> tab displays the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/spearman_coefficient.html">Spearman’s matrix</a> estimate.</p>
+<blockquote>
+<div><ul class="simple">
+<li>The cells are colored according to the value of the Spearman’s coefficient.</li>
+<li>Its context menu allows to export the table in a CSV file or as a PNG image.</li>
+<li>Select cells and Press Ctrl+C to copy values in the clipboard</li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/doe_dependence.png" class="align-center" src="../../../_images/doe_dependence.png" />
+</li>
+<li><p class="first">The <strong>Table</strong> tab presents the sample generated by the Monte Carlo sampling
+method and the resulting output values. The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Table interactivity:</dt>
+<dd><ul class="first last">
+<li>Left-click (optional: + Ctrl) on lines to select them</li>
+<li>Left-click on column header to sort values in ascending or descending order</li>
+<li>Left-click on a column header and drag it in another place to change columns order</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/designOfExperimentTable.png" class="align-center" src="../../../_images/designOfExperimentTable.png" />
+</li>
+<li><p class="first">The <strong>Cobweb plot</strong> tab displays all the points generated by the analysis.</p>
+<ul class="simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Left-click on columns to select curves (multiple selection possible)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/centralTendencyCobweb.png" class="align-center" src="../../../_images/centralTendencyCobweb.png" />
+</li>
+<li><p class="first">The <strong>Plot matrix</strong> tab: histograms of the distribution of each variable (diagonal) and
+scatter plots between each couple of input/output variables (off-diagonal).</p>
+<ul class="simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Right-click to select points</li>
+<li>Left-click to translate the graph</li>
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/centralTendencyPlotmatrix.png" class="align-center" src="../../../_images/centralTendencyPlotmatrix.png" />
+</li>
+<li><p class="first">The <strong>Scatter plots</strong> tab displays the scatter plot of two parameters.</p>
+<ul class="simple">
+<li>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the variables to plot on X-axis and Y-axis (default: first output versus first input)</li>
+<li><dl class="first docutils">
+<dt>Graph interactivity:</dt>
+<dd><ul class="first last">
+<li>Right-click to select points</li>
+<li>Left-click to translate the graph</li>
+<li>Mouse wheel up/down to zoom in/zoom out</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/centralTendencyScatter.png" class="align-center" src="../../../_images/centralTendencyScatter.png" />
+</li>
+<li><p class="first">The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p>
+<img alt="../../../_images/centralTendency_MC_tab_Parameters.png" class="align-center" src="../../../_images/centralTendency_MC_tab_Parameters.png" />
+</li>
+<li><p class="first">The <strong>Model</strong> tab shows the model content used to perform the analysis.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="taylorresult">
+<span id="id11"></span><h4>4-3-2 Taylor expansions<a class="headerlink" href="#taylorresult" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/centralTendencyTaylorResults.png" class="align-center" src="../../../_images/centralTendencyTaylorResults.png" />
+<p>The results window gathers, for a selected output (left column):
+mean (corresponding to the first and second order expansions), standard deviation and variance.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sensitivity-analysis">
+<h2>5- Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>To create a new sensitivity analysis, 3 different ways are possible:</dt>
+<dd><ul class="first last">
+<li><p class="first">the context menu of the probabilistic model item</p>
+<img alt="../../../_images/probabilisticModelContextMenu.png" class="align-center" src="../../../_images/probabilisticModelContextMenu.png" />
+</li>
+<li><p class="first">the <strong>Sensitivity</strong> box of the model diagram</p>
+<img alt="../../../_images/probaAnalysesBoxes.png" class="align-center" src="../../../_images/probaAnalysesBoxes.png" />
+</li>
+<li><p class="first">the context menu of the <strong>Sensitivity</strong> item (if it already exists)</p>
+</li>
+</ul>
+</dd>
+</dl>
+<p>The input variables must be independent to perform a sensitivity analysis.</p>
+<div class="section" id="sensitivitywizard">
+<span id="id12"></span><h3>5-1 Definition<a class="headerlink" href="#sensitivitywizard" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>When an analysis is required, a window appears, in order to set up:</dt>
+<dd><ul class="first last simple">
+<li>the outputs of interest (<strong>Select outputs</strong> - default: all outputs are analyzed)</li>
+<li>the method: <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/sensitivity_sobol.html">Sobol</a> (default), SRC (= <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/ranking_src.html">Standardised Regression Coefficient</a>)</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/sensitivityAnalysisMethods.png" class="align-center" src="../../../_images/sensitivityAnalysisMethods.png" />
+<div class="section" id="sobol-indices">
+<h4>5-1-1 Sobol indices<a class="headerlink" href="#sobol-indices" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>The <strong>Sobol parameters</strong> window allows to define:</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt><strong>Stopping criteria</strong> of the algorithm (Select at least one criterion to validate the window):</dt>
+<dd><ul class="first last">
+<li>the maximum confidence interval length of the first order indices (default: 0.01,
+expected: a floating point or an integer, in the interval <img class="math" src="../../../_images/math/58918840c9556792936431a34bdcdf331eb355b7.svg" alt="\left[0;1 \right]"/>)</li>
+<li>the maximum computation time in days(d), hours(h), minutes(m) or seconds(s) (default: one minute)</li>
+<li>the maximum calls (default: 10000, expected: integer)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Evaluation parameters</strong>:</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>the replication size (default=1000; expected= integer).</dt>
+<dd><ul class="first last">
+<li>The label <strong>Number of calls by iteration</strong> is updated according to its value.</li>
+<li><dl class="first docutils">
+<dt>At each iteration of the algorithm, the model is evaluated <em>nbEval</em> times:</dt>
+<dd><img class="math" src="../../../_images/math/0d31fad772c946eee4349c7083808e7f02fda17a.svg" alt="nbEval = (nbInputs + 2) * replicationSize"/>
+with <em>nbInputs</em>, the number of stochastic input variables</dd>
+</dl>
+</li>
+<li>The maximum calls must be greater than <em>nbEval</em></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>the block size – the number of runs launched simultaneously – for parallelization
+purposes (default=1; expected= integer).</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Advanced Parameters</strong> (default: hidden):</dt>
+<dd><ul class="first last">
+<li>the confidence level (default: 0.95; float expected).</li>
+<li>the seed of the random generator (default: 0, positive integer expected)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/sensitivityAnalysisDefineSobol.png" class="align-center" src="../../../_images/sensitivityAnalysisDefineSobol.png" />
+<p>See the <a class="reference internal" href="../../../examples/examples.html#sobolexample"><span class="std std-ref">Sensitivity</span></a> section in the example guide.</p>
+</div>
+<div class="section" id="src-indices">
+<h4>5-1-2 SRC indices<a class="headerlink" href="#src-indices" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>The <strong>SRC parameters</strong> window allows to define:</dt>
+<dd><ul class="first last simple">
+<li><dl class="first docutils">
+<dt><strong>Evaluation parameters</strong>:</dt>
+<dd><ul class="first last">
+<li>the sample size (default: 10000, integer expected)</li>
+<li>the block size – the number of runs launched simultaneously – for parallelization
+purposes (default=1; expected= integer). It must be less than the sample size.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><strong>Advanced Parameters</strong> (default: hidden): the seed of the random generator
+(default: 0, positive integer expected)</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/sensitivityAnalysisDefineSRC.png" class="align-center" src="../../../_images/sensitivityAnalysisDefineSRC.png" />
+</div>
+</div>
+<div class="section" id="id13">
+<h3>5-2 Launch<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>When the window is validated, a new element appears in the study tree below <strong>Sensitivity</strong>.</p>
+<dl class="docutils">
+<dt>Its context menu has the following actions:</dt>
+<dd><ul class="first last simple">
+<li><strong>Rename</strong>: Rename the analysis</li>
+<li><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</li>
+<li><strong>Remove</strong>: Remove the analysis from the study</li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/sensitivityAnalysisWindow.png" class="align-center" src="../../../_images/sensitivityAnalysisWindow.png" />
+</div>
+<div class="section" id="id14">
+<h3>5-3 Results<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>When the analysis is finished or stopped, a result window appears.</p>
+<div class="section" id="sobolresult">
+<span id="id15"></span><h4>5-3-1 Sobol indices<a class="headerlink" href="#sobolresult" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/sensitivityAnalysisSobol.png" class="align-center" src="../../../_images/sensitivityAnalysisSobol.png" />
+<p>The window presents the following tabs:</p>
+<ul>
+<li><p class="first">The <strong>Indices</strong> tab includes, for a selected output (left column):</p>
+<ul>
+<li><p class="first">The values of the stopping criteria</p>
+</li>
+<li><p class="first">The graphic representation of the first and total order indices and their confidence intervals,
+for each variable.
+Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p>
+</li>
+<li><p class="first">A summary table with the first and total order indices and their confidence intervals.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Table interactivity:</dt>
+<dd><ul class="first last">
+<li>Select cells and Press Ctrl+C to copy values in the clipboard</li>
+<li>Left-click on column header to sort values in ascending or descending order.
+Sorting the table will automatically sort the indices on the graph.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">The index corresponding to the interactions (below the table).</p>
+</li>
+</ul>
+<p>If the Sobol’s indices estimates are incoherent, an <img alt="attentionButton" src="../../../_images/task-attention.png" /> will appear in the table.
+It is advised to refer to the associated warning message (tooltip of the <img alt="attentionButton" src="../../../_images/task-attention.png" />).</p>
+<p>If input variables are correlated in the physical model of the analysis, a message will appear at the
+bottom of the window to warn the user the result can be false.</p>
+</li>
+<li><p class="first">The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p>
+<img alt="../../../_images/sensitivityAnalysisSobol_tab_parameters1.png" class="align-center" src="../../../_images/sensitivityAnalysisSobol_tab_parameters1.png" />
+</li>
+<li><p class="first">The <strong>Model</strong> tab shows the model content used to perform the analysis.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="srcresult">
+<span id="id16"></span><h4>5-3-2 SRC indices<a class="headerlink" href="#srcresult" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../_images/sensitivityAnalysisSRC.png" class="align-center" src="../../../_images/sensitivityAnalysisSRC.png" />
+<p>The results window gathers these tabs:</p>
+<ul>
+<li><p class="first">The <strong>Indices</strong> tab includes, for a selected output (left column):</p>
+<ul>
+<li><p class="first">the graph of the input variables SRC indices.
+Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p>
+</li>
+<li><p class="first">the table of the input variables SRC indices.</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Table interactivity:</dt>
+<dd><ul class="first last">
+<li>Select cells and Press Ctrl+C to copy values in the clipboard</li>
+<li>Left-click on column header to sort values in ascending or descending order.
+Sorting the table will automatically sort the indices on the graph.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>If input variables are correlated in the physical model of the analysis, a message will appear at the
+bottom of the window to warn the user the result can be false.</p>
+</li>
+<li><p class="first">The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p>
+<img alt="../../../_images/sensitivityAnalysisSRC_tab_parameters.png" class="align-center" src="../../../_images/sensitivityAnalysisSRC_tab_parameters.png" />
+</li>
+<li><p class="first">The <strong>Model</strong> tab shows the model content used to perform the analysis.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">User manual - Probabilistic analyses</a><ul>
+<li><a class="reference internal" href="#probabilistic-model">1- Probabilistic model</a><ul>
+<li><a class="reference internal" href="#definition">1-1 Definition</a></li>
+<li><a class="reference internal" href="#specify-the-distribution-parameters">1-2 Specify the distribution parameters</a></li>
+<li><a class="reference internal" href="#specify-dependence-between-variables">1-3 Specify dependence between variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#limit-state">2- Limit state</a></li>
+<li><a class="reference internal" href="#threshold-exceedance-analysis">3- Threshold exceedance analysis</a><ul>
+<li><a class="reference internal" href="#thresholdexceedancewizard">3-1 Definition</a><ul>
+<li><a class="reference internal" href="#simulation-methods">3-1-1 Simulation methods</a></li>
+<li><a class="reference internal" href="#approximation-methods">3-1-2 Approximation methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#launch">3-2 Launch</a></li>
+<li><a class="reference internal" href="#results">3-3 Results</a><ul>
+<li><a class="reference internal" href="#reliamontecarloresult">3-3-1 Monte Carlo</a></li>
+<li><a class="reference internal" href="#formresult">3-3-2 FORM</a></li>
+<li><a class="reference internal" href="#sormresult">3-3-3 SORM</a></li>
+<li><a class="reference internal" href="#form-is">3-3-4 FORM-IS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#central-tendency-analysis">4- Central tendency analysis</a><ul>
+<li><a class="reference internal" href="#centraltendencywizard">4-1 Definition</a><ul>
+<li><a class="reference internal" href="#id6">4-1-1 Monte Carlo</a></li>
+<li><a class="reference internal" href="#id7">4-1-2 Taylor expansions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">4-2 Launch</a></li>
+<li><a class="reference internal" href="#id9">4-3 Results</a><ul>
+<li><a class="reference internal" href="#montecarloresult">4-3-1 Monte Carlo</a></li>
+<li><a class="reference internal" href="#taylorresult">4-3-2 Taylor expansions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sensitivity-analysis">5- Sensitivity analysis</a><ul>
+<li><a class="reference internal" href="#sensitivitywizard">5-1 Definition</a><ul>
+<li><a class="reference internal" href="#sobol-indices">5-1-1 Sobol indices</a></li>
+<li><a class="reference internal" href="#src-indices">5-1-2 SRC indices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13">5-2 Launch</a></li>
+<li><a class="reference internal" href="#id14">5-3 Results</a><ul>
+<li><a class="reference internal" href="#sobolresult">5-3-1 Sobol indices</a></li>
+<li><a class="reference internal" href="#srcresult">5-3-2 SRC indices</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../deterministic_analysis/user_manual_deterministic_analysis.html"
+                        title="previous chapter">User manual - Deterministic analyses</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../data_analysis/user_manual_data_analysis.html"
+                        title="next chapter">User manual - Data analyses</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/probabilistic_analysis/user_manual_probabilistic_analysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../data_analysis/user_manual_data_analysis.html" title="User manual - Data analyses"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../deterministic_analysis/user_manual_deterministic_analysis.html" title="User manual - Deterministic analyses"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

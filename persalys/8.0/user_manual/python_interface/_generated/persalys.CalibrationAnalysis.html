@@ -1,0 +1,993 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CalibrationAnalysis &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '7.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="CalibrationAnalysisResult" href="persalys.CalibrationAnalysisResult.html" />
+    <link rel="prev" title="Observations" href="persalys.Observations.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.CalibrationAnalysisResult.html" title="CalibrationAnalysisResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.Observations.html" title="Observations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="calibrationanalysis">
+<h1>CalibrationAnalysis<a class="headerlink" href="#calibrationanalysis" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="persalys.CalibrationAnalysis">
+<em class="property">class </em><code class="descclassname">persalys.</code><code class="descname">CalibrationAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a calibration analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>Name</p>
+</div></blockquote>
+<p><strong>observations</strong> : <a class="reference internal" href="persalys.Observations.html#persalys.Observations" title="persalys.Observations"><code class="xref py py-class docutils literal"><span class="pre">Observations</span></code></a></p>
+<blockquote class="last">
+<div><p>Observations of at least one input and one output</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the Chaboche model:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">700e6</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">750e6</span><span class="p">,</span> <span class="mf">11e6</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Parameter R&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mf">2500e6</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">2750e6</span><span class="p">,</span> <span class="mf">250e6</span><span class="p">),</span> <span class="s1">&#39;Parameter C&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gamma</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;gam&#39;</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;Parameter gamma&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist_strain</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">strain</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;strain&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">dist_strain</span><span class="p">,</span> <span class="s1">&#39;Strain&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sigma</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="s1">&#39;Stress (Pa)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;model1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">strain</span><span class="p">],</span> <span class="p">[</span><span class="n">sigma</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R + C / gam * (1 - exp(-gam * strain))&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Generate observations:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nbObs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">strainObs</span> <span class="o">=</span> <span class="n">dist_strain</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="n">nbObs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">strainObs</span><span class="o">.</span><span class="n">setDescription</span><span class="p">([</span><span class="s1">&#39;strain&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stressSampleNoise</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">40.e6</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="n">nbObs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stressSample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">ParametricFunction</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">getFunction</span><span class="p">(),</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mf">750e6</span><span class="p">,</span> <span class="mf">2750e6</span><span class="p">,</span> <span class="mf">10.</span><span class="p">])(</span><span class="n">strainObs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stressObs</span> <span class="o">=</span> <span class="n">stressSample</span> <span class="o">+</span> <span class="n">stressSampleNoise</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observations</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Observations</span><span class="p">(</span><span class="s1">&#39;obs1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">strainObs</span><span class="p">,</span> <span class="n">stressObs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Process a calibration analysis:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CalibrationAnalysis</span><span class="p">(</span><span class="s1">&#39;myAnalysis&#39;</span><span class="p">,</span> <span class="n">observations</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">thetaStar</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getCalibrationResult</span><span class="p">()</span><span class="o">.</span><span class="n">getParameterMAP</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.GetMethodNames" title="persalys.CalibrationAnalysis.GetMethodNames"><code class="xref py py-obj docutils literal"><span class="pre">GetMethodNames</span></code></a>()</td>
+<td>Get the list of available method names.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getBootStrapSize" title="persalys.CalibrationAnalysis.getBootStrapSize"><code class="xref py py-obj docutils literal"><span class="pre">getBootStrapSize</span></code></a>()</td>
+<td>Accessor to the bootstrap size used to sample the posterior distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getCalibratedInputs" title="persalys.CalibrationAnalysis.getCalibratedInputs"><code class="xref py py-obj docutils literal"><span class="pre">getCalibratedInputs</span></code></a>()</td>
+<td>Inputs to calibrate accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getClassName" title="persalys.CalibrationAnalysis.getClassName"><code class="xref py py-obj docutils literal"><span class="pre">getClassName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getConfidenceIntervalLength" title="persalys.CalibrationAnalysis.getConfidenceIntervalLength"><code class="xref py py-obj docutils literal"><span class="pre">getConfidenceIntervalLength</span></code></a>()</td>
+<td>Confidence interval length accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getErrorCovariance" title="persalys.CalibrationAnalysis.getErrorCovariance"><code class="xref py py-obj docutils literal"><span class="pre">getErrorCovariance</span></code></a>()</td>
+<td>Accessor to the output observations error covariance.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getErrorMessage" title="persalys.CalibrationAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal"><span class="pre">getErrorMessage</span></code></a>()</td>
+<td>Error message accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getFixedInputs" title="persalys.CalibrationAnalysis.getFixedInputs"><code class="xref py py-obj docutils literal"><span class="pre">getFixedInputs</span></code></a>()</td>
+<td>Fixed inputs accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getId" title="persalys.CalibrationAnalysis.getId"><code class="xref py py-obj docutils literal"><span class="pre">getId</span></code></a>()</td>
+<td>Accessor to the object’s id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getInterestVariables" title="persalys.CalibrationAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">getInterestVariables</span></code></a>()</td>
+<td>Get the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getMethodName" title="persalys.CalibrationAnalysis.getMethodName"><code class="xref py py-obj docutils literal"><span class="pre">getMethodName</span></code></a>()</td>
+<td>Accessor to the method name</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getName" title="persalys.CalibrationAnalysis.getName"><code class="xref py py-obj docutils literal"><span class="pre">getName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getObservations" title="persalys.CalibrationAnalysis.getObservations"><code class="xref py py-obj docutils literal"><span class="pre">getObservations</span></code></a>()</td>
+<td>Accessor to the data to be fitted.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getOptimizationAlgorithm" title="persalys.CalibrationAnalysis.getOptimizationAlgorithm"><code class="xref py py-obj docutils literal"><span class="pre">getOptimizationAlgorithm</span></code></a>()</td>
+<td>Accessor to the optimization algorithm used by non linear algorithms.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getPhysicalModel" title="persalys.CalibrationAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal"><span class="pre">getPhysicalModel</span></code></a>()</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getPriorDistribution" title="persalys.CalibrationAnalysis.getPriorDistribution"><code class="xref py py-obj docutils literal"><span class="pre">getPriorDistribution</span></code></a>()</td>
+<td>Accessor to the prior distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getPythonScript" title="persalys.CalibrationAnalysis.getPythonScript"><code class="xref py py-obj docutils literal"><span class="pre">getPythonScript</span></code></a>()</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getResult" title="persalys.CalibrationAnalysis.getResult"><code class="xref py py-obj docutils literal"><span class="pre">getResult</span></code></a>()</td>
+<td>Result accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getShadowedId" title="persalys.CalibrationAnalysis.getShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">getShadowedId</span></code></a>()</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getVisibility" title="persalys.CalibrationAnalysis.getVisibility"><code class="xref py py-obj docutils literal"><span class="pre">getVisibility</span></code></a>()</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.getWarningMessage" title="persalys.CalibrationAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal"><span class="pre">getWarningMessage</span></code></a>()</td>
+<td>Warning message accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.hasName" title="persalys.CalibrationAnalysis.hasName"><code class="xref py py-obj docutils literal"><span class="pre">hasName</span></code></a>()</td>
+<td>Test if the object is named.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.hasValidResult" title="persalys.CalibrationAnalysis.hasValidResult"><code class="xref py py-obj docutils literal"><span class="pre">hasValidResult</span></code></a>()</td>
+<td>Whether the analysis has been run.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.hasVisibleName" title="persalys.CalibrationAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal"><span class="pre">hasVisibleName</span></code></a>()</td>
+<td>Test if the object has a distinguishable name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.isReliabilityAnalysis" title="persalys.CalibrationAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal"><span class="pre">isReliabilityAnalysis</span></code></a>()</td>
+<td>Whether the analysis involves reliability.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.isRunning" title="persalys.CalibrationAnalysis.isRunning"><code class="xref py py-obj docutils literal"><span class="pre">isRunning</span></code></a>()</td>
+<td>Whether the analysis is running.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.run" title="persalys.CalibrationAnalysis.run"><code class="xref py py-obj docutils literal"><span class="pre">run</span></code></a>()</td>
+<td>Launch the analysis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setBootStrapSize" title="persalys.CalibrationAnalysis.setBootStrapSize"><code class="xref py py-obj docutils literal"><span class="pre">setBootStrapSize</span></code></a>(arg2)</td>
+<td>Accessor to the bootstrap size used to sample the posterior distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setCalibratedInputs" title="persalys.CalibrationAnalysis.setCalibratedInputs"><code class="xref py py-obj docutils literal"><span class="pre">setCalibratedInputs</span></code></a>(*args)</td>
+<td>Accessor to the inputs to calibrate and the fixed inputs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setConfidenceIntervalLength" title="persalys.CalibrationAnalysis.setConfidenceIntervalLength"><code class="xref py py-obj docutils literal"><span class="pre">setConfidenceIntervalLength</span></code></a>(arg2)</td>
+<td>Confidence interval length accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setErrorCovariance" title="persalys.CalibrationAnalysis.setErrorCovariance"><code class="xref py py-obj docutils literal"><span class="pre">setErrorCovariance</span></code></a>(matrix)</td>
+<td>Accessor to the output observations error covariance.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setInterestVariables" title="persalys.CalibrationAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</td>
+<td>Set the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setMethodName" title="persalys.CalibrationAnalysis.setMethodName"><code class="xref py py-obj docutils literal"><span class="pre">setMethodName</span></code></a>(name)</td>
+<td>Accessor to the method name</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setName" title="persalys.CalibrationAnalysis.setName"><code class="xref py py-obj docutils literal"><span class="pre">setName</span></code></a>(name)</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setOptimizationAlgorithm" title="persalys.CalibrationAnalysis.setOptimizationAlgorithm"><code class="xref py py-obj docutils literal"><span class="pre">setOptimizationAlgorithm</span></code></a>(solver)</td>
+<td>Accessor to the optimization algorithm used by non linear algorithms.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setShadowedId" title="persalys.CalibrationAnalysis.setShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">setShadowedId</span></code></a>(id)</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.CalibrationAnalysis.setVisibility" title="persalys.CalibrationAnalysis.setVisibility"><code class="xref py py-obj docutils literal"><span class="pre">setVisibility</span></code></a>(visible)</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.CalibrationAnalysis.GetMethodNames">
+<em class="property">static </em><code class="descname">GetMethodNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.GetMethodNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of available method names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>names</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">Description</span></code></a></p>
+<blockquote class="last">
+<div><p>List of available calibration method names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getBootStrapSize">
+<code class="descname">getBootStrapSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getBootStrapSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the bootstrap size used to sample the posterior distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>size</strong> : int</p>
+<blockquote class="last">
+<div><p>Bootstrap size used to sample the posterior distribution by the non linear algorithms.
+A value of 0 means that no bootstrap has been done but a linear approximation
+has been used to get the posterior distribution, using the
+GaussianLinearCalibration or LinearLeastSquaresCalibration algorithm
+at the maximum a posteriori estimate. The value 1 is not allowed at this time.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getCalibratedInputs">
+<code class="descname">getCalibratedInputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getCalibratedInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inputs to calibrate accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>inputs</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Description</span></code></a></p>
+<blockquote class="last">
+<div><p>Names of the input variables to calibrate</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getClassName">
+<code class="descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>class_name</strong> : str</p>
+<blockquote class="last">
+<div><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getConfidenceIntervalLength">
+<code class="descname">getConfidenceIntervalLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getConfidenceIntervalLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confidence interval length accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>length</strong> : float</p>
+<blockquote class="last">
+<div><p>Length of the confidence interval of the posterior distribution.
+It is set by default to 0.95.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getErrorCovariance">
+<code class="descname">getErrorCovariance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getErrorCovariance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the output observations error covariance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>matrix</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.CovarianceMatrix.html#openturns.CovarianceMatrix" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.CovarianceMatrix</span></code></a></p>
+<blockquote class="last">
+<div><p>The covariance matrix of the gaussian distribution of the output observations error.
+Used by the gaussian algorithms.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getErrorMessage">
+<code class="descname">getErrorMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Error message if the analysis failed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getFixedInputs">
+<code class="descname">getFixedInputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getFixedInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fixed inputs accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>inputs</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.PointWithDescription.html#openturns.PointWithDescription" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.PointWithDescription</span></code></a></p>
+<blockquote class="last">
+<div><p>Fixed input names and values</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getId">
+<code class="descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getInterestVariables">
+<code class="descname">getInterestVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getMethodName">
+<code class="descname">getMethodName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getMethodName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the method name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>method</strong> : str</p>
+<blockquote class="last">
+<div><p>Method name. Default is ‘LeastSquaresLinear’.
+Use <a class="reference internal" href="#persalys.CalibrationAnalysis.GetMethodNames" title="persalys.CalibrationAnalysis.GetMethodNames"><code class="xref py py-func docutils literal"><span class="pre">GetMethodNames()</span></code></a> to list available names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getName">
+<code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getObservations">
+<code class="descname">getObservations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getObservations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the data to be fitted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">Sample</span></code></a></p>
+<blockquote class="last">
+<div><p>The data to be fitted.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getOptimizationAlgorithm">
+<code class="descname">getOptimizationAlgorithm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getOptimizationAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the optimization algorithm used by non linear algorithms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>algorithm</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.OptimizationAlgorithm.html#openturns.OptimizationAlgorithm" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.OptimizationAlgorithm</span></code></a></p>
+<blockquote class="last">
+<div><p>Optimization algorithm used by non linear algorithms.
+The optimization problem and the starting point are not taken into account.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getPhysicalModel">
+<code class="descname">getPhysicalModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a></p>
+<blockquote class="last">
+<div><p>Physical model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getPriorDistribution">
+<code class="descname">getPriorDistribution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getPriorDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the prior distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>distribution</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Distribution</span></code></a></p>
+<blockquote class="last">
+<div><p>Prior distribution</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getPythonScript">
+<code class="descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>script</strong> : str</p>
+<blockquote class="last">
+<div><p>Python script to replay the analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getResult">
+<code class="descname">getResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Result accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>result</strong> : <a class="reference internal" href="persalys.CalibrationAnalysisResult.html#persalys.CalibrationAnalysisResult" title="persalys.CalibrationAnalysisResult"><code class="xref py py-class docutils literal"><span class="pre">CalibrationAnalysisResult</span></code></a></p>
+<blockquote class="last">
+<div><p>Result</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getShadowedId">
+<code class="descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getVisibility">
+<code class="descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.getWarningMessage">
+<code class="descname">getWarningMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Warning message which can appear during the analysis computation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.hasName">
+<code class="descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.hasValidResult">
+<code class="descname">hasValidResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasValidResult</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis has already been run</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.hasVisibleName">
+<code class="descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasVisibleName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty and not the default one.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.isReliabilityAnalysis">
+<code class="descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isReliabilityAnalysis</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis involves a reliability analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.isRunning">
+<code class="descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isRunning</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis is running</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setBootStrapSize">
+<code class="descname">setBootStrapSize</code><span class="sig-paren">(</span><em>arg2</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setBootStrapSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the bootstrap size used to sample the posterior distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>size</strong> : int</p>
+<blockquote class="last">
+<div><p>Bootstrap size used to sample the posterior distribution by the non linear algorithms.
+A value of 0 means that no bootstrap has been done but a linear approximation
+has been used to get the posterior distribution, using the
+GaussianLinearCalibration or LinearLeastSquaresCalibration algorithm
+at the maximum a posteriori estimate. The value 1 is not allowed at this time.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setCalibratedInputs">
+<code class="descname">setCalibratedInputs</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setCalibratedInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the inputs to calibrate and the fixed inputs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>calibratedInput</strong> : sequence of str</p>
+<blockquote>
+<div><p>Names of the input variables to calibrate</p>
+</div></blockquote>
+<p><strong>priorDistribution</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Distribution</span></code></a></p>
+<blockquote>
+<div><p>Prior distribution. Its dimension must equal to the number of
+variables to calibrate</p>
+</div></blockquote>
+<p><strong>fixedInputs</strong> : sequence of str, optional</p>
+<blockquote>
+<div><p>Names of the input variables to fix</p>
+</div></blockquote>
+<p><strong>values</strong> : sequence of float, optional</p>
+<blockquote class="last">
+<div><p>Values of the fixed inputs</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setConfidenceIntervalLength">
+<code class="descname">setConfidenceIntervalLength</code><span class="sig-paren">(</span><em>arg2</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setConfidenceIntervalLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confidence interval length accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>length</strong> : float</p>
+<blockquote class="last">
+<div><p>Length of the confidence interval of the posterior distribution.
+It is set by default to 0.95.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setErrorCovariance">
+<code class="descname">setErrorCovariance</code><span class="sig-paren">(</span><em>matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setErrorCovariance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the output observations error covariance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>matrix</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.CovarianceMatrix.html#openturns.CovarianceMatrix" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.CovarianceMatrix</span></code></a></p>
+<blockquote class="last">
+<div><p>The covariance matrix of the gaussian distribution of the output observations error.
+Used by the gaussian algorithms.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setInterestVariables">
+<code class="descname">setInterestVariables</code><span class="sig-paren">(</span><em>variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setMethodName">
+<code class="descname">setMethodName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setMethodName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the method name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>method</strong> : str</p>
+<blockquote class="last">
+<div><p>Method name. Default is ‘LeastSquaresLinear’.
+Use <a class="reference internal" href="#persalys.CalibrationAnalysis.GetMethodNames" title="persalys.CalibrationAnalysis.GetMethodNames"><code class="xref py py-func docutils literal"><span class="pre">GetMethodNames()</span></code></a> to list available names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setName">
+<code class="descname">setName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setOptimizationAlgorithm">
+<code class="descname">setOptimizationAlgorithm</code><span class="sig-paren">(</span><em>solver</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setOptimizationAlgorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the optimization algorithm used by non linear algorithms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>algorithm</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.OptimizationAlgorithm.html#openturns.OptimizationAlgorithm" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.OptimizationAlgorithm</span></code></a></p>
+<blockquote class="last">
+<div><p>Optimization algorithm used by non linear algorithms.
+The optimization problem and the starting point are not taken into account.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setShadowedId">
+<code class="descname">setShadowedId</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.CalibrationAnalysis.setVisibility">
+<code class="descname">setVisibility</code><span class="sig-paren">(</span><em>visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CalibrationAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.Observations.html"
+                        title="previous chapter">Observations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.CalibrationAnalysisResult.html"
+                        title="next chapter">CalibrationAnalysisResult</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.CalibrationAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.CalibrationAnalysisResult.html" title="CalibrationAnalysisResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.Observations.html" title="Observations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

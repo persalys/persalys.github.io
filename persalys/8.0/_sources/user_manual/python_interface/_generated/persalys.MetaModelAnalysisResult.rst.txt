@@ -1,0 +1,11 @@
+MetaModelAnalysisResult
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MetaModelAnalysisResult
+
+   
+   .. automethod:: __init__
+   
+

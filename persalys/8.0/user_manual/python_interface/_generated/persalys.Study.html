@@ -1,0 +1,747 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Study &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '7.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Examples" href="../../../examples/examples.html" />
+    <link rel="prev" title="MetaModelValidationResult" href="persalys.MetaModelValidationResult.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../examples/examples.html" title="Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.MetaModelValidationResult.html" title="MetaModelValidationResult"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="study">
+<h1>Study<a class="headerlink" href="#study" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="persalys.Study">
+<em class="property">class </em><code class="descclassname">persalys.</code><code class="descname">Study</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the class to store a study.</p>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.Add" title="persalys.Study.Add"><code class="xref py py-obj docutils literal"><span class="pre">Add</span></code></a>(study)</td>
+<td>Add a study in the tree view.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.GetAvailableName" title="persalys.Study.GetAvailableName"><code class="xref py py-obj docutils literal"><span class="pre">GetAvailableName</span></code></a>(rootName)</td>
+<td>Available name for a study accessor.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal"><span class="pre">GetClassName</span></code></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.GetFileNames" title="persalys.Study.GetFileNames"><code class="xref py py-obj docutils literal"><span class="pre">GetFileNames</span></code></a>()</td>
+<td>Files name accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.GetInstances" title="persalys.Study.GetInstances"><code class="xref py py-obj docutils literal"><span class="pre">GetInstances</span></code></a>()</td>
+<td>Studies accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.HasInstanceNamed" title="persalys.Study.HasInstanceNamed"><code class="xref py py-obj docutils literal"><span class="pre">HasInstanceNamed</span></code></a>(studyName)</td>
+<td>Whether the tree view contains a study named with the given name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.Open" title="persalys.Study.Open"><code class="xref py py-obj docutils literal"><span class="pre">Open</span></code></a>(xmlFileName)</td>
+<td>Open a study.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.Remove" title="persalys.Study.Remove"><code class="xref py py-obj docutils literal"><span class="pre">Remove</span></code></a>(study)</td>
+<td>Remove a study from the tree view.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.add" title="persalys.Study.add"><code class="xref py py-obj docutils literal"><span class="pre">add</span></code></a>(*args)</td>
+<td>Add an object to the study.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getAnalyses" title="persalys.Study.getAnalyses"><code class="xref py py-obj docutils literal"><span class="pre">getAnalyses</span></code></a>()</td>
+<td>Analysis accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getAnalysisByName" title="persalys.Study.getAnalysisByName"><code class="xref py py-obj docutils literal"><span class="pre">getAnalysisByName</span></code></a>(analysisName)</td>
+<td>Analysis accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getAvailableAnalysisName" title="persalys.Study.getAvailableAnalysisName"><code class="xref py py-obj docutils literal"><span class="pre">getAvailableAnalysisName</span></code></a>(rootName)</td>
+<td>Available name for an analysis accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getAvailableDataModelName" title="persalys.Study.getAvailableDataModelName"><code class="xref py py-obj docutils literal"><span class="pre">getAvailableDataModelName</span></code></a>(modelRootName)</td>
+<td>Available name for a data model accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getAvailableLimitStateName" title="persalys.Study.getAvailableLimitStateName"><code class="xref py py-obj docutils literal"><span class="pre">getAvailableLimitStateName</span></code></a>(rootName)</td>
+<td>Available name for a limit state accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getAvailablePhysicalModelName" title="persalys.Study.getAvailablePhysicalModelName"><code class="xref py py-obj docutils literal"><span class="pre">getAvailablePhysicalModelName</span></code></a>(…)</td>
+<td>Available name for a physical model accessor.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">getClassName</span></code>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getDataModelByName" title="persalys.Study.getDataModelByName"><code class="xref py py-obj docutils literal"><span class="pre">getDataModelByName</span></code></a>(dataModelName)</td>
+<td>Data model accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getDataModels" title="persalys.Study.getDataModels"><code class="xref py py-obj docutils literal"><span class="pre">getDataModels</span></code></a>()</td>
+<td>Data model accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getFileName" title="persalys.Study.getFileName"><code class="xref py py-obj docutils literal"><span class="pre">getFileName</span></code></a>()</td>
+<td>File name accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getId" title="persalys.Study.getId"><code class="xref py py-obj docutils literal"><span class="pre">getId</span></code></a>()</td>
+<td>Accessor to the object’s id.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getImplementation" title="persalys.Study.getImplementation"><code class="xref py py-obj docutils literal"><span class="pre">getImplementation</span></code></a>(*args)</td>
+<td>Accessor to the underlying implementation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getLimitStates" title="persalys.Study.getLimitStates"><code class="xref py py-obj docutils literal"><span class="pre">getLimitStates</span></code></a>()</td>
+<td>Limit state accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getName" title="persalys.Study.getName"><code class="xref py py-obj docutils literal"><span class="pre">getName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getPhysicalModelByName" title="persalys.Study.getPhysicalModelByName"><code class="xref py py-obj docutils literal"><span class="pre">getPhysicalModelByName</span></code></a>(physicalModelName)</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.getPhysicalModels" title="persalys.Study.getPhysicalModels"><code class="xref py py-obj docutils literal"><span class="pre">getPhysicalModels</span></code></a>()</td>
+<td>Physical models accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.getPythonScript" title="persalys.Study.getPythonScript"><code class="xref py py-obj docutils literal"><span class="pre">getPythonScript</span></code></a>()</td>
+<td>Python script accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.remove" title="persalys.Study.remove"><code class="xref py py-obj docutils literal"><span class="pre">remove</span></code></a>(*args)</td>
+<td>Remove an object from the study.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.Study.save" title="persalys.Study.save"><code class="xref py py-obj docutils literal"><span class="pre">save</span></code></a>(xmlFileName)</td>
+<td>Save it in an xml file.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.Study.setName" title="persalys.Study.setName"><code class="xref py py-obj docutils literal"><span class="pre">setName</span></code></a>(name)</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="persalys.Study.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.Study.Add">
+<em class="property">static </em><code class="descname">Add</code><span class="sig-paren">(</span><em>study</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.Add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a study in the tree view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>object</strong> : <a class="reference internal" href="#persalys.Study" title="persalys.Study"><code class="xref py py-class docutils literal"><span class="pre">Study</span></code></a></p>
+<blockquote class="last">
+<div><p>The study to add</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.Study.GetAvailableName">
+<em class="property">static </em><code class="descname">GetAvailableName</code><span class="sig-paren">(</span><em>rootName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.GetAvailableName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available name for a study accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>Available name for a study</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.Study.GetFileNames">
+<em class="property">static </em><code class="descname">GetFileNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.GetFileNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Files name accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>filesNames</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Description</span></code></a></p>
+<blockquote class="last">
+<div><p>The file names of all the opened studies</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.Study.GetInstances">
+<em class="property">static </em><code class="descname">GetInstances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.GetInstances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Studies accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>studies</strong> : sequence of <a class="reference internal" href="#persalys.Study" title="persalys.Study"><code class="xref py py-class docutils literal"><span class="pre">Study</span></code></a></p>
+<blockquote class="last">
+<div><p>Studies existing in the tree view</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.Study.HasInstanceNamed">
+<em class="property">static </em><code class="descname">HasInstanceNamed</code><span class="sig-paren">(</span><em>studyName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.HasInstanceNamed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the tree view contains a study named with the given name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>A study name</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>contains</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether it contains a study named with the given name</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.Study.Open">
+<em class="property">static </em><code class="descname">Open</code><span class="sig-paren">(</span><em>xmlFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.Open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a study.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fileName</strong> : str</p>
+<blockquote>
+<div><p>The file name</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>study</strong> : <a class="reference internal" href="#persalys.Study" title="persalys.Study"><code class="xref py py-class docutils literal"><span class="pre">Study</span></code></a></p>
+<blockquote class="last">
+<div><p>The study saved in fileName</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.Study.Remove">
+<em class="property">static </em><code class="descname">Remove</code><span class="sig-paren">(</span><em>study</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.Remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a study from the tree view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>object</strong> : <a class="reference internal" href="#persalys.Study" title="persalys.Study"><code class="xref py py-class docutils literal"><span class="pre">Study</span></code></a></p>
+<blockquote class="last">
+<div><p>The study to remove</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an object to the study.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>object</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a>, <a class="reference internal" href="persalys.LimitState.html#persalys.LimitState" title="persalys.LimitState"><code class="xref py py-class docutils literal"><span class="pre">LimitState</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">Analysis</span></code> …</p>
+<blockquote class="last">
+<div><p>The object to add</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getAnalyses">
+<code class="descname">getAnalyses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getAnalyses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>analyses</strong> : sequence of <code class="xref py py-class docutils literal"><span class="pre">Analysis</span></code></p>
+<blockquote class="last">
+<div><p>Analyses</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getAnalysisByName">
+<code class="descname">getAnalysisByName</code><span class="sig-paren">(</span><em>analysisName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getAnalysisByName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>The analysis name</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>analysis</strong> : <code class="xref py py-class docutils literal"><span class="pre">Analysis</span></code></p>
+<blockquote class="last">
+<div><p>Analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getAvailableAnalysisName">
+<code class="descname">getAvailableAnalysisName</code><span class="sig-paren">(</span><em>rootName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getAvailableAnalysisName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available name for an analysis accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>Available name for an analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getAvailableDataModelName">
+<code class="descname">getAvailableDataModelName</code><span class="sig-paren">(</span><em>modelRootName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getAvailableDataModelName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available name for a data model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>Available name for a data model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getAvailableLimitStateName">
+<code class="descname">getAvailableLimitStateName</code><span class="sig-paren">(</span><em>rootName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getAvailableLimitStateName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available name for a limit state accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>Available name for a limit state</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getAvailablePhysicalModelName">
+<code class="descname">getAvailablePhysicalModelName</code><span class="sig-paren">(</span><em>physicalModelRootName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getAvailablePhysicalModelName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available name for a physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>Available name for a physical model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getDataModelByName">
+<code class="descname">getDataModelByName</code><span class="sig-paren">(</span><em>dataModelName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getDataModelByName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>The data model name</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="persalys.DataModel.html#persalys.DataModel" title="persalys.DataModel"><code class="xref py py-class docutils literal"><span class="pre">DataModel</span></code></a></p>
+<blockquote class="last">
+<div><p>Data model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getDataModels">
+<code class="descname">getDataModels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getDataModels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>models</strong> : sequence of <a class="reference internal" href="persalys.DataModel.html#persalys.DataModel" title="persalys.DataModel"><code class="xref py py-class docutils literal"><span class="pre">DataModel</span></code></a></p>
+<blockquote class="last">
+<div><p>Data models</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getFileName">
+<code class="descname">getFileName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>File name accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>fileName</strong> : str</p>
+<blockquote class="last">
+<div><p>The file name</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getId">
+<code class="descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getImplementation">
+<code class="descname">getImplementation</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getImplementation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying implementation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>impl</strong> : Implementation</p>
+<blockquote class="last">
+<div><p>The implementation class.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getLimitStates">
+<code class="descname">getLimitStates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getLimitStates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limit state accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>states</strong> : sequence of <a class="reference internal" href="persalys.LimitState.html#persalys.LimitState" title="persalys.LimitState"><code class="xref py py-class docutils literal"><span class="pre">LimitState</span></code></a></p>
+<blockquote class="last">
+<div><p>Limit states</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getName">
+<code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getPhysicalModelByName">
+<code class="descname">getPhysicalModelByName</code><span class="sig-paren">(</span><em>physicalModelName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getPhysicalModelByName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>The model name</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a></p>
+<blockquote class="last">
+<div><p>Physical model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getPhysicalModels">
+<code class="descname">getPhysicalModels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getPhysicalModels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical models accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>models</strong> : sequence of <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a></p>
+<blockquote class="last">
+<div><p>Physical models</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.getPythonScript">
+<code class="descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>script</strong> : str</p>
+<blockquote class="last">
+<div><p>The Python script</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an object from the study.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>object</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a>, <a class="reference internal" href="persalys.LimitState.html#persalys.LimitState" title="persalys.LimitState"><code class="xref py py-class docutils literal"><span class="pre">LimitState</span></code></a>, <code class="xref py py-class docutils literal"><span class="pre">Analysis</span></code> …</p>
+<blockquote class="last">
+<div><p>The object to remove</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>xmlFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save it in an xml file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fileName</strong> : str</p>
+<blockquote class="last">
+<div><p>The file name</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.Study.setName">
+<code class="descname">setName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Study.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.MetaModelValidationResult.html"
+                        title="previous chapter">MetaModelValidationResult</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../../examples/examples.html"
+                        title="next chapter">Examples</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.Study.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../examples/examples.html" title="Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.MetaModelValidationResult.html" title="MetaModelValidationResult"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

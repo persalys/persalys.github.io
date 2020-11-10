@@ -1,0 +1,861 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ProbabilisticDesignOfExperiment &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '7.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DataAnalysis" href="persalys.DataAnalysis.html" />
+    <link rel="prev" title="ImportedDesignOfExperiment" href="persalys.ImportedDesignOfExperiment.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.DataAnalysis.html" title="DataAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.ImportedDesignOfExperiment.html" title="ImportedDesignOfExperiment"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="probabilisticdesignofexperiment">
+<h1>ProbabilisticDesignOfExperiment<a class="headerlink" href="#probabilisticdesignofexperiment" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="persalys.ProbabilisticDesignOfExperiment">
+<em class="property">class </em><code class="descclassname">persalys.</code><code class="descname">ProbabilisticDesignOfExperiment</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a probabilistic design of experiments.</p>
+<dl class="docutils">
+<dt>Available constructors:</dt>
+<dd><p class="first">ProbabilisticDesignOfExperiment(<em>name, physicalModel</em>)</p>
+<p class="last">ProbabilisticDesignOfExperiment(<em>name, physicalModel, size, designName</em>)</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>Name</p>
+</div></blockquote>
+<p><strong>physicalModel</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a></p>
+<blockquote>
+<div><p>Physical model with at least a stochastic input variable.</p>
+</div></blockquote>
+<p><strong>size</strong> : positive int</p>
+<blockquote>
+<div><p>Number of points in the design.</p>
+</div></blockquote>
+<p><strong>designName</strong> : str</p>
+<blockquote class="last">
+<div><p>Name of the design. Use <a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.GetDesignNames" title="persalys.ProbabilisticDesignOfExperiment.GetDesignNames"><code class="xref py py-func docutils literal"><span class="pre">GetDesignNames()</span></code></a> to list available names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the design of experiments:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myDOE</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ProbabilisticDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;myDOE&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;MONTE_CARLO&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.GetDesignNames" title="persalys.ProbabilisticDesignOfExperiment.GetDesignNames"><code class="xref py py-obj docutils literal"><span class="pre">GetDesignNames</span></code></a>()</td>
+<td>Accessor to the list of designs provided by ProbabilisticDesignOfExperiment.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getBlockSize" title="persalys.ProbabilisticDesignOfExperiment.getBlockSize"><code class="xref py py-obj docutils literal"><span class="pre">getBlockSize</span></code></a>()</td>
+<td>Block size accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getClassName" title="persalys.ProbabilisticDesignOfExperiment.getClassName"><code class="xref py py-obj docutils literal"><span class="pre">getClassName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getDesignName" title="persalys.ProbabilisticDesignOfExperiment.getDesignName"><code class="xref py py-obj docutils literal"><span class="pre">getDesignName</span></code></a>()</td>
+<td>Accessor to the design name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getErrorMessage" title="persalys.ProbabilisticDesignOfExperiment.getErrorMessage"><code class="xref py py-obj docutils literal"><span class="pre">getErrorMessage</span></code></a>()</td>
+<td>Error message accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getFailedInputSample" title="persalys.ProbabilisticDesignOfExperiment.getFailedInputSample"><code class="xref py py-obj docutils literal"><span class="pre">getFailedInputSample</span></code></a>()</td>
+<td>Failed input sample accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getId" title="persalys.ProbabilisticDesignOfExperiment.getId"><code class="xref py py-obj docutils literal"><span class="pre">getId</span></code></a>()</td>
+<td>Accessor to the object’s id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getInterestVariables" title="persalys.ProbabilisticDesignOfExperiment.getInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">getInterestVariables</span></code></a>()</td>
+<td>Get the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getName" title="persalys.ProbabilisticDesignOfExperiment.getName"><code class="xref py py-obj docutils literal"><span class="pre">getName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getNotEvaluatedInputSample" title="persalys.ProbabilisticDesignOfExperiment.getNotEvaluatedInputSample"><code class="xref py py-obj docutils literal"><span class="pre">getNotEvaluatedInputSample</span></code></a>()</td>
+<td>Not evaluated input sample accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getOriginalInputSample" title="persalys.ProbabilisticDesignOfExperiment.getOriginalInputSample"><code class="xref py py-obj docutils literal"><span class="pre">getOriginalInputSample</span></code></a>()</td>
+<td>Input sample accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getPhysicalModel" title="persalys.ProbabilisticDesignOfExperiment.getPhysicalModel"><code class="xref py py-obj docutils literal"><span class="pre">getPhysicalModel</span></code></a>()</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getPythonScript" title="persalys.ProbabilisticDesignOfExperiment.getPythonScript"><code class="xref py py-obj docutils literal"><span class="pre">getPythonScript</span></code></a>()</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">getResult</span></code>()</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getSeed" title="persalys.ProbabilisticDesignOfExperiment.getSeed"><code class="xref py py-obj docutils literal"><span class="pre">getSeed</span></code></a>()</td>
+<td>Seed accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getShadowedId" title="persalys.ProbabilisticDesignOfExperiment.getShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">getShadowedId</span></code></a>()</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getSize" title="persalys.ProbabilisticDesignOfExperiment.getSize"><code class="xref py py-obj docutils literal"><span class="pre">getSize</span></code></a>()</td>
+<td>Accessor to the size of the generated sample.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getVisibility" title="persalys.ProbabilisticDesignOfExperiment.getVisibility"><code class="xref py py-obj docutils literal"><span class="pre">getVisibility</span></code></a>()</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.getWarningMessage" title="persalys.ProbabilisticDesignOfExperiment.getWarningMessage"><code class="xref py py-obj docutils literal"><span class="pre">getWarningMessage</span></code></a>()</td>
+<td>Warning message accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.hasName" title="persalys.ProbabilisticDesignOfExperiment.hasName"><code class="xref py py-obj docutils literal"><span class="pre">hasName</span></code></a>()</td>
+<td>Test if the object is named.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.hasValidResult" title="persalys.ProbabilisticDesignOfExperiment.hasValidResult"><code class="xref py py-obj docutils literal"><span class="pre">hasValidResult</span></code></a>()</td>
+<td>Whether the analysis has been run.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.hasVisibleName" title="persalys.ProbabilisticDesignOfExperiment.hasVisibleName"><code class="xref py py-obj docutils literal"><span class="pre">hasVisibleName</span></code></a>()</td>
+<td>Test if the object has a distinguishable name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.isReliabilityAnalysis" title="persalys.ProbabilisticDesignOfExperiment.isReliabilityAnalysis"><code class="xref py py-obj docutils literal"><span class="pre">isReliabilityAnalysis</span></code></a>()</td>
+<td>Whether the analysis involves reliability.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.isRunning" title="persalys.ProbabilisticDesignOfExperiment.isRunning"><code class="xref py py-obj docutils literal"><span class="pre">isRunning</span></code></a>()</td>
+<td>Whether the analysis is running.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.run" title="persalys.ProbabilisticDesignOfExperiment.run"><code class="xref py py-obj docutils literal"><span class="pre">run</span></code></a>()</td>
+<td>Launch the analysis.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setBlockSize" title="persalys.ProbabilisticDesignOfExperiment.setBlockSize"><code class="xref py py-obj docutils literal"><span class="pre">setBlockSize</span></code></a>(size)</td>
+<td>Block size accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setDesignName" title="persalys.ProbabilisticDesignOfExperiment.setDesignName"><code class="xref py py-obj docutils literal"><span class="pre">setDesignName</span></code></a>(name)</td>
+<td>Accessor to the design name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setInterestVariables" title="persalys.ProbabilisticDesignOfExperiment.setInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</td>
+<td>Set the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setName" title="persalys.ProbabilisticDesignOfExperiment.setName"><code class="xref py py-obj docutils literal"><span class="pre">setName</span></code></a>(name)</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setSeed" title="persalys.ProbabilisticDesignOfExperiment.setSeed"><code class="xref py py-obj docutils literal"><span class="pre">setSeed</span></code></a>(seed)</td>
+<td>Initialize the random generator seed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setShadowedId" title="persalys.ProbabilisticDesignOfExperiment.setShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">setShadowedId</span></code></a>(id)</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setSize" title="persalys.ProbabilisticDesignOfExperiment.setSize"><code class="xref py py-obj docutils literal"><span class="pre">setSize</span></code></a>(size)</td>
+<td>Accessor to the size of the generated sample.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.setVisibility" title="persalys.ProbabilisticDesignOfExperiment.setVisibility"><code class="xref py py-obj docutils literal"><span class="pre">setVisibility</span></code></a>(visible)</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.ProbabilisticDesignOfExperiment.GetDesignNames">
+<em class="property">static </em><code class="descname">GetDesignNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.GetDesignNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the list of designs provided by ProbabilisticDesignOfExperiment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>names</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Description</span></code></a></p>
+<blockquote class="last">
+<div><p>List of design names provided by ProbabilisticDesignOfExperiment.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">persalys</span><span class="o">.</span><span class="n">ProbabilisticDesignOfExperiment</span><span class="o">.</span><span class="n">GetDesignNames</span><span class="p">())</span>
+<span class="go">[LHS,MONTE_CARLO,QUASI_MONTE_CARLO]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getBlockSize">
+<code class="descname">getBlockSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getBlockSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block size accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>blockSize</strong> : positive int</p>
+<blockquote class="last">
+<div><p>Number of terms analysed together.
+It is set by default to 1.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getClassName">
+<code class="descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>class_name</strong> : str</p>
+<blockquote class="last">
+<div><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getDesignName">
+<code class="descname">getDesignName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getDesignName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the design name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>designName</strong> : str</p>
+<blockquote class="last">
+<div><p>The design name.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getErrorMessage">
+<code class="descname">getErrorMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Error message if the analysis failed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getFailedInputSample">
+<code class="descname">getFailedInputSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getFailedInputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Failed input sample accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sample</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Sample</span></code></a></p>
+<blockquote class="last">
+<div><p>Sample with the failed input values</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getId">
+<code class="descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getInterestVariables">
+<code class="descname">getInterestVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getName">
+<code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getNotEvaluatedInputSample">
+<code class="descname">getNotEvaluatedInputSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getNotEvaluatedInputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not evaluated input sample accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sample</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Sample</span></code></a></p>
+<blockquote class="last">
+<div><p>Points of the design of experiments which were not evaluated</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getOriginalInputSample">
+<code class="descname">getOriginalInputSample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getOriginalInputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input sample accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>sample</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">openturns.Sample</span></code></a></p>
+<blockquote class="last">
+<div><p>Input sample.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getPhysicalModel">
+<code class="descname">getPhysicalModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a></p>
+<blockquote class="last">
+<div><p>Physical model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getPythonScript">
+<code class="descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>script</strong> : str</p>
+<blockquote class="last">
+<div><p>Python script to replay the analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getSeed">
+<code class="descname">getSeed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>seed</strong> : int</p>
+<blockquote class="last">
+<div><p>Seed value</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getShadowedId">
+<code class="descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getSize">
+<code class="descname">getSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the size of the generated sample.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>size</strong> : positive int</p>
+<blockquote class="last">
+<div><p>Number of points in the design.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getVisibility">
+<code class="descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.getWarningMessage">
+<code class="descname">getWarningMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Warning message which can appear during the analysis computation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.hasName">
+<code class="descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.hasValidResult">
+<code class="descname">hasValidResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasValidResult</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis has already been run</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.hasVisibleName">
+<code class="descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasVisibleName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty and not the default one.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.isReliabilityAnalysis">
+<code class="descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isReliabilityAnalysis</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis involves a reliability analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.isRunning">
+<code class="descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isRunning</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis is running</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setBlockSize">
+<code class="descname">setBlockSize</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setBlockSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block size accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>blockSize</strong> : positive int</p>
+<blockquote class="last">
+<div><p>Number of terms analysed together.
+It is set by default to 1.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setDesignName">
+<code class="descname">setDesignName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setDesignName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the design name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>designName</strong> : str</p>
+<blockquote class="last">
+<div><p>The design name. Use <a class="reference internal" href="#persalys.ProbabilisticDesignOfExperiment.GetDesignNames" title="persalys.ProbabilisticDesignOfExperiment.GetDesignNames"><code class="xref py py-func docutils literal"><span class="pre">GetDesignNames()</span></code></a> to list available names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setInterestVariables">
+<code class="descname">setInterestVariables</code><span class="sig-paren">(</span><em>variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setName">
+<code class="descname">setName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setSeed">
+<code class="descname">setSeed</code><span class="sig-paren">(</span><em>seed</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the random generator seed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>seed</strong> : int</p>
+<blockquote class="last">
+<div><p>Seed value.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setShadowedId">
+<code class="descname">setShadowedId</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setSize">
+<code class="descname">setSize</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the size of the generated sample.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>size</strong> : positive int</p>
+<blockquote class="last">
+<div><p>Number of points in the design.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.ProbabilisticDesignOfExperiment.setVisibility">
+<code class="descname">setVisibility</code><span class="sig-paren">(</span><em>visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.ProbabilisticDesignOfExperiment.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.ImportedDesignOfExperiment.html"
+                        title="previous chapter">ImportedDesignOfExperiment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.DataAnalysis.html"
+                        title="next chapter">DataAnalysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.ProbabilisticDesignOfExperiment.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.DataAnalysis.html" title="DataAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.ImportedDesignOfExperiment.html" title="ImportedDesignOfExperiment"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

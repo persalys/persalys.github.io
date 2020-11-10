@@ -1,0 +1,11 @@
+FieldModelEvaluation
+=============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FieldModelEvaluation
+
+   
+   .. automethod:: __init__
+   
+

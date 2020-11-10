@@ -1,0 +1,915 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Examples &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '7.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer manual" href="../developer_manual/developer_manual.html" />
+    <link rel="prev" title="Study" href="../user_manual/python_interface/_generated/persalys.Study.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../developer_manual/developer_manual.html" title="Developer manual"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../user_manual/python_interface/_generated/persalys.Study.html" title="Study"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Persalys documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example-1-deviation-of-a-cantilever-beam">
+<h2>Example 1: Deviation of a cantilever beam<a class="headerlink" href="#example-1-deviation-of-a-cantilever-beam" title="Permalink to this headline">¶</a></h2>
+<p>This example has been presented in the ESREL 2007 conference in the paper <a class="reference internal" href="../bibliography.html#dutfoy2009" id="id1">[Dutfoy2009]</a>.
+It is described in the OpenTURNS Example Guide.</p>
+<p>This example is a simple beam, restrained at one side and stressed by a
+concentrated bending load F at the other side.</p>
+<div class="section" id="problem-statement">
+<h3>1- Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="a-inputs">
+<span id="inputs"></span><h4>a- Inputs<a class="headerlink" href="#a-inputs" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Stochastic variables:</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="32%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+<th class="head">Distribution</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>E</td>
+<td>Young’s modulus</td>
+<td>Beta(r=0.93, t=3.2, a=2.8e7, b=4.8e7)</td>
+</tr>
+<tr class="row-odd"><td>F</td>
+<td>Charge applied</td>
+<td>LogNormal(mu=30000., sigma=9000., gamma=15000)</td>
+</tr>
+<tr class="row-even"><td>L</td>
+<td>Length</td>
+<td>Uniform(a=250, b=260)</td>
+</tr>
+<tr class="row-odd"><td>I</td>
+<td>Section modulus</td>
+<td>Beta(r=2.5, t=4., a=3.1e2, b=4.5e2))</td>
+</tr>
+</tbody>
+</table>
+<p>The input variables <img class="math" src="../_images/math/48db08e51669ad87af374b5f0fd4dacbb2de0ea6.svg" alt="L"/> and <img class="math" src="../_images/math/496af7d1f086e49a5be0614f2b933a137b0fd0a7.svg" alt="I"/> are dependent. The dependence structure
+is modelised by a Normal copula (the only copula available for now in the GUI).
+The Spearman correlation matrix of the input random vector <img class="math" src="../_images/math/4bfc43494a20285c433286ae5293b76ab779f888.svg" alt="E, F, L, I"/> is :</p>
+<div class="math">
+<p><img src="../_images/math/ad43c64c5be04b83c6ea44965071532ae6ede675.svg" alt="R_{S} = \left(
+    \begin{array}{cccc}
+    1 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 1 &amp; -0.2 \\
+    0 &amp; 0 &amp; -0.2 &amp; 1
+    \end{array} \right)"/></p>
+</div></div>
+<div class="section" id="b-output">
+<h4>b- Output<a class="headerlink" href="#b-output" title="Permalink to this headline">¶</a></h4>
+<p>The deviation <img class="math" src="../_images/math/39c736105504f69471e131097dde8021cf6a58e0.svg" alt="y"/> of the free end of the beam equals to:</p>
+<div class="math">
+<p><img src="../_images/math/ab7f6e123a02dc8040e3a325f6cf75673a27adde.svg" alt="y = \frac{FL^3}{3EI}"/></p>
+</div></div>
+</div>
+<div class="section" id="define-the-model">
+<h3>2- Define the model<a class="headerlink" href="#define-the-model" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="create-the-study">
+<h4>2-1 Create the study<a class="headerlink" href="#create-the-study" title="Permalink to this headline">¶</a></h4>
+<p>Click on <img alt="newButton" src="../_images/document-new22x22.png" /> in the tool bar to create a new study.</p>
+<img alt="../_images/window_OTStudy_startUp.png" class="align-center" src="../_images/window_OTStudy_startUp.png" />
+</div>
+<div class="section" id="create-the-analytical-physical-model">
+<h4>2-2 Create the analytical physical model<a class="headerlink" href="#create-the-analytical-physical-model" title="Permalink to this headline">¶</a></h4>
+<p>To define the physical model, click on the button <strong>Symbolic model</strong>
+of the window shown above.</p>
+<p>The following window appears and a physicalModel item is added in the study tree:</p>
+<img alt="../_images/physicalModelDiagram.png" class="align-center" src="../_images/physicalModelDiagram.png" />
+<p>Click on the <strong>Model definition</strong> box of the model diagram to create the
+following window.</p>
+<img alt="../_images/modelDefinition.png" class="align-center" src="../_images/modelDefinition.png" />
+<p>Use the <strong>Add</strong> buttons below the tables to add as many lines as number of variables
+in the <a class="reference internal" href="#inputs"><span class="std std-ref">physical model</span></a>.</p>
+<img alt="../_images/add_variables_in_tables.png" class="align-center" src="../_images/add_variables_in_tables.png" />
+<p>Fill the tables and rename variables to correspond to the physical model.
+Click on the <strong>Evaluate</strong> button below the output variables table in order to check
+if the formula is not badly defined.</p>
+<img alt="../_images/good_defined_physicalModel.png" class="align-center" id="exevaluationresult" src="../_images/good_defined_physicalModel.png" />
+<p>The value of the output <img class="math" src="../_images/math/39c736105504f69471e131097dde8021cf6a58e0.svg" alt="y"/> must be <img class="math" src="../_images/math/567ad0ac1ff0ed4363dae54d6eef7bb2d0d9e58a.svg" alt="13.8178"/> if:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">E</th>
+<th class="head">F</th>
+<th class="head">L</th>
+<th class="head">I</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>3e7</td>
+<td>3e4</td>
+<td>255</td>
+<td>400</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-the-probabilistic-model">
+<h4>2-3 Create the probabilistic model<a class="headerlink" href="#create-the-probabilistic-model" title="Permalink to this headline">¶</a></h4>
+<p>To define the probabilistic model, choose <strong>Probabilistic model</strong> in the
+context menu of the sub item <strong>Definition</strong> of the model in the study tree.
+Only one probabilistic model by physical model can be defined.</p>
+<blockquote>
+<div><img alt="../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../_images/physicalModelDefinitionContextMenu.png" />
+</div></blockquote>
+<p>The probabilistic model is defined by associating a distribution to input variables
+(<strong>Marginals</strong> tab) and specifying dependence between them if necessary (<strong>Dependence</strong> tab).</p>
+<img alt="../_images/proba_model_default.png" class="align-center" src="../_images/proba_model_default.png" />
+<p>The <strong>Marginals</strong> tab lists automatically all the input variables defined
+in the physical model window.
+By default, all the lines are unchecked (then all the inputs
+variables are deterministic) and the right side shows the variable value
+(the one defined in the model window).</p>
+<p>To make a variable stochastic, check its line. Then the combobox in the second
+column of the table is available and the current text is <strong>Normal</strong>.
+By default, the Normal distribution is used with a mean value <img class="math" src="../_images/math/219d5b6436ccb954cacaecfab66366db68433c42.svg" alt="E[Input]"/>
+equal to the value defined in the physical model window and with a standard
+deviation equal to <img class="math" src="../_images/math/cf9bdf5e0ae77b3d24db9498bbf02277f38bab3b.svg" alt="0.1 * |E[Input]|"/></p>
+<img alt="../_images/proba_model_default_distribution.png" class="align-center" src="../_images/proba_model_default_distribution.png" />
+<ul class="simple">
+<li>Check all the lines</li>
+<li>Choose the right distribution for each input (<strong>Distribution</strong> column)</li>
+<li>Change the distribution parameters values (right side)
+(Refer to the <a class="reference internal" href="#inputs"><span class="std std-ref">Inputs</span></a> section).</li>
+</ul>
+<img alt="../_images/proba_model.png" class="align-center" id="probamodelexample" src="../_images/proba_model.png" />
+<p id="dependencetab">On the left of the <strong>Dependence</strong> tab, all the stochastic input variables are listed.
+By default, no dependence is set between these variables.</p>
+<dl class="docutils">
+<dt>To add dependence between the variables <img class="math" src="../_images/math/48db08e51669ad87af374b5f0fd4dacbb2de0ea6.svg" alt="L"/> and <img class="math" src="../_images/math/496af7d1f086e49a5be0614f2b933a137b0fd0a7.svg" alt="I"/>:</dt>
+<dd><ul class="first last simple">
+<li>Select <img class="math" src="../_images/math/48db08e51669ad87af374b5f0fd4dacbb2de0ea6.svg" alt="L"/> and <img class="math" src="../_images/math/496af7d1f086e49a5be0614f2b933a137b0fd0a7.svg" alt="I"/> in the list</li>
+<li><dl class="first docutils">
+<dt>Click on the right arrow:</dt>
+<dd><ul class="first last">
+<li>these variables are disabled in the first table (a variable can belong to only one group)</li>
+<li><dl class="first docutils">
+<dt>[I, L] appears in the second table:</dt>
+<dd><ul class="first last">
+<li>the default copula is the Normal copula defined by a correlation matrix equal to
+the identity matrix. So, at this step, <img class="math" src="../_images/math/48db08e51669ad87af374b5f0fd4dacbb2de0ea6.svg" alt="L"/> and <img class="math" src="../_images/math/496af7d1f086e49a5be0614f2b933a137b0fd0a7.svg" alt="I"/> are still independent.</li>
+<li>on the right side: set the correlation matrix</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../_images/correlation.png" class="align-center" src="../_images/correlation.png" />
+</div>
+</div>
+<div class="section" id="central-tendency-analysis">
+<h3>3- Central tendency analysis<a class="headerlink" href="#central-tendency-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="taylor-expansions">
+<h4>3-1 Taylor Expansions<a class="headerlink" href="#taylor-expansions" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/taylor_moments.html">Linear Taylor Expansions</a>,
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="definition">
+<h5>3-1-1 Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h5>
+<p>To perform a central tendency analysis with the Taylor expansions for the
+estimation of moments, choose <strong>New central tendency</strong> in the
+context menu of the probabilistic model item in the study tree.</p>
+<blockquote>
+<div><img alt="../_images/probabilisticModelContextMenu.png" class="align-center" src="../_images/probabilisticModelContextMenu.png" />
+</div></blockquote>
+<p>Check the radio button <strong>Taylor expansions</strong> in the wizard which appears.</p>
+<img alt="../_images/central_tendency_wizard_Taylor.png" class="align-center" src="../_images/central_tendency_wizard_Taylor.png" />
+<p>Click on <strong>Finish</strong> button. A new item with a default name appears in the study
+tree and a window is created.</p>
+<img alt="../_images/taylor_window.png" class="align-center" src="../_images/taylor_window.png" />
+<p>Click on <strong>Run</strong> button to launch the analysis. When the analysis is finished
+a result window is created.</p>
+</div>
+<div class="section" id="results">
+<h5>3-1-2 Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h5>
+<p>The results window contains a table.</p>
+<img alt="../_images/taylor_results_table.png" class="align-center" src="../_images/taylor_results_table.png" />
+</div>
+</div>
+<div class="section" id="monte-carlo">
+<h4>3-2 Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/monte_carlo_moments.html">Monte Carlo method</a>,
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="id2">
+<h5>3-2-1 Definition<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<p>To perform a central tendency analysis with the Monte Carlo method,
+click on the <strong>Central tendency</strong> box of the model diagram.</p>
+<img alt="../_images/modelDiagramCentralTendency.png" class="align-center" src="../_images/modelDiagramCentralTendency.png" />
+<p>Check the radio button <strong>Monte Carlo</strong> in the wizard which appears.</p>
+<img alt="../_images/central_tendency_wizard_Taylor.png" class="align-center" src="../_images/central_tendency_wizard_Taylor.png" />
+<p>Click on the <strong>Continue</strong> button to parametrize the Monte Carlo method.</p>
+<img alt="../_images/mc_2nd_page_wizard.png" class="align-center" src="../_images/mc_2nd_page_wizard.png" />
+<p>To see advanced parameters, expand the <strong>Advanced parameters</strong> group.</p>
+<p>Click on <strong>Finish</strong> button. A new item with a default name appears in the study
+tree and a window is created.</p>
+<img alt="../_images/MonteCarlo_window.png" class="align-center" src="../_images/MonteCarlo_window.png" />
+<p>Click on <strong>Run</strong> button to launch the analysis. When the analysis is finished
+a result window is created.</p>
+</div>
+<div class="section" id="exmontecarloresult">
+<span id="id3"></span><h5>3-2-2 Results<a class="headerlink" href="#exmontecarloresult" title="Permalink to this headline">¶</a></h5>
+<p>There are 8 tabs in the result window. The first tab must contain the following
+values :</p>
+<img alt="../_images/MonteCarlo_results_window.png" class="align-center" src="../_images/MonteCarlo_results_window.png" />
+</div>
+</div>
+</div>
+<div class="section" id="min-max-study-with-deterministic-design-of-experiments">
+<h3>4- Min/Max study with deterministic design of experiments<a class="headerlink" href="#min-max-study-with-deterministic-design-of-experiments" title="Permalink to this headline">¶</a></h3>
+<p>For more details on the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/monte_carlo_moments.html">Min/Max approach</a>,
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="id4">
+<h4>4-1 Definition<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>To perform a Min/Max study, choose <strong>Design of experiments</strong> in the
+context menu of the probabilistic model item in the study tree.</p>
+<img alt="../_images/contextual_menu_DOE.png" class="align-center" src="../_images/contextual_menu_DOE.png" />
+<p>Check the radio button <strong>Deterministic</strong> in the wizard which appears and click on
+<strong>Continue</strong> button.</p>
+<img alt="../_images/DOE_wizard.png" class="align-center" src="../_images/DOE_wizard.png" />
+<p>In the next table, you can set the grid parameters. By default, all lines are unchecked: the design of experiments contains only point. Check the <strong>Name</strong> column to make all the inputs variable.</p>
+<img alt="../_images/deterministic_design_of_experiment.png" class="align-center" src="../_images/deterministic_design_of_experiment.png" />
+<p>The minimum and the maximum values are computed automatically from
+the range of the distribution of the variables.
+The number of used values per variable is by default 2.</p>
+<p>Click on <strong>Finish</strong> button. A new item with a default name appears in the study
+tree and a window is created.</p>
+</div>
+<div class="section" id="id5">
+<h4>4-2 Results<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="input-variables">
+<h5>4-2-1 Input variables<a class="headerlink" href="#input-variables" title="Permalink to this headline">¶</a></h5>
+<p>The result window shows the input sample of the design of experiments and an analysis of this sample.</p>
+<img alt="../_images/DOE_inputs.png" class="align-center" src="../_images/DOE_inputs.png" />
+<p>The points are generated according to the structure of a box design of experiments.
+This deterministic design of experiments has 16 points obtained by regularly discretizing
+the pavement:</p>
+<p><img class="math" src="../_images/math/42e816407aa29634f7736ec81f788c2eaaf35152.svg" alt="[2.8e7, 4.8e7] \times [15000, 47021.278] \times [250, 260] \times [310, 450]"/>.</p>
+<p>Click on <strong>Evaluate</strong> in the context menu of the design of experiments item.
+Click on the <strong>Finish</strong> button of the window which appears.</p>
+<img alt="../_images/doe_eval_wizard.png" class="align-center" src="../_images/doe_eval_wizard.png" />
+<p>To launch the analysis click on the <strong>Run</strong> button of the new window.</p>
+</div>
+<div class="section" id="min-max-values">
+<h5>4-2-2 Min/Max values<a class="headerlink" href="#min-max-values" title="Permalink to this headline">¶</a></h5>
+<p>When the computation is finished, a new window is created.
+The <strong>Table</strong> tab contains the input and output values.</p>
+<img alt="../_images/DOE_results.png" class="align-center" src="../_images/DOE_results.png" />
+<p>The first tab must contain the following values:</p>
+<img alt="../_images/min_max_values_DOE.png" class="align-center" src="../_images/min_max_values_DOE.png" />
+</div>
+</div>
+</div>
+<div class="section" id="sensitivity-analysis">
+<h3>5- Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sobol-indices">
+<span id="sobolexample"></span><h4>5-1 Sobol indices<a class="headerlink" href="#sobol-indices" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the computation of the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/sensitivity_sobol.html">Sobol indices</a>,
+check the OpenTURNS documentation.</p>
+<div class="section" id="id7">
+<h5>5-1-1 Definition<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>To perform a sensitivity analysis with the Sobol method, the input variables must
+be independent (In the <strong>Dependence</strong> <a class="reference internal" href="../user_manual/graphical_interface/data_analysis/user_manual_data_analysis.html#dependencetab"><span class="std std-ref">tab</span></a>
+of the probabilistic model window replace -0.2 by 0). Choose <strong>Sensitivity</strong> in the
+context menu of the probabilistic model item in the study tree.</p>
+<blockquote>
+<div><img alt="../_images/probabilisticModelContextMenu.png" class="align-center" src="../_images/probabilisticModelContextMenu.png" />
+</div></blockquote>
+<p>Check the radio button <strong>Sobol</strong> in the wizard which appears.</p>
+<img alt="../_images/sensibilityAnalysis_defaultWizard.png" class="align-center" src="../_images/sensibilityAnalysis_defaultWizard.png" />
+<p>Click on <strong>Continue</strong> button. On the new page, you can parametrize the Sobol
+method. To access advanced parameters, expand the <strong>Advanced parameters</strong> group.</p>
+<img alt="../_images/sobol_parameters.png" class="align-center" src="../_images/sobol_parameters.png" />
+<p>Define at least one criterion to stop the algorithm.</p>
+<p>In the current example, add a third criterion by selecting the <strong>Maximum calls</strong>
+check button.</p>
+<p>Changing <strong>Replication size</strong> will update the max number of calls by iteration:
+Indeed the algorithm build two input samples with a size equal to the block size value
+and combines these samples to build <em>nbInputs</em> other samples
+(<em>nbInputs</em> is the number of input variables).
+Thus, the maximum number of calls by iteration is computed with the formula:
+<img class="math" src="../_images/math/94ad0100e12f0aae79fee39f4f5090027db1f837.svg" alt="(nbInputs + 2) * blockSize"/>.</p>
+<p>If the Replication size is 1000: the maximum number of calls by iteration is 6000.</p>
+<p>In that case the algorithm will perform two iterations. Indeed, at the second iteration
+the maximum number of calls will not be reached yet.
+The effective maximum total number of calls will be 12000.</p>
+<p>Click on <strong>Finish</strong> button. A new item with a default name appears in the study
+tree and a results window is created.</p>
+</div>
+<div class="section" id="exsobolresult">
+<span id="id8"></span><h5>5-1-2 Results<a class="headerlink" href="#exsobolresult" title="Permalink to this headline">¶</a></h5>
+<p>The result window shows a table with the first and total order indices
+for each variable. Values must correspond to the values of the table below.</p>
+<img alt="../_images/sobol_results_window.png" class="align-center" src="../_images/sobol_results_window.png" />
+<p>The interaction between the variables are mentioned below the table.
+It is the sum of second order indices. It can be visualize on the graphic by
+the distances between the first order indices and the total order indices.</p>
+<p>The warnings inform the user that a total order index is smaller than the first
+order index. When increasing the sample size, these warnings disappear.</p>
+<p>On the <strong>Summary</strong> tab the value of the effective stopping criteria is written in
+a table.</p>
+<img alt="../_images/sobol_results_window_summary.png" class="align-center" src="../_images/sobol_results_window_summary.png" />
+</div>
+</div>
+<div class="section" id="src-indices">
+<h4>5-2 SRC indices<a class="headerlink" href="#src-indices" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the computation of the SRC indices (
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/ranking_src.html">Standard Regression Coefficients</a>),
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="id9">
+<h5>5-2-1 Definition<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+<p>To perform a sensitivity analysis with the SRC method, the input variables must
+be independent (In the <strong>Dependence</strong> <a class="reference internal" href="../user_manual/graphical_interface/data_analysis/user_manual_data_analysis.html#dependencetab"><span class="std std-ref">tab</span></a> of the probabilistic model window replace
+-0.2 by 0), then choose <strong>Sensitivity</strong> in the
+context menu of the probabilistic model item in the study tree.</p>
+<blockquote>
+<div><img alt="../_images/probabilisticModelContextMenu.png" class="align-center" src="../_images/probabilisticModelContextMenu.png" />
+</div></blockquote>
+<p>Check the radio button <strong>SRC</strong> in the wizard which appears.</p>
+<img alt="../_images/sensibilityAnalysis_defaultWizard.png" class="align-center" src="../_images/sensibilityAnalysis_defaultWizard.png" />
+<p>Click on <strong>Continue</strong> button. On the new page, you can parametrize the SRC
+method. To access advanced parameters, expand the <strong>Advanced parameters</strong> group.</p>
+<img alt="../_images/SRC_parameters.png" class="align-center" src="../_images/SRC_parameters.png" />
+<p>Set the block size to 300. In that case the algorithm will generate a sample
+with 34 iterations (33 iterations with a size of 300 and the last iteration with
+a size of 100).</p>
+<p>Click on <strong>Finish</strong> button. A new item with a default name appears in the study
+tree and a results window is created.</p>
+</div>
+<div class="section" id="id10">
+<h5>5-2-2 Results<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
+<p>The result window contains a table with the SRC indices values
+for each variable. These values are plotted in a graph.</p>
+<img alt="../_images/SRC_results_window.png" class="align-center" src="../_images/SRC_results_window.png" />
+</div>
+</div>
+</div>
+<div class="section" id="threshold-exceedance">
+<h3>6- Threshold exceedance<a class="headerlink" href="#threshold-exceedance" title="Permalink to this headline">¶</a></h3>
+<p>To perform the following analyses use again a Gaussian copula
+(In the <strong>Dependence</strong> <a class="reference internal" href="../user_manual/graphical_interface/data_analysis/user_manual_data_analysis.html#dependencetab"><span class="std std-ref">tab</span></a>
+of the probabilistic model window replace 0 by -0.2).</p>
+<div class="section" id="limit-state">
+<h4>6-1 Limit state<a class="headerlink" href="#limit-state" title="Permalink to this headline">¶</a></h4>
+<p>To create the limit state function which enables the definition of the failure
+event, choose <strong>Limit state</strong> in the context menu of the
+probabilistic model item in the study tree.</p>
+<blockquote>
+<div><img alt="../_images/probabilisticModelContextMenu.png" class="align-center" src="../_images/probabilisticModelContextMenu.png" />
+</div></blockquote>
+<p>After clicking, a new item with a default name appears in the study
+tree and the following window appears:</p>
+<img alt="../_images/default_limitState.png" class="align-center" src="../_images/default_limitState.png" />
+<p>We consider the event where the deviation exceeds <img class="math" src="../_images/math/4e61349d74ccc935868d5c5ad102d4145f8a0059.svg" alt="30cm"/>. Choose the right
+operator in the combobox and set the value of the threshold in order to obtain
+the following limit state window:</p>
+<img alt="../_images/good_limit_state.png" class="align-center" src="../_images/good_limit_state.png" />
+</div>
+<div class="section" id="id11">
+<h4>6-2 Monte Carlo<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the computation of the failure probability by the method of
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/monte_carlo_simulation.html">Monte Carlo</a>,
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="id13">
+<h5>6-2-1 Definition<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h5>
+<p>To perform the Monte Carlo simulation, choose <strong>Threshold exceedance</strong> in the
+context menu of the limit state item in the study tree.</p>
+<img alt="../_images/reliability_wizard.png" class="align-center" src="../_images/reliability_wizard.png" />
+<p>Select the <strong>Monte Carlo</strong> method and click on <strong>Continue</strong> button.
+The new page enables to change the parameters of the analysis.</p>
+<img alt="../_images/MonteCarloSimulation_wizard.png" class="align-center" src="../_images/MonteCarloSimulation_wizard.png" />
+<p>The user has to define at least one criterion to stop the algorithm.</p>
+<p>Add the third criterion by selecting the check button <strong>Maximum calls</strong>.
+The maximum number of calls is 10000. Set the block size to 300.</p>
+<p>In that case the algorithm will perform 34 iterations with 300 calls to the
+model function.</p>
+<p>Effective maximum total number of calls: 10200</p>
+<p>Click on <strong>Finish</strong> button. A new item with a default name appears in the study
+tree and a results window is created.</p>
+</div>
+<div class="section" id="exmontecarloreliabilityresult">
+<span id="id14"></span><h5>6-2-2 Results<a class="headerlink" href="#exmontecarloreliabilityresult" title="Permalink to this headline">¶</a></h5>
+<p>The result window contains the following table:</p>
+<img alt="../_images/FailureProbabilityTable.png" class="align-center" src="../_images/FailureProbabilityTable.png" />
+<p>The values of the output <img class="math" src="../_images/math/39c736105504f69471e131097dde8021cf6a58e0.svg" alt="y"/> computed during the simulation are stored
+and plotted in the second tab of the window:</p>
+<img alt="../_images/histogram.png" class="align-center" src="../_images/histogram.png" />
+<p>The convergence graph is in the third tab:</p>
+<img alt="../_images/convergence_graph.png" class="align-center" src="../_images/convergence_graph.png" />
+<p>This graph shows the value of the probability estimate at each iteration.</p>
+</div>
+</div>
+<div class="section" id="form">
+<h4>6-3 FORM<a class="headerlink" href="#form" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the computation of the failure probability by the method of
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/form_approximation.html">FORM</a>,
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="id16">
+<h5>6-3-1 Definition<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h5>
+<p>To perform the FORM (First Order Reliability Method) analysis, choose <strong>Threshold exceedance</strong> in the
+context menu of the limit state item in the study tree.</p>
+<img alt="../_images/reliability_wizard.png" class="align-center" src="../_images/reliability_wizard.png" />
+<p>Select the <strong>FORM</strong> method and click on <strong>Continue</strong> button.
+The new page enables to change the parameters of the analysis.</p>
+<img alt="../_images/FORM_page.png" class="align-center" src="../_images/FORM_page.png" />
+<p>The starting point is defined by default with the means of the distributions of the stochastic inputs.
+<img class="math" src="../_images/math/d889e38905f2006ff70e98aa9da9516d3fe66441.svg" alt="E[E] = 3.38e7; E[F] = 30000; E[L] = 255; E[I] = 397.5"/></p>
+</div>
+<div class="section" id="id17">
+<h5>6-3-2 Results<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h5>
+<p>The result window includes the following tables.</p>
+<img alt="../_images/FORM_summary_result.png" class="align-center" src="../_images/FORM_summary_result.png" />
+<p>When the maximum number of iterations has been reached, a warning icon appears
+nearby the iterations number value: it warns the user that the optimization result may not be accurate enough.</p>
+<p>The <strong>Design point</strong> tab indicates the value of the design point in the standard space and in
+the physical space. The table contains the importance factors which are displayed in
+the pie chart.</p>
+<img alt="../_images/FORM_designPoint_result.png" class="align-center" src="../_images/FORM_designPoint_result.png" />
+<p>For more details on the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/importance_form.html">Importance factors</a>,
+you can consult the OpenTURNS documentation.</p>
+<p>The <strong>Sensitivity</strong> tab indicates the sensitivity factors.
+For more details on the <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/sensitivity_form.html">Sensitivity factors</a>,
+you can consult the OpenTURNS documentation.</p>
+</div>
+</div>
+<div class="section" id="form-importance-sampling">
+<h4>6-4 FORM-Importance sampling<a class="headerlink" href="#form-importance-sampling" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the computation of the failure probability by the method of
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/reliability_sensitivity/importance_simulation.html">Importance sampling</a>,
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="id18">
+<h5>6-4-1 Definition<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h5>
+<p>To perform the FORM-IS (First Order Reliability Method-Importance sampling) analysis,
+choose <strong>Threshold exceedance</strong> in the context menu of the limit state item in the study tree.</p>
+<img alt="../_images/reliability_wizard.png" class="align-center" src="../_images/reliability_wizard.png" />
+<p>Select the <strong>FORM-Importance sampling</strong> method and click on <strong>Continue</strong> button.
+The following page allows to change the parameters of the Importance sampling analysis.
+It’s the same page as the one for the Monte Carlo method.</p>
+<p>Click on <strong>Continue</strong> button.
+The following page enables setting the parameters of the FORM analysis.
+It’s the same page as the one for the FORM method.</p>
+<p>The analysis consists in performing firstly a FORM analysis, then the computed design point
+is used to initialize the Importance sampling analysis.</p>
+</div>
+<div class="section" id="id19">
+<h5>6-4-2 Results<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h5>
+<p>The FORM-IS result window contains the same tabs as the Monte Carlo result window
+as well as a <strong>FORM result</strong>
+tab, which displays the tabs of a FORM result window.</p>
+<img alt="../_images/FORM-IS_FORMresult.png" class="align-center" src="../_images/FORM-IS_FORMresult.png" />
+<p>We can see in the following table, the design point from the FORM analysis result.</p>
+<img alt="../_images/FORM-IS_ParametersResult.png" class="align-center" src="../_images/FORM-IS_ParametersResult.png" />
+<p>The following histogram shows that, by contrast of the <a class="reference internal" href="#exmontecarloreliabilityresult"><span class="std std-ref">Monte Carlo method</span></a>,
+the sampling is centered on the threshold of the event failure with the Importance sampling method.</p>
+<img alt="../_images/FORM-IS_HitogramResult.png" class="align-center" src="../_images/FORM-IS_HitogramResult.png" />
+</div>
+</div>
+</div>
+<div class="section" id="construction-of-response-surfaces">
+<h3>7- Construction of response surfaces<a class="headerlink" href="#construction-of-response-surfaces" title="Permalink to this headline">¶</a></h3>
+<p>A response surface is built from samples. So we first create a design
+of experiments.</p>
+<div class="section" id="design-of-experiments">
+<h4>7-1 Design of experiments<a class="headerlink" href="#design-of-experiments" title="Permalink to this headline">¶</a></h4>
+<p>Create a design of experiments by choosing <strong>New design of experiments</strong> in the
+context menu of the <strong>Designs of experiments</strong> item.</p>
+<img alt="../_images/DOE_proba_wizard.png" class="align-center" src="../_images/DOE_proba_wizard.png" />
+<p>Select <strong>Probabilistic</strong> and click on <strong>Continue</strong> button.</p>
+<img alt="../_images/DOE_probaParamPage.png" class="align-center" src="../_images/DOE_probaParamPage.png" />
+<p>The methods LHS and Quasi-Monte Carlo are not available because the model
+contains dependent stochastic input variables.</p>
+<p>Keep the default values. Click on <strong>Finish</strong> button</p>
+<p>Choose <strong>Evaluate</strong> in the context menu of the new design of experiments item.
+Launch the evaluation by clicking on the <strong>Run</strong> button of the window which
+appears.</p>
+</div>
+<div class="section" id="functional-chaos">
+<h4>7-2 Functional chaos<a class="headerlink" href="#functional-chaos" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the computation of a metamodel by the method of
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/meta_modeling/functional_chaos.html">Functional chaos</a>,
+you can consult the OpenTURNS documentation.</p>
+<p>The functional chaos allows to compute the Sobol indices. Beware that these indices
+cannot be used for correlated stochastic variables. In order to use these indices,
+replace the value -0.2 by 0 in the <strong>Dependence</strong> <a class="reference internal" href="../user_manual/graphical_interface/data_analysis/user_manual_data_analysis.html#dependencetab"><span class="std std-ref">tab</span></a> of the probabilistic model window.</p>
+<div class="section" id="id21">
+<h5>7-2-1 Definition<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h5>
+<p>Choose <strong>Metamodel</strong> in the context menu of the sub-item <strong>Evaluation</strong> of the
+design of experiments item.</p>
+<img alt="../_images/metamodel_wizard.png" class="align-center" src="../_images/metamodel_wizard.png" />
+<p>Select the <strong>Functional chaos</strong> method and click on <strong>Continue</strong> button.</p>
+<img alt="../_images/chaos_page.png" class="align-center" src="../_images/chaos_page.png" />
+<p>Set the chaos degree to 4 and click on <strong>Continue</strong> and then on <strong>Finish</strong> button
+in the next page.</p>
+<p>Launch the analysis.</p>
+</div>
+<div class="section" id="id22">
+<h5>7-2-2 Results<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h5>
+<p>The first tab of the result window displays the metamodel.
+The relative error expresses the quality of the metamodel.</p>
+<img alt="../_images/chaos_result_metamodel.png" class="align-center" src="../_images/chaos_result_metamodel.png" />
+<p>The moments retrieved from the polynomial basis correspond to the result of
+the <a class="reference internal" href="#exmontecarloresult"><span class="std std-ref">central tendency analyses</span></a>.</p>
+<img alt="../_images/chaos_result_summary.png" class="align-center" src="../_images/chaos_result_summary.png" />
+<p>The windows shows the Sobol indices.
+We can see that the values are similar to the ones obtained with the <a class="reference internal" href="#exsobolresult"><span class="std std-ref">sensitivity analysis</span></a>.</p>
+<img alt="../_images/chaos_result_sobol.png" class="align-center" src="../_images/chaos_result_sobol.png" />
+<dl class="docutils">
+<dt>The analysis computes a surrogate model which can be retrieved and checked:</dt>
+<dd><ul class="first last">
+<li><p class="first">Click on the context menu of the metamodel item.</p>
+<blockquote>
+<div><img alt="../_images/metamodel_contextMenu.png" class="align-center" src="../_images/metamodel_contextMenu.png" />
+<ul class="simple">
+<li>Choose <strong>Convert metamodel into physical model</strong>.
+A new item <strong>MetaModel_0</strong> appears in the study tree.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt>Click on its sub-item <strong>Definition</strong>. A model definition window appears:</dt>
+<dd><ul class="first last">
+<li><p class="first">Evaluate the model by clicking on the <strong>Evaluate</strong> button.
+The output value is close to the value obtained with the <a class="reference internal" href="#exevaluationresult"><span class="std std-ref">analytical formula</span></a>.</p>
+<img alt="../_images/metamodel_definition.png" class="align-center" src="../_images/metamodel_definition.png" />
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="kriging">
+<h4>7-3 Kriging<a class="headerlink" href="#kriging" title="Permalink to this headline">¶</a></h4>
+<p>For more details on the computation of a metamodel by the method of
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/meta_modeling/kriging.html">Kriging</a>,
+you can consult the OpenTURNS documentation.</p>
+<div class="section" id="id24">
+<h5>7-3-1 Definition<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h5>
+<p>Choose <strong>Metamodel</strong> in the context menu of the sub-item <strong>Evaluation</strong> of the
+design of experiments item.</p>
+<img alt="../_images/metamodel_wizard.png" class="align-center" src="../_images/metamodel_wizard.png" />
+<p>Select the <strong>Kriging</strong> method and click on <strong>Continue</strong> button.</p>
+<img alt="../_images/kriging_page.png" class="align-center" src="../_images/kriging_page.png" />
+<p>Check the button <strong>By K-Fold method</strong>.
+For more details on the
+<a class="reference external" href="http://openturns.github.io/openturns/latest/theory/meta_modeling/cross_validation.html">K-Fold</a>
+method, check the OpenTURNS documentation.
+Beware the computation may be expensive: In the current example, the K-Fold method builds a metamodel five times.</p>
+<img alt="../_images/kriging_validation_page.png" class="align-center" src="../_images/kriging_validation_page.png" />
+<p>Click on <strong>Finish</strong> button.</p>
+<p>Launch the analysis.</p>
+</div>
+<div class="section" id="id25">
+<h5>7-3-2 Results<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h5>
+<p>The window contains a <strong>Validation</strong> tab, which presents:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the metamodel predictivity coefficient: <img class="math" src="../_images/math/ebc8509c0904acd3a413ccb62217624d19939196.svg" alt="\displaystyle Q2 = 1 - \frac{\sum_{i=0}^N (y_i - \hat{y_i})^2}{\sum_{i=0}^N {(\bar{y} - y_i)^2}}"/></li>
+<li>the residual: <img class="math" src="../_images/math/bcccc8f5c1549a14bc5c245af57040c0539735d4.svg" alt="\displaystyle res = \frac{\sqrt{\sum_{i=0}^N (y_i - \hat{y_i})^2}}{N}"/>.</li>
+</ul>
+<p>with <img class="math" src="../_images/math/a7cfc0cbd5e064e1470d76f8dcbaffb4a45fb7c3.svg" alt="N"/>, the sample size; <img class="math" src="../_images/math/4f6711468502ee40e249b44d681940a1e7117b88.svg" alt="y_i"/>, the real values and <img class="math" src="../_images/math/b8524b8012ba135e1f33d1f4d2cfca3f1a897a73.svg" alt="\hat{y_i}"/>, the predicted values.</p>
+</div></blockquote>
+<img alt="../_images/kriging_LOO_result.png" class="align-center" src="../_images/kriging_LOO_result.png" />
+<p>Here the Q2 value is nearly equal to 1, so we can conclude that the metamodel is valid.</p>
+<p>The <strong>Results</strong> tab displays the optimized covariance model parameters and
+the trend coefficients.</p>
+<img alt="../_images/kriging_result1.png" class="align-center" src="../_images/kriging_result1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="data-analysis">
+<h3>8- Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h3>
+<p>To perform the following analyses use again a Gaussian copula
+(In the <strong>Dependence</strong> <a class="reference internal" href="../user_manual/graphical_interface/data_analysis/user_manual_data_analysis.html#dependencetab"><span class="std std-ref">tab</span></a>
+of the probabilistic model window replace 0 by -0.2).</p>
+<div class="section" id="data">
+<h4>8-1 Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h4>
+<p>We first create a sample for our example:</p>
+<ul>
+<li><p class="first">Create a design of experiments by choosing <strong>New design of experiments</strong> in the
+context menu of the <strong>Designs of experiments</strong> item.</p>
+<img alt="../_images/DOE_proba_wizard.png" class="align-center" src="../_images/DOE_proba_wizard.png" />
+</li>
+</ul>
+<ul class="simple" id="probaexperimentexample">
+<li>Select <strong>Probabilistic</strong> and click on <strong>Continue</strong> button.
+Note the probabilistic experiment uses the distribution of the model to generate the sample (marginals and copula).</li>
+</ul>
+<img alt="../_images/DOE_probaParamPage.png" class="align-center" src="../_images/DOE_probaParamPage.png" />
+<ul class="simple">
+<li>Set the sample size to 1000. Click on <strong>Finish</strong> button.</li>
+<li>In the <strong>Table</strong> tab of the window click on <strong>Export</strong> button.</li>
+<li>Save the sample in a file.</li>
+</ul>
+</div>
+<div class="section" id="data-model">
+<h4>8-2 Data model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h4>
+<p>On the study window click on <strong>Data model</strong>.</p>
+<p>A new item and a new window appear:</p>
+<img alt="../_images/dataModel_diagram.png" class="align-center" src="../_images/dataModel_diagram.png" />
+<p>Click on the <strong>Model definition</strong> box of the diagram.</p>
+<p>A window is created to define the model. Click on the <strong>…</strong> button and load
+the file created in the previous part. Define the last variable as an input by finding the right item
+in the combo box on the line <strong>Type</strong>.</p>
+<img alt="../_images/dataModel_definition.png" class="align-center" src="../_images/dataModel_definition.png" />
+</div>
+<div class="section" id="analysis">
+<h4>8-3 Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h4>
+<p>Choose <strong>Data analysis</strong> in the context menu of the sub-item <strong>Definition</strong> of the model.</p>
+<p>Launch the analysis.</p>
+<p>The following window appears.</p>
+<img alt="../_images/dataAnalysisResult.png" class="align-center" src="../_images/dataAnalysisResult.png" />
+<p id="correlationestimate">In the <strong>dependence</strong> tab, we can see that the variables L and I are correlated:
+this is in agreement with the <a class="reference internal" href="#probamodelexample"><span class="std std-ref">distribution</span></a> used to
+<a class="reference internal" href="#probaexperimentexample"><span class="std std-ref">generate</span></a> this variable.</p>
+<img alt="../_images/dataAnalysisResult_dependence.png" class="align-center" src="../_images/dataAnalysisResult_dependence.png" />
+</div>
+</div>
+<div class="section" id="inference">
+<h3>9- Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h4>9-1 Definition<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<p>Choose <strong>Inference</strong> in the context menu of the sub-item <strong>Definition</strong> of the model.</p>
+<dl class="docutils">
+<dt>A window appears:</dt>
+<dd><ul class="first last simple">
+<li>In the current example, we choose to select 3 variables (E,F,I)&nbsp;: uncheck L.</li>
+<li>Add all the distributions for the other variables by choosing the <strong>All</strong> item in the combo box <strong>Add</strong>.</li>
+<li>Click on the <strong>Finish</strong> button.</li>
+</ul>
+</dd>
+</dl>
+<img alt="../_images/inferenceWizard.png" class="align-center" src="../_images/inferenceWizard.png" />
+<p>Launch the analysis.</p>
+</div>
+<div class="section" id="id27">
+<h4>9-2 Results<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<img alt="../_images/inferenceResultWindow.png" class="align-center" src="../_images/inferenceResultWindow.png" />
+<p>The inference analysis recognized a Beta distribution for the variable E:
+this is in agreement with the <a class="reference internal" href="#probamodelexample"><span class="std std-ref">distribution</span></a> used to
+<a class="reference internal" href="#probaexperimentexample"><span class="std std-ref">generate</span></a> this variable.</p>
+</div>
+</div>
+<div class="section" id="dependence-inference">
+<h3>10- Dependence inference<a class="headerlink" href="#dependence-inference" title="Permalink to this headline">¶</a></h3>
+<p>To explore dependence between variables, the user can use dependence inference analysis.</p>
+<div class="section" id="id28">
+<h4>10-1 Definition<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<p>Choose <strong>Dependence inference</strong> in the context menu of the sub-item <strong>Definition</strong> of the model.</p>
+<p>The window which appears, may have default defined groups.
+There are detected from the Spearman’s matrix estimate. In the current example,
+the variables <strong>L</strong> and <strong>I</strong> are <a class="reference internal" href="#correlationestimate"><span class="std std-ref">dependent</span></a>.</p>
+<p>By default, the Normal copula is tested.
+Add all the copulas by choosing the <strong>All</strong> item in the combo box <strong>Add</strong>.</p>
+<img alt="../_images/dependenceWizard.png" class="align-center" src="../_images/dependenceWizard.png" />
+<p>Launch the analysis.</p>
+</div>
+<div class="section" id="id29">
+<h4>10-2 Results<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<p>The dependence inference analysis recognized a Normal copula for the group [L, I]:
+this is in agreement with the <a class="reference internal" href="#probamodelexample"><span class="std std-ref">distribution</span></a> used to
+<a class="reference internal" href="#probaexperimentexample"><span class="std std-ref">generate</span></a> this variable.
+The Spearman coefficient is not exactly equal to -0.2 because the sample is not
+large enough.</p>
+<img alt="../_images/dep_inferenceResultWindow.png" class="align-center" src="../_images/dep_inferenceResultWindow.png" />
+<img alt="../_images/dep_inferenceParamResult.png" class="align-center" src="../_images/dep_inferenceParamResult.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Examples</a><ul>
+<li><a class="reference internal" href="#example-1-deviation-of-a-cantilever-beam">Example 1: Deviation of a cantilever beam</a><ul>
+<li><a class="reference internal" href="#problem-statement">1- Problem statement</a><ul>
+<li><a class="reference internal" href="#a-inputs">a- Inputs</a></li>
+<li><a class="reference internal" href="#b-output">b- Output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#define-the-model">2- Define the model</a><ul>
+<li><a class="reference internal" href="#create-the-study">2-1 Create the study</a></li>
+<li><a class="reference internal" href="#create-the-analytical-physical-model">2-2 Create the analytical physical model</a></li>
+<li><a class="reference internal" href="#create-the-probabilistic-model">2-3 Create the probabilistic model</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#central-tendency-analysis">3- Central tendency analysis</a><ul>
+<li><a class="reference internal" href="#taylor-expansions">3-1 Taylor Expansions</a><ul>
+<li><a class="reference internal" href="#definition">3-1-1 Definition</a></li>
+<li><a class="reference internal" href="#results">3-1-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#monte-carlo">3-2 Monte Carlo</a><ul>
+<li><a class="reference internal" href="#id2">3-2-1 Definition</a></li>
+<li><a class="reference internal" href="#exmontecarloresult">3-2-2 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#min-max-study-with-deterministic-design-of-experiments">4- Min/Max study with deterministic design of experiments</a><ul>
+<li><a class="reference internal" href="#id4">4-1 Definition</a></li>
+<li><a class="reference internal" href="#id5">4-2 Results</a><ul>
+<li><a class="reference internal" href="#input-variables">4-2-1 Input variables</a></li>
+<li><a class="reference internal" href="#min-max-values">4-2-2 Min/Max values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sensitivity-analysis">5- Sensitivity analysis</a><ul>
+<li><a class="reference internal" href="#sobol-indices">5-1 Sobol indices</a><ul>
+<li><a class="reference internal" href="#id7">5-1-1 Definition</a></li>
+<li><a class="reference internal" href="#exsobolresult">5-1-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#src-indices">5-2 SRC indices</a><ul>
+<li><a class="reference internal" href="#id9">5-2-1 Definition</a></li>
+<li><a class="reference internal" href="#id10">5-2-2 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#threshold-exceedance">6- Threshold exceedance</a><ul>
+<li><a class="reference internal" href="#limit-state">6-1 Limit state</a></li>
+<li><a class="reference internal" href="#id11">6-2 Monte Carlo</a><ul>
+<li><a class="reference internal" href="#id13">6-2-1 Definition</a></li>
+<li><a class="reference internal" href="#exmontecarloreliabilityresult">6-2-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#form">6-3 FORM</a><ul>
+<li><a class="reference internal" href="#id16">6-3-1 Definition</a></li>
+<li><a class="reference internal" href="#id17">6-3-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#form-importance-sampling">6-4 FORM-Importance sampling</a><ul>
+<li><a class="reference internal" href="#id18">6-4-1 Definition</a></li>
+<li><a class="reference internal" href="#id19">6-4-2 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#construction-of-response-surfaces">7- Construction of response surfaces</a><ul>
+<li><a class="reference internal" href="#design-of-experiments">7-1 Design of experiments</a></li>
+<li><a class="reference internal" href="#functional-chaos">7-2 Functional chaos</a><ul>
+<li><a class="reference internal" href="#id21">7-2-1 Definition</a></li>
+<li><a class="reference internal" href="#id22">7-2-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kriging">7-3 Kriging</a><ul>
+<li><a class="reference internal" href="#id24">7-3-1 Definition</a></li>
+<li><a class="reference internal" href="#id25">7-3-2 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-analysis">8- Data analysis</a><ul>
+<li><a class="reference internal" href="#data">8-1 Data</a></li>
+<li><a class="reference internal" href="#data-model">8-2 Data model</a></li>
+<li><a class="reference internal" href="#analysis">8-3 Analysis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inference">9- Inference</a><ul>
+<li><a class="reference internal" href="#id26">9-1 Definition</a></li>
+<li><a class="reference internal" href="#id27">9-2 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependence-inference">10- Dependence inference</a><ul>
+<li><a class="reference internal" href="#id28">10-1 Definition</a></li>
+<li><a class="reference internal" href="#id29">10-2 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../user_manual/python_interface/_generated/persalys.Study.html"
+                        title="previous chapter">Study</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../developer_manual/developer_manual.html"
+                        title="next chapter">Developer manual</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/examples/examples.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../developer_manual/developer_manual.html" title="Developer manual"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../user_manual/python_interface/_generated/persalys.Study.html" title="Study"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Persalys documentation</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

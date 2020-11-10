@@ -1,0 +1,1058 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OptimizationAnalysis &#8212; Persalys documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '7.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MorrisAnalysis" href="persalys.MorrisAnalysis.html" />
+    <link rel="prev" title="FieldModelEvaluation" href="persalys.FieldModelEvaluation.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.MorrisAnalysis.html" title="MorrisAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FieldModelEvaluation.html" title="FieldModelEvaluation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="optimizationanalysis">
+<h1>OptimizationAnalysis<a class="headerlink" href="#optimizationanalysis" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="persalys.OptimizationAnalysis">
+<em class="property">class </em><code class="descclassname">persalys.</code><code class="descname">OptimizationAnalysis</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the optimization analysis of a model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote>
+<div><p>Name</p>
+</div></blockquote>
+<p><strong>physicalModel</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a></p>
+<blockquote>
+<div><p>Physical model</p>
+</div></blockquote>
+<p><strong>solverName</strong> : str</p>
+<blockquote class="last">
+<div><p>Optimization algorithm name (optional). Use <a class="reference internal" href="#persalys.OptimizationAnalysis.GetSolverNames" title="persalys.OptimizationAnalysis.GetSolverNames"><code class="xref py py-func docutils literal"><span class="pre">GetSolverNames()</span></code></a> to list available names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the Model evaluation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">OptimizationAnalysis</span><span class="p">(</span><span class="s1">&#39;anAnalysis&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">&#39;TNC&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setInterestVariables</span><span class="p">([</span><span class="s1">&#39;G&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getOptimalPoint</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getOptimalValue</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.GetSolverNames" title="persalys.OptimizationAnalysis.GetSolverNames"><code class="xref py py-obj docutils literal"><span class="pre">GetSolverNames</span></code></a>()</td>
+<td>Accessor to the list of solver names.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getBounds" title="persalys.OptimizationAnalysis.getBounds"><code class="xref py py-obj docutils literal"><span class="pre">getBounds</span></code></a>()</td>
+<td>Accessor to bounds.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getClassName" title="persalys.OptimizationAnalysis.getClassName"><code class="xref py py-obj docutils literal"><span class="pre">getClassName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getErrorMessage" title="persalys.OptimizationAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal"><span class="pre">getErrorMessage</span></code></a>()</td>
+<td>Error message accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getId" title="persalys.OptimizationAnalysis.getId"><code class="xref py py-obj docutils literal"><span class="pre">getId</span></code></a>()</td>
+<td>Accessor to the object’s id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getInterestVariables" title="persalys.OptimizationAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">getInterestVariables</span></code></a>()</td>
+<td>Get the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getMaximumAbsoluteError" title="persalys.OptimizationAnalysis.getMaximumAbsoluteError"><code class="xref py py-obj docutils literal"><span class="pre">getMaximumAbsoluteError</span></code></a>()</td>
+<td>Accessor to maximum allowed absolute error.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getMaximumConstraintError" title="persalys.OptimizationAnalysis.getMaximumConstraintError"><code class="xref py py-obj docutils literal"><span class="pre">getMaximumConstraintError</span></code></a>()</td>
+<td>Accessor to maximum allowed constraint error.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getMaximumEvaluationNumber" title="persalys.OptimizationAnalysis.getMaximumEvaluationNumber"><code class="xref py py-obj docutils literal"><span class="pre">getMaximumEvaluationNumber</span></code></a>()</td>
+<td>Accessor to maximum allowed number of evaluations.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getMaximumRelativeError" title="persalys.OptimizationAnalysis.getMaximumRelativeError"><code class="xref py py-obj docutils literal"><span class="pre">getMaximumRelativeError</span></code></a>()</td>
+<td>Accessor to maximum allowed relative error.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getMaximumResidualError" title="persalys.OptimizationAnalysis.getMaximumResidualError"><code class="xref py py-obj docutils literal"><span class="pre">getMaximumResidualError</span></code></a>()</td>
+<td>Accessor to maximum allowed residual error.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getMinimization" title="persalys.OptimizationAnalysis.getMinimization"><code class="xref py py-obj docutils literal"><span class="pre">getMinimization</span></code></a>()</td>
+<td>Test whether this is a minimization or maximization problem.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getName" title="persalys.OptimizationAnalysis.getName"><code class="xref py py-obj docutils literal"><span class="pre">getName</span></code></a>()</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getPhysicalModel" title="persalys.OptimizationAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal"><span class="pre">getPhysicalModel</span></code></a>()</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getPythonScript" title="persalys.OptimizationAnalysis.getPythonScript"><code class="xref py py-obj docutils literal"><span class="pre">getPythonScript</span></code></a>()</td>
+<td>Physical model accessor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getResult" title="persalys.OptimizationAnalysis.getResult"><code class="xref py py-obj docutils literal"><span class="pre">getResult</span></code></a>()</td>
+<td>Accessor to optimization result.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getShadowedId" title="persalys.OptimizationAnalysis.getShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">getShadowedId</span></code></a>()</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getSolverName" title="persalys.OptimizationAnalysis.getSolverName"><code class="xref py py-obj docutils literal"><span class="pre">getSolverName</span></code></a>()</td>
+<td>Accessor to solver name</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getStartingPoint" title="persalys.OptimizationAnalysis.getStartingPoint"><code class="xref py py-obj docutils literal"><span class="pre">getStartingPoint</span></code></a>()</td>
+<td>Accessor to starting point.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getVariableInputs" title="persalys.OptimizationAnalysis.getVariableInputs"><code class="xref py py-obj docutils literal"><span class="pre">getVariableInputs</span></code></a>()</td>
+<td>Accessor to variable input names</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getVisibility" title="persalys.OptimizationAnalysis.getVisibility"><code class="xref py py-obj docutils literal"><span class="pre">getVisibility</span></code></a>()</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.getWarningMessage" title="persalys.OptimizationAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal"><span class="pre">getWarningMessage</span></code></a>()</td>
+<td>Warning message accessor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.hasName" title="persalys.OptimizationAnalysis.hasName"><code class="xref py py-obj docutils literal"><span class="pre">hasName</span></code></a>()</td>
+<td>Test if the object is named.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.hasValidResult" title="persalys.OptimizationAnalysis.hasValidResult"><code class="xref py py-obj docutils literal"><span class="pre">hasValidResult</span></code></a>()</td>
+<td>Whether the analysis has been run.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.hasVisibleName" title="persalys.OptimizationAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal"><span class="pre">hasVisibleName</span></code></a>()</td>
+<td>Test if the object has a distinguishable name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.isReliabilityAnalysis" title="persalys.OptimizationAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal"><span class="pre">isReliabilityAnalysis</span></code></a>()</td>
+<td>Whether the analysis involves reliability.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.isRunning" title="persalys.OptimizationAnalysis.isRunning"><code class="xref py py-obj docutils literal"><span class="pre">isRunning</span></code></a>()</td>
+<td>Whether the analysis is running.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.run" title="persalys.OptimizationAnalysis.run"><code class="xref py py-obj docutils literal"><span class="pre">run</span></code></a>()</td>
+<td>Launch the analysis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setBounds" title="persalys.OptimizationAnalysis.setBounds"><code class="xref py py-obj docutils literal"><span class="pre">setBounds</span></code></a>(bounds)</td>
+<td>Accessor to bounds.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setInterestVariables" title="persalys.OptimizationAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</td>
+<td>Set the variables to analyse.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setMaximumAbsoluteError" title="persalys.OptimizationAnalysis.setMaximumAbsoluteError"><code class="xref py py-obj docutils literal"><span class="pre">setMaximumAbsoluteError</span></code></a>(maximumAbsoluteError)</td>
+<td>Accessor to maximum allowed absolute error.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setMaximumConstraintError" title="persalys.OptimizationAnalysis.setMaximumConstraintError"><code class="xref py py-obj docutils literal"><span class="pre">setMaximumConstraintError</span></code></a>(maximumConstraintError)</td>
+<td>Accessor to maximum allowed constraint error.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setMaximumEvaluationNumber" title="persalys.OptimizationAnalysis.setMaximumEvaluationNumber"><code class="xref py py-obj docutils literal"><span class="pre">setMaximumEvaluationNumber</span></code></a>(…)</td>
+<td>Accessor to maximum allowed number of evaluations.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setMaximumRelativeError" title="persalys.OptimizationAnalysis.setMaximumRelativeError"><code class="xref py py-obj docutils literal"><span class="pre">setMaximumRelativeError</span></code></a>(maximumRelativeError)</td>
+<td>Accessor to maximum allowed relative error.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setMaximumResidualError" title="persalys.OptimizationAnalysis.setMaximumResidualError"><code class="xref py py-obj docutils literal"><span class="pre">setMaximumResidualError</span></code></a>(maximumResidualError)</td>
+<td>Accessor to maximum allowed residual error.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setMinimization" title="persalys.OptimizationAnalysis.setMinimization"><code class="xref py py-obj docutils literal"><span class="pre">setMinimization</span></code></a>(minimization)</td>
+<td>Tell whether this is a minimization or maximization problem.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setName" title="persalys.OptimizationAnalysis.setName"><code class="xref py py-obj docutils literal"><span class="pre">setName</span></code></a>(name)</td>
+<td>Accessor to the object’s name.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setShadowedId" title="persalys.OptimizationAnalysis.setShadowedId"><code class="xref py py-obj docutils literal"><span class="pre">setShadowedId</span></code></a>(id)</td>
+<td>Accessor to the object’s shadowed id.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setSolverName" title="persalys.OptimizationAnalysis.setSolverName"><code class="xref py py-obj docutils literal"><span class="pre">setSolverName</span></code></a>(name)</td>
+<td>Accessor to solver name</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setStartingPoint" title="persalys.OptimizationAnalysis.setStartingPoint"><code class="xref py py-obj docutils literal"><span class="pre">setStartingPoint</span></code></a>(startingPoint)</td>
+<td>Accessor to starting point.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setVariableInputs" title="persalys.OptimizationAnalysis.setVariableInputs"><code class="xref py py-obj docutils literal"><span class="pre">setVariableInputs</span></code></a>(inputs)</td>
+<td>Accessor to variable input names</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#persalys.OptimizationAnalysis.setVisibility" title="persalys.OptimizationAnalysis.setVisibility"><code class="xref py py-obj docutils literal"><span class="pre">setVisibility</span></code></a>(visible)</td>
+<td>Accessor to the object’s visibility state.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="persalys.OptimizationAnalysis.GetSolverNames">
+<em class="property">static </em><code class="descname">GetSolverNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.GetSolverNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the list of solver names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>names</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">Description</span></code></a></p>
+<blockquote class="last">
+<div><p>List of available solver names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getBounds">
+<code class="descname">getBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to bounds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>bounds</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">Interval</span></code></a></p>
+<blockquote class="last">
+<div><p>Problem bounds.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getClassName">
+<code class="descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>class_name</strong> : str</p>
+<blockquote class="last">
+<div><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getErrorMessage">
+<code class="descname">getErrorMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Error message if the analysis failed</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getId">
+<code class="descname">getId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getInterestVariables">
+<code class="descname">getInterestVariables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getMaximumAbsoluteError">
+<code class="descname">getMaximumAbsoluteError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getMaximumAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed absolute error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>maximumAbsoluteError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed absolute error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getMaximumConstraintError">
+<code class="descname">getMaximumConstraintError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getMaximumConstraintError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed constraint error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>maximumConstraintError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed constraint error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getMaximumEvaluationNumber">
+<code class="descname">getMaximumEvaluationNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getMaximumEvaluationNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed number of evaluations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote class="last">
+<div><p>Maximum allowed number of evaluations</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getMaximumRelativeError">
+<code class="descname">getMaximumRelativeError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getMaximumRelativeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed relative error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>maximumRelativeError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed relative error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getMaximumResidualError">
+<code class="descname">getMaximumResidualError</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getMaximumResidualError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed residual error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>maximumResidualError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed residual error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getMinimization">
+<code class="descname">getMinimization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getMinimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether this is a minimization or maximization problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>value</strong> : bool</p>
+<blockquote class="last">
+<div><p><em>True</em> if this is a minimization problem (default), <em>False</em> otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getName">
+<code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getPhysicalModel">
+<code class="descname">getPhysicalModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal"><span class="pre">PhysicalModel</span></code></a></p>
+<blockquote class="last">
+<div><p>Physical model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getPythonScript">
+<code class="descname">getPythonScript</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>script</strong> : str</p>
+<blockquote class="last">
+<div><p>Python script to replay the analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getResult">
+<code class="descname">getResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to optimization result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>result</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.OptimizationResult.html#openturns.OptimizationResult" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">OptimizationResult</span></code></a></p>
+<blockquote class="last">
+<div><p>Result class.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getShadowedId">
+<code class="descname">getShadowedId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getSolverName">
+<code class="descname">getSolverName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getSolverName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to solver name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>solver</strong> : str</p>
+<blockquote class="last">
+<div><p>Solver name</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getStartingPoint">
+<code class="descname">getStartingPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getStartingPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to starting point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>startingPoint</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">Point</span></code></a></p>
+<blockquote class="last">
+<div><p>Starting point.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getVariableInputs">
+<code class="descname">getVariableInputs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getVariableInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to variable input names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>inputs</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">Description</span></code></a></p>
+<blockquote class="last">
+<div><p>Variable input names. It is set by default to the list of inputs of the model.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getVisibility">
+<code class="descname">getVisibility</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.getWarningMessage">
+<code class="descname">getWarningMessage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>message</strong> : str</p>
+<blockquote class="last">
+<div><p>Warning message which can appear during the analysis computation</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.hasName">
+<code class="descname">hasName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.hasValidResult">
+<code class="descname">hasValidResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasValidResult</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis has already been run</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.hasVisibleName">
+<code class="descname">hasVisibleName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>hasVisibleName</strong> : bool</p>
+<blockquote class="last">
+<div><p>True if the name is not empty and not the default one.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.isReliabilityAnalysis">
+<code class="descname">isReliabilityAnalysis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isReliabilityAnalysis</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis involves a reliability analysis</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.isRunning">
+<code class="descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>isRunning</strong> : bool</p>
+<blockquote class="last">
+<div><p>Whether the analysis is running</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setBounds">
+<code class="descname">setBounds</code><span class="sig-paren">(</span><em>bounds</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setBounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to bounds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>bounds</strong> : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal"><span class="pre">Interval</span></code></a></p>
+<blockquote class="last">
+<div><p>Problem bounds.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setInterestVariables">
+<code class="descname">setInterestVariables</code><span class="sig-paren">(</span><em>variablesNames</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>variablesNames</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Names of the variables to analyse</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setMaximumAbsoluteError">
+<code class="descname">setMaximumAbsoluteError</code><span class="sig-paren">(</span><em>maximumAbsoluteError</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setMaximumAbsoluteError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed absolute error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>maximumAbsoluteError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed absolute error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setMaximumConstraintError">
+<code class="descname">setMaximumConstraintError</code><span class="sig-paren">(</span><em>maximumConstraintError</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setMaximumConstraintError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed constraint error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>maximumConstraintError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed constraint error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setMaximumEvaluationNumber">
+<code class="descname">setMaximumEvaluationNumber</code><span class="sig-paren">(</span><em>maximumEvaluationNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setMaximumEvaluationNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed number of evaluations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>N</strong> : int</p>
+<blockquote class="last">
+<div><p>Maximum allowed number of evaluations.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setMaximumRelativeError">
+<code class="descname">setMaximumRelativeError</code><span class="sig-paren">(</span><em>maximumRelativeError</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setMaximumRelativeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed relative error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>maximumRelativeError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed relative error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setMaximumResidualError">
+<code class="descname">setMaximumResidualError</code><span class="sig-paren">(</span><em>maximumResidualError</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setMaximumResidualError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed residual error.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>maximumResidualError</strong> : float</p>
+<blockquote class="last">
+<div><p>Maximum allowed residual error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setMinimization">
+<code class="descname">setMinimization</code><span class="sig-paren">(</span><em>minimization</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setMinimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell whether this is a minimization or maximization problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>minimization</strong> : bool</p>
+<blockquote class="last">
+<div><p><em>True</em> if this is a minimization problem, <em>False</em> otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setName">
+<code class="descname">setName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>The name of the object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setShadowedId">
+<code class="descname">setShadowedId</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>id</strong> : int</p>
+<blockquote class="last">
+<div><p>Internal unique identifier.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setSolverName">
+<code class="descname">setSolverName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setSolverName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to solver name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>solver</strong> : str</p>
+<blockquote class="last">
+<div><p>Solver name. Use <a class="reference internal" href="#persalys.OptimizationAnalysis.GetSolverNames" title="persalys.OptimizationAnalysis.GetSolverNames"><code class="xref py py-func docutils literal"><span class="pre">GetSolverNames()</span></code></a> to list available names.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setStartingPoint">
+<code class="descname">setStartingPoint</code><span class="sig-paren">(</span><em>startingPoint</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setStartingPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to starting point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>startingPoint</strong> : sequence of float</p>
+<blockquote class="last">
+<div><p>Starting point.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setVariableInputs">
+<code class="descname">setVariableInputs</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setVariableInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to variable input names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inputs</strong> : sequence of str</p>
+<blockquote class="last">
+<div><p>Variable input names. It is set by default to the list of inputs of the model.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="persalys.OptimizationAnalysis.setVisibility">
+<code class="descname">setVisibility</code><span class="sig-paren">(</span><em>visible</em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.OptimizationAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>visible</strong> : bool</p>
+<blockquote class="last">
+<div><p>Visibility flag.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.FieldModelEvaluation.html"
+                        title="previous chapter">FieldModelEvaluation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.MorrisAnalysis.html"
+                        title="next chapter">MorrisAnalysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.OptimizationAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.MorrisAnalysis.html" title="MorrisAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FieldModelEvaluation.html" title="FieldModelEvaluation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

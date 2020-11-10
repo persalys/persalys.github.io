@@ -1,0 +1,11 @@
+FieldMonteCarloAnalysis
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FieldMonteCarloAnalysis
+
+   
+   .. automethod:: __init__
+   
+
