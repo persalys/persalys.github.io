@@ -1,0 +1,11 @@
+﻿Output
+===============
+
+.. currentmodule:: persalys
+
+.. autoclass:: Output
+
+   
+   .. automethod:: __init__
+   
+

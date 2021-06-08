@@ -1,0 +1,11 @@
+﻿DataCleaning
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DataCleaning
+
+   
+   .. automethod:: __init__
+   
+
