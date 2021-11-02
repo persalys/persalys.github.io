@@ -1,0 +1,11 @@
+﻿FieldMonteCarloResult
+==============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FieldMonteCarloResult
+
+   
+   .. automethod:: __init__
+   
+
