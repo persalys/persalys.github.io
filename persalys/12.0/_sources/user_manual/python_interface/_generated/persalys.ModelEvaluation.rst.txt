@@ -1,0 +1,11 @@
+﻿ModelEvaluation
+========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: ModelEvaluation
+
+   
+   .. automethod:: __init__
+   
+
