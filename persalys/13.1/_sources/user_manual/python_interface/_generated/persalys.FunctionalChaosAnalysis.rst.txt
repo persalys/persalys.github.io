@@ -1,0 +1,11 @@
+﻿FunctionalChaosAnalysis
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FunctionalChaosAnalysis
+
+   
+   .. automethod:: __init__
+   
+

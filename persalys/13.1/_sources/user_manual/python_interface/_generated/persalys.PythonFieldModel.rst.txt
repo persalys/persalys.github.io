@@ -1,0 +1,11 @@
+﻿PythonFieldModel
+=========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: PythonFieldModel
+
+   
+   .. automethod:: __init__
+   
+

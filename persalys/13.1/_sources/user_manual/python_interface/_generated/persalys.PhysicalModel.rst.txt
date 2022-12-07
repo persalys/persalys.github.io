@@ -1,0 +1,11 @@
+﻿PhysicalModel
+======================
+
+.. currentmodule:: persalys
+
+.. autoclass:: PhysicalModel
+
+   
+   .. automethod:: __init__
+   
+

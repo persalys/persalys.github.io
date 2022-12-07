@@ -1,0 +1,11 @@
+﻿DataAnalysisResult
+===========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DataAnalysisResult
+
+   
+   .. automethod:: __init__
+   
+
