@@ -1,0 +1,11 @@
+﻿DataModel
+==================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DataModel
+
+   
+   .. automethod:: __init__
+   
+
