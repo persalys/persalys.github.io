@@ -1,0 +1,11 @@
+﻿Observations
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: Observations
+
+   
+   .. automethod:: __init__
+   
+

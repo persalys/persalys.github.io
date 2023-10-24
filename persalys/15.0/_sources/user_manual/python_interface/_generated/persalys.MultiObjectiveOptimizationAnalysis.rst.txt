@@ -1,0 +1,11 @@
+﻿MultiObjectiveOptimizationAnalysis
+===========================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MultiObjectiveOptimizationAnalysis
+
+   
+   .. automethod:: __init__
+   
+
