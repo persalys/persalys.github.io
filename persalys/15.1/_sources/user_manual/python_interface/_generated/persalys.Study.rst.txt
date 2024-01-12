@@ -1,0 +1,11 @@
+﻿Study
+==============
+
+.. currentmodule:: persalys
+
+.. autoclass:: Study
+
+   
+   .. automethod:: __init__
+   
+
