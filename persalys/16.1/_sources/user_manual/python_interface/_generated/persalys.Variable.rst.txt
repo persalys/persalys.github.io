@@ -1,0 +1,11 @@
+﻿Variable
+=================
+
+.. currentmodule:: persalys
+
+.. autoclass:: Variable
+
+   
+   .. automethod:: __init__
+   
+

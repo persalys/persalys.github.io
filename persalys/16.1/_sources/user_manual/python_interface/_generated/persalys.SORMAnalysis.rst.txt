@@ -1,0 +1,11 @@
+﻿SORMAnalysis
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SORMAnalysis
+
+   
+   .. automethod:: __init__
+   
+
