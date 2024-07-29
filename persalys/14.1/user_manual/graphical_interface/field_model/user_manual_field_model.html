@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual - Define a field model &#8212; Persalys 14.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Define a data model" href="../data_model/user_manual_data_model.html" />
+    <link rel="prev" title="User manual - Define a physical model" href="../physical_model/user_manual_physical_model.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../data_model/user_manual_data_model.html" title="User manual - Define a data model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../physical_model/user_manual_physical_model.html" title="User manual - Define a physical model"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a field model</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-manual-define-a-field-model">
+<h1>User manual - Define a field model<a class="headerlink" href="#user-manual-define-a-field-model" title="Permalink to this heading">¶</a></h1>
+<p>This section introduces the models defined with a field function (a vector as input and a field as output).</p>
+<dl class="simple">
+<dt>Several types of physical models are available:</dt><dd><ul class="simple">
+<li><p><strong>Symbolic Field model</strong>: Physical model defined with analytical formulas and a mesh</p></li>
+<li><p><strong>Python Field model</strong>: Physical model defined with a Python script and a mesh</p></li>
+</ul>
+</dd>
+</dl>
+<p>For now, only the 1D mesh is available.</p>
+<section id="creation">
+<h2>1- Creation<a class="headerlink" href="#creation" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>There are several ways to create a new field model:</dt><dd><ul>
+<li><p>Select an item in the context menu of the study item</p>
+<img alt="../../../_images/studyItemContextMenu.png" class="align-center" src="../../../_images/studyItemContextMenu.png" />
+</li>
+<li><p>Click on a button of the study window</p>
+<img alt="../../../_images/studyWindowButtons.png" class="align-center" src="../../../_images/studyWindowButtons.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>The creation of a field model adds two elements in the study tree, below the <strong>Physical models</strong> section:
+a model item and a mesh item.</p>
+<section id="model-item">
+<h3>Model item<a class="headerlink" href="#model-item" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>Different actions are available through the context menu of the model item (by right click):</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the model</p></li>
+<li><p><strong>Define the model</strong>: Open a new window to define the model</p></li>
+<li><p><strong>Remove</strong>: Remove the model and all the analyses depending on it</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/fieldModelContextMenu.png" class="align-center" src="../../../_images/fieldModelContextMenu.png" />
+<p id="fieldmodeldiagram">The model item is associated with a <strong>Study workflow</strong> window.</p>
+<img alt="../../../_images/fieldModelDiagram.png" class="align-center" src="../../../_images/fieldModelDiagram.png" />
+<p>This diagram displays the possible actions an user can perform in real time. An action
+is active when its box is in dark green and when a previous one is valid. A box is disabled when its box
+is in light green, and the previous one is not valid.
+When the mouse pointer is hovered over a box, an information message appears at the bottom of
+the window in order to specify what sort of actions the box proposes. If the box is disabled the
+message indicates why the previous one is not valid.</p>
+<p>On the screenshot above, the mouse points over the <strong>Probabilistic model definition</strong> box: here the
+action is <strong>Define stochastic input variables and the dependence</strong> (below the main window), but
+this action is available only if the user defines at least one input variable in the physical model. So,
+here the only option of the user is to complete the model.</p>
+</section>
+<section id="mesh-item">
+<h3>Mesh item<a class="headerlink" href="#mesh-item" title="Permalink to this heading">¶</a></h3>
+<p>The model item is associated with a <strong>Mesh</strong> window.</p>
+<img alt="../../../_images/defaultMeshWindow.png" class="align-center" src="../../../_images/defaultMeshWindow.png" />
+<p>This window allows one to define a 1D mesh. The default mesh contains <em>10 nodes</em> in the range <em>[0, 1]</em>.</p>
+</section>
+</section>
+<section id="mesh-definition">
+<span id="meshdefinition"></span><h2>2- Mesh definition<a class="headerlink" href="#mesh-definition" title="Permalink to this heading">¶</a></h2>
+<p>The window shows the index parameter name, description, bounds and number.</p>
+<p>To edit the index parameters, double-click on the column of interest (ex: name, description).</p>
+<blockquote>
+<div><img alt="../../../_images/indexParamTable.png" class="align-center" src="../../../_images/indexParamTable.png" />
+</div></blockquote>
+<p id="meshdefinitionwizard">To modify the mesh click on <strong>…</strong> button: The window shows
+two ways to define a mesh:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Regular mesh</em>: define the bounds (default: [0, 1], expected: floats) and the number of nodes (default: 10, expected: positive integer)</p></li>
+</ul>
+<blockquote>
+<div><img alt="../../../_images/meshWizard.png" class="align-center" src="../../../_images/meshWizard.png" />
+</div></blockquote>
+<ul class="simple">
+<li><p><em>Imported mesh</em>: load a file and choose one of its columns (default: first column)</p></li>
+</ul>
+<blockquote>
+<div><img alt="../../../_images/importMeshWizard.png" class="align-center" src="../../../_images/importMeshWizard.png" />
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="model-definition">
+<h2>3- Model definition<a class="headerlink" href="#model-definition" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>To define a physical model:</dt><dd><ul>
+<li><p>Select <strong>Define the model</strong> in the context menu of the model item</p>
+<img alt="../../../_images/fieldModelContextMenu.png" class="align-center" src="../../../_images/fieldModelContextMenu.png" />
+</li>
+<li><p>Click on the <strong>Model definition</strong> box of the model diagram</p>
+<img alt="../../../_images/fieldModelDefBox.png" class="align-center" src="../../../_images/fieldModelDefBox.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>When the definition is required, a new item named <strong>Definition</strong> appears in the study tree.</p>
+<dl class="simple">
+<dt>Its context menu proposes these actions:</dt><dd><ul class="simple">
+<li><p><strong>Probabilistic model</strong>: Create stochastic input variables and dependence</p></li>
+<li><p><strong>Evaluation</strong>: Evaluate the model at a point</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/fieldModelDefContextMenu.png" class="align-center" src="../../../_images/fieldModelDefContextMenu.png" />
+<p>The new <strong>Definition</strong> item is associated with a window, whose title is the name of
+the chosen physical model. In this window, the user can specify the model variables (<strong>Definition</strong> tab)
+and the finite difference step of each variable (<a class="reference internal" href="../physical_model/user_manual_physical_model.html#differentiationtab"><span class="std std-ref">Differentiation</span></a> tab).</p>
+<section id="symbolic-model-define-a-field-model-with-analytical-formulas">
+<span id="fieldsymbolicmodel"></span><h3>3-1 <em>Symbolic model</em>: define a field model with analytical formulas<a class="headerlink" href="#symbolic-model-define-a-field-model-with-analytical-formulas" title="Permalink to this heading">¶</a></h3>
+<img alt="../../../_images/symbolicModel.png" class="align-center" src="../../../_images/symbolicModel.png" />
+<dl>
+<dt>Define variables in the <strong>Definition</strong> tab:</dt><dd><ul>
+<li><dl class="simple">
+<dt>the <strong>Inputs</strong> section allows one to:</dt><dd><ul class="simple">
+<li><p>Add/remove inputs (<strong>Add</strong>/<strong>Remove</strong> button)</p></li>
+<li><p>Rename variables (default: (X0, X1, …), expected: string (alphanumeric characters only)) (<strong>Name</strong> column)</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…))(<strong>Description</strong> column)</p></li>
+<li><p>Assign a value to the inputs (default: 0, expected: floating points or integers)(<strong>Value</strong> column)</p></li>
+<li><p>For convenience, the <strong>Index parameter</strong> name (previously defined in the <a class="reference internal" href="#meshdefinition"><span class="std std-ref">Mesh window</span></a>) is recalled here.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>the <strong>Outputs</strong> section allows one to:</dt><dd><ul class="simple">
+<li><p>Add/remove outputs (<strong>Add</strong>/<strong>Remove</strong> button)</p></li>
+<li><p>Enable/disable one or several variables, by checking off the corresponding line (default: all output lines are checked off).
+To perform the analyses, at least one output must be selected.</p></li>
+<li><p>Rename variables (default: (Y0, Y1, …), expected: string (alphanumeric characters only)) (<strong>Name</strong> column)</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…))(<strong>Description</strong> column)</p></li>
+<li><p>Define the mathematical relationships between the <strong>index parameter</strong> and the input and output variables (<strong>Formula</strong> column).
+Note that the language used here differs from Python (see corresponding syntax for operators,
+mathematical functions and constants in the previous <a class="reference internal" href="../physical_model/user_manual_physical_model.html#availablesymbolsmodel"><span class="std std-ref">section</span></a>).</p></li>
+<li><p>Launch the computation of the selected output values based on inputs, index parameter and formula (<strong>Check model</strong> button).
+It shall be used to test the physical model: this will
+add a new tab, described <a class="reference internal" href="../field_analysis/user_manual_field_analysis.html#fieldmodelevalresult"><span class="std std-ref">below</span></a>.
+To save the output values, the user
+should use a <a class="reference internal" href="../field_analysis/user_manual_field_analysis.html#fieldmodeleval"><span class="std std-ref">Model evaluation</span></a>.</p></li>
+</ul>
+<img alt="../../../_images/modelEvalTab.png" class="align-center" src="../../../_images/modelEvalTab.png" />
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="python-model-define-a-field-model-with-a-python-editor">
+<span id="fieldpythonmodel"></span><h3>3-2 <em>Python model</em>: define a field model with a Python editor<a class="headerlink" href="#python-model-define-a-field-model-with-a-python-editor" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><img alt="../../../_images/pythonPhysicalModel_default.png" class="align-center" src="../../../_images/pythonPhysicalModel_default.png" />
+</div></blockquote>
+<dl class="simple">
+<dt>The model definition window contains:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Python editor</strong> allows one to define the model with the function <strong>_exec</strong> which:</dt><dd><ul>
+<li><p>takes floating point arguments (detected as the inputs of the model) (default: X0)</p></li>
+<li><p>returns sequences of floats (detected as the outputs of the model) (default: Y0 = X0 + t)
+These sequences dimension must be equal to the number of nodes of the mesh.</p></li>
+<li><p>can use other statements defined in the Python editor</p></li>
+<li><p>can use the mesh as an OpenTURNS object <a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Mesh.html">Mesh</a>
+using <strong>getMesh()</strong> method.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Inputs</strong> section allows one to:</dt><dd><ul>
+<li><p>List the inputs detected from the function <strong>_exec</strong></p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…))(<strong>Description</strong> column)</p></li>
+<li><p>Assign a value to the inputs (default: 0, expected: floating points or integers) (<strong>Value</strong> column)</p></li>
+<li><p>For convenience, the windows reminds <strong>Index parameter</strong> name defined previously in the <a class="reference internal" href="#meshdefinition"><span class="std std-ref">Mesh window</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Outputs</strong> section allows one to:</dt><dd><ul>
+<li><p>List the outputs detected from the function <strong>_exec</strong></p></li>
+<li><p>Enable/disable one or several variables, by checking off the corresponding line (default: all output lines are checked off).
+To perform the analyses, at least one output must be selected.</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…))(<strong>Description</strong> column)</p></li>
+<li><p>Require the parallelization of the computations (<strong>Enable multiprocessing</strong> button)</p></li>
+<li><p>Launch the computation of the selected output values based on inputs, and the Python function (<strong>Check model</strong> button).
+It shall be used to test the physical model: this will
+add a new tab, described <a class="reference internal" href="../field_analysis/user_manual_field_analysis.html#fieldmodelevalresult"><span class="std std-ref">below</span></a>.
+To save the output values, the user
+should use a <a class="reference internal" href="../field_analysis/user_manual_field_analysis.html#fieldmodeleval"><span class="std std-ref">Model evaluation</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Here is an example of a more complex model definition:</p>
+<blockquote>
+<div><img alt="../../../_images/pythonPhysicalModel.png" class="align-center" src="../../../_images/pythonPhysicalModel.png" />
+</div></blockquote>
+<p>Here is an example of an error message transmission:</p>
+<blockquote>
+<div><img alt="../../../_images/pythonPhysicalModel_error.png" class="align-center" src="../../../_images/pythonPhysicalModel_error.png" />
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User manual - Define a field model</a><ul>
+<li><a class="reference internal" href="#creation">1- Creation</a><ul>
+<li><a class="reference internal" href="#model-item">Model item</a></li>
+<li><a class="reference internal" href="#mesh-item">Mesh item</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mesh-definition">2- Mesh definition</a></li>
+<li><a class="reference internal" href="#model-definition">3- Model definition</a><ul>
+<li><a class="reference internal" href="#symbolic-model-define-a-field-model-with-analytical-formulas">3-1 <em>Symbolic model</em>: define a field model with analytical formulas</a></li>
+<li><a class="reference internal" href="#python-model-define-a-field-model-with-a-python-editor">3-2 <em>Python model</em>: define a field model with a Python editor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../physical_model/user_manual_physical_model.html"
+                          title="previous chapter">User manual - Define a physical model</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../data_model/user_manual_data_model.html"
+                          title="next chapter">User manual - Define a data model</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/field_model/user_manual_field_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../data_model/user_manual_data_model.html" title="User manual - Define a data model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../physical_model/user_manual_physical_model.html" title="User manual - Define a physical model"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a field model</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

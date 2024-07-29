@@ -1,0 +1,11 @@
+﻿TaylorExpansionMomentsAnalysis
+=======================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: TaylorExpansionMomentsAnalysis
+
+   
+   .. automethod:: __init__
+   
+

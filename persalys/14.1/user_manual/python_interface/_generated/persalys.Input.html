@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Input &#8212; Persalys 14.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Output" href="persalys.Output.html" />
+    <link rel="prev" title="Variable" href="persalys.Variable.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.Output.html" title="Output"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.Variable.html" title="Variable"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Input</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="input">
+<h1>Input<a class="headerlink" href="#input" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.Input">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">Input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an input variable.</p>
+<p>Represents an input variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>Default value</p>
+</dd>
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a></span></dt><dd><p>Associated distribution</p>
+</dd>
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Description text (optional)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.Input.thisown" title="persalys.Input.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.getClassName" title="persalys.Input.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.getDescription" title="persalys.Input.getDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDescription</span></code></a>()</p></td>
+<td><p>Description accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.getDistribution" title="persalys.Input.getDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDistribution</span></code></a>()</p></td>
+<td><p>Distribution accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.getDistributionParametersType" title="persalys.Input.getDistributionParametersType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDistributionParametersType</span></code></a>()</p></td>
+<td><p>Distribution parameters type accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.getFiniteDifferenceStep" title="persalys.Input.getFiniteDifferenceStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFiniteDifferenceStep</span></code></a>()</p></td>
+<td><p>Finite difference step accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.getId" title="persalys.Input.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object's id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.getName" title="persalys.Input.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.getPythonScript" title="persalys.Input.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Python script accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.getShadowedId" title="persalys.Input.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.getValue" title="persalys.Input.getValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getValue</span></code></a>()</p></td>
+<td><p>Default value accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.getVisibility" title="persalys.Input.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.hasName" title="persalys.Input.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.hasVisibleName" title="persalys.Input.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.isStochastic" title="persalys.Input.isStochastic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isStochastic</span></code></a>()</p></td>
+<td><p>Whether the variable is stochastic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.setDescription" title="persalys.Input.setDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDescription</span></code></a>(description)</p></td>
+<td><p>Description accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.setDistribution" title="persalys.Input.setDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistribution</span></code></a>(distribution)</p></td>
+<td><p>Distribution accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.setDistributionParametersType" title="persalys.Input.setDistributionParametersType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistributionParametersType</span></code></a>(...)</p></td>
+<td><p>Distribution parameters type accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.setFiniteDifferenceStep" title="persalys.Input.setFiniteDifferenceStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFiniteDifferenceStep</span></code></a>(step)</p></td>
+<td><p>Finite difference step accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.setName" title="persalys.Input.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.setShadowedId" title="persalys.Input.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.setStochastic" title="persalys.Input.setStochastic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setStochastic</span></code></a>(stoch)</p></td>
+<td><p>Whether the variable is stochastic.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.Input.setValue" title="persalys.Input.setValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setValue</span></code></a>(value)</p></td>
+<td><p>Default value accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.Input.setVisibility" title="persalys.Input.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>getUnit</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>setUnit</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getDescription">
+<span class="sig-name descname"><span class="pre">getDescription</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>description</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Text describing the variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getDistribution">
+<span class="sig-name descname"><span class="pre">getDistribution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution associated with the variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getDistributionParametersType">
+<span class="sig-name descname"><span class="pre">getDistributionParametersType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getDistributionParametersType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distribution parameters type accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parametersType</strong><span class="classifier">int</span></dt><dd><p>Distribution parameters index</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getFiniteDifferenceStep">
+<span class="sig-name descname"><span class="pre">getFiniteDifferenceStep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finite difference step accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>step</strong><span class="classifier">float</span></dt><dd><p>Finite difference step used to define the gradient of the model’s function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getShadowedId">
+<span class="sig-name descname"><span class="pre">getShadowedId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>Default value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.getVisibility">
+<span class="sig-name descname"><span class="pre">getVisibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.hasVisibleName">
+<span class="sig-name descname"><span class="pre">hasVisibleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.isStochastic">
+<span class="sig-name descname"><span class="pre">isStochastic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.isStochastic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the variable is stochastic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isStochastic</strong><span class="classifier">bool</span></dt><dd><p>Whether the variable is stochastic</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setDescription">
+<span class="sig-name descname"><span class="pre">setDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Text describing the variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setDistribution">
+<span class="sig-name descname"><span class="pre">setDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distribution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution associated with the variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setDistributionParametersType">
+<span class="sig-name descname"><span class="pre">setDistributionParametersType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distributionParametersType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setDistributionParametersType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distribution parameters type accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parametersType</strong><span class="classifier">int</span></dt><dd><p>Distribution parameters index</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setFiniteDifferenceStep">
+<span class="sig-name descname"><span class="pre">setFiniteDifferenceStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setFiniteDifferenceStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finite difference step accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>step</strong><span class="classifier">float</span></dt><dd><p>Finite difference step used to define the gradient and the hessian of the model’s function.
+By default the step is equal to 1e-7.
+The gradient function is defined with the first order non-centered finite difference
+scheme and the hessian function with the second order centered finite difference scheme.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>First order non-centered finite difference scheme:</p>
+<div class="math">
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJz8+CjwhLS0gVGhpcyBmaWxlIHdhcyBnZW5lcmF0ZWQgYnkgZHZpc3ZnbSAxLjE0LjEgLS0+CjxzdmcgaGVpZ2h0PScyNy4wMTQ2cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMTMyLjEzNyAtMjcuMDE0NiAxMjQuMjM0IDI3LjAxNDYnIHdpZHRoPScxMjQuMjM0cHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTcuODc4NDYgLTIuNzQ5NjlDOC4wODE2OSAtMi43NDk2OSA4LjI5Njg5IC0yLjc0OTY5IDguMjk2ODkgLTIuOTg4NzlTOC4wODE2OSAtMy4yMjc5IDcuODc4NDYgLTMuMjI3OUgxLjQxMDcxQzEuMjA3NDcgLTMuMjI3OSAwLjk5MjI3OSAtMy4yMjc5IDAuOTkyMjc5IC0yLjk4ODc5UzEuMjA3NDcgLTIuNzQ5NjkgMS40MTA3MSAtMi43NDk2OUg3Ljg3ODQ2WicgaWQ9J2cwLTAnLz4KPHBhdGggZD0nTTguNjMxNjMgLTUuNDAzNzRDOC42MzE2MyAtNS42NTQ3OSA4LjU0Nzk1IC01Ljc2MjM5IDguNDY0MjYgLTUuNzYyMzlDOC40MTY0NCAtNS43NjIzOSA4LjMwODg0IC01LjcxNDU3IDguMjk2ODkgLTUuNDM5NkM4LjI0OTA3IC00LjYxNDY5IDcuNDEyMiAtNC4xMjQ1MyA2LjYzNTEyIC00LjEyNDUzQzUuOTQxNzIgLTQuMTI0NTMgNS4zNDM5NiAtNC40OTUxNCA0LjcyMjI5IC00LjkxMzU3QzQuMDc2NzEgLTUuMzQzOTYgMy40MzExMyAtNS43NzQzNSAyLjY1NDA1IC01Ljc3NDM1QzEuNTQyMjIgLTUuNzc0MzUgMC42NTc1MzQgLTQuOTI1NTMgMC42NTc1MzQgLTMuODI1NjVDMC42NTc1MzQgLTMuNTYyNjQgMC43NTMxNzYgLTMuNDY3IDAuODI0OTA3IC0zLjQ2N0MwLjk0NDQ1OCAtMy40NjcgMC45OTIyNzkgLTMuNjk0MTUgMC45OTIyNzkgLTMuNzQxOTdDMS4wNTIwNSAtNC43NDYyIDIuMDMyMzggLTUuMTA0ODYgMi42NTQwNSAtNS4xMDQ4NkMzLjM0NzQ1IC01LjEwNDg2IDMuOTQ1MjEgLTQuNzM0MjUgNC41NjY4NyAtNC4zMTU4MkM1LjIxMjQ1IC0zLjg4NTQzIDUuODU4MDMgLTMuNDU1MDQgNi42MzUxMiAtMy40NTUwNEM3Ljc0Njk1IC0zLjQ1NTA0IDguNjMxNjMgLTQuMzAzODYgOC42MzE2MyAtNS40MDM3NFpNOC42MzE2MyAtMi42MDYyM0M4LjYzMTYzIC0yLjk1MjkzIDguNDg4MTcgLTIuOTc2ODQgOC40NjQyNiAtMi45NzY4NEM4LjQxNjQ0IC0yLjk3Njg0IDguMzA4ODQgLTIuOTE3MDYgOC4yOTY4OSAtMi42NTQwNUM4LjI0OTA3IC0xLjgyOTE0IDcuNDEyMiAtMS4zMzg5OCA2LjYzNTEyIC0xLjMzODk4QzUuOTQxNzIgLTEuMzM4OTggNS4zNDM5NiAtMS43MDk1OSA0LjcyMjI5IC0yLjEyODAyQzQuMDc2NzEgLTIuNTU4NDEgMy40MzExMyAtMi45ODg3OSAyLjY1NDA1IC0yLjk4ODc5QzEuNTQyMjIgLTIuOTg4NzkgMC42NTc1MzQgLTIuMTM5OTggMC42NTc1MzQgLTEuMDQwMUMwLjY1NzUzNCAtMC43NzcwODYgMC43NTMxNzYgLTAuNjgxNDQ1IDAuODI0OTA3IC0wLjY4MTQ0NUMwLjk0NDQ1OCAtMC42ODE0NDUgMC45OTIyNzkgLTAuOTA4NTkzIDAuOTkyMjc5IC0wLjk1NjQxM0MxLjA1MjA1IC0xLjk2MDY1IDIuMDMyMzggLTIuMzE5MyAyLjY1NDA1IC0yLjMxOTNDMy4zNDc0NSAtMi4zMTkzIDMuOTQ1MjEgLTEuOTQ4NjkgNC41NjY4NyAtMS41MzAyNkM1LjIxMjQ1IC0xLjA5OTg4IDUuODU4MDMgLTAuNjY5NDg5IDYuNjM1MTIgLTAuNjY5NDg5QzcuNzcwODYgLTAuNjY5NDg5IDguNjMxNjMgLTEuNTU0MTcgOC42MzE2MyAtMi42MDYyM1onIGlkPSdnMC0yNScvPgo8cGF0aCBkPSdNMy40Nzg5NSAtMi43MTM4MkMzLjY1ODI4IC0yLjcxMzgyIDMuODYxNTIgLTIuNzEzODIgMy44NjE1MiAtMi45MDUxMUMzLjg2MTUyIC0zLjA2MDUyIDMuNzQxOTcgLTMuMDYwNTIgMy41MjY3NyAtMy4wNjA1MkgxLjU5MDA0QzEuODg4OTIgLTQuMTQ4NDQgMi41OTQyNyAtNC44MDU5OCAzLjY1ODI4IC00LjgwNTk4SDQuMDA0OThDNC4yMDgyMiAtNC44MDU5OCA0LjM4NzU1IC00LjgwNTk4IDQuMzg3NTUgLTQuOTk3MjZDNC4zODc1NSAtNS4xNTI2OCA0LjI1NjA0IC01LjE1MjY4IDQuMDQwODUgLTUuMTUyNjhIMy42MzQzN0MyLjE2Mzg5IC01LjE1MjY4IDAuNTQ5OTM4IC0zLjk4MTA3IDAuNTQ5OTM4IC0yLjEwNDExQzAuNTQ5OTM4IC0wLjc3NzA4NiAxLjQ0NjU4IDAuMTE5NTUyIDIuNjMwMTQgMC4xMTk1NTJDMy4zOTUyNyAwLjExOTU1MiA0LjE0ODQ0IC0wLjM1ODY1NSA0LjE0ODQ0IC0wLjQ3ODIwN0M0LjE0ODQ0IC0wLjU0OTkzOCA0LjExMjU4IC0wLjYyMTY2OSA0LjA0MDg1IC0wLjYyMTY2OUM0LjAwNDk4IC0wLjYyMTY2OSAzLjk4MTA3IC0wLjYwOTcxNCAzLjkyMTMgLTAuNTYxODkzQzMuNDY3IC0wLjI2MzAxNCAzLjAyNDY2IC0wLjExOTU1MiAyLjY2NiAtMC4xMTk1NTJDMi4wMzIzOCAtMC4xMTk1NTIgMS4zNjI4OSAtMC41Mzc5ODMgMS4zNjI4OSAtMS42OTc2M0MxLjM2Mjg5IC0xLjkyNDc4IDEuMzg2OCAtMi4yMzU2MiAxLjQ5NDQgLTIuNzEzODJIMy40Nzg5NVonIGlkPSdnMi0xNScvPgo8cGF0aCBkPSdNNS40Mjc2NSAtMy45OTMwM0M1LjM1NTkyIC00LjY2MjUyIDQuOTM3NDggLTUuNDYzNTEgMy44NjE1MiAtNS40NjM1MUMyLjE3NTg0IC01LjQ2MzUxIDAuNDU0Mjk2IC0zLjc1MzkyIDAuNDU0Mjk2IC0xLjg1MzA1QzAuNDU0Mjk2IC0xLjEyMzc5IDAuOTU2NDEzIDAuMjUxMDU5IDIuNTgyMzIgMC4yNTEwNTlDNS40MDM3NCAwLjI1MTA1OSA2LjYxMTIxIC0zLjg2MTUyIDYuNjExMjEgLTUuNDk5MzhDNi42MTEyMSAtNy4yMjA5MiA1LjY0Mjg0IC04LjU0Nzk1IDQuMTEyNTggLTguNTQ3OTVDMi4zNzkwOCAtOC41NDc5NSAxLjg2NTAxIC03LjAyOTY0IDEuODY1MDEgLTYuNzA2ODVDMS44NjUwMSAtNi41OTkyNSAxLjkzNjc0IC02LjMzNjI0IDIuMjcxNDggLTYuMzM2MjRDMi42ODk5MSAtNi4zMzYyNCAyLjg2OTI0IC02LjcxODggMi44NjkyNCAtNi45MjIwNEMyLjg2OTI0IC03LjI5MjY1IDIuNDk4NjMgLTcuMjkyNjUgMi4zNDMyMSAtNy4yOTI2NUMyLjgzMzM3IC04LjE3NzMzIDMuNzQxOTcgLTguMjYxMDIgNC4wNjQ3NiAtOC4yNjEwMkM1LjExNjgxIC04LjI2MTAyIDUuNzg2MyAtNy40MjQxNiA1Ljc4NjMgLTYuMDg1MThDNS43ODYzIC01LjMyMDA1IDUuNTU5MTUgLTQuNDM1MzcgNS40Mzk2IC0zLjk5MzAzSDUuNDI3NjVaTTIuNjE4MTggLTAuMDcxNzMxQzEuNDk0NCAtMC4wNzE3MzEgMS4zMDMxMSAtMC45NTY0MTMgMS4zMDMxMSAtMS40NTg1M0MxLjMwMzExIC0xLjk4NDU2IDEuNjM3ODYgLTMuMjE1OTQgMS44MTcxOSAtMy42NTgyOEMxLjk3MjYgLTQuMDE2OTQgMi42NTQwNSAtNS4yMjQ0MSAzLjg5NzM4IC01LjIyNDQxQzQuOTg1MzEgLTUuMjI0NDEgNS4yMzYzNiAtNC4yNzk5NSA1LjIzNjM2IC0zLjYzNDM3QzUuMjM2MzYgLTIuNzQ5NjkgNC40NTkyOCAtMC4wNzE3MzEgMi42MTgxOCAtMC4wNzE3MzFaJyBpZD0nZzItNjQnLz4KPHBhdGggZD0nTTUuMzMyIC00LjgwNTk4QzUuNTcxMTEgLTQuODA1OTggNS42NjY3NSAtNC44MDU5OCA1LjY2Njc1IC01LjAzMzEzQzUuNjY2NzUgLTUuMTUyNjggNS41NzExMSAtNS4xNTI2OCA1LjM1NTkyIC01LjE1MjY4SDQuMzg3NTVDNC42MTQ2OSAtNi4zODQwNiA0Ljc4MjA3IC03LjIzMjg4IDQuODc3NzEgLTcuNjE1NDRDNC45NDk0NCAtNy45MDIzNyA1LjIwMDUgLTguMTc3MzMgNS41MTEzMyAtOC4xNzczM0M1Ljc2MjM5IC04LjE3NzMzIDYuMDEzNDUgLTguMDY5NzQgNi4xMzMgLTcuOTYyMTRDNS42NjY3NSAtNy45MTQzMiA1LjUyMzI5IC03LjU2NzYyIDUuNTIzMjkgLTcuMzY0MzhDNS41MjMyOSAtNy4xMjUyOCA1LjcwMjYyIC02Ljk4MTgyIDUuOTI5NzYgLTYuOTgxODJDNi4xNjg4NyAtNi45ODE4MiA2LjUyNzUyIC03LjE4NTA2IDYuNTI3NTIgLTcuNjM5MzVDNi41Mjc1MiAtOC4xNDE0NyA2LjAyNTQgLTguNDE2NDQgNS40OTkzOCAtOC40MTY0NEM0Ljk4NTMxIC04LjQxNjQ0IDQuNDgzMTkgLTguMDMzODcgNC4yNDQwOCAtNy41Njc2MkM0LjAyODg5IC03LjE0OTE5IDMuOTA5MzQgLTYuNzE4OCAzLjYzNDM3IC01LjE1MjY4SDIuODMzMzdDMi42MDYyMyAtNS4xNTI2OCAyLjQ4NjY3IC01LjE1MjY4IDIuNDg2NjcgLTQuOTM3NDhDMi40ODY2NyAtNC44MDU5OCAyLjU1ODQxIC00LjgwNTk4IDIuNzk3NTEgLTQuODA1OThIMy41NjI2NEMzLjM0NzQ1IC0zLjY5NDE1IDIuODU3MjkgLTAuOTkyMjc5IDIuNTgyMzIgMC4yODY5MjRDMi4zNzkwOCAxLjMyNzAyIDIuMTk5NzUgMi4xOTk3NSAxLjYwMTk5IDIuMTk5NzVDMS41NjYxMyAyLjE5OTc1IDEuMjE5NDMgMi4xOTk3NSAxLjAwNDIzIDEuOTcyNkMxLjYxMzk1IDEuOTI0NzggMS42MTM5NSAxLjM5ODc1IDEuNjEzOTUgMS4zODY4QzEuNjEzOTUgMS4xNDc3IDEuNDM0NjIgMS4wMDQyMyAxLjIwNzQ3IDEuMDA0MjNDMC45NjgzNjkgMS4wMDQyMyAwLjYwOTcxNCAxLjIwNzQ3IDAuNjA5NzE0IDEuNjYxNzdDMC42MDk3MTQgMi4xNzU4NCAxLjEzNTc0IDIuNDM4ODUgMS42MDE5OSAyLjQzODg1QzIuODIxNDIgMi40Mzg4NSAzLjMyMzU0IDAuMjUxMDU5IDMuNDU1MDQgLTAuMzQ2N0MzLjY3MDI0IC0xLjI2NzI1IDQuMjU2MDQgLTQuNDQ3MzIgNC4zMTU4MiAtNC44MDU5OEg1LjMzMlonIGlkPSdnMi0xMDInLz4KPHBhdGggZD0nTTUuNjY2NzUgLTQuODc3NzFDNS4yODQxOCAtNC44MDU5OCA1LjE0MDcyIC00LjUxOTA1IDUuMTQwNzIgLTQuMjkxOTFDNS4xNDA3MiAtNC4wMDQ5OCA1LjM2Nzg3IC0zLjkwOTM0IDUuNTM1MjQgLTMuOTA5MzRDNS44OTM5IC0zLjkwOTM0IDYuMTQ0OTYgLTQuMjIwMTcgNi4xNDQ5NiAtNC41NDI5NkM2LjE0NDk2IC01LjA0NTA4IDUuNTcxMTEgLTUuMjcyMjMgNS4wNjg5OSAtNS4yNzIyM0M0LjMzOTczIC01LjI3MjIzIDMuOTMzMjUgLTQuNTU0OTIgMy44MjU2NSAtNC4zMjc3N0MzLjU1MDY4IC01LjIyNDQxIDIuODA5NDYgLTUuMjcyMjMgMi41OTQyNyAtNS4yNzIyM0MxLjM3NDg0IC01LjI3MjIzIDAuNzI5MjY1IC0zLjcwNjEgMC43MjkyNjUgLTMuNDQzMDlDMC43MjkyNjUgLTMuMzk1MjcgMC43NzcwODYgLTMuMzM1NDkgMC44NjA3NzIgLTMuMzM1NDlDMC45NTY0MTMgLTMuMzM1NDkgMC45ODAzMjQgLTMuNDA3MjIgMS4wMDQyMyAtMy40NTUwNEMxLjQxMDcxIC00Ljc4MjA3IDIuMjExNzEgLTUuMDMzMTMgMi41NTg0MSAtNS4wMzMxM0MzLjA5NjM5IC01LjAzMzEzIDMuMjAzOTkgLTQuNTMxMDEgMy4yMDM5OSAtNC4yNDQwOEMzLjIwMzk5IC0zLjk4MTA3IDMuMTMyMjUgLTMuNzA2MSAyLjk4ODc5IC0zLjEzMjI1TDIuNTgyMzIgLTEuNDk0NEMyLjQwMjk5IC0wLjc3NzA4NiAyLjA1NjI5IC0wLjExOTU1MiAxLjQyMjY3IC0wLjExOTU1MkMxLjM2Mjg5IC0wLjExOTU1MiAxLjA2NDAxIC0wLjExOTU1MiAwLjgxMjk1MSAtMC4yNzQ5NjlDMS4yNDMzNCAtMC4zNTg2NTUgMS4zMzg5OCAtMC43MTczMSAxLjMzODk4IC0wLjg2MDc3MkMxLjMzODk4IC0xLjA5OTg4IDEuMTU5NjUgLTEuMjQzMzQgMC45MzI1MDMgLTEuMjQzMzRDMC42NDU1NzkgLTEuMjQzMzQgMC4zMzQ3NDUgLTAuOTkyMjc5IDAuMzM0NzQ1IC0wLjYwOTcxNEMwLjMzNDc0NSAtMC4xMDc1OTcgMC44OTY2MzggMC4xMTk1NTIgMS40MTA3MSAwLjExOTU1MkMxLjk4NDU2IDAuMTE5NTUyIDIuMzkxMDMgLTAuMzM0NzQ1IDIuNjQyMDkgLTAuODI0OTA3QzIuODMzMzcgLTAuMTE5NTUyIDMuNDMxMTMgMC4xMTk1NTIgMy44NzM0NyAwLjExOTU1MkM1LjA5MjkgMC4xMTk1NTIgNS43Mzg0OCAtMS40NDY1OCA1LjczODQ4IC0xLjcwOTU5QzUuNzM4NDggLTEuNzY5MzYgNS42OTA2NiAtMS44MTcxOSA1LjYxODkzIC0xLjgxNzE5QzUuNTExMzMgLTEuODE3MTkgNS40OTkzOCAtMS43NTc0MSA1LjQ2MzUxIC0xLjY2MTc3QzUuMTQwNzIgLTAuNjA5NzE0IDQuNDQ3MzIgLTAuMTE5NTUyIDMuOTA5MzQgLTAuMTE5NTUyQzMuNDkwOTEgLTAuMTE5NTUyIDMuMjYzNzYgLTAuNDMwMzg2IDMuMjYzNzYgLTAuOTIwNTQ4QzMuMjYzNzYgLTEuMTgzNTYgMy4zMTE1OCAtMS4zNzQ4NCAzLjUwMjg2IC0yLjE2Mzg5TDMuOTIxMyAtMy43ODk3OUM0LjEwMDYyIC00LjUwNzEgNC41MDcxIC01LjAzMzEzIDUuMDU3MDQgLTUuMDMzMTNDNS4wODA5NSAtNS4wMzMxMyA1LjQxNTY5IC01LjAzMzEzIDUuNjY2NzUgLTQuODc3NzFaJyBpZD0nZzItMTIwJy8+CjxwYXRoIGQ9J00zLjg4NTQzIDIuOTA1MTFDMy44ODU0MyAyLjg2OTI0IDMuODg1NDMgMi44NDUzMyAzLjY4MjE5IDIuNjQyMDlDMi40ODY2NyAxLjQzNDYyIDEuODE3MTkgLTAuNTM3OTgzIDEuODE3MTkgLTIuOTc2ODRDMS44MTcxOSAtNS4yOTYxNCAyLjM3OTA4IC03LjI5MjY1IDMuNzY1ODggLTguNzAzMzZDMy44ODU0MyAtOC44MTA5NiAzLjg4NTQzIC04LjgzNDg3IDMuODg1NDMgLTguODcwNzNDMy44ODU0MyAtOC45NDI0NyAzLjgyNTY1IC04Ljk2NjM4IDMuNzc3ODMgLTguOTY2MzhDMy42MjI0MiAtOC45NjYzOCAyLjY0MjA5IC04LjEwNTYgMi4wNTYyOSAtNi45MzRDMS40NDY1OCAtNS43MjY1MyAxLjE3MTYxIC00LjQ0NzMyIDEuMTcxNjEgLTIuOTc2ODRDMS4xNzE2MSAtMS45MTI4MyAxLjMzODk4IC0wLjQ5MDE2MiAxLjk2MDY1IDAuNzg5MDQxQzIuNjY2IDIuMjIzNjYgMy42NDYzMyAzLjAwMDc1IDMuNzc3ODMgMy4wMDA3NUMzLjgyNTY1IDMuMDAwNzUgMy44ODU0MyAyLjk3Njg0IDMuODg1NDMgMi45MDUxMVonIGlkPSdnMy00MCcvPgo8cGF0aCBkPSdNMy4zNzEzNiAtMi45NzY4NEMzLjM3MTM2IC0zLjg4NTQzIDMuMjUxODEgLTUuMzY3ODcgMi41ODIzMiAtNi43NTQ2N0MxLjg3Njk2IC04LjE4OTI5IDAuODk2NjM4IC04Ljk2NjM4IDAuNzY1MTMxIC04Ljk2NjM4QzAuNzE3MzEgLTguOTY2MzggMC42NTc1MzQgLTguOTQyNDcgMC42NTc1MzQgLTguODcwNzNDMC42NTc1MzQgLTguODM0ODcgMC42NTc1MzQgLTguODEwOTYgMC44NjA3NzIgLTguNjA3NzJDMi4wNTYyOSAtNy40MDAyNSAyLjcyNTc4IC01LjQyNzY1IDIuNzI1NzggLTIuOTg4NzlDMi43MjU3OCAtMC42Njk0ODkgMi4xNjM4OSAxLjMyNzAyIDAuNzc3MDg2IDIuNzM3NzNDMC42NTc1MzQgMi44NDUzMyAwLjY1NzUzNCAyLjg2OTI0IDAuNjU3NTM0IDIuOTA1MTFDMC42NTc1MzQgMi45NzY4NCAwLjcxNzMxIDMuMDAwNzUgMC43NjUxMzEgMy4wMDA3NUMwLjkyMDU0OCAzLjAwMDc1IDEuOTAwODcgMi4xMzk5OCAyLjQ4NjY3IDAuOTY4MzY5QzMuMDk2MzkgLTAuMjUxMDU5IDMuMzcxMzYgLTEuNTQyMjIgMy4zNzEzNiAtMi45NzY4NFonIGlkPSdnMy00MScvPgo8cGF0aCBkPSdNNC43NzAxMSAtMi43NjE2NEg4LjA2OTc0QzguMjM3MTEgLTIuNzYxNjQgOC40NTIzIC0yLjc2MTY0IDguNDUyMyAtMi45NzY4NEM4LjQ1MjMgLTMuMjAzOTkgOC4yNDkwNyAtMy4yMDM5OSA4LjA2OTc0IC0zLjIwMzk5SDQuNzcwMTFWLTYuNTAzNjFDNC43NzAxMSAtNi42NzA5OCA0Ljc3MDExIC02Ljg4NjE4IDQuNTU0OTIgLTYuODg2MThDNC4zMjc3NyAtNi44ODYxOCA0LjMyNzc3IC02LjY4Mjk0IDQuMzI3NzcgLTYuNTAzNjFWLTMuMjAzOTlIMS4wMjgxNEMwLjg2MDc3MiAtMy4yMDM5OSAwLjY0NTU3OSAtMy4yMDM5OSAwLjY0NTU3OSAtMi45ODg3OUMwLjY0NTU3OSAtMi43NjE2NCAwLjg0ODgxNyAtMi43NjE2NCAxLjAyODE0IC0yLjc2MTY0SDQuMzI3NzdWMC41Mzc5ODNDNC4zMjc3NyAwLjcwNTM1NSA0LjMyNzc3IDAuOTIwNTQ4IDQuNTQyOTYgMC45MjA1NDhDNC43NzAxMSAwLjkyMDU0OCA0Ljc3MDExIDAuNzE3MzEgNC43NzAxMSAwLjUzNzk4M1YtMi43NjE2NFonIGlkPSdnMy00MycvPgo8cGF0aCBkPSdNMi4zNzUwOSAtNC45NzMzNUMyLjM3NTA5IC01LjE0ODY5IDIuMjQ3NTcgLTUuMjc2MjEgMi4wNjQyNiAtNS4yNzYyMUMxLjg1NzA0IC01LjI3NjIxIDEuNjI1OSAtNS4wODQ5MyAxLjYyNTkgLTQuODQ1ODNDMS42MjU5IC00LjY3MDQ5IDEuNzUzNDIgLTQuNTQyOTYgMS45MzY3NCAtNC41NDI5NkMyLjE0Mzk2IC00LjU0Mjk2IDIuMzc1MDkgLTQuNzM0MjUgMi4zNzUwOSAtNC45NzMzNVpNMS4yMTE0NiAtMi4wNDgzMkwwLjc4MTA3MSAtMC45NDg0NDNDMC43NDEyMiAtMC44Mjg4OTIgMC43MDEzNyAtMC43MzMyNSAwLjcwMTM3IC0wLjU5Nzc1OEMwLjcwMTM3IC0wLjIwNzIyMyAxLjAwNDIzIDAuMDc5NzAxMSAxLjQyNjY1IDAuMDc5NzAxMUMyLjE5OTc1IDAuMDc5NzAxMSAyLjUyNjUzIC0xLjAzNjExIDIuNTI2NTMgLTEuMTM5NzNDMi41MjY1MyAtMS4yMTk0MyAyLjQ2Mjc2IC0xLjI0MzM0IDIuNDA2OTcgLTEuMjQzMzRDMi4zMTEzMyAtMS4yNDMzNCAyLjI5NTM5IC0xLjE4NzU1IDIuMjcxNDggLTEuMTA3ODVDMi4wODgxNyAtMC40NzAyMzcgMS43NjEzOSAtMC4xNDM0NjIgMS40NDI1OSAtMC4xNDM0NjJDMS4zNDY5NSAtMC4xNDM0NjIgMS4yNTEzMSAtMC4xODMzMTMgMS4yNTEzMSAtMC4zOTg1MDZDMS4yNTEzMSAtMC41ODk3ODggMS4zMDcxIC0wLjczMzI1IDEuNDEwNzEgLTAuOTgwMzI0QzEuNDkwNDEgLTEuMTk1NTIgMS41NzAxMSAtMS40MTA3MSAxLjY1Nzc4IC0xLjYyNTlMMS45MDQ4NiAtMi4yNzE0OEMxLjk3NjU5IC0yLjQ1NDc5IDIuMDcyMjMgLTIuNzAxODcgMi4wNzIyMyAtMi44MzczNkMyLjA3MjIzIC0zLjIzNTg3IDEuNzUzNDIgLTMuNTE0ODIgMS4zNDY5NSAtMy41MTQ4MkMwLjU3Mzg0OCAtMy41MTQ4MiAwLjIzOTEwMyAtMi4zOTkgMC4yMzkxMDMgLTIuMjk1MzlDMC4yMzkxMDMgLTIuMjIzNjYgMC4yOTQ4OTQgLTIuMTkxNzggMC4zNTg2NTUgLTIuMTkxNzhDMC40NjIyNjcgLTIuMTkxNzggMC40NzAyMzcgLTIuMjM5NiAwLjQ5NDE0NyAtMi4zMTkzQzAuNzE3MzEgLTMuMDc2NDYgMS4wODM5NCAtMy4yOTE2NiAxLjMyMzA0IC0zLjI5MTY2QzEuNDM0NjIgLTMuMjkxNjYgMS41MTQzMiAtMy4yNTE4MSAxLjUxNDMyIC0zLjAyODY0QzEuNTE0MzIgLTIuOTQ4OTQgMS41MDYzNSAtMi44MzczNiAxLjQyNjY1IC0yLjU5ODI2TDEuMjExNDYgLTIuMDQ4MzJaJyBpZD0nZzEtMTA1Jy8+CjxwYXRoIGQ9J00zLjI5MTY2IC00Ljk3MzM1QzMuMjkxNjYgLTUuMTI0NzggMy4xNzIxIC01LjI3NjIxIDIuOTgwODIgLTUuMjc2MjFDMi43NDE3MiAtNS4yNzYyMSAyLjUzNDUgLTUuMDUzMDUgMi41MzQ1IC00Ljg0NTgzQzIuNTM0NSAtNC42OTQ0IDIuNjU0MDUgLTQuNTQyOTYgMi44NDUzMyAtNC41NDI5NkMzLjA4NDQzIC00LjU0Mjk2IDMuMjkxNjYgLTQuNzY2MTMgMy4yOTE2NiAtNC45NzMzNVpNMS42MjU5IDAuMzk4NTA2QzEuNTA2MzUgMC44ODQ2ODIgMS4xMTU4MiAxLjQwMjc0IDAuNjI5NjM5IDEuNDAyNzRDMC41MDIxMTcgMS40MDI3NCAwLjM4MjU2NSAxLjM3MDg2IDAuMzY2NjI1IDEuMzYyODlDMC42MTM2OTkgMS4yNDMzNCAwLjY0NTU3OSAxLjAyODE0IDAuNjQ1NTc5IDAuOTU2NDEzQzAuNjQ1NTc5IDAuNzY1MTMxIDAuNTAyMTE3IDAuNjYxNTE5IDAuMzM0NzQ1IDAuNjYxNTE5QzAuMTAzNjExIDAuNjYxNTE5IC0wLjExMTU4MiAwLjg2MDc3MiAtMC4xMTE1ODIgMS4xMjM3OUMtMC4xMTE1ODIgMS40MjY2NSAwLjE4MzMxMyAxLjYyNTkgMC42Mzc2MDkgMS42MjU5QzEuMTIzNzkgMS42MjU5IDIuMDAwNSAxLjMyMzA0IDIuMjM5NiAwLjM2NjYyNUwyLjk1NjkxIC0yLjQ4NjY3QzIuOTgwODIgLTIuNTgyMzIgMi45OTY3NiAtMi42NDYwOCAyLjk5Njc2IC0yLjc2NTYzQzIuOTk2NzYgLTMuMjAzOTkgMi42NDYwOCAtMy41MTQ4MiAyLjE4MzgxIC0zLjUxNDgyQzEuMzM4OTggLTMuNTE0ODIgMC44NDQ4MzIgLTIuMzk5IDAuODQ0ODMyIC0yLjI5NTM5QzAuODQ0ODMyIC0yLjIyMzY2IDAuOTAwNjIzIC0yLjE5MTc4IDAuOTY0Mzg0IC0yLjE5MTc4QzEuMDUyMDUgLTIuMTkxNzggMS4wNjAwMiAtMi4yMTU2OSAxLjExNTgyIC0yLjMzNTI0QzEuMzU0OTIgLTIuODg1MTggMS43NjEzOSAtMy4yOTE2NiAyLjE1OTkgLTMuMjkxNjZDMi4zMjcyNyAtMy4yOTE2NiAyLjQyMjkxIC0zLjE4MDA3IDIuNDIyOTEgLTIuOTE3MDZDMi40MjI5MSAtMi44MDU0OCAyLjM5OSAtMi42OTM5IDIuMzc1MDkgLTIuNTgyMzJMMS42MjU5IDAuMzk4NTA2WicgaWQ9J2cxLTEwNicvPgo8L2RlZnM+CjxnIGlkPSdwYWdlMSc+Cjx1c2UgeD0nMTMyLjEzNycgeGxpbms6aHJlZj0nI2cyLTY0JyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzEzOC45NDQnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMTQ0LjY5MicgeGxpbms6aHJlZj0nI2cxLTEwNicgeT0nLTE2LjI4ODQnLz4KPHJlY3QgaGVpZ2h0PScwLjQ3ODE4Nycgd2lkdGg9JzE2Ljk4MicgeD0nMTMyLjEzNycgeT0nLTEzLjIyMTgnLz4KPHVzZSB4PScxMzIuMTk3JyB4bGluazpocmVmPScjZzItNjQnIHk9Jy0xLjc5MzI2Jy8+Cjx1c2UgeD0nMTM5LjAwMycgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTEuNzkzMjYnLz4KPHVzZSB4PScxNDUuNjMxJyB4bGluazpocmVmPScjZzEtMTA1JyB5PScwJy8+Cjx1c2UgeD0nMTUzLjYzNScgeGxpbms6aHJlZj0nI2cwLTI1JyB5PSctOS45OTM5MycvPgo8dXNlIHg9JzE2Ny40MTYnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMTczLjE2NCcgeGxpbms6aHJlZj0nI2cxLTEwNicgeT0nLTE2LjI4ODQnLz4KPHVzZSB4PScxNzcuNTQ2JyB4bGluazpocmVmPScjZzMtNDAnIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMTgyLjA4MScgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTE4LjA4MTcnLz4KPHVzZSB4PScxOTEuMzY1JyB4bGluazpocmVmPScjZzMtNDMnIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMjAzLjA5MycgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzIwNy44MDInIHhsaW5rOmhyZWY9JyNnMS0xMDUnIHk9Jy0xNi4yODg0Jy8+Cjx1c2UgeD0nMjExLjE4MycgeGxpbms6aHJlZj0nI2czLTQxJyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzIxOC4zNzUnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzIzMC4yOTUnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMjM2LjA0NCcgeGxpbms6aHJlZj0nI2cxLTEwNicgeT0nLTE2LjI4ODQnLz4KPHVzZSB4PScyNDAuNDI2JyB4bGluazpocmVmPScjZzMtNDAnIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMjQ0Ljk2MScgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTE4LjA4MTcnLz4KPHVzZSB4PScyNTEuNTg5JyB4bGluazpocmVmPScjZzMtNDEnIHk9Jy0xOC4wODE3Jy8+CjxyZWN0IGhlaWdodD0nMC40NzgxODcnIHdpZHRoPSc4OC45NTU1JyB4PScxNjcuNDE2JyB5PSctMTMuMjIxOCcvPgo8dXNlIHg9JzIwNy44MzknIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTEuNzkzMjYnLz4KPHVzZSB4PScyMTIuNTQ4JyB4bGluazpocmVmPScjZzEtMTA1JyB5PScwJy8+CjwvZz4KPC9zdmc+Cgo8IS0tIERFUFRIPTAgLS0+" alt="\frac{\partial f_j}{\partial x_i} \approx \frac{f_j(x + \epsilon_i) - f_j(x)}
+                                               {\epsilon_i}"/></p>
+</div><p>Second order centered finite difference scheme:</p>
+<div class="math">
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJz8+CjwhLS0gVGhpcyBmaWxlIHdhcyBnZW5lcmF0ZWQgYnkgZHZpc3ZnbSAxLjE0LjEgLS0+CjxzdmcgaGVpZ2h0PScyOS4wODEycHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMS4xOTU1MSAtMjkuMDg3IDM4OC4yMzggMjkuMDgxMicgd2lkdGg9JzM4OC4yMzhwdCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+CjxkZWZzPgo8cGF0aCBkPSdNNy44Nzg0NiAtMi43NDk2OUM4LjA4MTY5IC0yLjc0OTY5IDguMjk2ODkgLTIuNzQ5NjkgOC4yOTY4OSAtMi45ODg3OVM4LjA4MTY5IC0zLjIyNzkgNy44Nzg0NiAtMy4yMjc5SDEuNDEwNzFDMS4yMDc0NyAtMy4yMjc5IDAuOTkyMjc5IC0zLjIyNzkgMC45OTIyNzkgLTIuOTg4NzlTMS4yMDc0NyAtMi43NDk2OSAxLjQxMDcxIC0yLjc0OTY5SDcuODc4NDZaJyBpZD0nZzAtMCcvPgo8cGF0aCBkPSdNOC42MzE2MyAtNS40MDM3NEM4LjYzMTYzIC01LjY1NDc5IDguNTQ3OTUgLTUuNzYyMzkgOC40NjQyNiAtNS43NjIzOUM4LjQxNjQ0IC01Ljc2MjM5IDguMzA4ODQgLTUuNzE0NTcgOC4yOTY4OSAtNS40Mzk2QzguMjQ5MDcgLTQuNjE0NjkgNy40MTIyIC00LjEyNDUzIDYuNjM1MTIgLTQuMTI0NTNDNS45NDE3MiAtNC4xMjQ1MyA1LjM0Mzk2IC00LjQ5NTE0IDQuNzIyMjkgLTQuOTEzNTdDNC4wNzY3MSAtNS4zNDM5NiAzLjQzMTEzIC01Ljc3NDM1IDIuNjU0MDUgLTUuNzc0MzVDMS41NDIyMiAtNS43NzQzNSAwLjY1NzUzNCAtNC45MjU1MyAwLjY1NzUzNCAtMy44MjU2NUMwLjY1NzUzNCAtMy41NjI2NCAwLjc1MzE3NiAtMy40NjcgMC44MjQ5MDcgLTMuNDY3QzAuOTQ0NDU4IC0zLjQ2NyAwLjk5MjI3OSAtMy42OTQxNSAwLjk5MjI3OSAtMy43NDE5N0MxLjA1MjA1IC00Ljc0NjIgMi4wMzIzOCAtNS4xMDQ4NiAyLjY1NDA1IC01LjEwNDg2QzMuMzQ3NDUgLTUuMTA0ODYgMy45NDUyMSAtNC43MzQyNSA0LjU2Njg3IC00LjMxNTgyQzUuMjEyNDUgLTMuODg1NDMgNS44NTgwMyAtMy40NTUwNCA2LjYzNTEyIC0zLjQ1NTA0QzcuNzQ2OTUgLTMuNDU1MDQgOC42MzE2MyAtNC4zMDM4NiA4LjYzMTYzIC01LjQwMzc0Wk04LjYzMTYzIC0yLjYwNjIzQzguNjMxNjMgLTIuOTUyOTMgOC40ODgxNyAtMi45NzY4NCA4LjQ2NDI2IC0yLjk3Njg0QzguNDE2NDQgLTIuOTc2ODQgOC4zMDg4NCAtMi45MTcwNiA4LjI5Njg5IC0yLjY1NDA1QzguMjQ5MDcgLTEuODI5MTQgNy40MTIyIC0xLjMzODk4IDYuNjM1MTIgLTEuMzM4OThDNS45NDE3MiAtMS4zMzg5OCA1LjM0Mzk2IC0xLjcwOTU5IDQuNzIyMjkgLTIuMTI4MDJDNC4wNzY3MSAtMi41NTg0MSAzLjQzMTEzIC0yLjk4ODc5IDIuNjU0MDUgLTIuOTg4NzlDMS41NDIyMiAtMi45ODg3OSAwLjY1NzUzNCAtMi4xMzk5OCAwLjY1NzUzNCAtMS4wNDAxQzAuNjU3NTM0IC0wLjc3NzA4NiAwLjc1MzE3NiAtMC42ODE0NDUgMC44MjQ5MDcgLTAuNjgxNDQ1QzAuOTQ0NDU4IC0wLjY4MTQ0NSAwLjk5MjI3OSAtMC45MDg1OTMgMC45OTIyNzkgLTAuOTU2NDEzQzEuMDUyMDUgLTEuOTYwNjUgMi4wMzIzOCAtMi4zMTkzIDIuNjU0MDUgLTIuMzE5M0MzLjM0NzQ1IC0yLjMxOTMgMy45NDUyMSAtMS45NDg2OSA0LjU2Njg3IC0xLjUzMDI2QzUuMjEyNDUgLTEuMDk5ODggNS44NTgwMyAtMC42Njk0ODkgNi42MzUxMiAtMC42Njk0ODlDNy43NzA4NiAtMC42Njk0ODkgOC42MzE2MyAtMS41NTQxNyA4LjYzMTYzIC0yLjYwNjIzWicgaWQ9J2cwLTI1Jy8+CjxwYXRoIGQ9J00zLjQ3ODk1IC0yLjcxMzgyQzMuNjU4MjggLTIuNzEzODIgMy44NjE1MiAtMi43MTM4MiAzLjg2MTUyIC0yLjkwNTExQzMuODYxNTIgLTMuMDYwNTIgMy43NDE5NyAtMy4wNjA1MiAzLjUyNjc3IC0zLjA2MDUySDEuNTkwMDRDMS44ODg5MiAtNC4xNDg0NCAyLjU5NDI3IC00LjgwNTk4IDMuNjU4MjggLTQuODA1OThINC4wMDQ5OEM0LjIwODIyIC00LjgwNTk4IDQuMzg3NTUgLTQuODA1OTggNC4zODc1NSAtNC45OTcyNkM0LjM4NzU1IC01LjE1MjY4IDQuMjU2MDQgLTUuMTUyNjggNC4wNDA4NSAtNS4xNTI2OEgzLjYzNDM3QzIuMTYzODkgLTUuMTUyNjggMC41NDk5MzggLTMuOTgxMDcgMC41NDk5MzggLTIuMTA0MTFDMC41NDk5MzggLTAuNzc3MDg2IDEuNDQ2NTggMC4xMTk1NTIgMi42MzAxNCAwLjExOTU1MkMzLjM5NTI3IDAuMTE5NTUyIDQuMTQ4NDQgLTAuMzU4NjU1IDQuMTQ4NDQgLTAuNDc4MjA3QzQuMTQ4NDQgLTAuNTQ5OTM4IDQuMTEyNTggLTAuNjIxNjY5IDQuMDQwODUgLTAuNjIxNjY5QzQuMDA0OTggLTAuNjIxNjY5IDMuOTgxMDcgLTAuNjA5NzE0IDMuOTIxMyAtMC41NjE4OTNDMy40NjcgLTAuMjYzMDE0IDMuMDI0NjYgLTAuMTE5NTUyIDIuNjY2IC0wLjExOTU1MkMyLjAzMjM4IC0wLjExOTU1MiAxLjM2Mjg5IC0wLjUzNzk4MyAxLjM2Mjg5IC0xLjY5NzYzQzEuMzYyODkgLTEuOTI0NzggMS4zODY4IC0yLjIzNTYyIDEuNDk0NCAtMi43MTM4MkgzLjQ3ODk1WicgaWQ9J2cyLTE1Jy8+CjxwYXRoIGQ9J001LjQyNzY1IC0zLjk5MzAzQzUuMzU1OTIgLTQuNjYyNTIgNC45Mzc0OCAtNS40NjM1MSAzLjg2MTUyIC01LjQ2MzUxQzIuMTc1ODQgLTUuNDYzNTEgMC40NTQyOTYgLTMuNzUzOTIgMC40NTQyOTYgLTEuODUzMDVDMC40NTQyOTYgLTEuMTIzNzkgMC45NTY0MTMgMC4yNTEwNTkgMi41ODIzMiAwLjI1MTA1OUM1LjQwMzc0IDAuMjUxMDU5IDYuNjExMjEgLTMuODYxNTIgNi42MTEyMSAtNS40OTkzOEM2LjYxMTIxIC03LjIyMDkyIDUuNjQyODQgLTguNTQ3OTUgNC4xMTI1OCAtOC41NDc5NUMyLjM3OTA4IC04LjU0Nzk1IDEuODY1MDEgLTcuMDI5NjQgMS44NjUwMSAtNi43MDY4NUMxLjg2NTAxIC02LjU5OTI1IDEuOTM2NzQgLTYuMzM2MjQgMi4yNzE0OCAtNi4zMzYyNEMyLjY4OTkxIC02LjMzNjI0IDIuODY5MjQgLTYuNzE4OCAyLjg2OTI0IC02LjkyMjA0QzIuODY5MjQgLTcuMjkyNjUgMi40OTg2MyAtNy4yOTI2NSAyLjM0MzIxIC03LjI5MjY1QzIuODMzMzcgLTguMTc3MzMgMy43NDE5NyAtOC4yNjEwMiA0LjA2NDc2IC04LjI2MTAyQzUuMTE2ODEgLTguMjYxMDIgNS43ODYzIC03LjQyNDE2IDUuNzg2MyAtNi4wODUxOEM1Ljc4NjMgLTUuMzIwMDUgNS41NTkxNSAtNC40MzUzNyA1LjQzOTYgLTMuOTkzMDNINS40Mjc2NVpNMi42MTgxOCAtMC4wNzE3MzFDMS40OTQ0IC0wLjA3MTczMSAxLjMwMzExIC0wLjk1NjQxMyAxLjMwMzExIC0xLjQ1ODUzQzEuMzAzMTEgLTEuOTg0NTYgMS42Mzc4NiAtMy4yMTU5NCAxLjgxNzE5IC0zLjY1ODI4QzEuOTcyNiAtNC4wMTY5NCAyLjY1NDA1IC01LjIyNDQxIDMuODk3MzggLTUuMjI0NDFDNC45ODUzMSAtNS4yMjQ0MSA1LjIzNjM2IC00LjI3OTk1IDUuMjM2MzYgLTMuNjM0MzdDNS4yMzYzNiAtMi43NDk2OSA0LjQ1OTI4IC0wLjA3MTczMSAyLjYxODE4IC0wLjA3MTczMVonIGlkPSdnMi02NCcvPgo8cGF0aCBkPSdNNS4zMzIgLTQuODA1OThDNS41NzExMSAtNC44MDU5OCA1LjY2Njc1IC00LjgwNTk4IDUuNjY2NzUgLTUuMDMzMTNDNS42NjY3NSAtNS4xNTI2OCA1LjU3MTExIC01LjE1MjY4IDUuMzU1OTIgLTUuMTUyNjhINC4zODc1NUM0LjYxNDY5IC02LjM4NDA2IDQuNzgyMDcgLTcuMjMyODggNC44Nzc3MSAtNy42MTU0NEM0Ljk0OTQ0IC03LjkwMjM3IDUuMjAwNSAtOC4xNzczMyA1LjUxMTMzIC04LjE3NzMzQzUuNzYyMzkgLTguMTc3MzMgNi4wMTM0NSAtOC4wNjk3NCA2LjEzMyAtNy45NjIxNEM1LjY2Njc1IC03LjkxNDMyIDUuNTIzMjkgLTcuNTY3NjIgNS41MjMyOSAtNy4zNjQzOEM1LjUyMzI5IC03LjEyNTI4IDUuNzAyNjIgLTYuOTgxODIgNS45Mjk3NiAtNi45ODE4MkM2LjE2ODg3IC02Ljk4MTgyIDYuNTI3NTIgLTcuMTg1MDYgNi41Mjc1MiAtNy42MzkzNUM2LjUyNzUyIC04LjE0MTQ3IDYuMDI1NCAtOC40MTY0NCA1LjQ5OTM4IC04LjQxNjQ0QzQuOTg1MzEgLTguNDE2NDQgNC40ODMxOSAtOC4wMzM4NyA0LjI0NDA4IC03LjU2NzYyQzQuMDI4ODkgLTcuMTQ5MTkgMy45MDkzNCAtNi43MTg4IDMuNjM0MzcgLTUuMTUyNjhIMi44MzMzN0MyLjYwNjIzIC01LjE1MjY4IDIuNDg2NjcgLTUuMTUyNjggMi40ODY2NyAtNC45Mzc0OEMyLjQ4NjY3IC00LjgwNTk4IDIuNTU4NDEgLTQuODA1OTggMi43OTc1MSAtNC44MDU5OEgzLjU2MjY0QzMuMzQ3NDUgLTMuNjk0MTUgMi44NTcyOSAtMC45OTIyNzkgMi41ODIzMiAwLjI4NjkyNEMyLjM3OTA4IDEuMzI3MDIgMi4xOTk3NSAyLjE5OTc1IDEuNjAxOTkgMi4xOTk3NUMxLjU2NjEzIDIuMTk5NzUgMS4yMTk0MyAyLjE5OTc1IDEuMDA0MjMgMS45NzI2QzEuNjEzOTUgMS45MjQ3OCAxLjYxMzk1IDEuMzk4NzUgMS42MTM5NSAxLjM4NjhDMS42MTM5NSAxLjE0NzcgMS40MzQ2MiAxLjAwNDIzIDEuMjA3NDcgMS4wMDQyM0MwLjk2ODM2OSAxLjAwNDIzIDAuNjA5NzE0IDEuMjA3NDcgMC42MDk3MTQgMS42NjE3N0MwLjYwOTcxNCAyLjE3NTg0IDEuMTM1NzQgMi40Mzg4NSAxLjYwMTk5IDIuNDM4ODVDMi44MjE0MiAyLjQzODg1IDMuMzIzNTQgMC4yNTEwNTkgMy40NTUwNCAtMC4zNDY3QzMuNjcwMjQgLTEuMjY3MjUgNC4yNTYwNCAtNC40NDczMiA0LjMxNTgyIC00LjgwNTk4SDUuMzMyWicgaWQ9J2cyLTEwMicvPgo8cGF0aCBkPSdNNS42NjY3NSAtNC44Nzc3MUM1LjI4NDE4IC00LjgwNTk4IDUuMTQwNzIgLTQuNTE5MDUgNS4xNDA3MiAtNC4yOTE5MUM1LjE0MDcyIC00LjAwNDk4IDUuMzY3ODcgLTMuOTA5MzQgNS41MzUyNCAtMy45MDkzNEM1Ljg5MzkgLTMuOTA5MzQgNi4xNDQ5NiAtNC4yMjAxNyA2LjE0NDk2IC00LjU0Mjk2QzYuMTQ0OTYgLTUuMDQ1MDggNS41NzExMSAtNS4yNzIyMyA1LjA2ODk5IC01LjI3MjIzQzQuMzM5NzMgLTUuMjcyMjMgMy45MzMyNSAtNC41NTQ5MiAzLjgyNTY1IC00LjMyNzc3QzMuNTUwNjggLTUuMjI0NDEgMi44MDk0NiAtNS4yNzIyMyAyLjU5NDI3IC01LjI3MjIzQzEuMzc0ODQgLTUuMjcyMjMgMC43MjkyNjUgLTMuNzA2MSAwLjcyOTI2NSAtMy40NDMwOUMwLjcyOTI2NSAtMy4zOTUyNyAwLjc3NzA4NiAtMy4zMzU0OSAwLjg2MDc3MiAtMy4zMzU0OUMwLjk1NjQxMyAtMy4zMzU0OSAwLjk4MDMyNCAtMy40MDcyMiAxLjAwNDIzIC0zLjQ1NTA0QzEuNDEwNzEgLTQuNzgyMDcgMi4yMTE3MSAtNS4wMzMxMyAyLjU1ODQxIC01LjAzMzEzQzMuMDk2MzkgLTUuMDMzMTMgMy4yMDM5OSAtNC41MzEwMSAzLjIwMzk5IC00LjI0NDA4QzMuMjAzOTkgLTMuOTgxMDcgMy4xMzIyNSAtMy43MDYxIDIuOTg4NzkgLTMuMTMyMjVMMi41ODIzMiAtMS40OTQ0QzIuNDAyOTkgLTAuNzc3MDg2IDIuMDU2MjkgLTAuMTE5NTUyIDEuNDIyNjcgLTAuMTE5NTUyQzEuMzYyODkgLTAuMTE5NTUyIDEuMDY0MDEgLTAuMTE5NTUyIDAuODEyOTUxIC0wLjI3NDk2OUMxLjI0MzM0IC0wLjM1ODY1NSAxLjMzODk4IC0wLjcxNzMxIDEuMzM4OTggLTAuODYwNzcyQzEuMzM4OTggLTEuMDk5ODggMS4xNTk2NSAtMS4yNDMzNCAwLjkzMjUwMyAtMS4yNDMzNEMwLjY0NTU3OSAtMS4yNDMzNCAwLjMzNDc0NSAtMC45OTIyNzkgMC4zMzQ3NDUgLTAuNjA5NzE0QzAuMzM0NzQ1IC0wLjEwNzU5NyAwLjg5NjYzOCAwLjExOTU1MiAxLjQxMDcxIDAuMTE5NTUyQzEuOTg0NTYgMC4xMTk1NTIgMi4zOTEwMyAtMC4zMzQ3NDUgMi42NDIwOSAtMC44MjQ5MDdDMi44MzMzNyAtMC4xMTk1NTIgMy40MzExMyAwLjExOTU1MiAzLjg3MzQ3IDAuMTE5NTUyQzUuMDkyOSAwLjExOTU1MiA1LjczODQ4IC0xLjQ0NjU4IDUuNzM4NDggLTEuNzA5NTlDNS43Mzg0OCAtMS43NjkzNiA1LjY5MDY2IC0xLjgxNzE5IDUuNjE4OTMgLTEuODE3MTlDNS41MTEzMyAtMS44MTcxOSA1LjQ5OTM4IC0xLjc1NzQxIDUuNDYzNTEgLTEuNjYxNzdDNS4xNDA3MiAtMC42MDk3MTQgNC40NDczMiAtMC4xMTk1NTIgMy45MDkzNCAtMC4xMTk1NTJDMy40OTA5MSAtMC4xMTk1NTIgMy4yNjM3NiAtMC40MzAzODYgMy4yNjM3NiAtMC45MjA1NDhDMy4yNjM3NiAtMS4xODM1NiAzLjMxMTU4IC0xLjM3NDg0IDMuNTAyODYgLTIuMTYzODlMMy45MjEzIC0zLjc4OTc5QzQuMTAwNjIgLTQuNTA3MSA0LjUwNzEgLTUuMDMzMTMgNS4wNTcwNCAtNS4wMzMxM0M1LjA4MDk1IC01LjAzMzEzIDUuNDE1NjkgLTUuMDMzMTMgNS42NjY3NSAtNC44Nzc3MVonIGlkPSdnMi0xMjAnLz4KPHBhdGggZD0nTTIuMjQ3NTcgLTEuNjI1OUMyLjM3NTA5IC0xLjc0NTQ1IDIuNzA5ODQgLTIuMDA4NDcgMi44MzczNiAtMi4xMjAwNUMzLjMzMTUxIC0yLjU3NDM1IDMuODAxNzQgLTMuMDEyNyAzLjgwMTc0IC0zLjczNzk4QzMuODAxNzQgLTQuNjg2NDMgMy4wMDQ3MyAtNS4zMDAxMiAyLjAwODQ3IC01LjMwMDEyQzEuMDUyMDUgLTUuMzAwMTIgMC40MjI0MTYgLTQuNTc0ODQgMC40MjI0MTYgLTMuODY1NUMwLjQyMjQxNiAtMy40NzQ5NyAwLjczMzI1IC0zLjQxOTE4IDAuODQ0ODMyIC0zLjQxOTE4QzEuMDEyMiAtMy40MTkxOCAxLjI1OTI4IC0zLjUzODczIDEuMjU5MjggLTMuODQxNTlDMS4yNTkyOCAtNC4yNTYwNCAwLjg2MDc3MiAtNC4yNTYwNCAwLjc2NTEzMSAtNC4yNTYwNEMwLjk5NjI2NCAtNC44Mzc4NiAxLjUzMDI2IC01LjAzNzExIDEuOTIwOCAtNS4wMzcxMUMyLjY2MjAyIC01LjAzNzExIDMuMDQ0NTggLTQuNDA3NDcgMy4wNDQ1OCAtMy43Mzc5OEMzLjA0NDU4IC0yLjkwOTA5IDIuNDYyNzYgLTIuMzAzMzYgMS41MjIyOSAtMS4zMzg5OEwwLjUxODA1NyAtMC4zMDI4NjRDMC40MjI0MTYgLTAuMjE1MTkzIDAuNDIyNDE2IC0wLjE5OTI1MyAwLjQyMjQxNiAwSDMuNTcwNjFMMy44MDE3NCAtMS40MjY2NUgzLjU1NDY3QzMuNTMwNzYgLTEuMjY3MjUgMy40NjcgLTAuODY4NzQyIDMuMzcxMzYgLTAuNzE3MzFDMy4zMjM1NCAtMC42NTM1NDkgMi43MTc4MSAtMC42NTM1NDkgMi41OTAyOSAtMC42NTM1NDlIMS4xNzE2MUwyLjI0NzU3IC0xLjYyNTlaJyBpZD0nZzMtNTAnLz4KPHBhdGggZD0nTTMuODg1NDMgMi45MDUxMUMzLjg4NTQzIDIuODY5MjQgMy44ODU0MyAyLjg0NTMzIDMuNjgyMTkgMi42NDIwOUMyLjQ4NjY3IDEuNDM0NjIgMS44MTcxOSAtMC41Mzc5ODMgMS44MTcxOSAtMi45NzY4NEMxLjgxNzE5IC01LjI5NjE0IDIuMzc5MDggLTcuMjkyNjUgMy43NjU4OCAtOC43MDMzNkMzLjg4NTQzIC04LjgxMDk2IDMuODg1NDMgLTguODM0ODcgMy44ODU0MyAtOC44NzA3M0MzLjg4NTQzIC04Ljk0MjQ3IDMuODI1NjUgLTguOTY2MzggMy43Nzc4MyAtOC45NjYzOEMzLjYyMjQyIC04Ljk2NjM4IDIuNjQyMDkgLTguMTA1NiAyLjA1NjI5IC02LjkzNEMxLjQ0NjU4IC01LjcyNjUzIDEuMTcxNjEgLTQuNDQ3MzIgMS4xNzE2MSAtMi45NzY4NEMxLjE3MTYxIC0xLjkxMjgzIDEuMzM4OTggLTAuNDkwMTYyIDEuOTYwNjUgMC43ODkwNDFDMi42NjYgMi4yMjM2NiAzLjY0NjMzIDMuMDAwNzUgMy43Nzc4MyAzLjAwMDc1QzMuODI1NjUgMy4wMDA3NSAzLjg4NTQzIDIuOTc2ODQgMy44ODU0MyAyLjkwNTExWicgaWQ9J2c0LTQwJy8+CjxwYXRoIGQ9J00zLjM3MTM2IC0yLjk3Njg0QzMuMzcxMzYgLTMuODg1NDMgMy4yNTE4MSAtNS4zNjc4NyAyLjU4MjMyIC02Ljc1NDY3QzEuODc2OTYgLTguMTg5MjkgMC44OTY2MzggLTguOTY2MzggMC43NjUxMzEgLTguOTY2MzhDMC43MTczMSAtOC45NjYzOCAwLjY1NzUzNCAtOC45NDI0NyAwLjY1NzUzNCAtOC44NzA3M0MwLjY1NzUzNCAtOC44MzQ4NyAwLjY1NzUzNCAtOC44MTA5NiAwLjg2MDc3MiAtOC42MDc3MkMyLjA1NjI5IC03LjQwMDI1IDIuNzI1NzggLTUuNDI3NjUgMi43MjU3OCAtMi45ODg3OUMyLjcyNTc4IC0wLjY2OTQ4OSAyLjE2Mzg5IDEuMzI3MDIgMC43NzcwODYgMi43Mzc3M0MwLjY1NzUzNCAyLjg0NTMzIDAuNjU3NTM0IDIuODY5MjQgMC42NTc1MzQgMi45MDUxMUMwLjY1NzUzNCAyLjk3Njg0IDAuNzE3MzEgMy4wMDA3NSAwLjc2NTEzMSAzLjAwMDc1QzAuOTIwNTQ4IDMuMDAwNzUgMS45MDA4NyAyLjEzOTk4IDIuNDg2NjcgMC45NjgzNjlDMy4wOTYzOSAtMC4yNTEwNTkgMy4zNzEzNiAtMS41NDIyMiAzLjM3MTM2IC0yLjk3Njg0WicgaWQ9J2c0LTQxJy8+CjxwYXRoIGQ9J000Ljc3MDExIC0yLjc2MTY0SDguMDY5NzRDOC4yMzcxMSAtMi43NjE2NCA4LjQ1MjMgLTIuNzYxNjQgOC40NTIzIC0yLjk3Njg0QzguNDUyMyAtMy4yMDM5OSA4LjI0OTA3IC0zLjIwMzk5IDguMDY5NzQgLTMuMjAzOTlINC43NzAxMVYtNi41MDM2MUM0Ljc3MDExIC02LjY3MDk4IDQuNzcwMTEgLTYuODg2MTggNC41NTQ5MiAtNi44ODYxOEM0LjMyNzc3IC02Ljg4NjE4IDQuMzI3NzcgLTYuNjgyOTQgNC4zMjc3NyAtNi41MDM2MVYtMy4yMDM5OUgxLjAyODE0QzAuODYwNzcyIC0zLjIwMzk5IDAuNjQ1NTc5IC0zLjIwMzk5IDAuNjQ1NTc5IC0yLjk4ODc5QzAuNjQ1NTc5IC0yLjc2MTY0IDAuODQ4ODE3IC0yLjc2MTY0IDEuMDI4MTQgLTIuNzYxNjRINC4zMjc3N1YwLjUzNzk4M0M0LjMyNzc3IDAuNzA1MzU1IDQuMzI3NzcgMC45MjA1NDggNC41NDI5NiAwLjkyMDU0OEM0Ljc3MDExIDAuOTIwNTQ4IDQuNzcwMTEgMC43MTczMSA0Ljc3MDExIDAuNTM3OTgzVi0yLjc2MTY0WicgaWQ9J2c0LTQzJy8+CjxwYXRoIGQ9J000LjMxNTgyIC03Ljc4MjgxQzQuMzE1ODIgLTguMDA5OTYgNC4zMTU4MiAtOC4wNjk3NCA0LjE0ODQ0IC04LjA2OTc0QzQuMDUyOCAtOC4wNjk3NCA0LjAxNjk0IC04LjA2OTc0IDMuOTIxMyAtNy45MjYyOEwwLjMyMjc5IC0yLjM0MzIxVi0xLjk5NjUxSDMuNDY3Vi0wLjkwODU5M0MzLjQ2NyAtMC40NjYyNTIgMy40NDMwOSAtMC4zNDY3IDIuNTcwMzYgLTAuMzQ2N0gyLjMzMTI2VjBDMi42MDYyMyAtMC4wMjM5MTAzIDMuNTUwNjggLTAuMDIzOTEwMyAzLjg4NTQzIC0wLjAyMzkxMDNTNS4xNzY1OSAtMC4wMjM5MTAzIDUuNDUxNTYgMFYtMC4zNDY3SDUuMjEyNDVDNC4zNTE2OCAtMC4zNDY3IDQuMzE1ODIgLTAuNDY2MjUyIDQuMzE1ODIgLTAuOTA4NTkzVi0xLjk5NjUxSDUuNTIzMjlWLTIuMzQzMjFINC4zMTU4MlYtNy43ODI4MVpNMy41MjY3NyAtNi44NTAzMVYtMi4zNDMyMUgwLjYyMTY2OUwzLjUyNjc3IC02Ljg1MDMxWicgaWQ9J2c0LTUyJy8+CjxwYXRoIGQ9J00yLjM3NTA5IC00Ljk3MzM1QzIuMzc1MDkgLTUuMTQ4NjkgMi4yNDc1NyAtNS4yNzYyMSAyLjA2NDI2IC01LjI3NjIxQzEuODU3MDQgLTUuMjc2MjEgMS42MjU5IC01LjA4NDkzIDEuNjI1OSAtNC44NDU4M0MxLjYyNTkgLTQuNjcwNDkgMS43NTM0MiAtNC41NDI5NiAxLjkzNjc0IC00LjU0Mjk2QzIuMTQzOTYgLTQuNTQyOTYgMi4zNzUwOSAtNC43MzQyNSAyLjM3NTA5IC00Ljk3MzM1Wk0xLjIxMTQ2IC0yLjA0ODMyTDAuNzgxMDcxIC0wLjk0ODQ0M0MwLjc0MTIyIC0wLjgyODg5MiAwLjcwMTM3IC0wLjczMzI1IDAuNzAxMzcgLTAuNTk3NzU4QzAuNzAxMzcgLTAuMjA3MjIzIDEuMDA0MjMgMC4wNzk3MDExIDEuNDI2NjUgMC4wNzk3MDExQzIuMTk5NzUgMC4wNzk3MDExIDIuNTI2NTMgLTEuMDM2MTEgMi41MjY1MyAtMS4xMzk3M0MyLjUyNjUzIC0xLjIxOTQzIDIuNDYyNzYgLTEuMjQzMzQgMi40MDY5NyAtMS4yNDMzNEMyLjMxMTMzIC0xLjI0MzM0IDIuMjk1MzkgLTEuMTg3NTUgMi4yNzE0OCAtMS4xMDc4NUMyLjA4ODE3IC0wLjQ3MDIzNyAxLjc2MTM5IC0wLjE0MzQ2MiAxLjQ0MjU5IC0wLjE0MzQ2MkMxLjM0Njk1IC0wLjE0MzQ2MiAxLjI1MTMxIC0wLjE4MzMxMyAxLjI1MTMxIC0wLjM5ODUwNkMxLjI1MTMxIC0wLjU4OTc4OCAxLjMwNzEgLTAuNzMzMjUgMS40MTA3MSAtMC45ODAzMjRDMS40OTA0MSAtMS4xOTU1MiAxLjU3MDExIC0xLjQxMDcxIDEuNjU3NzggLTEuNjI1OUwxLjkwNDg2IC0yLjI3MTQ4QzEuOTc2NTkgLTIuNDU0NzkgMi4wNzIyMyAtMi43MDE4NyAyLjA3MjIzIC0yLjgzNzM2QzIuMDcyMjMgLTMuMjM1ODcgMS43NTM0MiAtMy41MTQ4MiAxLjM0Njk1IC0zLjUxNDgyQzAuNTczODQ4IC0zLjUxNDgyIDAuMjM5MTAzIC0yLjM5OSAwLjIzOTEwMyAtMi4yOTUzOUMwLjIzOTEwMyAtMi4yMjM2NiAwLjI5NDg5NCAtMi4xOTE3OCAwLjM1ODY1NSAtMi4xOTE3OEMwLjQ2MjI2NyAtMi4xOTE3OCAwLjQ3MDIzNyAtMi4yMzk2IDAuNDk0MTQ3IC0yLjMxOTNDMC43MTczMSAtMy4wNzY0NiAxLjA4Mzk0IC0zLjI5MTY2IDEuMzIzMDQgLTMuMjkxNjZDMS40MzQ2MiAtMy4yOTE2NiAxLjUxNDMyIC0zLjI1MTgxIDEuNTE0MzIgLTMuMDI4NjRDMS41MTQzMiAtMi45NDg5NCAxLjUwNjM1IC0yLjgzNzM2IDEuNDI2NjUgLTIuNTk4MjZMMS4yMTE0NiAtMi4wNDgzMlonIGlkPSdnMS0xMDUnLz4KPHBhdGggZD0nTTMuMjkxNjYgLTQuOTczMzVDMy4yOTE2NiAtNS4xMjQ3OCAzLjE3MjEgLTUuMjc2MjEgMi45ODA4MiAtNS4yNzYyMUMyLjc0MTcyIC01LjI3NjIxIDIuNTM0NSAtNS4wNTMwNSAyLjUzNDUgLTQuODQ1ODNDMi41MzQ1IC00LjY5NDQgMi42NTQwNSAtNC41NDI5NiAyLjg0NTMzIC00LjU0Mjk2QzMuMDg0NDMgLTQuNTQyOTYgMy4yOTE2NiAtNC43NjYxMyAzLjI5MTY2IC00Ljk3MzM1Wk0xLjYyNTkgMC4zOTg1MDZDMS41MDYzNSAwLjg4NDY4MiAxLjExNTgyIDEuNDAyNzQgMC42Mjk2MzkgMS40MDI3NEMwLjUwMjExNyAxLjQwMjc0IDAuMzgyNTY1IDEuMzcwODYgMC4zNjY2MjUgMS4zNjI4OUMwLjYxMzY5OSAxLjI0MzM0IDAuNjQ1NTc5IDEuMDI4MTQgMC42NDU1NzkgMC45NTY0MTNDMC42NDU1NzkgMC43NjUxMzEgMC41MDIxMTcgMC42NjE1MTkgMC4zMzQ3NDUgMC42NjE1MTlDMC4xMDM2MTEgMC42NjE1MTkgLTAuMTExNTgyIDAuODYwNzcyIC0wLjExMTU4MiAxLjEyMzc5Qy0wLjExMTU4MiAxLjQyNjY1IDAuMTgzMzEzIDEuNjI1OSAwLjYzNzYwOSAxLjYyNTlDMS4xMjM3OSAxLjYyNTkgMi4wMDA1IDEuMzIzMDQgMi4yMzk2IDAuMzY2NjI1TDIuOTU2OTEgLTIuNDg2NjdDMi45ODA4MiAtMi41ODIzMiAyLjk5Njc2IC0yLjY0NjA4IDIuOTk2NzYgLTIuNzY1NjNDMi45OTY3NiAtMy4yMDM5OSAyLjY0NjA4IC0zLjUxNDgyIDIuMTgzODEgLTMuNTE0ODJDMS4zMzg5OCAtMy41MTQ4MiAwLjg0NDgzMiAtMi4zOTkgMC44NDQ4MzIgLTIuMjk1MzlDMC44NDQ4MzIgLTIuMjIzNjYgMC45MDA2MjMgLTIuMTkxNzggMC45NjQzODQgLTIuMTkxNzhDMS4wNTIwNSAtMi4xOTE3OCAxLjA2MDAyIC0yLjIxNTY5IDEuMTE1ODIgLTIuMzM1MjRDMS4zNTQ5MiAtMi44ODUxOCAxLjc2MTM5IC0zLjI5MTY2IDIuMTU5OSAtMy4yOTE2NkMyLjMyNzI3IC0zLjI5MTY2IDIuNDIyOTEgLTMuMTgwMDcgMi40MjI5MSAtMi45MTcwNkMyLjQyMjkxIC0yLjgwNTQ4IDIuMzk5IC0yLjY5MzkgMi4zNzUwOSAtMi41ODIzMkwxLjYyNTkgMC4zOTg1MDZaJyBpZD0nZzEtMTA2Jy8+CjxwYXRoIGQ9J00yLjMyNzI3IC01LjI5MjE1QzIuMzM1MjQgLTUuMzA4MDkgMi4zNTkxNSAtNS40MTE3MSAyLjM1OTE1IC01LjQxOTY4QzIuMzU5MTUgLTUuNDU5NTMgMi4zMjcyNyAtNS41MzEyNiAyLjIzMTYzIC01LjUzMTI2QzIuMTk5NzUgLTUuNTMxMjYgMS45NTI2OCAtNS41MDczNSAxLjc2OTM2IC01LjQ5MTQxTDEuMzIzMDQgLTUuNDU5NTNDMS4xNDc3IC01LjQ0MzU5IDEuMDY4IC01LjQzNTYyIDEuMDY4IC01LjI5MjE1QzEuMDY4IC01LjE4MDU3IDEuMTc5NTggLTUuMTgwNTcgMS4yNzUyMiAtNS4xODA1N0MxLjY1Nzc4IC01LjE4MDU3IDEuNjU3NzggLTUuMTMyNzUgMS42NTc3OCAtNS4wNjEwMkMxLjY1Nzc4IC01LjAzNzExIDEuNjU3NzggLTUuMDIxMTcgMS42MTc5MyAtNC44Nzc3MUwwLjQ4NjE3NyAtMC4zNDI3MTVDMC40NTQyOTYgLTAuMjIzMTYzIDAuNDU0Mjk2IC0wLjE3NTM0MiAwLjQ1NDI5NiAtMC4xNjczNzJDMC40NTQyOTYgLTAuMDMxODgwNCAwLjU2NTg3OCAwLjA3OTcwMTEgMC43MTczMSAwLjA3OTcwMTFDMC45ODgyOTQgMC4wNzk3MDExIDEuMDUyMDUgLTAuMTc1MzQyIDEuMDgzOTQgLTAuMjg2OTI0QzEuMTYzNjQgLTAuNjIxNjY5IDEuMzcwODYgLTEuNDY2NSAxLjQ1ODUzIC0xLjgwMTI1QzEuODk2ODkgLTEuNzUzNDIgMi40MzA4OCAtMS42MDE5OSAyLjQzMDg4IC0xLjE0NzdDMi40MzA4OCAtMS4xMDc4NSAyLjQzMDg4IC0xLjA2OCAyLjQxNDk0IC0wLjk4ODI5NEMyLjM5MTAzIC0wLjg4NDY4MiAyLjM3NTA5IC0wLjc3MzEwMSAyLjM3NTA5IC0wLjczMzI1QzIuMzc1MDkgLTAuMjYzMDE0IDIuNzI1NzggMC4wNzk3MDExIDMuMTg4MDQgMC4wNzk3MDExQzMuNTIyNzkgMC4wNzk3MDExIDMuNzMwMDEgLTAuMTY3MzcyIDMuODMzNjIgLTAuMzE4ODA0QzQuMDI0OTEgLTAuNjEzNjk5IDQuMTUyNDMgLTEuMDkxOTEgNC4xNTI0MyAtMS4xMzk3M0M0LjE1MjQzIC0xLjIxOTQzIDQuMDg4NjcgLTEuMjQzMzQgNC4wMzI4OCAtMS4yNDMzNEMzLjkzNzI0IC0xLjI0MzM0IDMuOTIxMyAtMS4xOTU1MiAzLjg4OTQxIC0xLjA1MjA1QzMuNzg1OCAtMC42Nzc0NiAzLjU3ODU4IC0wLjE0MzQ2MiAzLjIwMzk5IC0wLjE0MzQ2MkMyLjk5Njc2IC0wLjE0MzQ2MiAyLjk0ODk0IC0wLjMxODgwNCAyLjk0ODk0IC0wLjUzMzk5OEMyLjk0ODk0IC0wLjYzNzYwOSAyLjk1NjkxIC0wLjczMzI1IDIuOTk2NzYgLTAuOTE2NTYzQzMuMDA0NzMgLTAuOTQ4NDQzIDMuMDM2NjEgLTEuMDc1OTcgMy4wMzY2MSAtMS4xNjM2NEMzLjAzNjYxIC0xLjgxNzE5IDIuMjE1NjkgLTEuOTYwNjUgMS44MDkyMiAtMi4wMTY0NEMyLjEwNDExIC0yLjE5MTc4IDIuMzc1MDkgLTIuNDYyNzYgMi40NzA3MyAtMi41NjYzOEMyLjkwOTA5IC0yLjk5Njc2IDMuMjY3NzUgLTMuMjkxNjYgMy42NTAzMSAtMy4yOTE2NkMzLjc1MzkyIC0zLjI5MTY2IDMuODQ5NTYgLTMuMjY3NzUgMy45MTMzMyAtMy4xODgwNEMzLjQ4Mjk0IC0zLjEzMjI1IDMuNDgyOTQgLTIuNzU3NjYgMy40ODI5NCAtMi43NDk2OUMzLjQ4Mjk0IC0yLjU3NDM1IDMuNjE4NDMgLTIuNDU0NzkgMy43OTM3NyAtMi40NTQ3OUM0LjAwODk3IC0yLjQ1NDc5IDQuMjQ4MDcgLTIuNjMwMTQgNC4yNDgwNyAtMi45NTY5MUM0LjI0ODA3IC0zLjIyNzkgNC4wNTY3OSAtMy41MTQ4MiAzLjY1ODI4IC0zLjUxNDgyQzMuMTk2MDEgLTMuNTE0ODIgMi43ODE1NyAtMy4xNjQxMyAyLjMyNzI3IC0yLjcwOTg0QzEuODY1MDEgLTIuMjU1NTQgMS42NjU3NSAtMi4xNjc4NyAxLjUzODIzIC0yLjExMjA4TDIuMzI3MjcgLTUuMjkyMTVaJyBpZD0nZzEtMTA3Jy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PSc3LjMzMzIyJyB4bGluazpocmVmPScjZzItNjQnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTQuMTQnIHhsaW5rOmhyZWY9JyNnMy01MCcgeT0nLTIzLjk2OTknLz4KPHVzZSB4PScxOC44NzIzJyB4bGluazpocmVmPScjZzItMTAyJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI0LjYyMDcnIHhsaW5rOmhyZWY9JyNnMS0xMDcnIHk9Jy0xNy44MzgyJy8+CjxyZWN0IGhlaWdodD0nMC40NzgxODcnIHdpZHRoPSczNC43MjczJyB4PScxLjE5NTUxJyB5PSctMTQuNzcxNicvPgo8dXNlIHg9JzEuMTk1NTEnIHhsaW5rOmhyZWY9JyNnMi02NCcgeT0nLTMuMzQzMDEnLz4KPHVzZSB4PSc4LjAwMjMnIHhsaW5rOmhyZWY9JyNnMi0xMjAnIHk9Jy0zLjM0MzAxJy8+Cjx1c2UgeD0nMTQuNjI5NScgeGxpbms6aHJlZj0nI2cxLTEwNScgeT0nLTEuNTQ5NzUnLz4KPHVzZSB4PScxOC4wMTA4JyB4bGluazpocmVmPScjZzItNjQnIHk9Jy0zLjM0MzAxJy8+Cjx1c2UgeD0nMjQuODE3NicgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTMuMzQzMDEnLz4KPHVzZSB4PSczMS40NDQ4JyB4bGluazpocmVmPScjZzEtMTA2JyB5PSctMS41NDk3NScvPgo8dXNlIHg9JzQwLjQzOTInIHhsaW5rOmhyZWY9JyNnMC0yNScgeT0nLTExLjU0MzcnLz4KPHVzZSB4PSc1NC4yMTkzJyB4bGluazpocmVmPScjZzItMTAyJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzU5Ljk2NzcnIHhsaW5rOmhyZWY9JyNnMS0xMDcnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nNjUuMDg3NScgeGxpbms6aHJlZj0nI2c0LTQwJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzY5LjYyMjgnIHhsaW5rOmhyZWY9JyNnMi0xMjAnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nNzguOTA2NycgeGxpbms6aHJlZj0nI2c0LTQzJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzkwLjYzNCcgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9Jzk1LjM0MycgeGxpbms6aHJlZj0nI2cxLTEwNScgeT0nLTE3LjgzODInLz4KPHVzZSB4PScxMDEuMzgxJyB4bGluazpocmVmPScjZzQtNDMnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTEzLjEwOCcgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzExNy44MTcnIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nMTIyLjE5OScgeGxpbms6aHJlZj0nI2c0LTQxJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzEyOS4zOTEnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzE0MS4zMTInIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTQ3LjA2JyB4bGluazpocmVmPScjZzEtMTA3JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzE1Mi4xOCcgeGxpbms6aHJlZj0nI2c0LTQwJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzE1Ni43MTUnIHhsaW5rOmhyZWY9JyNnMi0xMjAnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTY1Ljk5OScgeGxpbms6aHJlZj0nI2c0LTQzJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzE3Ny43MjYnIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScxODIuNDM2JyB4bGluazpocmVmPScjZzEtMTA1JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzE4OC40NzMnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzIwMC4zOTQnIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyMDUuMTAzJyB4bGluazpocmVmPScjZzEtMTA2JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzIwOS40ODUnIHhsaW5rOmhyZWY9JyNnNC00MScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyMTYuNjc3JyB4bGluazpocmVmPScjZzQtNDMnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMjI4LjQwNCcgeGxpbms6aHJlZj0nI2cyLTEwMicgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyMzQuMTUzJyB4bGluazpocmVmPScjZzEtMTA3JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzIzOS4yNzMnIHhsaW5rOmhyZWY9JyNnNC00MCcgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyNDMuODA4JyB4bGluazpocmVmPScjZzItMTIwJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI1My4wOTInIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI2NS4wMTInIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyNjkuNzIxJyB4bGluazpocmVmPScjZzEtMTA1JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzI3NS43NTknIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI4Ny42OCcgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI5Mi4zODknIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nMjk2Ljc3MScgeGxpbms6aHJlZj0nI2c0LTQxJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzMwMy45NjMnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzMxNS44ODMnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMzIxLjYzMicgeGxpbms6aHJlZj0nI2cxLTEwNycgeT0nLTE3LjgzODInLz4KPHVzZSB4PSczMjYuNzUxJyB4bGluazpocmVmPScjZzQtNDAnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMzMxLjI4NycgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PSczNDAuNTcnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzM1Mi40OTEnIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PSczNTcuMicgeGxpbms6aHJlZj0nI2cxLTEwNScgeT0nLTE3LjgzODInLz4KPHVzZSB4PSczNjMuMjM4JyB4bGluazpocmVmPScjZzQtNDMnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMzc0Ljk2NScgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzM3OS42NzQnIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nMzg0LjA1NicgeGxpbms6aHJlZj0nI2c0LTQxJyB5PSctMTkuNjMxNCcvPgo8cmVjdCBoZWlnaHQ9JzAuNDc4MTg3JyB3aWR0aD0nMzM1LjIxNCcgeD0nNTQuMjE5MycgeT0nLTE0Ljc3MTYnLz4KPHVzZSB4PScyMTAuMjkxJyB4bGluazpocmVmPScjZzQtNTInIHk9Jy0zLjM0MzAxJy8+Cjx1c2UgeD0nMjE2LjEyMicgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMy4zNDMwMScvPgo8dXNlIHg9JzIyMC44MzEnIHhsaW5rOmhyZWY9JyNnMS0xMDUnIHk9Jy0xLjU0OTc1Jy8+Cjx1c2UgeD0nMjI0LjIxMycgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMy4zNDMwMScvPgo8dXNlIHg9JzIyOC45MjInIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xLjU0OTc1Jy8+CjwvZz4KPC9zdmc+Cgo8IS0tIERFUFRIPTAgLS0+" alt="\frac{\partial^2 f_k}{\partial x_i \partial x_j} \approx
+                                   \frac{
+                                      f_k(x + \epsilon_i + \epsilon_j) -
+                                      f_k(x + \epsilon_i - \epsilon_j) +
+                                      f_k(x - \epsilon_i - \epsilon_j) -
+                                      f_k(x - \epsilon_i + \epsilon_j)}
+                                   {4 \epsilon_i \epsilon_j}"/></p>
+</div></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setShadowedId">
+<span class="sig-name descname"><span class="pre">setShadowedId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setStochastic">
+<span class="sig-name descname"><span class="pre">setStochastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setStochastic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the variable is stochastic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isStochastic</strong><span class="classifier">bool</span></dt><dd><p>Whether the variable is stochastic</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>Default value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.Input.setVisibility">
+<span class="sig-name descname"><span class="pre">setVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.Input.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.Input.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.Input.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.Variable.html"
+                          title="previous chapter">Variable</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.Output.html"
+                          title="next chapter">Output</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.Input.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.Output.html" title="Output"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.Variable.html" title="Variable"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Input</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

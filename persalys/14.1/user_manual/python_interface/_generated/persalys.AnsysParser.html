@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>AnsysParser &#8212; Persalys 14.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="ModelEvaluation" href="persalys.ModelEvaluation.html" />
+    <link rel="prev" title="CouplingPhysicalModel" href="persalys.CouplingPhysicalModel.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.ModelEvaluation.html" title="ModelEvaluation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.CouplingPhysicalModel.html" title="CouplingPhysicalModel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">AnsysParser</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ansysparser">
+<h1>AnsysParser<a class="headerlink" href="#ansysparser" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.AnsysParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">AnsysParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to read Ansys project files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.AnsysParser.thisown" title="persalys.AnsysParser.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.generateTemplate" title="persalys.AnsysParser.generateTemplate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generateTemplate</span></code></a>(*args)</p></td>
+<td><p>Reads the project file and fills in variables information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.getAnsysVersion" title="persalys.AnsysParser.getAnsysVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getAnsysVersion</span></code></a>()</p></td>
+<td><p>Returns formatted ansys version (vXXX) to help generate default ansys solver path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.getClassName" title="persalys.AnsysParser.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.getExecutableFileName" title="persalys.AnsysParser.getExecutableFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getExecutableFileName</span></code></a>()</p></td>
+<td><p>Returns ansys solver file name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.getFullAnsysVersion" title="persalys.AnsysParser.getFullAnsysVersion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFullAnsysVersion</span></code></a>()</p></td>
+<td><p>Returns ansys version as found in the project file</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.getInputVariables" title="persalys.AnsysParser.getInputVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputVariables</span></code></a>()</p></td>
+<td><p>Returns input variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.getModelFileName" title="persalys.AnsysParser.getModelFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getModelFileName</span></code></a>()</p></td>
+<td><p>Returns the project file name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.getOutputFileName" title="persalys.AnsysParser.getOutputFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputFileName</span></code></a>()</p></td>
+<td><p>Returns the design point file name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.getOutputVariables" title="persalys.AnsysParser.getOutputVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputVariables</span></code></a>()</p></td>
+<td><p>Returns output variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.getTemplateFileName" title="persalys.AnsysParser.getTemplateFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTemplateFileName</span></code></a>()</p></td>
+<td><p>Returns ansys journal template file name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.loadData" title="persalys.AnsysParser.loadData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loadData</span></code></a>(fileName)</p></td>
+<td><p>Reads the project file and fills in variables information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.populateCouplingStep" title="persalys.AnsysParser.populateCouplingStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">populateCouplingStep</span></code></a>(*args)</p></td>
+<td><p>Sets ansys solver file name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.setExecutableFileName" title="persalys.AnsysParser.setExecutableFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setExecutableFileName</span></code></a>(fileName)</p></td>
+<td><p>Sets ansys solver file name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.setInputVariables" title="persalys.AnsysParser.setInputVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputVariables</span></code></a>(inputs)</p></td>
+<td><p>Sets input variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.setModelFileName" title="persalys.AnsysParser.setModelFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setModelFileName</span></code></a>(fileName)</p></td>
+<td><p>Sets the project file name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.setOutputFileName" title="persalys.AnsysParser.setOutputFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputFileName</span></code></a>(fileName)</p></td>
+<td><p>Sets the design point file name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.AnsysParser.setOutputVariables" title="persalys.AnsysParser.setOutputVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputVariables</span></code></a>(outputs)</p></td>
+<td><p>Sets output variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.AnsysParser.setTemplateFileName" title="persalys.AnsysParser.setTemplateFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setTemplateFileName</span></code></a>(fileName)</p></td>
+<td><p>Sets ansys journal template file name.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.generateTemplate">
+<span class="sig-name descname"><span class="pre">generateTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.generateTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the project file and fills in variables information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>templateFileName</strong><span class="classifier">str</span></dt><dd><p>Name of the template to generate. By default, a template file named input.txt.in is created next to the project (.wbpj) file</p>
+</dd>
+<dt><strong>outputFileName</strong><span class="classifier">str</span></dt><dd><p>Name of the Ansys design point output file. By default: output.csv</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getAnsysVersion">
+<span class="sig-name descname"><span class="pre">getAnsysVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getAnsysVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns formatted ansys version (vXXX) to help generate default ansys solver path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ansysVersion</strong><span class="classifier">str</span></dt><dd><p>Formatted ansys version (ex: returns ‘v202’ for full version ‘2020 R2’).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getExecutableFileName">
+<span class="sig-name descname"><span class="pre">getExecutableFileName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getExecutableFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns ansys solver file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>executableFileName</strong><span class="classifier">str</span></dt><dd><p>Ansys solver file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getFullAnsysVersion">
+<span class="sig-name descname"><span class="pre">getFullAnsysVersion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getFullAnsysVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns ansys version as found in the project file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fullAnsysVersion</strong><span class="classifier">str</span></dt><dd><p>Full ansys version used to create the project (ex: ‘2020 R2’).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getInputVariables">
+<span class="sig-name descname"><span class="pre">getInputVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getInputVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns input variables.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getModelFileName">
+<span class="sig-name descname"><span class="pre">getModelFileName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getModelFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the project file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>modelFileName</strong><span class="classifier">str</span></dt><dd><p>Project file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getOutputFileName">
+<span class="sig-name descname"><span class="pre">getOutputFileName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getOutputFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the design point file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputFileName</strong><span class="classifier">str</span></dt><dd><p>Ansys design point file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getOutputVariables">
+<span class="sig-name descname"><span class="pre">getOutputVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getOutputVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns output variables.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.getTemplateFileName">
+<span class="sig-name descname"><span class="pre">getTemplateFileName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.getTemplateFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns ansys journal template file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>templateFileName</strong><span class="classifier">str</span></dt><dd><p>Ansys template replay file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.loadData">
+<span class="sig-name descname"><span class="pre">loadData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.loadData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the project file and fills in variables information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>Name of the project file</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.populateCouplingStep">
+<span class="sig-name descname"><span class="pre">populateCouplingStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.populateCouplingStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets ansys solver file name.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.CouplingPhysicalModel.html#persalys.CouplingPhysicalModel" title="persalys.CouplingPhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingPhysicalModel</span></code></a></span></dt><dd><p>Model that contains the step to be populated.</p>
+</dd>
+<dt><strong>indStep</strong><span class="classifier">int</span></dt><dd><p>Index of the step to be populated.</p>
+</dd>
+<dt><strong>templateFileName</strong><span class="classifier">str</span></dt><dd><p>Input template file path to be generated (Optional, defaults to input.txt.in in the directory containing the ansys project file).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.setExecutableFileName">
+<span class="sig-name descname"><span class="pre">setExecutableFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.setExecutableFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets ansys solver file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>executableFileName</strong><span class="classifier">str</span></dt><dd><p>Ansys solver file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.setInputVariables">
+<span class="sig-name descname"><span class="pre">setInputVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.setInputVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets input variables.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.setModelFileName">
+<span class="sig-name descname"><span class="pre">setModelFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.setModelFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the project file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>modelFileName</strong><span class="classifier">str</span></dt><dd><p>Project file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.setOutputFileName">
+<span class="sig-name descname"><span class="pre">setOutputFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.setOutputFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the design point file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputFileName</strong><span class="classifier">str</span></dt><dd><p>Ansys design point file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.setOutputVariables">
+<span class="sig-name descname"><span class="pre">setOutputVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.setOutputVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets output variables.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.AnsysParser.setTemplateFileName">
+<span class="sig-name descname"><span class="pre">setTemplateFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.AnsysParser.setTemplateFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets ansys journal template file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>templateFileName</strong><span class="classifier">str</span></dt><dd><p>Ansys template replay file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.AnsysParser.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.AnsysParser.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.CouplingPhysicalModel.html"
+                          title="previous chapter">CouplingPhysicalModel</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.ModelEvaluation.html"
+                          title="next chapter">ModelEvaluation</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.AnsysParser.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.ModelEvaluation.html" title="ModelEvaluation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.CouplingPhysicalModel.html" title="CouplingPhysicalModel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">AnsysParser</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

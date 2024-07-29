@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FieldMonteCarloAnalysis &#8212; Persalys 14.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FieldMonteCarloResult" href="persalys.FieldMonteCarloResult.html" />
+    <link rel="prev" title="MonteCarloAnalysis" href="persalys.MonteCarloAnalysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.FieldMonteCarloResult.html" title="FieldMonteCarloResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.MonteCarloAnalysis.html" title="MonteCarloAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FieldMonteCarloAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="fieldmontecarloanalysis">
+<h1>FieldMonteCarloAnalysis<a class="headerlink" href="#fieldmontecarloanalysis" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">FieldMonteCarloAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a Monte Carlo analysis for models with mesh.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Model containing a mesh</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">meshModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridMeshModel</span><span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">),</span> <span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;z0&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;v0&#39;</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">formula</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;max(0, z0 + (m * 9.81 / c) * t + (m / c) * (v0 - (m * 9.81 / c)) * (1 - exp(-t * c / m)))&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicFieldModel</span><span class="p">(</span><span class="s1">&#39;aModel&#39;</span><span class="p">,</span> <span class="n">meshModel</span><span class="p">,</span> <span class="p">[</span><span class="n">z0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">formula</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create the analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FieldMonteCarloAnalysis</span><span class="p">(</span><span class="s1">&#39;analysis&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setMaximumCalls</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.thisown" title="persalys.FieldMonteCarloAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getBlockSize" title="persalys.FieldMonteCarloAnalysis.getBlockSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBlockSize</span></code></a>()</p></td>
+<td><p>Block size accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getClassName" title="persalys.FieldMonteCarloAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getErrorMessage" title="persalys.FieldMonteCarloAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getFailedInputSample" title="persalys.FieldMonteCarloAnalysis.getFailedInputSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFailedInputSample</span></code></a>()</p></td>
+<td><p>Failed input sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getId" title="persalys.FieldMonteCarloAnalysis.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object's id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getInterestVariables" title="persalys.FieldMonteCarloAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getKarhunenLoeveThreshold" title="persalys.FieldMonteCarloAnalysis.getKarhunenLoeveThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getKarhunenLoeveThreshold</span></code></a>()</p></td>
+<td><p>Accessor to the limit ratio on eigenvalues.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getMaximumCalls" title="persalys.FieldMonteCarloAnalysis.getMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCalls</span></code></a>()</p></td>
+<td><p>Maximum calls accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getMaximumCoefficientOfVariation" title="persalys.FieldMonteCarloAnalysis.getMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCoefficientOfVariation</span></code></a>()</p></td>
+<td><p>Maximum coefficient of variation accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getMaximumElapsedTime" title="persalys.FieldMonteCarloAnalysis.getMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumElapsedTime</span></code></a>()</p></td>
+<td><p>Maximum elapsed time accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getName" title="persalys.FieldMonteCarloAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getPhysicalModel" title="persalys.FieldMonteCarloAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getPythonScript" title="persalys.FieldMonteCarloAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getQuantileLevel" title="persalys.FieldMonteCarloAnalysis.getQuantileLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getQuantileLevel</span></code></a>()</p></td>
+<td><p>Probability level accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getResult" title="persalys.FieldMonteCarloAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Result accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getSeed" title="persalys.FieldMonteCarloAnalysis.getSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSeed</span></code></a>()</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getShadowedId" title="persalys.FieldMonteCarloAnalysis.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getVisibility" title="persalys.FieldMonteCarloAnalysis.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.getWarningMessage" title="persalys.FieldMonteCarloAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.hasName" title="persalys.FieldMonteCarloAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.hasValidResult" title="persalys.FieldMonteCarloAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.hasVisibleName" title="persalys.FieldMonteCarloAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.isReliabilityAnalysis" title="persalys.FieldMonteCarloAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.isRunning" title="persalys.FieldMonteCarloAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.run" title="persalys.FieldMonteCarloAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setBlockSize" title="persalys.FieldMonteCarloAnalysis.setBlockSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlockSize</span></code></a>(size)</p></td>
+<td><p>Block size accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setInterestVariables" title="persalys.FieldMonteCarloAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setKarhunenLoeveThreshold" title="persalys.FieldMonteCarloAnalysis.setKarhunenLoeveThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setKarhunenLoeveThreshold</span></code></a>(threshold)</p></td>
+<td><p>Accessor to the limit ratio on eigenvalues.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setMaximumCalls" title="persalys.FieldMonteCarloAnalysis.setMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCalls</span></code></a>(maxi)</p></td>
+<td><p>Maximum calls accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setMaximumCoefficientOfVariation" title="persalys.FieldMonteCarloAnalysis.setMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCoefficientOfVariation</span></code></a>(coef)</p></td>
+<td><p>Maximum coefficient of variation accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setMaximumElapsedTime" title="persalys.FieldMonteCarloAnalysis.setMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumElapsedTime</span></code></a>(seconds)</p></td>
+<td><p>Maximum elapsed time accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setName" title="persalys.FieldMonteCarloAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setQuantileLevel" title="persalys.FieldMonteCarloAnalysis.setQuantileLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setQuantileLevel</span></code></a>(proba)</p></td>
+<td><p>Probability level accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setSeed" title="persalys.FieldMonteCarloAnalysis.setSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSeed</span></code></a>(seed)</p></td>
+<td><p>Seed accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setShadowedId" title="persalys.FieldMonteCarloAnalysis.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldMonteCarloAnalysis.setVisibility" title="persalys.FieldMonteCarloAnalysis.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getErrorDescription</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getParentObserver</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getBlockSize">
+<span class="sig-name descname"><span class="pre">getBlockSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getBlockSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block size accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>blockSize</strong><span class="classifier">positive int</span></dt><dd><p>Number of terms analysed together.
+It is set by default to 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getErrorMessage">
+<span class="sig-name descname"><span class="pre">getErrorMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getFailedInputSample">
+<span class="sig-name descname"><span class="pre">getFailedInputSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getFailedInputSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Failed input sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Sample with the failed input values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getInterestVariables">
+<span class="sig-name descname"><span class="pre">getInterestVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getKarhunenLoeveThreshold">
+<span class="sig-name descname"><span class="pre">getKarhunenLoeveThreshold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the limit ratio on eigenvalues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>threshold</strong><span class="classifier">float, positive</span></dt><dd><p>The threshold s defined in <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.KarhunenLoeveAlgorithm.html#openturns.KarhunenLoeveAlgorithm.setThreshold" title="(in OpenTURNS v.)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">openturns.KarhunenLoeveAlgorithm.setThreshold()</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getMaximumCalls">
+<span class="sig-name descname"><span class="pre">getMaximumCalls</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumCalls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum calls accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCalls</strong><span class="classifier">positive int</span></dt><dd><p>The maximum calls of the function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getMaximumCoefficientOfVariation">
+<span class="sig-name descname"><span class="pre">getMaximumCoefficientOfVariation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum coefficient of variation accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCoef</strong><span class="classifier">double</span></dt><dd><p>The maximum coefficient of variation. It is set by default to 0.01.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getMaximumElapsedTime">
+<span class="sig-name descname"><span class="pre">getMaximumElapsedTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum elapsed time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxTime</strong><span class="classifier">positive int</span></dt><dd><p>The maximum elapsed time in seconds. It is set by default to 60 seconds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getPhysicalModel">
+<span class="sig-name descname"><span class="pre">getPhysicalModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getPhysicalModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getQuantileLevel">
+<span class="sig-name descname"><span class="pre">getQuantileLevel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getQuantileLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probability level accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>level</strong><span class="classifier">float</span></dt><dd><p>Probability level</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.FieldMonteCarloResult.html#persalys.FieldMonteCarloResult" title="persalys.FieldMonteCarloResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">persalys.FieldMonteCarloResult</span></code></a></span></dt><dd><p>Result</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getSeed">
+<span class="sig-name descname"><span class="pre">getSeed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getShadowedId">
+<span class="sig-name descname"><span class="pre">getShadowedId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getVisibility">
+<span class="sig-name descname"><span class="pre">getVisibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.getWarningMessage">
+<span class="sig-name descname"><span class="pre">getWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.hasValidResult">
+<span class="sig-name descname"><span class="pre">hasValidResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.hasVisibleName">
+<span class="sig-name descname"><span class="pre">hasVisibleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.hasVisibleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.isReliabilityAnalysis">
+<span class="sig-name descname"><span class="pre">isReliabilityAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.isRunning">
+<span class="sig-name descname"><span class="pre">isRunning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setBlockSize">
+<span class="sig-name descname"><span class="pre">setBlockSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setBlockSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block size accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>blockSize</strong><span class="classifier">positive int</span></dt><dd><p>Number of terms analysed together.
+It is set by default to 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setInterestVariables">
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setKarhunenLoeveThreshold">
+<span class="sig-name descname"><span class="pre">setKarhunenLoeveThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the limit ratio on eigenvalues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>threshold</strong><span class="classifier">float, positive</span></dt><dd><p>The threshold s defined in <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.KarhunenLoeveAlgorithm.html#openturns.KarhunenLoeveAlgorithm.getThreshold" title="(in OpenTURNS v.)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">openturns.KarhunenLoeveAlgorithm.getThreshold()</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setMaximumCalls">
+<span class="sig-name descname"><span class="pre">setMaximumCalls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maxi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumCalls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum calls accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCalls</strong><span class="classifier">positive int</span></dt><dd><p>The maximum calls of the function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setMaximumCoefficientOfVariation">
+<span class="sig-name descname"><span class="pre">setMaximumCoefficientOfVariation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coef</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumCoefficientOfVariation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum coefficient of variation accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxCoef</strong><span class="classifier">double</span></dt><dd><p>The maximum coefficient of variation. It is set by default to 0.01.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setMaximumElapsedTime">
+<span class="sig-name descname"><span class="pre">setMaximumElapsedTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setMaximumElapsedTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum elapsed time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maxTime</strong><span class="classifier">positive int</span></dt><dd><p>The maximum elapsed time in seconds. It is set by default to 60 seconds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setQuantileLevel">
+<span class="sig-name descname"><span class="pre">setQuantileLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proba</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setQuantileLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probability level accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>level</strong><span class="classifier">float, <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJz8+CjwhLS0gVGhpcyBmaWxlIHdhcyBnZW5lcmF0ZWQgYnkgZHZpc3ZnbSAxLjE0LjEgLS0+CjxzdmcgaGVpZ2h0PSc5Ljk5MTU4cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMCAtNy42NzU2NiA0OC45NCA5Ljk5MTU4JyB3aWR0aD0nNDguOTRwdCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+CjxkZWZzPgo8cGF0aCBkPSdNNy44Nzg0NiAtNS44MjIxN0M4LjA5MzY1IC01LjkxNzgxIDguMTE3NTYgLTYuMDAxNDkgOC4xMTc1NiAtNi4wNzMyM0M4LjExNzU2IC02LjIwNDczIDguMDIxOTIgLTYuMzAwMzcgNy44OTA0MSAtNi4zMDAzN0M3Ljg2NjUgLTYuMzAwMzcgNy44NTQ1NSAtNi4yODg0MiA3LjY4NzE3IC02LjIxNjY5TDEuMjE5NDMgLTMuMjM5ODVDMS4wMDQyMyAtMy4xNDQyMSAwLjk4MDMyNCAtMy4wNjA1MiAwLjk4MDMyNCAtMi45ODg3OUMwLjk4MDMyNCAtMi45MDUxMSAwLjk5MjI3OSAtMi44MzMzNyAxLjIxOTQzIC0yLjcyNTc4TDcuNjg3MTcgMC4yNTEwNTlDNy44NDI1OSAwLjMyMjc5IDcuODY2NSAwLjMzNDc0NSA3Ljg5MDQxIDAuMzM0NzQ1QzguMDIxOTIgMC4zMzQ3NDUgOC4xMTc1NiAwLjIzOTEwMyA4LjExNzU2IDAuMTA3NTk3QzguMTE3NTYgMC4wMzU4NjU1IDguMDkzNjUgLTAuMDQ3ODIwNyA3Ljg3ODQ2IC0wLjE0MzQ2MkwxLjcyMTU0IC0yLjk3Njg0TDcuODc4NDYgLTUuODIyMTdaJyBpZD0nZzAtNjAnLz4KPHBhdGggZD0nTTAuNTE0MDcyIDEuNTE4MzFDMC40MzAzODYgMS44NzY5NiAwLjM4MjU2NSAxLjk3MjYgLTAuMTA3NTk3IDEuOTcyNkMtMC4yNTEwNTkgMS45NzI2IC0wLjM3MDYxIDEuOTcyNiAtMC4zNzA2MSAyLjE5OTc1Qy0wLjM3MDYxIDIuMjIzNjYgLTAuMzU4NjU1IDIuMzE5MyAtMC4yMjcxNDggMi4zMTkzQy0wLjA3MTczMSAyLjMxOTMgMC4wOTU2NDEzIDIuMjk1MzkgMC4yNTEwNTkgMi4yOTUzOUgwLjc2NTEzMUMxLjAxNjE5IDIuMjk1MzkgMS42MjU5IDIuMzE5MyAxLjg3Njk2IDIuMzE5M0MxLjk0ODY5IDIuMzE5MyAyLjA5MjE1IDIuMzE5MyAyLjA5MjE1IDIuMTA0MTFDMi4wOTIxNSAxLjk3MjYgMi4wMDg0NyAxLjk3MjYgMS44MDUyMyAxLjk3MjZDMS4yNTUyOSAxLjk3MjYgMS4yMTk0MyAxLjg4ODkyIDEuMjE5NDMgMS43OTMyOEMxLjIxOTQzIDEuNjQ5ODEgMS43NTc0MSAtMC40MDY0NzYgMS44MjkxNCAtMC42ODE0NDVDMS45NjA2NSAtMC4zNDY3IDIuMjgzNDQgMC4xMTk1NTIgMi45MDUxMSAwLjExOTU1MkM0LjI1NjA0IDAuMTE5NTUyIDUuNzE0NTcgLTEuNjM3ODYgNS43MTQ1NyAtMy4zOTUyN0M1LjcxNDU3IC00LjQ5NTE0IDUuMDkyOSAtNS4yNzIyMyA0LjE5NjI2IC01LjI3MjIzQzMuNDMxMTMgLTUuMjcyMjMgMi43ODU1NSAtNC41MzEwMSAyLjY1NDA1IC00LjM2MzY0QzIuNTU4NDEgLTQuOTYxMzkgMi4wOTIxNSAtNS4yNzIyMyAxLjYxMzk1IC01LjI3MjIzQzEuMjY3MjUgLTUuMjcyMjMgMC45OTIyNzkgLTUuMTA0ODYgMC43NjUxMzEgLTQuNjUwNTZDMC41NDk5MzggLTQuMjIwMTcgMC4zODI1NjUgLTMuNDkwOTEgMC4zODI1NjUgLTMuNDQzMDlTMC40MzAzODYgLTMuMzM1NDkgMC41MTQwNzIgLTMuMzM1NDlDMC42MDk3MTQgLTMuMzM1NDkgMC42MjE2NjkgLTMuMzQ3NDUgMC42OTM0IC0zLjYyMjQyQzAuODcyNzI3IC00LjMyNzc3IDEuMDk5ODggLTUuMDMzMTMgMS41NzgwOCAtNS4wMzMxM0MxLjg1MzA1IC01LjAzMzEzIDEuOTQ4NjkgLTQuODQxODQgMS45NDg2OSAtNC40ODMxOUMxLjk0ODY5IC00LjE5NjI2IDEuOTEyODMgLTQuMDc2NzEgMS44NjUwMSAtMy44NjE1MkwwLjUxNDA3MiAxLjUxODMxWk0yLjU4MjMyIC0zLjczMDAxQzIuNjY2IC00LjA2NDc2IDMuMDAwNzUgLTQuNDExNDYgMy4xOTIwMyAtNC41Nzg4M0MzLjMyMzU0IC00LjY5ODM4IDMuNzE4MDYgLTUuMDMzMTMgNC4xNzIzNSAtNS4wMzMxM0M0LjY5ODM4IC01LjAzMzEzIDQuOTM3NDggLTQuNTA3MSA0LjkzNzQ4IC0zLjg4NTQzQzQuOTM3NDggLTMuMzExNTggNC42MDI3NCAtMS45NjA2NSA0LjMwMzg2IC0xLjMzODk4QzQuMDA0OTggLTAuNjkzNCAzLjQ1NTA0IC0wLjExOTU1MiAyLjkwNTExIC0wLjExOTU1MkMyLjA5MjE1IC0wLjExOTU1MiAxLjk2MDY1IC0xLjE0NzcgMS45NjA2NSAtMS4xOTU1MkMxLjk2MDY1IC0xLjIzMTM4IDEuOTg0NTYgLTEuMzI3MDIgMS45OTY1MSAtMS4zODY4TDIuNTgyMzIgLTMuNzMwMDFaJyBpZD0nZzAtMTEyJy8+CjxwYXRoIGQ9J001LjM1NTkyIC0zLjgyNTY1QzUuMzU1OTIgLTQuODE3OTMgNS4yOTYxNCAtNS43ODYzIDQuODY1NzUgLTYuNjk0ODlDNC4zNzU1OSAtNy42ODcxNyAzLjUxNDgyIC03Ljk1MDE5IDIuOTI5MDIgLTcuOTUwMTlDMi4yMzU2MiAtNy45NTAxOSAxLjM4NjggLTcuNjAzNDkgMC45NDQ0NTggLTYuNjExMjFDMC42MDk3MTQgLTUuODU4MDMgMC40OTAxNjIgLTUuMTE2ODEgMC40OTAxNjIgLTMuODI1NjVDMC40OTAxNjIgLTIuNjY2IDAuNTczODQ4IC0xLjc5MzI4IDEuMDA0MjMgLTAuOTQ0NDU4QzEuNDcwNDkgLTAuMDM1ODY1NSAyLjI5NTM5IDAuMjUxMDU5IDIuOTE3MDYgMC4yNTEwNTlDMy45NTcxNiAwLjI1MTA1OSA0LjU1NDkyIC0wLjM3MDYxIDQuOTAxNjIgLTEuMDY0MDFDNS4zMzIgLTEuOTYwNjUgNS4zNTU5MiAtMy4xMzIyNSA1LjM1NTkyIC0zLjgyNTY1Wk0yLjkxNzA2IDAuMDExOTU1MkMyLjUzNDUgMC4wMTE5NTUyIDEuNzU3NDEgLTAuMjAzMjM4IDEuNTMwMjYgLTEuNTA2MzVDMS4zOTg3NSAtMi4yMjM2NiAxLjM5ODc1IC0zLjEzMjI1IDEuMzk4NzUgLTMuOTY5MTJDMS4zOTg3NSAtNC45NDk0NCAxLjM5ODc1IC01LjgzNDEyIDEuNTkwMDQgLTYuNTM5NDhDMS43OTMyOCAtNy4zNDA0NyAyLjQwMjk5IC03LjcxMTA4IDIuOTE3MDYgLTcuNzExMDhDMy4zNzEzNiAtNy43MTEwOCA0LjA2NDc2IC03LjQzNjExIDQuMjkxOTEgLTYuNDA3OTdDNC40NDczMiAtNS43MjY1MyA0LjQ0NzMyIC00Ljc4MjA3IDQuNDQ3MzIgLTMuOTY5MTJDNC40NDczMiAtMy4xNjgxMiA0LjQ0NzMyIC0yLjI1OTUzIDQuMzE1ODIgLTEuNTMwMjZDNC4wODg2NyAtMC4yMTUxOTMgMy4zMzU0OSAwLjAxMTk1NTIgMi45MTcwNiAwLjAxMTk1NTJaJyBpZD0nZzEtNDgnLz4KPHBhdGggZD0nTTMuNDQzMDkgLTcuNjYzMjZDMy40NDMwOSAtNy45MzgyMyAzLjQ0MzA5IC03Ljk1MDE5IDMuMjAzOTkgLTcuOTUwMTlDMi45MTcwNiAtNy42Mjc0IDIuMzE5MyAtNy4xODUwNiAxLjA4NzkyIC03LjE4NTA2Vi02LjgzODM2QzEuMzYyODkgLTYuODM4MzYgMS45NjA2NSAtNi44MzgzNiAyLjYxODE4IC03LjE0OTE5Vi0wLjkyMDU0OEMyLjYxODE4IC0wLjQ5MDE2MiAyLjU4MjMyIC0wLjM0NjcgMS41MzAyNiAtMC4zNDY3SDEuMTU5NjVWMEMxLjQ4MjQ0IC0wLjAyMzkxMDMgMi42NDIwOSAtMC4wMjM5MTAzIDMuMDM2NjEgLTAuMDIzOTEwM1M0LjU3ODgzIC0wLjAyMzkxMDMgNC45MDE2MiAwVi0wLjM0NjdINC41MzEwMUMzLjQ3ODk1IC0wLjM0NjcgMy40NDMwOSAtMC40OTAxNjIgMy40NDMwOSAtMC45MjA1NDhWLTcuNjYzMjZaJyBpZD0nZzEtNDknLz4KPC9kZWZzPgo8ZyBpZD0ncGFnZTEnPgo8dXNlIHg9JzAnIHhsaW5rOmhyZWY9JyNnMS00OCcgeT0nMCcvPgo8dXNlIHg9JzkuMTUxOTUnIHhsaW5rOmhyZWY9JyNnMC02MCcgeT0nMCcvPgo8dXNlIHg9JzIxLjU0MzQnIHhsaW5rOmhyZWY9JyNnMC0xMTInIHk9JzAnLz4KPHVzZSB4PSczMC43MTc0JyB4bGluazpocmVmPScjZzAtNjAnIHk9JzAnLz4KPHVzZSB4PSc0My4xMDg5JyB4bGluazpocmVmPScjZzEtNDknIHk9JzAnLz4KPC9nPgo8L3N2Zz4KCjwhLS0gREVQVEg9MyAtLT4=" alt="0 &lt; p &lt; 1" style="vertical-align: -3px"/></span></dt><dd><p>Probability level</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setSeed">
+<span class="sig-name descname"><span class="pre">setSeed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seed accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Seed value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setShadowedId">
+<span class="sig-name descname"><span class="pre">setShadowedId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setShadowedId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.setVisibility">
+<span class="sig-name descname"><span class="pre">setVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.setVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.FieldMonteCarloAnalysis.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.FieldMonteCarloAnalysis.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.MonteCarloAnalysis.html"
+                          title="previous chapter">MonteCarloAnalysis</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.FieldMonteCarloResult.html"
+                          title="next chapter">FieldMonteCarloResult</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.FieldMonteCarloAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.FieldMonteCarloResult.html" title="FieldMonteCarloResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.MonteCarloAnalysis.html" title="MonteCarloAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FieldMonteCarloAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

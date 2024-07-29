@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataCleaning &#8212; Persalys 14.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MetaModel" href="persalys.MetaModel.html" />
+    <link rel="prev" title="DataModel" href="persalys.DataModel.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.MetaModel.html" title="MetaModel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataCleaning</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="datacleaning">
+<h1>DataCleaning<a class="headerlink" href="#datacleaning" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.DataCleaning">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">DataCleaning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning" title="Permalink to this definition">¶</a></dt>
+<dd><p>DataModel sample manipulation. Allows one to remove/replace irrelevant/erroneous values on-the-fly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample</strong><span class="classifier">openturns.Sample</span></dt><dd><p>Sample instance that requires cleaning. Original sample is copied and will not be modified. Use sample accessor for the modified sample version.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Sample</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">add</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cleaner</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataCleaning</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cleaner</span><span class="o">.</span><span class="n">removeAllNans</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cleaned_sample</span> <span class="o">=</span> <span class="n">cleaner</span><span class="o">.</span><span class="n">getSample</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.DataCleaning.thisown" title="persalys.DataCleaning.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataCleaning.analyseSample" title="persalys.DataCleaning.analyseSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">analyseSample</span></code></a>()</p></td>
+<td><p>Column by column sample analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataCleaning.computeGeometricMAD" title="persalys.DataCleaning.computeGeometricMAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeGeometricMAD</span></code></a>()</p></td>
+<td><p>Computes sample geometric median absolute deviation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataCleaning.computeMAD" title="persalys.DataCleaning.computeMAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeMAD</span></code></a>()</p></td>
+<td><p>Computes sample median absolute deviation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataCleaning.getClassName" title="persalys.DataCleaning.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataCleaning.getGeometricMAD" title="persalys.DataCleaning.getGeometricMAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getGeometricMAD</span></code></a>()</p></td>
+<td><p>Geom.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataCleaning.getMAD" title="persalys.DataCleaning.getMAD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMAD</span></code></a>()</p></td>
+<td><p>MAD accessor Returns ------- MAD : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataCleaning.getMean" title="persalys.DataCleaning.getMean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMean</span></code></a>()</p></td>
+<td><p>Mean accessor</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataCleaning.getMedian" title="persalys.DataCleaning.getMedian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMedian</span></code></a>()</p></td>
+<td><p>Median accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataCleaning.getNanNumbers" title="persalys.DataCleaning.getNanNumbers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getNanNumbers</span></code></a>()</p></td>
+<td><p>Returns number of Nans/Infs in each sample column Returns ------- nNans : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataCleaning.getSample" title="persalys.DataCleaning.getSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSample</span></code></a>()</p></td>
+<td><p>Sample accessor</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataCleaning.removeAllNans" title="persalys.DataCleaning.removeAllNans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeAllNans</span></code></a>()</p></td>
+<td><p>Removes Nans/Infs in sample</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataCleaning.removeNansByColumn" title="persalys.DataCleaning.removeNansByColumn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeNansByColumn</span></code></a>(col)</p></td>
+<td><p>Removes Nans/Infs in sample column</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataCleaning.replaceAllNans" title="persalys.DataCleaning.replaceAllNans"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replaceAllNans</span></code></a>(point)</p></td>
+<td><p>Replaces Nans/Infs in sample point by point values</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataCleaning.replaceNansByColumn" title="persalys.DataCleaning.replaceNansByColumn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replaceNansByColumn</span></code></a>(col, val)</p></td>
+<td><p>Replaces Nans/Infs in sample column by value</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.analyseSample">
+<span class="sig-name descname"><span class="pre">analyseSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.analyseSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Column by column sample analysis.
+Allows marginals mean/median computation by ignoring Nans/Infs.
+Evaluates number of Nans/Infs for each marginal</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.computeGeometricMAD">
+<span class="sig-name descname"><span class="pre">computeGeometricMAD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.computeGeometricMAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes sample geometric median absolute deviation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.computeMAD">
+<span class="sig-name descname"><span class="pre">computeMAD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.computeMAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes sample median absolute deviation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.getGeometricMAD">
+<span class="sig-name descname"><span class="pre">getGeometricMAD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.getGeometricMAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Geom. MAD accessor
+Returns
+——-
+geomMad : <code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Scalar</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.getMAD">
+<span class="sig-name descname"><span class="pre">getMAD</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.getMAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>MAD accessor
+Returns
+——-
+MAD : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.getMean">
+<span class="sig-name descname"><span class="pre">getMean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.getMean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean accessor</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mean</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.getMedian">
+<span class="sig-name descname"><span class="pre">getMedian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.getMedian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Median accessor</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>median</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.getNanNumbers">
+<span class="sig-name descname"><span class="pre">getNanNumbers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.getNanNumbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns number of Nans/Infs in each sample column
+Returns
+——-
+nNans : <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.getSample">
+<span class="sig-name descname"><span class="pre">getSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.getSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample accessor</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Sample associated to the DataCleaning API. Constructed from a copy of the original sample and edited on the fly.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.removeAllNans">
+<span class="sig-name descname"><span class="pre">removeAllNans</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.removeAllNans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes Nans/Infs in sample</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.removeNansByColumn">
+<span class="sig-name descname"><span class="pre">removeNansByColumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.removeNansByColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes Nans/Infs in sample column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>col</strong><span class="classifier">int</span></dt><dd><p>Column index to clean</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.replaceAllNans">
+<span class="sig-name descname"><span class="pre">replaceAllNans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.replaceAllNans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces Nans/Infs in sample point by point values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>point</strong><span class="classifier">openturns.Point</span></dt><dd><p>Replacement values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataCleaning.replaceNansByColumn">
+<span class="sig-name descname"><span class="pre">replaceNansByColumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataCleaning.replaceNansByColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces Nans/Infs in sample column by value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>col</strong><span class="classifier">int</span></dt><dd><p>Column index to clean</p>
+</dd>
+<dt><strong>val</strong><span class="classifier">openturns.Scalar</span></dt><dd><p>Replacement value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.DataCleaning.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.DataCleaning.thisown" title="Permalink to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.DataModel.html"
+                          title="previous chapter">DataModel</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.MetaModel.html"
+                          title="next chapter">MetaModel</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.DataCleaning.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.MetaModel.html" title="MetaModel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 14.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataCleaning</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>
