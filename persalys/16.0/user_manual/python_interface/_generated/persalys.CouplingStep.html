@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CouplingStep &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script src="../../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="CouplingPhysicalModel" href="persalys.CouplingPhysicalModel.html" />
+    <link rel="prev" title="CouplingOutputFile" href="persalys.CouplingOutputFile.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.CouplingPhysicalModel.html" title="CouplingPhysicalModel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.CouplingOutputFile.html" title="CouplingOutputFile"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CouplingStep</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="couplingstep">
+<h1>CouplingStep<a class="headerlink" href="#couplingstep" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.CouplingStep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">CouplingStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep" title="Link to this definition">¶</a></dt>
+<dd><p>Coupling step.</p>
+<p>Represents one step of the coupling with one command to execute and the
+associated input or output files.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>command</strong><span class="classifier">str</span></dt><dd><p>Command to execute
+By default it is run by the system else see <a class="reference internal" href="#persalys.CouplingStep.setIsShell" title="persalys.CouplingStep.setIsShell"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setIsShell()</span></code></a>.</p>
+</dd>
+<dt><strong>input_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingInputFile.html#persalys.CouplingInputFile" title="persalys.CouplingInputFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingInputFile</span></code></a></span></dt><dd><p>Input file metadatas</p>
+</dd>
+<dt><strong>resource_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingResourceFile.html#persalys.CouplingResourceFile" title="persalys.CouplingResourceFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingResourceFile</span></code></a></span></dt><dd><p>Resource file metadatas</p>
+</dd>
+<dt><strong>output_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingOutputFile.html#persalys.CouplingOutputFile" title="persalys.CouplingOutputFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingOutputFile</span></code></a></span></dt><dd><p>Output file metadatas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="persalys.CouplingPhysicalModel.html#persalys.CouplingPhysicalModel" title="persalys.CouplingPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingPhysicalModel</span></code></a>, <a class="reference internal" href="persalys.CouplingInputFile.html#persalys.CouplingInputFile" title="persalys.CouplingInputFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingInputFile</span></code></a>, <a class="reference internal" href="persalys.CouplingResourceFile.html#persalys.CouplingResourceFile" title="persalys.CouplingResourceFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingResourceFile</span></code></a>, <a class="reference internal" href="persalys.CouplingOutputFile.html#persalys.CouplingOutputFile" title="persalys.CouplingOutputFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingOutputFile</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.CouplingStep.thisown" title="persalys.CouplingStep.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.getClassName" title="persalys.CouplingStep.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.getCommand" title="persalys.CouplingStep.getCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCommand</span></code></a>()</p></td>
+<td><p>Path accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.getEnvironmentKeys" title="persalys.CouplingStep.getEnvironmentKeys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEnvironmentKeys</span></code></a>()</p></td>
+<td><p>Environment variables names accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.getEnvironmentValues" title="persalys.CouplingStep.getEnvironmentValues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEnvironmentValues</span></code></a>()</p></td>
+<td><p>Environment variables values accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.getId" title="persalys.CouplingStep.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object's id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.getInputFiles" title="persalys.CouplingStep.getInputFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputFiles</span></code></a>()</p></td>
+<td><p>Template path accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.getIsShell" title="persalys.CouplingStep.getIsShell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getIsShell</span></code></a>()</p></td>
+<td><p>Shell command property accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.getName" title="persalys.CouplingStep.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.getOutputFiles" title="persalys.CouplingStep.getOutputFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputFiles</span></code></a>()</p></td>
+<td><p>Variable names accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.getResourceFiles" title="persalys.CouplingStep.getResourceFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResourceFiles</span></code></a>()</p></td>
+<td><p>Template path accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.getShadowedId" title="persalys.CouplingStep.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.getVisibility" title="persalys.CouplingStep.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.hasName" title="persalys.CouplingStep.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.hasVisibleName" title="persalys.CouplingStep.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.setCommand" title="persalys.CouplingStep.setCommand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCommand</span></code></a>(command)</p></td>
+<td><p>Path accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.setEnvironment" title="persalys.CouplingStep.setEnvironment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setEnvironment</span></code></a>(keys, values)</p></td>
+<td><p>Environment dictionary accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.setInputFiles" title="persalys.CouplingStep.setInputFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputFiles</span></code></a>(inputFiles)</p></td>
+<td><p>Tokens accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.setIsShell" title="persalys.CouplingStep.setIsShell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setIsShell</span></code></a>(isShell)</p></td>
+<td><p>Shell command property accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.setName" title="persalys.CouplingStep.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.setOutputFiles" title="persalys.CouplingStep.setOutputFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputFiles</span></code></a>(outputFiles)</p></td>
+<td><p>Variable names accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.setResourceFiles" title="persalys.CouplingStep.setResourceFiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setResourceFiles</span></code></a>(inputFiles)</p></td>
+<td><p>Tokens accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.CouplingStep.setShadowedId" title="persalys.CouplingStep.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.CouplingStep.setVisibility" title="persalys.CouplingStep.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>getCode</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getEncoding</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getEscapedCode</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getPPInputs</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getPPOutputs</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getTimeOut</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setCode</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>setEncoding</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setTimeOut</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getCommand">
+<span class="sig-name descname"><span class="pre">getCommand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getCommand" title="Link to this definition">¶</a></dt>
+<dd><p>Path accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>path</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Path</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getEnvironmentKeys">
+<span class="sig-name descname"><span class="pre">getEnvironmentKeys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getEnvironmentKeys" title="Link to this definition">¶</a></dt>
+<dd><p>Environment variables names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>keys</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Dictionary keys matching environment variables name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getEnvironmentValues">
+<span class="sig-name descname"><span class="pre">getEnvironmentValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getEnvironmentValues" title="Link to this definition">¶</a></dt>
+<dd><p>Environment variables values accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>values</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Dictionary valuess matching environment variables values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getInputFiles">
+<span class="sig-name descname"><span class="pre">getInputFiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getInputFiles" title="Link to this definition">¶</a></dt>
+<dd><p>Template path accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>input_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingInputFile.html#persalys.CouplingInputFile" title="persalys.CouplingInputFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingInputFile</span></code></a></span></dt><dd><p>Input file metadatas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getIsShell">
+<span class="sig-name descname"><span class="pre">getIsShell</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getIsShell" title="Link to this definition">¶</a></dt>
+<dd><p>Shell command property accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>is_shell</strong><span class="classifier">bool</span></dt><dd><p>Whether the command should be interpreted by the shell</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getOutputFiles">
+<span class="sig-name descname"><span class="pre">getOutputFiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getOutputFiles" title="Link to this definition">¶</a></dt>
+<dd><p>Variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>output_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingOutputFile.html#persalys.CouplingOutputFile" title="persalys.CouplingOutputFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingOutputFile</span></code></a></span></dt><dd><p>Output file metadatas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getResourceFiles">
+<span class="sig-name descname"><span class="pre">getResourceFiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getResourceFiles" title="Link to this definition">¶</a></dt>
+<dd><p>Template path accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>resource_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingResourceFile.html#persalys.CouplingResourceFile" title="persalys.CouplingResourceFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingResourceFile</span></code></a></span></dt><dd><p>Resource file metadatas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getShadowedId">
+<span class="sig-name descname"><span class="pre">getShadowedId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.getVisibility">
+<span class="sig-name descname"><span class="pre">getVisibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.getVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.hasVisibleName">
+<span class="sig-name descname"><span class="pre">hasVisibleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.hasVisibleName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setCommand">
+<span class="sig-name descname"><span class="pre">setCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setCommand" title="Link to this definition">¶</a></dt>
+<dd><p>Path accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setEnvironment">
+<span class="sig-name descname"><span class="pre">setEnvironment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setEnvironment" title="Link to this definition">¶</a></dt>
+<dd><p>Environment dictionary accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>keys</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Dictionary keys matching environment variables names</p>
+</dd>
+<dt><strong>values</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Dictionary values matching environment variables values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setInputFiles">
+<span class="sig-name descname"><span class="pre">setInputFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputFiles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setInputFiles" title="Link to this definition">¶</a></dt>
+<dd><p>Tokens accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>input_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingInputFile.html#persalys.CouplingInputFile" title="persalys.CouplingInputFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingInputFile</span></code></a></span></dt><dd><p>Input file metadatas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setIsShell">
+<span class="sig-name descname"><span class="pre">setIsShell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isShell</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setIsShell" title="Link to this definition">¶</a></dt>
+<dd><p>Shell command property accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>is_shell</strong><span class="classifier">bool</span></dt><dd><p>Whether the command should be interpreted by the shell</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setOutputFiles">
+<span class="sig-name descname"><span class="pre">setOutputFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputFiles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setOutputFiles" title="Link to this definition">¶</a></dt>
+<dd><p>Variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>output_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingOutputFile.html#persalys.CouplingOutputFile" title="persalys.CouplingOutputFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingOutputFile</span></code></a></span></dt><dd><p>Output file metadatas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setResourceFiles">
+<span class="sig-name descname"><span class="pre">setResourceFiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputFiles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setResourceFiles" title="Link to this definition">¶</a></dt>
+<dd><p>Tokens accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>resource_files</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.CouplingResourceFile.html#persalys.CouplingResourceFile" title="persalys.CouplingResourceFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">CouplingResourceFile</span></code></a></span></dt><dd><p>Resource file metadatas</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setShadowedId">
+<span class="sig-name descname"><span class="pre">setShadowedId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.CouplingStep.setVisibility">
+<span class="sig-name descname"><span class="pre">setVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.CouplingStep.setVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.CouplingStep.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.CouplingStep.thisown" title="Link to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.CouplingOutputFile.html"
+                          title="previous chapter">CouplingOutputFile</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.CouplingPhysicalModel.html"
+                          title="next chapter">CouplingPhysicalModel</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.CouplingStep.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.CouplingPhysicalModel.html" title="CouplingPhysicalModel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.CouplingOutputFile.html" title="CouplingOutputFile"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CouplingStep</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

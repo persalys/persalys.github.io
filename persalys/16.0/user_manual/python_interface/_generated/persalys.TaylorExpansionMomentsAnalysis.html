@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TaylorExpansionMomentsAnalysis &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script src="../../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="TaylorExpansionMomentsResult" href="persalys.TaylorExpansionMomentsResult.html" />
+    <link rel="prev" title="FieldMonteCarloResult" href="persalys.FieldMonteCarloResult.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.TaylorExpansionMomentsResult.html" title="TaylorExpansionMomentsResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FieldMonteCarloResult.html" title="FieldMonteCarloResult"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">TaylorExpansionMomentsAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="taylorexpansionmomentsanalysis">
+<h1>TaylorExpansionMomentsAnalysis<a class="headerlink" href="#taylorexpansionmomentsanalysis" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">TaylorExpansionMomentsAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Get the Taylor expansions for moments estimation.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>physicalModel</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the Taylor expansion analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">TaylorExpansionMomentsAnalysis</span><span class="p">(</span><span class="s1">&#39;anAnalysis&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getMeanFirstOrder</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.thisown" title="persalys.TaylorExpansionMomentsAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getClassName" title="persalys.TaylorExpansionMomentsAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getErrorMessage" title="persalys.TaylorExpansionMomentsAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getId" title="persalys.TaylorExpansionMomentsAnalysis.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object's id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getInterestVariables" title="persalys.TaylorExpansionMomentsAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getName" title="persalys.TaylorExpansionMomentsAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getPhysicalModel" title="persalys.TaylorExpansionMomentsAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getPythonScript" title="persalys.TaylorExpansionMomentsAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getResult" title="persalys.TaylorExpansionMomentsAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Result accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getShadowedId" title="persalys.TaylorExpansionMomentsAnalysis.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getVisibility" title="persalys.TaylorExpansionMomentsAnalysis.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.getWarningMessage" title="persalys.TaylorExpansionMomentsAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.hasName" title="persalys.TaylorExpansionMomentsAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.hasValidResult" title="persalys.TaylorExpansionMomentsAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.hasVisibleName" title="persalys.TaylorExpansionMomentsAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.isReliabilityAnalysis" title="persalys.TaylorExpansionMomentsAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.isRunning" title="persalys.TaylorExpansionMomentsAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.run" title="persalys.TaylorExpansionMomentsAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.setInterestVariables" title="persalys.TaylorExpansionMomentsAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.setName" title="persalys.TaylorExpansionMomentsAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.setShadowedId" title="persalys.TaylorExpansionMomentsAnalysis.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.TaylorExpansionMomentsAnalysis.setVisibility" title="persalys.TaylorExpansionMomentsAnalysis.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getElapsedTime</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getParentObserver</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getErrorMessage">
+<span class="sig-name descname"><span class="pre">getErrorMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getErrorMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getInterestVariables">
+<span class="sig-name descname"><span class="pre">getInterestVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getPhysicalModel">
+<span class="sig-name descname"><span class="pre">getPhysicalModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getPhysicalModel" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getPythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getResult" title="Link to this definition">¶</a></dt>
+<dd><p>Result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.TaylorExpansionMomentsResult.html#persalys.TaylorExpansionMomentsResult" title="persalys.TaylorExpansionMomentsResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">TaylorExpansionMomentsResult</span></code></a></span></dt><dd><p>Result</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getShadowedId">
+<span class="sig-name descname"><span class="pre">getShadowedId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getVisibility">
+<span class="sig-name descname"><span class="pre">getVisibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.getWarningMessage">
+<span class="sig-name descname"><span class="pre">getWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.getWarningMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.hasValidResult">
+<span class="sig-name descname"><span class="pre">hasValidResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.hasValidResult" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.hasVisibleName">
+<span class="sig-name descname"><span class="pre">hasVisibleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.hasVisibleName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.isReliabilityAnalysis">
+<span class="sig-name descname"><span class="pre">isReliabilityAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.isReliabilityAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.isRunning">
+<span class="sig-name descname"><span class="pre">isRunning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.isRunning" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.run" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.setInterestVariables">
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.setShadowedId">
+<span class="sig-name descname"><span class="pre">setShadowedId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.setShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.setVisibility">
+<span class="sig-name descname"><span class="pre">setVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.setVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.TaylorExpansionMomentsAnalysis.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.TaylorExpansionMomentsAnalysis.thisown" title="Link to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.FieldMonteCarloResult.html"
+                          title="previous chapter">FieldMonteCarloResult</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.TaylorExpansionMomentsResult.html"
+                          title="next chapter">TaylorExpansionMomentsResult</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.TaylorExpansionMomentsAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.TaylorExpansionMomentsResult.html" title="TaylorExpansionMomentsResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FieldMonteCarloResult.html" title="FieldMonteCarloResult"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">TaylorExpansionMomentsAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

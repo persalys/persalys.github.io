@@ -1,0 +1,11 @@
+﻿KrigingAnalysisResult
+==============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: KrigingAnalysisResult
+
+   
+   .. automethod:: __init__
+   
+

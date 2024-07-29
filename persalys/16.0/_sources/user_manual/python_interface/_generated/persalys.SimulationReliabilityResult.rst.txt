@@ -1,0 +1,11 @@
+﻿SimulationReliabilityResult
+====================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SimulationReliabilityResult
+
+   
+   .. automethod:: __init__
+   
+

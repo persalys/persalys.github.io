@@ -1,0 +1,11 @@
+﻿SobolAnalysis
+======================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SobolAnalysis
+
+   
+   .. automethod:: __init__
+   
+

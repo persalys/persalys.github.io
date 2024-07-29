@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual - Field analyses &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script src="../../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual for the Python interface" href="../../python_interface/python_interface.html" />
+    <link rel="prev" title="User manual - Data analyses" href="../data_analysis/user_manual_data_analysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../python_interface/python_interface.html" title="User manual for the Python interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../data_analysis/user_manual_data_analysis.html" title="User manual - Data analyses"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Field analyses</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-manual-field-analyses">
+<h1>User manual - Field analyses<a class="headerlink" href="#user-manual-field-analyses" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>The interface allows one to launch the following types of field analysis:</dt><dd><ul class="simple">
+<li><p>Model evaluations</p></li>
+<li><p>Central tendency analysis</p></li>
+</ul>
+</dd>
+</dl>
+<section id="model-evaluation">
+<span id="fieldmodeleval"></span><h2>1- Model evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">¶</a></h2>
+<p>The user may evaluate the physical model for defined input values.</p>
+<dl>
+<dt>Create a new model evaluation through:</dt><dd><ul>
+<li><p>The <strong>Definition</strong> item in the context menu of the relevant model in the study tree</p>
+<img alt="../../../_images/physicalModelDefinitionContextMenu1.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu1.png" />
+</li>
+<li><p>The <strong>Model evaluation</strong> box of the model diagram</p>
+<img alt="../../../_images/model_diagram.png" class="align-center" src="../../../_images/model_diagram.png" />
+</li>
+<li><p>The <strong>New evaluation</strong> item in the context menu of the <strong>Evaluation</strong> section</p>
+<img alt="../../../_images/evaluation_contextMenu1.png" class="align-center" src="../../../_images/evaluation_contextMenu1.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<section id="definition">
+<span id="fieldmodelevalwizard"></span><h3>1-1 Definition<a class="headerlink" href="#definition" title="Link to this heading">¶</a></h3>
+<p>When this analysis is required, the following window appears to set its parameters.</p>
+<img alt="../../../_images/modelEvaluation.png" class="align-center" src="../../../_images/modelEvaluation.png" />
+<dl class="simple">
+<dt>When an evaluation is required, a window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>The outputs of interest (<strong>Select outputs</strong> - default: all outputs are evaluated).
+At least one variable must be selected to validate the window.</p></li>
+<li><p>The value of the input variables (default: value in the physical model definition).
+The values are expected to be floating points or integer.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="launch">
+<h3>1-2 Launch<a class="headerlink" href="#launch" title="Link to this heading">¶</a></h3>
+<p>When the «Model Evaluation» window is validated, a new element appears in the study
+tree, below <strong>Evaluation</strong>.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/evaluationWindow1.png" class="align-center" src="../../../_images/evaluationWindow1.png" />
+</section>
+<section id="results">
+<span id="fieldmodelevalresult"></span><h3>1-3 Results<a class="headerlink" href="#results" title="Link to this heading">¶</a></h3>
+<p>When the evaluation is finished, a result window appears.
+This window gathers the following tabs:</p>
+<ul>
+<li><p>The <strong>Result</strong> tab shows for the selected output (left column):</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Trajectory</strong> tab shows the output values versus the mesh vertices.</dt><dd><ul>
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select the points of trajectories</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/eval_window_trajectory.png" class="align-center" src="../../../_images/eval_window_trajectory.png" />
+<ul>
+<li><p>The <strong>Table</strong> tab presents the resulting output values for each mesh nodes.
+The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/eval_window_table_traj.png" class="align-center" src="../../../_images/eval_window_table_traj.png" />
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The <strong>Input</strong> tab shows:</p>
+<blockquote>
+<div><ul>
+<li><p>The <strong>Table</strong> tab reminds the input point. The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/eval_window_table_input.png" class="align-center" src="../../../_images/eval_window_table_input.png" />
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p></li>
+<li><p>The <strong>Model</strong> tab shows the model content used to perform the analysis.</p></li>
+</ul>
+</section>
+</section>
+<section id="central-tendency-analysis">
+<h2>2- Central tendency analysis<a class="headerlink" href="#central-tendency-analysis" title="Link to this heading">¶</a></h2>
+<p>The central tendency analysis can only be performed with the MonteCarlo sampling method.
+In order to perform a central tendency analysis, build first a <a class="reference internal" href="../probabilistic_analysis/user_manual_probabilistic_analysis.html#probamodel"><span class="std std-ref">probabilistic model</span></a>.</p>
+<dl>
+<dt>New central tendency analysis can be created thanks to:</dt><dd><ul>
+<li><p>the context menu of the probabilistic model item</p>
+<img alt="../../../_images/probabilisticModelContextMenu1.png" class="align-center" src="../../../_images/probabilisticModelContextMenu1.png" />
+</li>
+<li><p>the <strong>Central tendency</strong> box of the model diagram</p>
+<img alt="../../../_images/model_diagram.png" class="align-center" src="../../../_images/model_diagram.png" />
+</li>
+<li><p>the context menu of the <strong>Central tendency</strong> item (if it already exists)</p></li>
+</ul>
+</dd>
+</dl>
+<section id="fieldcentraltendencywizard">
+<span id="id1"></span><h3>2-1 Definition<a class="headerlink" href="#fieldcentraltendencywizard" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>When an analysis is required, a window appears, in order to set up:</dt><dd><ul class="simple">
+<li><p>the outputs of interest (<strong>Select outputs</strong> - default: all outputs are analyzed)</p></li>
+<li><dl class="simple">
+<dt><strong>Stopping criteria</strong> of the algorithm (Select at least one criterion to validate the window):</dt><dd><ul>
+<li><p>the maximum computation time in days(d), hours(h), minutes(m) or seconds(s) (default: one minute)</p></li>
+<li><p>the maximum sampling size (default: 10000, expected: integer)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Evaluation parameter</strong>: the block size – the number of runs launched simultaneously – for parallelization
+purposes (default=1; expected= integer). It must be less than the maximum sampling size.</p></li>
+<li><dl class="simple">
+<dt><strong>Advanced Parameters</strong> (default: hidden):</dt><dd><ul>
+<li><p>the <a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.KarhunenLoeveAlgorithm.html">Karhunen-Loeve</a>
+threshold (default: 1e-5, expected: float)</p></li>
+<li><p>the seed of the random generator (default: 0, positive integer expected)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/MC_wizard.png" class="align-center" src="../../../_images/MC_wizard.png" />
+</section>
+<section id="id2">
+<h3>2-2 Launch<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>When the <strong>Central tendency</strong> window is validated, a new element appears in the study
+tree, below <strong>Central tendency</strong>.</p>
+<dl class="simple">
+<dt>Its context menu has the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the analysis</p></li>
+<li><p><strong>Modify</strong>: Reopen the setting window to change the analysis parameters</p></li>
+<li><p><strong>Remove</strong>: Remove the analysis from the study</p></li>
+</ul>
+</dd>
+</dl>
+<p>This item is associated with a window showing the parameter list, a
+progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
+<img alt="../../../_images/MC_window.png" class="align-center" src="../../../_images/MC_window.png" />
+</section>
+<section id="fieldmontecarloresult">
+<span id="id3"></span><h3>2-3 Results<a class="headerlink" href="#fieldmontecarloresult" title="Link to this heading">¶</a></h3>
+<p>When the analysis is finished or stopped, a result window appears.</p>
+<p>The <strong>Trajectories</strong> tab, the <strong>Result/Table</strong> tab, the <strong>Bag chart</strong> tab, the <strong>Functional bag chart</strong> tab,
+the <strong>Input/Table</strong> tab and the <strong>Plot matrix</strong> tab
+are linked: when the user selects some points in one of these
+tabs, they are automatically selected in the other tabs.</p>
+<p>The results window gathers the following tabs:</p>
+<ul>
+<li><p>The <strong>Result</strong> tab shows for the selected output (left column):</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Trajectories</strong> tab shows for each input point, the output values versus the mesh vertices.</dt><dd><ul>
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the trajectories to display</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select the points of trajectories</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_trajectories.png" class="align-center" src="../../../_images/MC_window_trajectories.png" />
+<ul>
+<li><p>The <strong>Table</strong> tab presents the resulting output values for each input values (lines) and each mesh nodes (columns).
+The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_table_traj.png" class="align-center" src="../../../_images/MC_window_table_traj.png" />
+</li>
+<li><dl class="simple">
+<dt>the <strong>Bag chart</strong> tab shows the explained variance (PC2 (=second principal component) versus PC1 (=first principal component)).</dt><dd><ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_bagChart.png" class="align-center" src="../../../_images/MC_window_bagChart.png" />
+<ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Functional bag chart</strong> tab shows the 50% and 95% quantiles.</dt><dd><ul>
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select trajectories</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_FunctionalBagChart.png" class="align-center" src="../../../_images/MC_window_FunctionalBagChart.png" />
+<ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Mean trajectory</strong> tab shows the mean and 5% and 95% quantiles of the trajectories.</dt><dd><ul>
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the trajectories to display</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_meanTrajectories.png" class="align-center" src="../../../_images/MC_window_meanTrajectories.png" />
+</div></blockquote>
+</li>
+<li><p>The <strong>Input</strong> tab shows:</p>
+<blockquote>
+<div><ul>
+<li><p>The <strong>Table</strong> tab presents the input sample generated by the Monte Carlo sampling method.
+The table can be exported (<strong>Export</strong> button).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Table interactivity:</dt><dd><ul>
+<li><p>Left-click (optional: + Ctrl) on lines to select them</p></li>
+<li><p>Left-click on column header to sort values in ascending or descending order</p></li>
+<li><p>Left-click on a column header and drag it in another place to change columns order</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_table_input.png" class="align-center" src="../../../_images/MC_window_table_input.png" />
+</li>
+<li><p>The <strong>Plot matrix</strong> tab: histograms of the distribution of each variable (diagonal) and
+scatter plots between each couple of input variables (off-diagonal).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_plotMatrix_input.png" class="align-center" src="../../../_images/MC_window_plotMatrix_input.png" />
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The <strong>Decomposition</strong> tab shows the result of the Karhunen-Loeve decomposition, for the selected
+output (left column):</p>
+<blockquote>
+<div><ul>
+<li><p>the <strong>Modes</strong> tab shows the modes of the Karhunen Loeve decomposition.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the trajectories to display</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select the points of trajectories</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_modes.png" class="align-center" src="../../../_images/MC_window_modes.png" />
+<ul>
+<li><p>The <strong>Eigenvalues</strong> tab presents the eigenvalues of the modes and a plot of the cumulative eigenvalue sum.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the trajectories to display</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_eigenvalues.png" class="align-center" src="../../../_images/MC_window_eigenvalues.png" />
+</div></blockquote>
+</li>
+<li><p>the <strong>ξi</strong> tab shows the projections of the trajectories in the Karhunen-Loeve decomposition:</p>
+<ul>
+<li><p>the <strong>PDF/CDF</strong> tab presents the PDF/CDF of the <strong>ξi</strong> sample
+together with the distribution PDF</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters and
+select the <strong>ξi</strong> and the graphic type: PDF or CDF (default: PDF)</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select the points of trajectories</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_ksi_pdf.png" class="align-center" src="../../../_images/MC_window_ksi_pdf.png" />
+</li>
+<li><p>The <strong>Plot matrix</strong> tab: histograms of the distribution of each variable (diagonal) and
+scatter plots between each couple of <strong>ξi</strong> variables (off-diagonal).</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#firstgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Right-click to select points</p></li>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_ksi_plotMatrix.png" class="align-center" src="../../../_images/MC_window_ksi_plotMatrix.png" />
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The <strong>Correlation</strong> tab presents the empirical correlation of the output between the nodes of the mesh.</p>
+<ul class="simple">
+<li><p>Use the <a class="reference internal" href="../getting_started/user_manual_getting_started.html#secondgraphsettings"><span class="std std-ref">Graph settings</span></a> window to set up graphical parameters.</p></li>
+<li><dl class="simple">
+<dt>Graph interactivity:</dt><dd><ul>
+<li><p>Left-click to translate the graph</p></li>
+<li><p>Mouse wheel up/down to zoom in/zoom out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="../../../_images/MC_window_correlation.png" class="align-center" src="../../../_images/MC_window_correlation.png" />
+</li>
+<li><p>The <strong>Parameters</strong> tab reminds the user of all the parameters values to perform the analysis.</p></li>
+<li><p>The <strong>Model</strong> tab shows the model content used to perform the analysis.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User manual - Field analyses</a><ul>
+<li><a class="reference internal" href="#model-evaluation">1- Model evaluation</a><ul>
+<li><a class="reference internal" href="#definition">1-1 Definition</a></li>
+<li><a class="reference internal" href="#launch">1-2 Launch</a></li>
+<li><a class="reference internal" href="#results">1-3 Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#central-tendency-analysis">2- Central tendency analysis</a><ul>
+<li><a class="reference internal" href="#fieldcentraltendencywizard">2-1 Definition</a></li>
+<li><a class="reference internal" href="#id2">2-2 Launch</a></li>
+<li><a class="reference internal" href="#fieldmontecarloresult">2-3 Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../data_analysis/user_manual_data_analysis.html"
+                          title="previous chapter">User manual - Data analyses</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../../python_interface/python_interface.html"
+                          title="next chapter">User manual for the Python interface</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/field_analysis/user_manual_field_analysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../python_interface/python_interface.html" title="User manual for the Python interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../data_analysis/user_manual_data_analysis.html" title="User manual - Data analyses"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Field analyses</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

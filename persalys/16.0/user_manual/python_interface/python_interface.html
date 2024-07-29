@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual for the Python interface &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    
+    <script src="../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Variable" href="_generated/persalys.Variable.html" />
+    <link rel="prev" title="User manual - Field analyses" href="../graphical_interface/field_analysis/user_manual_field_analysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="_generated/persalys.Variable.html" title="Variable"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../graphical_interface/field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../user_manual.html" accesskey="U">User manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual for the Python interface</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-manual-for-the-python-interface">
+<h1>User manual for the Python interface<a class="headerlink" href="#user-manual-for-the-python-interface" title="Link to this heading">¶</a></h1>
+<section id="model-creation">
+<h2>Model creation<a class="headerlink" href="#model-creation" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.Variable.html#persalys.Variable" title="persalys.Variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Variable</span></code></a>(*args)</p></td>
+<td><p>Create a variable base class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Input</span></code></a>(*args)</p></td>
+<td><p>Create an input variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Output</span></code></a>(*args)</p></td>
+<td><p>Create an output variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshModel</span></code></a>(*args)</p></td>
+<td><p>Create a mesh model base class.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.GridMeshModel.html#persalys.GridMeshModel" title="persalys.GridMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridMeshModel</span></code></a>(*args)</p></td>
+<td><p>Create a model to build regular meshes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.ImportedMeshModel.html#persalys.ImportedMeshModel" title="persalys.ImportedMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImportedMeshModel</span></code></a>(*args)</p></td>
+<td><p>Create a model with imported meshes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a>(*args)</p></td>
+<td><p>Physical model base class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.SymbolicPhysicalModel.html#persalys.SymbolicPhysicalModel" title="persalys.SymbolicPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SymbolicPhysicalModel</span></code></a>(*args)</p></td>
+<td><p>Create a physical model defined by analytical formulas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.SymbolicFieldModel.html#persalys.SymbolicFieldModel" title="persalys.SymbolicFieldModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SymbolicFieldModel</span></code></a>(*args)</p></td>
+<td><p>Create a physical model defined by analytical formulas and a mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.PythonPhysicalModel.html#persalys.PythonPhysicalModel" title="persalys.PythonPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonPhysicalModel</span></code></a>(*args)</p></td>
+<td><p>Create a physical model defined by Python code.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.PythonFieldModel.html#persalys.PythonFieldModel" title="persalys.PythonFieldModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PythonFieldModel</span></code></a>(*args)</p></td>
+<td><p>Create a physical model defined by Python code and a mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.FMIPhysicalModel.html#persalys.FMIPhysicalModel" title="persalys.FMIPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FMIPhysicalModel</span></code></a>(*args)</p></td>
+<td><p>Physical model defined by a FMI scheme.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.DataModel.html#persalys.DataModel" title="persalys.DataModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataModel</span></code></a>(*args)</p></td>
+<td><p>Create a data model from an imported dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.DataCleaning.html#persalys.DataCleaning" title="persalys.DataCleaning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataCleaning</span></code></a>(*args)</p></td>
+<td><p>DataModel sample manipulation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.MetaModel.html#persalys.MetaModel" title="persalys.MetaModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaModel</span></code></a>(*args)</p></td>
+<td><p>Metamodel.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="coupling-model">
+<h2>Coupling model<a class="headerlink" href="#coupling-model" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CouplingInputFile.html#persalys.CouplingInputFile" title="persalys.CouplingInputFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingInputFile</span></code></a>(*args)</p></td>
+<td><p>Input file metadata for coupling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.CouplingResourceFile.html#persalys.CouplingResourceFile" title="persalys.CouplingResourceFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingResourceFile</span></code></a>(*args)</p></td>
+<td><p>Resource file metadata for coupling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CouplingOutputFile.html#persalys.CouplingOutputFile" title="persalys.CouplingOutputFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingOutputFile</span></code></a>(*args)</p></td>
+<td><p>Output file metadata for coupling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.CouplingStep.html#persalys.CouplingStep" title="persalys.CouplingStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingStep</span></code></a>(*args)</p></td>
+<td><p>Coupling step.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CouplingPhysicalModel.html#persalys.CouplingPhysicalModel" title="persalys.CouplingPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingPhysicalModel</span></code></a>(*args)</p></td>
+<td><p>File-exchange based coupling model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.AnsysParser.html#persalys.AnsysParser" title="persalys.AnsysParser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AnsysParser</span></code></a>(*args)</p></td>
+<td><p>Class used to read Ansys project files.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="model-evaluation">
+<h2>Model evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.ModelEvaluation.html#persalys.ModelEvaluation" title="persalys.ModelEvaluation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelEvaluation</span></code></a>(*args)</p></td>
+<td><p>Generate a simple evaluation of a model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.FieldModelEvaluation.html#persalys.FieldModelEvaluation" title="persalys.FieldModelEvaluation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FieldModelEvaluation</span></code></a>(*args)</p></td>
+<td><p>Generate the evaluation of a model with mesh.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="optimization">
+<h2>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.OptimizationAnalysis.html#persalys.OptimizationAnalysis" title="persalys.OptimizationAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OptimizationAnalysis</span></code></a>(*args)</p></td>
+<td><p>Perform the optimization analysis of a model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.MultiObjectiveOptimizationAnalysis.html#persalys.MultiObjectiveOptimizationAnalysis" title="persalys.MultiObjectiveOptimizationAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiObjectiveOptimizationAnalysis</span></code></a>(*args)</p></td>
+<td><p>Perform the multi-objective optimization analysis of a model.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="screening">
+<h2>Screening<a class="headerlink" href="#screening" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.MorrisAnalysis.html#persalys.MorrisAnalysis" title="persalys.MorrisAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MorrisAnalysis</span></code></a>(*args)</p></td>
+<td><p>Perform a Morris analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.MorrisResult.html#persalys.MorrisResult" title="persalys.MorrisResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MorrisResult</span></code></a>(*args)</p></td>
+<td><p>Get the result of a Morris analysis.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="calibration">
+<h2>Calibration<a class="headerlink" href="#calibration" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.Observations.html#persalys.Observations" title="persalys.Observations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Observations</span></code></a>(*args)</p></td>
+<td><p>Create observations for variables of a model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.CalibrationAnalysis.html#persalys.CalibrationAnalysis" title="persalys.CalibrationAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibrationAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run a calibration analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CalibrationAnalysisResult.html#persalys.CalibrationAnalysisResult" title="persalys.CalibrationAnalysisResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CalibrationAnalysisResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a calibration analysis.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="probabilistic-studies">
+<h2>Probabilistic studies<a class="headerlink" href="#probabilistic-studies" title="Link to this heading">¶</a></h2>
+<section id="central-tendency">
+<h3>Central tendency<a class="headerlink" href="#central-tendency" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.MonteCarloAnalysis.html#persalys.MonteCarloAnalysis" title="persalys.MonteCarloAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MonteCarloAnalysis</span></code></a>(*args)</p></td>
+<td><p>Perform a Monte Carlo central tendency analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.FieldMonteCarloAnalysis.html#persalys.FieldMonteCarloAnalysis" title="persalys.FieldMonteCarloAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FieldMonteCarloAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run a Monte Carlo analysis for models with mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.FieldMonteCarloResult.html#persalys.FieldMonteCarloResult" title="persalys.FieldMonteCarloResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FieldMonteCarloResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a Monte Carlo analysis with mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.TaylorExpansionMomentsAnalysis.html#persalys.TaylorExpansionMomentsAnalysis" title="persalys.TaylorExpansionMomentsAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaylorExpansionMomentsAnalysis</span></code></a>(*args)</p></td>
+<td><p>Get the Taylor expansions for moments estimation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.TaylorExpansionMomentsResult.html#persalys.TaylorExpansionMomentsResult" title="persalys.TaylorExpansionMomentsResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TaylorExpansionMomentsResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of Taylor expansions for moments estimation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sensitivity-analysis">
+<h3>Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.SobolAnalysis.html#persalys.SobolAnalysis" title="persalys.SobolAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SobolAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run a Sobol sensitivity analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.SobolResult.html#persalys.SobolResult" title="persalys.SobolResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SobolResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a Sobol sensitivity analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.SRCAnalysis.html#persalys.SRCAnalysis" title="persalys.SRCAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SRCAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run a SRC sensitivity analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.SRCResult.html#persalys.SRCResult" title="persalys.SRCResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SRCResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a SRC sensitivity analysis.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="reliability-model">
+<h2>Reliability model<a class="headerlink" href="#reliability-model" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.LimitState.html#persalys.LimitState" title="persalys.LimitState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LimitState</span></code></a>(*args)</p></td>
+<td><p>Create a limit state.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reliability-analysis">
+<h2>Reliability analysis<a class="headerlink" href="#reliability-analysis" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.MonteCarloReliabilityAnalysis.html#persalys.MonteCarloReliabilityAnalysis" title="persalys.MonteCarloReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MonteCarloReliabilityAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run a reliability analysis using the Monte Carlo method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.FORMImportanceSamplingAnalysis.html#persalys.FORMImportanceSamplingAnalysis" title="persalys.FORMImportanceSamplingAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FORMImportanceSamplingAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run a FORM analysis followed by an importance sampling for reliability analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.ImportanceSamplingAnalysis.html#persalys.ImportanceSamplingAnalysis" title="persalys.ImportanceSamplingAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImportanceSamplingAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run importance sampling for reliability analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.FORMAnalysis.html#persalys.FORMAnalysis" title="persalys.FORMAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FORMAnalysis</span></code></a>(*args)</p></td>
+<td><p>Process a reliability analysis using the FORM method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.SORMAnalysis.html#persalys.SORMAnalysis" title="persalys.SORMAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SORMAnalysis</span></code></a>(*args)</p></td>
+<td><p>Run a reliability analysis using the SORM method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.SimulationReliabilityResult.html#persalys.SimulationReliabilityResult" title="persalys.SimulationReliabilityResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SimulationReliabilityResult</span></code></a>(*args)</p></td>
+<td><p>Get simulation results from a reliability analysis using Monte Carlo or Importance Sampling method.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="design-of-experiments">
+<h2>Design of experiments<a class="headerlink" href="#design-of-experiments" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a>(*args)</p></td>
+<td><p>Design of experiments base class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.FixedDesignOfExperiment.html#persalys.FixedDesignOfExperiment" title="persalys.FixedDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedDesignOfExperiment</span></code></a>(*args)</p></td>
+<td><p>Create a fixed design of experiments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.GridDesignOfExperiment.html#persalys.GridDesignOfExperiment" title="persalys.GridDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridDesignOfExperiment</span></code></a>(*args)</p></td>
+<td><p>Create a grid design of experiments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.ImportedDesignOfExperiment.html#persalys.ImportedDesignOfExperiment" title="persalys.ImportedDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImportedDesignOfExperiment</span></code></a>(*args)</p></td>
+<td><p>Create a design of experiments, using an imported design.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.ProbabilisticDesignOfExperiment.html#persalys.ProbabilisticDesignOfExperiment" title="persalys.ProbabilisticDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProbabilisticDesignOfExperiment</span></code></a>(*args)</p></td>
+<td><p>Create a probabilistic design of experiments.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-analysis">
+<h2>Data analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.DataAnalysis.html#persalys.DataAnalysis" title="persalys.DataAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataAnalysis</span></code></a>(*args)</p></td>
+<td><p>Create a data analysis of a design of experiments.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.DataAnalysisResult.html#persalys.DataAnalysisResult" title="persalys.DataAnalysisResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataAnalysisResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a data analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.InferenceAnalysis.html#persalys.InferenceAnalysis" title="persalys.InferenceAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceAnalysis</span></code></a>(*args)</p></td>
+<td><p>Perform a Kolmogorov goodness-of-fit test for 1-D continuous distributions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.InferenceResult.html#persalys.InferenceResult" title="persalys.InferenceResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InferenceResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of an inference analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.FittingTestResult.html#persalys.FittingTestResult" title="persalys.FittingTestResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FittingTestResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a fitting test.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.CopulaInferenceAnalysis.html#persalys.CopulaInferenceAnalysis" title="persalys.CopulaInferenceAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CopulaInferenceAnalysis</span></code></a>(*args)</p></td>
+<td><p>Perform a dependence inference analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.CopulaInferenceResult.html#persalys.CopulaInferenceResult" title="persalys.CopulaInferenceResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CopulaInferenceResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a dependence inference analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.CopulaInferenceSetResult.html#persalys.CopulaInferenceSetResult" title="persalys.CopulaInferenceSetResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CopulaInferenceSetResult</span></code></a>(*args)</p></td>
+<td><p>Dependence inference result for a set of variables.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metamodel">
+<h2>Metamodel<a class="headerlink" href="#metamodel" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.MetaModelAnalysis.html#persalys.MetaModelAnalysis" title="persalys.MetaModelAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaModelAnalysis</span></code></a>(*args)</p></td>
+<td><p>Create a base class for the creation of meta models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.MetaModelAnalysisResult.html#persalys.MetaModelAnalysisResult" title="persalys.MetaModelAnalysisResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaModelAnalysisResult</span></code></a>(*args)</p></td>
+<td><p>Create the base class for a metamodel analysis result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.MetaModelValidationResult.html#persalys.MetaModelValidationResult" title="persalys.MetaModelValidationResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaModelValidationResult</span></code></a>(*args)</p></td>
+<td><p>Create the base class for the results of a metamodel validation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.PolynomialRegressionAnalysis.html#persalys.PolynomialRegressionAnalysis" title="persalys.PolynomialRegressionAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolynomialRegressionAnalysis</span></code></a>(*args)</p></td>
+<td><p>Polynomial stepwise regression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.PolynomialRegressionAnalysisResult.html#persalys.PolynomialRegressionAnalysisResult" title="persalys.PolynomialRegressionAnalysisResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolynomialRegressionAnalysisResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a Linear model analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.FunctionalChaosAnalysis.html#persalys.FunctionalChaosAnalysis" title="persalys.FunctionalChaosAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FunctionalChaosAnalysis</span></code></a>(*args)</p></td>
+<td><p>Create a Functional chaos analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.FunctionalChaosAnalysisResult.html#persalys.FunctionalChaosAnalysisResult" title="persalys.FunctionalChaosAnalysisResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FunctionalChaosAnalysisResult</span></code></a>(*args)</p></td>
+<td><p>Get the results for a Functional chaos analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_generated/persalys.KrigingAnalysis.html#persalys.KrigingAnalysis" title="persalys.KrigingAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KrigingAnalysis</span></code></a>(*args)</p></td>
+<td><p>Create a Kriging analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.KrigingAnalysisResult.html#persalys.KrigingAnalysisResult" title="persalys.KrigingAnalysisResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KrigingAnalysisResult</span></code></a>(*args)</p></td>
+<td><p>Get the results of a Kriging analysis.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="study-storage">
+<h2>Study storage<a class="headerlink" href="#study-storage" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.Study.html#persalys.Study" title="persalys.Study"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Study</span></code></a>(*args)</p></td>
+<td><p>Create the class to store a study.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="function-caching">
+<h2>Function caching<a class="headerlink" href="#function-caching" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_generated/persalys.FileMemoizeFunction.html#persalys.FileMemoizeFunction" title="persalys.FileMemoizeFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileMemoizeFunction</span></code></a>(*args)</p></td>
+<td><p>Function proxy with a CSV file cache.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User manual for the Python interface</a><ul>
+<li><a class="reference internal" href="#model-creation">Model creation</a></li>
+<li><a class="reference internal" href="#coupling-model">Coupling model</a></li>
+<li><a class="reference internal" href="#model-evaluation">Model evaluation</a></li>
+<li><a class="reference internal" href="#optimization">Optimization</a></li>
+<li><a class="reference internal" href="#screening">Screening</a></li>
+<li><a class="reference internal" href="#calibration">Calibration</a></li>
+<li><a class="reference internal" href="#probabilistic-studies">Probabilistic studies</a><ul>
+<li><a class="reference internal" href="#central-tendency">Central tendency</a></li>
+<li><a class="reference internal" href="#sensitivity-analysis">Sensitivity analysis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reliability-model">Reliability model</a></li>
+<li><a class="reference internal" href="#reliability-analysis">Reliability analysis</a></li>
+<li><a class="reference internal" href="#design-of-experiments">Design of experiments</a></li>
+<li><a class="reference internal" href="#data-analysis">Data analysis</a></li>
+<li><a class="reference internal" href="#metamodel">Metamodel</a></li>
+<li><a class="reference internal" href="#study-storage">Study storage</a></li>
+<li><a class="reference internal" href="#function-caching">Function caching</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../graphical_interface/field_analysis/user_manual_field_analysis.html"
+                          title="previous chapter">User manual - Field analyses</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="_generated/persalys.Variable.html"
+                          title="next chapter">Variable</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user_manual/python_interface/python_interface.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="_generated/persalys.Variable.html" title="Variable"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../graphical_interface/field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../user_manual.html" >User manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual for the Python interface</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

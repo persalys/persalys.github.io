@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual - Define a physical model &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script src="../../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Define a field model" href="../field_model/user_manual_field_model.html" />
+    <link rel="prev" title="User manual - First steps" href="../getting_started/user_manual_getting_started.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../field_model/user_manual_field_model.html" title="User manual - Define a field model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../getting_started/user_manual_getting_started.html" title="User manual - First steps"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a physical model</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-manual-define-a-physical-model">
+<h1>User manual - Define a physical model<a class="headerlink" href="#user-manual-define-a-physical-model" title="Link to this heading">¶</a></h1>
+<p>This section introduces the models defined with a vectorial function.</p>
+<dl class="simple">
+<dt>Several types of physical models are available:</dt><dd><ul class="simple">
+<li><p><strong>Symbolic model</strong>: Physical model defined with analytical formulas</p></li>
+<li><p><strong>Python model</strong>: Physical model defined with a Python script</p></li>
+<li><p><strong>Coupling model</strong>: Physical model to wrap an external code using file-exchange</p></li>
+<li><p><strong>YACS model</strong>: Physical model defined with a YACS scheme (optional)</p></li>
+<li><p><strong>FMI model</strong>: Physical model defined with a FMU file (optional)</p></li>
+</ul>
+</dd>
+</dl>
+<section id="creation">
+<h2>1- Creation<a class="headerlink" href="#creation" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>There are several ways to create a new model:</dt><dd><ul>
+<li><p>Select an item in the context menu of the study item</p>
+<img alt="../../../_images/studyItemContextMenu.png" class="align-center" src="../../../_images/studyItemContextMenu.png" />
+</li>
+<li><p>Click on a button of the study window</p>
+<img alt="../../../_images/studyWindowButtons.png" class="align-center" src="../../../_images/studyWindowButtons.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>The creation of a physical model adds a new element in the study tree, below the <strong>Physical models</strong> section.</p>
+<dl class="simple">
+<dt>Different actions are available through the context menu of the model (by right click):</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the model</p></li>
+<li><p><strong>Define the model</strong>: Open a new window to define the model</p></li>
+<li><p><strong>Duplicate the model</strong>: Create a copy of the model in the study tree</p></li>
+<li><p><strong>Remove</strong>: Remove the model and all the analyses depending on it</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/physicalModelNameContextMenu.png" class="align-center" src="../../../_images/physicalModelNameContextMenu.png" />
+<p id="vectmodeldiagram">The item is associated with a <strong>Study workflow</strong> window.</p>
+<img alt="../../../_images/physicalModelDiagram.png" class="align-center" src="../../../_images/physicalModelDiagram.png" />
+<p>This diagram displays the possible actions an user can perform in real time. An action
+is active when its box is in dark green and when a previous one is valid. A box is disabled when its box
+is in light green, and the previous one is not valid.
+When the mouse pointer is hovered over a box, an information message appears at the bottom of
+the window in order to specify what sort of actions the box proposes. If the box is disabled the
+message indicates why the previous one is not valid.</p>
+<p>On the screenshot above, the mouse points over the <strong>Probabilistic model definition</strong> box: here the
+action is <strong>Define stochastic input variables and the dependence</strong> (below the main window), but
+this action is available only if the user defines at least one input variable in the physical model. So,
+here the only option of the user is to complete the model.</p>
+</section>
+<section id="definition">
+<h2>2- Definition<a class="headerlink" href="#definition" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>To define a physical model:</dt><dd><ul>
+<li><p>Select <strong>Define the model</strong> in the context menu of the model item</p>
+<img alt="../../../_images/physicalModelNameContextMenu.png" class="align-center" src="../../../_images/physicalModelNameContextMenu.png" />
+</li>
+<li><p>Click on the <strong>Model definition</strong> box of the model diagram</p>
+<img alt="../../../_images/modeldefBox.png" class="align-center" src="../../../_images/modeldefBox.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>When the definition is required, a new item named <strong>Definition</strong> appears in the study tree.</p>
+<dl class="simple">
+<dt>Its context menu proposes these actions:</dt><dd><ul class="simple">
+<li><p><strong>Probabilistic model</strong>: Create stochastic input variables and dependence</p></li>
+<li><p><strong>Observations</strong>: Import observations of variables of the model</p></li>
+<li><p><strong>Design of experiments</strong>: Create a new design of experiments</p></li>
+<li><p><strong>Evaluation</strong>: Evaluate the model at a point</p></li>
+<li><p><strong>Screening</strong>: Perform a screening analysis</p></li>
+<li><p><strong>Optimization</strong>: Perform an optimization</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/physicalModelDefinitionContextMenu.png" class="align-center" src="../../../_images/physicalModelDefinitionContextMenu.png" />
+<p>The new item <strong>Definition</strong> is associated with a window in the main frame, whose title is the name of
+the chosen physical model. In this window, the user can specify the model variables (<strong>Definition</strong> tab)
+and the finite difference step of each variable (<strong>Differentiation</strong> tab).</p>
+<section id="symbolic-model-define-a-physical-model-with-analytical-formulas">
+<span id="vectsymbolicmodel"></span><h3>2-1 <em>Symbolic model</em>: define a physical model with analytical formulas<a class="headerlink" href="#symbolic-model-define-a-physical-model-with-analytical-formulas" title="Link to this heading">¶</a></h3>
+<img alt="../../../_images/symbolicPhysicalModel.png" class="align-center" src="../../../_images/symbolicPhysicalModel.png" />
+<dl class="simple">
+<dt>Define variables in the <strong>Definition</strong> tab:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Inputs</strong> section allows one to:</dt><dd><ul>
+<li><p>Add/remove inputs (<strong>Add</strong>/<strong>Remove</strong> button)</p></li>
+<li><p>Rename variables (default: (X0, X1, …), expected: string (alphanumeric characters only)) (<strong>Name</strong> column)</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Assign a value to the inputs (default: 0, expected: floating points or integers) (<strong>Value</strong> column)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Outputs</strong> section allows one to:</dt><dd><ul>
+<li><p>Add/remove outputs (<strong>Add</strong>/<strong>Remove</strong> button)</p></li>
+<li><p>Enable/disable one or several variables, by checking off the corresponding line (default: all output lines are checked off).
+To perform the analyses, at least one output must be selected.</p></li>
+<li><p>Rename variables (default: (Y0, Y1, …), expected: string (alphanumeric characters only)) (<strong>Name</strong> column)</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Define the mathematical relationships between the input and output variables (<strong>Formula</strong> column).
+Note that the language used here differs from Python (see corresponding syntax for operators,
+mathematical functions and constants below).</p></li>
+<li><p>Launch the computation of the selected output values based on inputs and formula (<strong>Check model</strong> button).
+It shall be used to test the physical model. To save the output values, the user
+should use a <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<section id="available-operators">
+<span id="availablesymbolsmodel"></span><h4>Available operators<a class="headerlink" href="#available-operators" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>= (assignment)</p></li>
+<li><p>&lt;= (less or equal)</p></li>
+<li><p>&gt;= (greater or equal)</p></li>
+<li><p>!= (not equal)</p></li>
+<li><p>== (equal)</p></li>
+<li><p>&gt; (greater than)</p></li>
+<li><p>&lt; (less than)</p></li>
+<li><p>+ (addition)</p></li>
+<li><p>- (subtraction)</p></li>
+<li><p>* (multiplication)</p></li>
+<li><p>/ (division)</p></li>
+<li><p>^ (raise x to the power of y)</p></li>
+</ul>
+</section>
+<section id="available-functions">
+<h4>Available functions<a class="headerlink" href="#available-functions" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>sin</p></li>
+<li><p>cos</p></li>
+<li><p>tan</p></li>
+<li><p>asin</p></li>
+<li><p>acos</p></li>
+<li><p>atan</p></li>
+<li><p>sinh</p></li>
+<li><p>cosh</p></li>
+<li><p>tanh</p></li>
+<li><p>asinh</p></li>
+<li><p>acosh</p></li>
+<li><p>atanh</p></li>
+<li><p>log2</p></li>
+<li><p>log10</p></li>
+<li><p>log</p></li>
+<li><p>ln</p></li>
+<li><p>lngamma</p></li>
+<li><p>gamma</p></li>
+<li><p>exp</p></li>
+<li><p>erf</p></li>
+<li><p>erfc</p></li>
+<li><p>sqrt</p></li>
+<li><p>cbrt</p></li>
+<li><p>besselJ0</p></li>
+<li><p>besselJ1</p></li>
+<li><p>besselY0</p></li>
+<li><p>besselY1</p></li>
+<li><p>sign</p></li>
+<li><p>rint</p></li>
+<li><p>abs</p></li>
+<li><p>min</p></li>
+<li><p>max</p></li>
+<li><p>avg</p></li>
+<li><p>sum</p></li>
+<li><p>floor</p></li>
+<li><p>ceil</p></li>
+<li><p>trunc</p></li>
+<li><p>round</p></li>
+</ul>
+</section>
+<section id="available-constants">
+<h4>Available constants<a class="headerlink" href="#available-constants" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>e_</p></li>
+<li><p>pi_</p></li>
+</ul>
+</section>
+</section>
+<section id="python-model-define-a-physical-model-with-a-python-editor">
+<span id="vectpythonmodel"></span><h3>2-2 <em>Python model</em>: define a physical model with a Python editor<a class="headerlink" href="#python-model-define-a-physical-model-with-a-python-editor" title="Link to this heading">¶</a></h3>
+<img alt="../../../_images/pythonPhysicalModel_default1.png" class="align-center" src="../../../_images/pythonPhysicalModel_default1.png" />
+<dl class="simple">
+<dt>The model definition window contains:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>the <strong>Python editor</strong> allows one to define the model with the function <strong>_exec</strong> which:</dt><dd><ul>
+<li><p>takes floating point arguments (detected as the inputs of the model) (default: X0)</p></li>
+<li><p>returns a float or a sequence of floats (detected as the outputs of the model) (default: Y0 = X0)</p></li>
+<li><p>can use other statements defined in the Python editor</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Inputs</strong> section allows one to:</dt><dd><ul>
+<li><p>List the inputs detected from the function <strong>_exec</strong></p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Assign a value to the inputs (default: 0, expected: floating points or integers) (<strong>Value</strong> column)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the <strong>Outputs</strong> section allows one to:</dt><dd><ul>
+<li><p>List the outputs detected from the function <strong>_exec</strong></p></li>
+<li><p>Enable/disable one or several variables, by checking off the corresponding line (default: all output lines are checked off).
+To perform the analyses, at least one output must be selected.</p></li>
+<li><p>Describe variables (default: empty string, expected: string (no restriction on
+the label format: floating point, integer, string, etc…)) (<strong>Description</strong> column)</p></li>
+<li><p>Require the parallelization of the computations (<strong>Enable multiprocessing</strong> button)</p></li>
+<li><p>Launch the computation of the selected output values based on inputs, and the Python function (<strong>Check model</strong> button).
+It shall be used to test the physical model. To save the output values, the user
+should use a <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Here is an example of a more complex model definition:</p>
+<img alt="../../../_images/pythonPhysicalModel1.png" class="align-center" src="../../../_images/pythonPhysicalModel1.png" />
+<p>Here is an example of an error message transmission, when we tried to compute sqrt(C=-450):</p>
+<img alt="../../../_images/pythonPhysicalModel_error1.png" class="align-center" src="../../../_images/pythonPhysicalModel_error1.png" />
+</section>
+<section id="coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange">
+<span id="vectcouplingmodel"></span><h3>2-3 <em>Coupling model</em>: define a physical model to wrap an external code using file-exchange<a class="headerlink" href="#coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange" title="Link to this heading">¶</a></h3>
+<section id="id1">
+<h4>2-3-1 <em>Definition</em><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
+<p>A physical model can be defined to wrap an external code. I/O can be
+cached in dedicated files. Remember to clear it when significant
+changes are made on the model. Working directory (local temp area by
+default) can be explicitly set. The checkbox allows the user to keep
+the working directory once the model has run. The <strong>Check model</strong>
+button runs the model on the defined input values. It shall be used to
+test the physical model. To save the output values, the user should
+use the <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p>
+<p>A coupling model is divided into steps (one per tab), each with its
+own parameters. Output from a given step can be used as input in the
+next.</p>
+<p>Step definition is divided into several categories:</p>
+<ul class="simple">
+<li><p>Command: used to define the command calling the external code. This
+can be empty if one decides to set a pre-processing. The <strong>Advanced
+parameters</strong> group box can be used to set:</p>
+<ul>
+<li><p>I/O encoding (utf-8/latin-1)</p></li>
+<li><p>command timeout (-1 for no time out)</p></li>
+<li><p>command-specific environment using the table:</p>
+<ul>
+<li><p>add/remove environment variables using the dedicated buttons</p></li>
+<li><p>the first column corresponds to the environment variables names</p></li>
+<li><p>the second column corresponds to its value</p></li>
+<li><p>this is useful for example to set a dedicated python environment
+containing specific modules not in included in persalys</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img alt="../../../_images/CPM_Command.png" class="align-center" src="../../../_images/CPM_Command.png" />
+<ul class="simple">
+<li><p>Inputs: used to locate the template file that will be used to
+generate inputs files for the command. Each input variable is
+associated to a token that will tell the coupling model code where
+to find it in the input file. Template file correctness can be
+evaluated using the “check input button”. Template and generated
+input files will be displayed side-by-side for visual inspection and
+validation. If an input is defined as output in one of the previous
+step, a question mark will be displayed as its default value. When
+checking the template, it will default to zero in the generated
+input file.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Input.png" class="align-center" src="../../../_images/CPM_Input.png" />
+<ul class="simple">
+<li><p>Resources: used to locate the files required by the command
+(executable, configuration files, etc..)</p></li>
+</ul>
+<img alt="../../../_images/CPM_Resource.png" class="align-center" src="../../../_images/CPM_Resource.png" />
+<ul class="simple">
+<li><p>Outputs: used to specify the output file name and specify where to
+find the output variables in it. Similarly to the Inputs section,
+output variables are associated to a token. In addition, numerical
+format can be specified as in <a class="reference external" href="https://pyformat.info/">https://pyformat.info/</a> set of “new
+rules”. Generated output files can be inspected using the “check
+output button”. When clicked it will ask the user to choose a
+generated output file and will try to retrieve the output variables
+values.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Output.png" class="align-center" src="../../../_images/CPM_Output.png" />
+<ul class="simple">
+<li><p>Additional processing (Optional): A python editor (similar to the
+one in the PythonModel) can be used to set a pre/post processing
+function. Variables form preceding steps and/or intermediate/output
+variables can be defined and manipulated here.</p></li>
+</ul>
+<img alt="../../../_images/CPM_ExtraProcessing.png" class="align-center" src="../../../_images/CPM_ExtraProcessing.png" />
+</section>
+<section id="ansys-wizard">
+<h4>2-3-1 <em>Ansys wizard</em><a class="headerlink" href="#ansys-wizard" title="Link to this heading">¶</a></h4>
+<p>A wizard is available to pre-populate coupling step information based
+on data contained in an Ansys workbench project. It consists in two steps:</p>
+<ul class="simple">
+<li><p>First, you need to specify a workbench project file (.wbpj). You can
+also point to a specific ansys solver if the default one does not
+suit your needs. Once the project file is read, variables from the
+project are displayed in the table. You can select which variable
+come into play in the coupling step.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Ansys1.png" class="align-center" src="../../../_images/CPM_Ansys1.png" />
+<ul class="simple">
+<li><p>Likewise, in the second step, you can select which system present in
+your project needs updating. Be careful to select all the systems
+that are concerned by the variables you selected in the previous
+step.</p></li>
+</ul>
+<img alt="../../../_images/CPM_Ansys2.png" class="align-center" src="../../../_images/CPM_Ansys2.png" />
+<ul class="simple">
+<li><p>Once completed, the wizard will generate a template file. Outputs
+returned by the ansys solver (in the form of a csv file) are
+processed in the extra processing tab where some python code is
+automatically generated to parse coupling step output values.</p></li>
+</ul>
+</section>
+</section>
+<section id="yacs-model-define-a-physical-model-with-an-xml-file">
+<span id="vectyacsmodel"></span><h3>2-4 <em>YACS model</em>: define a physical model with an XML file<a class="headerlink" href="#yacs-model-define-a-physical-model-with-an-xml-file" title="Link to this heading">¶</a></h3>
+<p>A physical model can be defined by loading an XML file, previously generated for example with Salome,
+which contains:</p>
+<ul class="simple">
+<li><p>Definitions for the input and output variables;</p></li>
+<li><p>Computation parameters;</p></li>
+<li><p>Actions to be performed to evaluate the model (for instance, a call to Code_Aster solver)</p></li>
+</ul>
+<p>The <strong>Check model</strong> button computes the output values based on inputs and the YACS scheme. It shall be
+used to test the physical model. To save the output values, the user should use the <a class="reference internal" href="../deterministic_analysis/user_manual_deterministic_analysis.html#modelevaluation"><span class="std std-ref">Model evaluation</span></a>.</p>
+</section>
+<section id="fmi-model-define-a-physical-model-from-an-fmu-file">
+<span id="vectfmimodel"></span><h3>2-5 <em>FMI model</em>: define a physical model from an FMU file<a class="headerlink" href="#fmi-model-define-a-physical-model-from-an-fmu-file" title="Link to this heading">¶</a></h3>
+<p>A physical model can be defined by loading a FMU file, previously generated
+by OpenModelica for example.</p>
+<img alt="../../../_images/FMIPhysicalModel1.png" class="align-center" src="../../../_images/FMIPhysicalModel1.png" />
+<p>The <strong>Properties</strong> tab allows one to select the FMU file and to display its properties.</p>
+<p>The <strong>Variables</strong> tab describes the model variables.
+The main array shows the list of the variables.
+While the variability and causality are read-only FMI attributes,
+one may want to change whether how variables are used regarding the physical
+model: disabled, input or output in the <em>I/O</em> column under the following constraints:</p>
+<ul class="simple">
+<li><p>A variable of causality <em>Input</em> cannot be disabled</p></li>
+<li><p>A variable of causality <em>Output</em> or <em>Local</em> cannot be used as input</p></li>
+<li><p>A variable of causality <em>Input</em> or <em>Parameter</em> cannot be used as output</p></li>
+</ul>
+<img alt="../../../_images/FMIPhysicalModel2.png" class="align-center" src="../../../_images/FMIPhysicalModel2.png" />
+<p>By default, all the variables appear in the array and some filters allow one
+to modify the currently listed variables.</p>
+<p>The <strong>Check model</strong> button runs the model once.
+The output values are displayed in the <strong>Value</strong> column.</p>
+</section>
+<section id="differentiation-tab">
+<span id="differentiationtab"></span><h3>2-6 Differentiation tab<a class="headerlink" href="#differentiation-tab" title="Link to this heading">¶</a></h3>
+<img alt="../../../_images/differentiation_tab.png" class="align-center" src="../../../_images/differentiation_tab.png" />
+<p>The <strong>Differentiation</strong> tab enables the user to define the finite difference step of each input variable.
+By default each step is equal to 1e-7.
+These steps are used to set the gradient of the model function with the first order non-centered finite difference scheme
+and its hessian with the second order centered finite difference scheme.</p>
+<p>First order non-centered finite difference scheme:</p>
+<div class="math">
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJz8+CjwhLS0gVGhpcyBmaWxlIHdhcyBnZW5lcmF0ZWQgYnkgZHZpc3ZnbSAxLjE0LjEgLS0+CjxzdmcgaGVpZ2h0PScyNy4wMTQ2cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMTMyLjEzNyAtMjcuMDE0NiAxMjQuMjM0IDI3LjAxNDYnIHdpZHRoPScxMjQuMjM0cHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTcuODc4NDYgLTIuNzQ5NjlDOC4wODE2OSAtMi43NDk2OSA4LjI5Njg5IC0yLjc0OTY5IDguMjk2ODkgLTIuOTg4NzlTOC4wODE2OSAtMy4yMjc5IDcuODc4NDYgLTMuMjI3OUgxLjQxMDcxQzEuMjA3NDcgLTMuMjI3OSAwLjk5MjI3OSAtMy4yMjc5IDAuOTkyMjc5IC0yLjk4ODc5UzEuMjA3NDcgLTIuNzQ5NjkgMS40MTA3MSAtMi43NDk2OUg3Ljg3ODQ2WicgaWQ9J2cwLTAnLz4KPHBhdGggZD0nTTguNjMxNjMgLTUuNDAzNzRDOC42MzE2MyAtNS42NTQ3OSA4LjU0Nzk1IC01Ljc2MjM5IDguNDY0MjYgLTUuNzYyMzlDOC40MTY0NCAtNS43NjIzOSA4LjMwODg0IC01LjcxNDU3IDguMjk2ODkgLTUuNDM5NkM4LjI0OTA3IC00LjYxNDY5IDcuNDEyMiAtNC4xMjQ1MyA2LjYzNTEyIC00LjEyNDUzQzUuOTQxNzIgLTQuMTI0NTMgNS4zNDM5NiAtNC40OTUxNCA0LjcyMjI5IC00LjkxMzU3QzQuMDc2NzEgLTUuMzQzOTYgMy40MzExMyAtNS43NzQzNSAyLjY1NDA1IC01Ljc3NDM1QzEuNTQyMjIgLTUuNzc0MzUgMC42NTc1MzQgLTQuOTI1NTMgMC42NTc1MzQgLTMuODI1NjVDMC42NTc1MzQgLTMuNTYyNjQgMC43NTMxNzYgLTMuNDY3IDAuODI0OTA3IC0zLjQ2N0MwLjk0NDQ1OCAtMy40NjcgMC45OTIyNzkgLTMuNjk0MTUgMC45OTIyNzkgLTMuNzQxOTdDMS4wNTIwNSAtNC43NDYyIDIuMDMyMzggLTUuMTA0ODYgMi42NTQwNSAtNS4xMDQ4NkMzLjM0NzQ1IC01LjEwNDg2IDMuOTQ1MjEgLTQuNzM0MjUgNC41NjY4NyAtNC4zMTU4MkM1LjIxMjQ1IC0zLjg4NTQzIDUuODU4MDMgLTMuNDU1MDQgNi42MzUxMiAtMy40NTUwNEM3Ljc0Njk1IC0zLjQ1NTA0IDguNjMxNjMgLTQuMzAzODYgOC42MzE2MyAtNS40MDM3NFpNOC42MzE2MyAtMi42MDYyM0M4LjYzMTYzIC0yLjk1MjkzIDguNDg4MTcgLTIuOTc2ODQgOC40NjQyNiAtMi45NzY4NEM4LjQxNjQ0IC0yLjk3Njg0IDguMzA4ODQgLTIuOTE3MDYgOC4yOTY4OSAtMi42NTQwNUM4LjI0OTA3IC0xLjgyOTE0IDcuNDEyMiAtMS4zMzg5OCA2LjYzNTEyIC0xLjMzODk4QzUuOTQxNzIgLTEuMzM4OTggNS4zNDM5NiAtMS43MDk1OSA0LjcyMjI5IC0yLjEyODAyQzQuMDc2NzEgLTIuNTU4NDEgMy40MzExMyAtMi45ODg3OSAyLjY1NDA1IC0yLjk4ODc5QzEuNTQyMjIgLTIuOTg4NzkgMC42NTc1MzQgLTIuMTM5OTggMC42NTc1MzQgLTEuMDQwMUMwLjY1NzUzNCAtMC43NzcwODYgMC43NTMxNzYgLTAuNjgxNDQ1IDAuODI0OTA3IC0wLjY4MTQ0NUMwLjk0NDQ1OCAtMC42ODE0NDUgMC45OTIyNzkgLTAuOTA4NTkzIDAuOTkyMjc5IC0wLjk1NjQxM0MxLjA1MjA1IC0xLjk2MDY1IDIuMDMyMzggLTIuMzE5MyAyLjY1NDA1IC0yLjMxOTNDMy4zNDc0NSAtMi4zMTkzIDMuOTQ1MjEgLTEuOTQ4NjkgNC41NjY4NyAtMS41MzAyNkM1LjIxMjQ1IC0xLjA5OTg4IDUuODU4MDMgLTAuNjY5NDg5IDYuNjM1MTIgLTAuNjY5NDg5QzcuNzcwODYgLTAuNjY5NDg5IDguNjMxNjMgLTEuNTU0MTcgOC42MzE2MyAtMi42MDYyM1onIGlkPSdnMC0yNScvPgo8cGF0aCBkPSdNMy44ODU0MyAyLjkwNTExQzMuODg1NDMgMi44NjkyNCAzLjg4NTQzIDIuODQ1MzMgMy42ODIxOSAyLjY0MjA5QzIuNDg2NjcgMS40MzQ2MiAxLjgxNzE5IC0wLjUzNzk4MyAxLjgxNzE5IC0yLjk3Njg0QzEuODE3MTkgLTUuMjk2MTQgMi4zNzkwOCAtNy4yOTI2NSAzLjc2NTg4IC04LjcwMzM2QzMuODg1NDMgLTguODEwOTYgMy44ODU0MyAtOC44MzQ4NyAzLjg4NTQzIC04Ljg3MDczQzMuODg1NDMgLTguOTQyNDcgMy44MjU2NSAtOC45NjYzOCAzLjc3NzgzIC04Ljk2NjM4QzMuNjIyNDIgLTguOTY2MzggMi42NDIwOSAtOC4xMDU2IDIuMDU2MjkgLTYuOTM0QzEuNDQ2NTggLTUuNzI2NTMgMS4xNzE2MSAtNC40NDczMiAxLjE3MTYxIC0yLjk3Njg0QzEuMTcxNjEgLTEuOTEyODMgMS4zMzg5OCAtMC40OTAxNjIgMS45NjA2NSAwLjc4OTA0MUMyLjY2NiAyLjIyMzY2IDMuNjQ2MzMgMy4wMDA3NSAzLjc3NzgzIDMuMDAwNzVDMy44MjU2NSAzLjAwMDc1IDMuODg1NDMgMi45NzY4NCAzLjg4NTQzIDIuOTA1MTFaJyBpZD0nZzMtNDAnLz4KPHBhdGggZD0nTTMuMzcxMzYgLTIuOTc2ODRDMy4zNzEzNiAtMy44ODU0MyAzLjI1MTgxIC01LjM2Nzg3IDIuNTgyMzIgLTYuNzU0NjdDMS44NzY5NiAtOC4xODkyOSAwLjg5NjYzOCAtOC45NjYzOCAwLjc2NTEzMSAtOC45NjYzOEMwLjcxNzMxIC04Ljk2NjM4IDAuNjU3NTM0IC04Ljk0MjQ3IDAuNjU3NTM0IC04Ljg3MDczQzAuNjU3NTM0IC04LjgzNDg3IDAuNjU3NTM0IC04LjgxMDk2IDAuODYwNzcyIC04LjYwNzcyQzIuMDU2MjkgLTcuNDAwMjUgMi43MjU3OCAtNS40Mjc2NSAyLjcyNTc4IC0yLjk4ODc5QzIuNzI1NzggLTAuNjY5NDg5IDIuMTYzODkgMS4zMjcwMiAwLjc3NzA4NiAyLjczNzczQzAuNjU3NTM0IDIuODQ1MzMgMC42NTc1MzQgMi44NjkyNCAwLjY1NzUzNCAyLjkwNTExQzAuNjU3NTM0IDIuOTc2ODQgMC43MTczMSAzLjAwMDc1IDAuNzY1MTMxIDMuMDAwNzVDMC45MjA1NDggMy4wMDA3NSAxLjkwMDg3IDIuMTM5OTggMi40ODY2NyAwLjk2ODM2OUMzLjA5NjM5IC0wLjI1MTA1OSAzLjM3MTM2IC0xLjU0MjIyIDMuMzcxMzYgLTIuOTc2ODRaJyBpZD0nZzMtNDEnLz4KPHBhdGggZD0nTTQuNzcwMTEgLTIuNzYxNjRIOC4wNjk3NEM4LjIzNzExIC0yLjc2MTY0IDguNDUyMyAtMi43NjE2NCA4LjQ1MjMgLTIuOTc2ODRDOC40NTIzIC0zLjIwMzk5IDguMjQ5MDcgLTMuMjAzOTkgOC4wNjk3NCAtMy4yMDM5OUg0Ljc3MDExVi02LjUwMzYxQzQuNzcwMTEgLTYuNjcwOTggNC43NzAxMSAtNi44ODYxOCA0LjU1NDkyIC02Ljg4NjE4QzQuMzI3NzcgLTYuODg2MTggNC4zMjc3NyAtNi42ODI5NCA0LjMyNzc3IC02LjUwMzYxVi0zLjIwMzk5SDEuMDI4MTRDMC44NjA3NzIgLTMuMjAzOTkgMC42NDU1NzkgLTMuMjAzOTkgMC42NDU1NzkgLTIuOTg4NzlDMC42NDU1NzkgLTIuNzYxNjQgMC44NDg4MTcgLTIuNzYxNjQgMS4wMjgxNCAtMi43NjE2NEg0LjMyNzc3VjAuNTM3OTgzQzQuMzI3NzcgMC43MDUzNTUgNC4zMjc3NyAwLjkyMDU0OCA0LjU0Mjk2IDAuOTIwNTQ4QzQuNzcwMTEgMC45MjA1NDggNC43NzAxMSAwLjcxNzMxIDQuNzcwMTEgMC41Mzc5ODNWLTIuNzYxNjRaJyBpZD0nZzMtNDMnLz4KPHBhdGggZD0nTTMuNDc4OTUgLTIuNzEzODJDMy42NTgyOCAtMi43MTM4MiAzLjg2MTUyIC0yLjcxMzgyIDMuODYxNTIgLTIuOTA1MTFDMy44NjE1MiAtMy4wNjA1MiAzLjc0MTk3IC0zLjA2MDUyIDMuNTI2NzcgLTMuMDYwNTJIMS41OTAwNEMxLjg4ODkyIC00LjE0ODQ0IDIuNTk0MjcgLTQuODA1OTggMy42NTgyOCAtNC44MDU5OEg0LjAwNDk4QzQuMjA4MjIgLTQuODA1OTggNC4zODc1NSAtNC44MDU5OCA0LjM4NzU1IC00Ljk5NzI2QzQuMzg3NTUgLTUuMTUyNjggNC4yNTYwNCAtNS4xNTI2OCA0LjA0MDg1IC01LjE1MjY4SDMuNjM0MzdDMi4xNjM4OSAtNS4xNTI2OCAwLjU0OTkzOCAtMy45ODEwNyAwLjU0OTkzOCAtMi4xMDQxMUMwLjU0OTkzOCAtMC43NzcwODYgMS40NDY1OCAwLjExOTU1MiAyLjYzMDE0IDAuMTE5NTUyQzMuMzk1MjcgMC4xMTk1NTIgNC4xNDg0NCAtMC4zNTg2NTUgNC4xNDg0NCAtMC40NzgyMDdDNC4xNDg0NCAtMC41NDk5MzggNC4xMTI1OCAtMC42MjE2NjkgNC4wNDA4NSAtMC42MjE2NjlDNC4wMDQ5OCAtMC42MjE2NjkgMy45ODEwNyAtMC42MDk3MTQgMy45MjEzIC0wLjU2MTg5M0MzLjQ2NyAtMC4yNjMwMTQgMy4wMjQ2NiAtMC4xMTk1NTIgMi42NjYgLTAuMTE5NTUyQzIuMDMyMzggLTAuMTE5NTUyIDEuMzYyODkgLTAuNTM3OTgzIDEuMzYyODkgLTEuNjk3NjNDMS4zNjI4OSAtMS45MjQ3OCAxLjM4NjggLTIuMjM1NjIgMS40OTQ0IC0yLjcxMzgySDMuNDc4OTVaJyBpZD0nZzItMTUnLz4KPHBhdGggZD0nTTUuNDI3NjUgLTMuOTkzMDNDNS4zNTU5MiAtNC42NjI1MiA0LjkzNzQ4IC01LjQ2MzUxIDMuODYxNTIgLTUuNDYzNTFDMi4xNzU4NCAtNS40NjM1MSAwLjQ1NDI5NiAtMy43NTM5MiAwLjQ1NDI5NiAtMS44NTMwNUMwLjQ1NDI5NiAtMS4xMjM3OSAwLjk1NjQxMyAwLjI1MTA1OSAyLjU4MjMyIDAuMjUxMDU5QzUuNDAzNzQgMC4yNTEwNTkgNi42MTEyMSAtMy44NjE1MiA2LjYxMTIxIC01LjQ5OTM4QzYuNjExMjEgLTcuMjIwOTIgNS42NDI4NCAtOC41NDc5NSA0LjExMjU4IC04LjU0Nzk1QzIuMzc5MDggLTguNTQ3OTUgMS44NjUwMSAtNy4wMjk2NCAxLjg2NTAxIC02LjcwNjg1QzEuODY1MDEgLTYuNTk5MjUgMS45MzY3NCAtNi4zMzYyNCAyLjI3MTQ4IC02LjMzNjI0QzIuNjg5OTEgLTYuMzM2MjQgMi44NjkyNCAtNi43MTg4IDIuODY5MjQgLTYuOTIyMDRDMi44NjkyNCAtNy4yOTI2NSAyLjQ5ODYzIC03LjI5MjY1IDIuMzQzMjEgLTcuMjkyNjVDMi44MzMzNyAtOC4xNzczMyAzLjc0MTk3IC04LjI2MTAyIDQuMDY0NzYgLTguMjYxMDJDNS4xMTY4MSAtOC4yNjEwMiA1Ljc4NjMgLTcuNDI0MTYgNS43ODYzIC02LjA4NTE4QzUuNzg2MyAtNS4zMjAwNSA1LjU1OTE1IC00LjQzNTM3IDUuNDM5NiAtMy45OTMwM0g1LjQyNzY1Wk0yLjYxODE4IC0wLjA3MTczMUMxLjQ5NDQgLTAuMDcxNzMxIDEuMzAzMTEgLTAuOTU2NDEzIDEuMzAzMTEgLTEuNDU4NTNDMS4zMDMxMSAtMS45ODQ1NiAxLjYzNzg2IC0zLjIxNTk0IDEuODE3MTkgLTMuNjU4MjhDMS45NzI2IC00LjAxNjk0IDIuNjU0MDUgLTUuMjI0NDEgMy44OTczOCAtNS4yMjQ0MUM0Ljk4NTMxIC01LjIyNDQxIDUuMjM2MzYgLTQuMjc5OTUgNS4yMzYzNiAtMy42MzQzN0M1LjIzNjM2IC0yLjc0OTY5IDQuNDU5MjggLTAuMDcxNzMxIDIuNjE4MTggLTAuMDcxNzMxWicgaWQ9J2cyLTY0Jy8+CjxwYXRoIGQ9J001LjMzMiAtNC44MDU5OEM1LjU3MTExIC00LjgwNTk4IDUuNjY2NzUgLTQuODA1OTggNS42NjY3NSAtNS4wMzMxM0M1LjY2Njc1IC01LjE1MjY4IDUuNTcxMTEgLTUuMTUyNjggNS4zNTU5MiAtNS4xNTI2OEg0LjM4NzU1QzQuNjE0NjkgLTYuMzg0MDYgNC43ODIwNyAtNy4yMzI4OCA0Ljg3NzcxIC03LjYxNTQ0QzQuOTQ5NDQgLTcuOTAyMzcgNS4yMDA1IC04LjE3NzMzIDUuNTExMzMgLTguMTc3MzNDNS43NjIzOSAtOC4xNzczMyA2LjAxMzQ1IC04LjA2OTc0IDYuMTMzIC03Ljk2MjE0QzUuNjY2NzUgLTcuOTE0MzIgNS41MjMyOSAtNy41Njc2MiA1LjUyMzI5IC03LjM2NDM4QzUuNTIzMjkgLTcuMTI1MjggNS43MDI2MiAtNi45ODE4MiA1LjkyOTc2IC02Ljk4MTgyQzYuMTY4ODcgLTYuOTgxODIgNi41Mjc1MiAtNy4xODUwNiA2LjUyNzUyIC03LjYzOTM1QzYuNTI3NTIgLTguMTQxNDcgNi4wMjU0IC04LjQxNjQ0IDUuNDk5MzggLTguNDE2NDRDNC45ODUzMSAtOC40MTY0NCA0LjQ4MzE5IC04LjAzMzg3IDQuMjQ0MDggLTcuNTY3NjJDNC4wMjg4OSAtNy4xNDkxOSAzLjkwOTM0IC02LjcxODggMy42MzQzNyAtNS4xNTI2OEgyLjgzMzM3QzIuNjA2MjMgLTUuMTUyNjggMi40ODY2NyAtNS4xNTI2OCAyLjQ4NjY3IC00LjkzNzQ4QzIuNDg2NjcgLTQuODA1OTggMi41NTg0MSAtNC44MDU5OCAyLjc5NzUxIC00LjgwNTk4SDMuNTYyNjRDMy4zNDc0NSAtMy42OTQxNSAyLjg1NzI5IC0wLjk5MjI3OSAyLjU4MjMyIDAuMjg2OTI0QzIuMzc5MDggMS4zMjcwMiAyLjE5OTc1IDIuMTk5NzUgMS42MDE5OSAyLjE5OTc1QzEuNTY2MTMgMi4xOTk3NSAxLjIxOTQzIDIuMTk5NzUgMS4wMDQyMyAxLjk3MjZDMS42MTM5NSAxLjkyNDc4IDEuNjEzOTUgMS4zOTg3NSAxLjYxMzk1IDEuMzg2OEMxLjYxMzk1IDEuMTQ3NyAxLjQzNDYyIDEuMDA0MjMgMS4yMDc0NyAxLjAwNDIzQzAuOTY4MzY5IDEuMDA0MjMgMC42MDk3MTQgMS4yMDc0NyAwLjYwOTcxNCAxLjY2MTc3QzAuNjA5NzE0IDIuMTc1ODQgMS4xMzU3NCAyLjQzODg1IDEuNjAxOTkgMi40Mzg4NUMyLjgyMTQyIDIuNDM4ODUgMy4zMjM1NCAwLjI1MTA1OSAzLjQ1NTA0IC0wLjM0NjdDMy42NzAyNCAtMS4yNjcyNSA0LjI1NjA0IC00LjQ0NzMyIDQuMzE1ODIgLTQuODA1OThINS4zMzJaJyBpZD0nZzItMTAyJy8+CjxwYXRoIGQ9J001LjY2Njc1IC00Ljg3NzcxQzUuMjg0MTggLTQuODA1OTggNS4xNDA3MiAtNC41MTkwNSA1LjE0MDcyIC00LjI5MTkxQzUuMTQwNzIgLTQuMDA0OTggNS4zNjc4NyAtMy45MDkzNCA1LjUzNTI0IC0zLjkwOTM0QzUuODkzOSAtMy45MDkzNCA2LjE0NDk2IC00LjIyMDE3IDYuMTQ0OTYgLTQuNTQyOTZDNi4xNDQ5NiAtNS4wNDUwOCA1LjU3MTExIC01LjI3MjIzIDUuMDY4OTkgLTUuMjcyMjNDNC4zMzk3MyAtNS4yNzIyMyAzLjkzMzI1IC00LjU1NDkyIDMuODI1NjUgLTQuMzI3NzdDMy41NTA2OCAtNS4yMjQ0MSAyLjgwOTQ2IC01LjI3MjIzIDIuNTk0MjcgLTUuMjcyMjNDMS4zNzQ4NCAtNS4yNzIyMyAwLjcyOTI2NSAtMy43MDYxIDAuNzI5MjY1IC0zLjQ0MzA5QzAuNzI5MjY1IC0zLjM5NTI3IDAuNzc3MDg2IC0zLjMzNTQ5IDAuODYwNzcyIC0zLjMzNTQ5QzAuOTU2NDEzIC0zLjMzNTQ5IDAuOTgwMzI0IC0zLjQwNzIyIDEuMDA0MjMgLTMuNDU1MDRDMS40MTA3MSAtNC43ODIwNyAyLjIxMTcxIC01LjAzMzEzIDIuNTU4NDEgLTUuMDMzMTNDMy4wOTYzOSAtNS4wMzMxMyAzLjIwMzk5IC00LjUzMTAxIDMuMjAzOTkgLTQuMjQ0MDhDMy4yMDM5OSAtMy45ODEwNyAzLjEzMjI1IC0zLjcwNjEgMi45ODg3OSAtMy4xMzIyNUwyLjU4MjMyIC0xLjQ5NDRDMi40MDI5OSAtMC43NzcwODYgMi4wNTYyOSAtMC4xMTk1NTIgMS40MjI2NyAtMC4xMTk1NTJDMS4zNjI4OSAtMC4xMTk1NTIgMS4wNjQwMSAtMC4xMTk1NTIgMC44MTI5NTEgLTAuMjc0OTY5QzEuMjQzMzQgLTAuMzU4NjU1IDEuMzM4OTggLTAuNzE3MzEgMS4zMzg5OCAtMC44NjA3NzJDMS4zMzg5OCAtMS4wOTk4OCAxLjE1OTY1IC0xLjI0MzM0IDAuOTMyNTAzIC0xLjI0MzM0QzAuNjQ1NTc5IC0xLjI0MzM0IDAuMzM0NzQ1IC0wLjk5MjI3OSAwLjMzNDc0NSAtMC42MDk3MTRDMC4zMzQ3NDUgLTAuMTA3NTk3IDAuODk2NjM4IDAuMTE5NTUyIDEuNDEwNzEgMC4xMTk1NTJDMS45ODQ1NiAwLjExOTU1MiAyLjM5MTAzIC0wLjMzNDc0NSAyLjY0MjA5IC0wLjgyNDkwN0MyLjgzMzM3IC0wLjExOTU1MiAzLjQzMTEzIDAuMTE5NTUyIDMuODczNDcgMC4xMTk1NTJDNS4wOTI5IDAuMTE5NTUyIDUuNzM4NDggLTEuNDQ2NTggNS43Mzg0OCAtMS43MDk1OUM1LjczODQ4IC0xLjc2OTM2IDUuNjkwNjYgLTEuODE3MTkgNS42MTg5MyAtMS44MTcxOUM1LjUxMTMzIC0xLjgxNzE5IDUuNDk5MzggLTEuNzU3NDEgNS40NjM1MSAtMS42NjE3N0M1LjE0MDcyIC0wLjYwOTcxNCA0LjQ0NzMyIC0wLjExOTU1MiAzLjkwOTM0IC0wLjExOTU1MkMzLjQ5MDkxIC0wLjExOTU1MiAzLjI2Mzc2IC0wLjQzMDM4NiAzLjI2Mzc2IC0wLjkyMDU0OEMzLjI2Mzc2IC0xLjE4MzU2IDMuMzExNTggLTEuMzc0ODQgMy41MDI4NiAtMi4xNjM4OUwzLjkyMTMgLTMuNzg5NzlDNC4xMDA2MiAtNC41MDcxIDQuNTA3MSAtNS4wMzMxMyA1LjA1NzA0IC01LjAzMzEzQzUuMDgwOTUgLTUuMDMzMTMgNS40MTU2OSAtNS4wMzMxMyA1LjY2Njc1IC00Ljg3NzcxWicgaWQ9J2cyLTEyMCcvPgo8cGF0aCBkPSdNMi4zNzUwOSAtNC45NzMzNUMyLjM3NTA5IC01LjE0ODY5IDIuMjQ3NTcgLTUuMjc2MjEgMi4wNjQyNiAtNS4yNzYyMUMxLjg1NzA0IC01LjI3NjIxIDEuNjI1OSAtNS4wODQ5MyAxLjYyNTkgLTQuODQ1ODNDMS42MjU5IC00LjY3MDQ5IDEuNzUzNDIgLTQuNTQyOTYgMS45MzY3NCAtNC41NDI5NkMyLjE0Mzk2IC00LjU0Mjk2IDIuMzc1MDkgLTQuNzM0MjUgMi4zNzUwOSAtNC45NzMzNVpNMS4yMTE0NiAtMi4wNDgzMkwwLjc4MTA3MSAtMC45NDg0NDNDMC43NDEyMiAtMC44Mjg4OTIgMC43MDEzNyAtMC43MzMyNSAwLjcwMTM3IC0wLjU5Nzc1OEMwLjcwMTM3IC0wLjIwNzIyMyAxLjAwNDIzIDAuMDc5NzAxMSAxLjQyNjY1IDAuMDc5NzAxMUMyLjE5OTc1IDAuMDc5NzAxMSAyLjUyNjUzIC0xLjAzNjExIDIuNTI2NTMgLTEuMTM5NzNDMi41MjY1MyAtMS4yMTk0MyAyLjQ2Mjc2IC0xLjI0MzM0IDIuNDA2OTcgLTEuMjQzMzRDMi4zMTEzMyAtMS4yNDMzNCAyLjI5NTM5IC0xLjE4NzU1IDIuMjcxNDggLTEuMTA3ODVDMi4wODgxNyAtMC40NzAyMzcgMS43NjEzOSAtMC4xNDM0NjIgMS40NDI1OSAtMC4xNDM0NjJDMS4zNDY5NSAtMC4xNDM0NjIgMS4yNTEzMSAtMC4xODMzMTMgMS4yNTEzMSAtMC4zOTg1MDZDMS4yNTEzMSAtMC41ODk3ODggMS4zMDcxIC0wLjczMzI1IDEuNDEwNzEgLTAuOTgwMzI0QzEuNDkwNDEgLTEuMTk1NTIgMS41NzAxMSAtMS40MTA3MSAxLjY1Nzc4IC0xLjYyNTlMMS45MDQ4NiAtMi4yNzE0OEMxLjk3NjU5IC0yLjQ1NDc5IDIuMDcyMjMgLTIuNzAxODcgMi4wNzIyMyAtMi44MzczNkMyLjA3MjIzIC0zLjIzNTg3IDEuNzUzNDIgLTMuNTE0ODIgMS4zNDY5NSAtMy41MTQ4MkMwLjU3Mzg0OCAtMy41MTQ4MiAwLjIzOTEwMyAtMi4zOTkgMC4yMzkxMDMgLTIuMjk1MzlDMC4yMzkxMDMgLTIuMjIzNjYgMC4yOTQ4OTQgLTIuMTkxNzggMC4zNTg2NTUgLTIuMTkxNzhDMC40NjIyNjcgLTIuMTkxNzggMC40NzAyMzcgLTIuMjM5NiAwLjQ5NDE0NyAtMi4zMTkzQzAuNzE3MzEgLTMuMDc2NDYgMS4wODM5NCAtMy4yOTE2NiAxLjMyMzA0IC0zLjI5MTY2QzEuNDM0NjIgLTMuMjkxNjYgMS41MTQzMiAtMy4yNTE4MSAxLjUxNDMyIC0zLjAyODY0QzEuNTE0MzIgLTIuOTQ4OTQgMS41MDYzNSAtMi44MzczNiAxLjQyNjY1IC0yLjU5ODI2TDEuMjExNDYgLTIuMDQ4MzJaJyBpZD0nZzEtMTA1Jy8+CjxwYXRoIGQ9J00zLjI5MTY2IC00Ljk3MzM1QzMuMjkxNjYgLTUuMTI0NzggMy4xNzIxIC01LjI3NjIxIDIuOTgwODIgLTUuMjc2MjFDMi43NDE3MiAtNS4yNzYyMSAyLjUzNDUgLTUuMDUzMDUgMi41MzQ1IC00Ljg0NTgzQzIuNTM0NSAtNC42OTQ0IDIuNjU0MDUgLTQuNTQyOTYgMi44NDUzMyAtNC41NDI5NkMzLjA4NDQzIC00LjU0Mjk2IDMuMjkxNjYgLTQuNzY2MTMgMy4yOTE2NiAtNC45NzMzNVpNMS42MjU5IDAuMzk4NTA2QzEuNTA2MzUgMC44ODQ2ODIgMS4xMTU4MiAxLjQwMjc0IDAuNjI5NjM5IDEuNDAyNzRDMC41MDIxMTcgMS40MDI3NCAwLjM4MjU2NSAxLjM3MDg2IDAuMzY2NjI1IDEuMzYyODlDMC42MTM2OTkgMS4yNDMzNCAwLjY0NTU3OSAxLjAyODE0IDAuNjQ1NTc5IDAuOTU2NDEzQzAuNjQ1NTc5IDAuNzY1MTMxIDAuNTAyMTE3IDAuNjYxNTE5IDAuMzM0NzQ1IDAuNjYxNTE5QzAuMTAzNjExIDAuNjYxNTE5IC0wLjExMTU4MiAwLjg2MDc3MiAtMC4xMTE1ODIgMS4xMjM3OUMtMC4xMTE1ODIgMS40MjY2NSAwLjE4MzMxMyAxLjYyNTkgMC42Mzc2MDkgMS42MjU5QzEuMTIzNzkgMS42MjU5IDIuMDAwNSAxLjMyMzA0IDIuMjM5NiAwLjM2NjYyNUwyLjk1NjkxIC0yLjQ4NjY3QzIuOTgwODIgLTIuNTgyMzIgMi45OTY3NiAtMi42NDYwOCAyLjk5Njc2IC0yLjc2NTYzQzIuOTk2NzYgLTMuMjAzOTkgMi42NDYwOCAtMy41MTQ4MiAyLjE4MzgxIC0zLjUxNDgyQzEuMzM4OTggLTMuNTE0ODIgMC44NDQ4MzIgLTIuMzk5IDAuODQ0ODMyIC0yLjI5NTM5QzAuODQ0ODMyIC0yLjIyMzY2IDAuOTAwNjIzIC0yLjE5MTc4IDAuOTY0Mzg0IC0yLjE5MTc4QzEuMDUyMDUgLTIuMTkxNzggMS4wNjAwMiAtMi4yMTU2OSAxLjExNTgyIC0yLjMzNTI0QzEuMzU0OTIgLTIuODg1MTggMS43NjEzOSAtMy4yOTE2NiAyLjE1OTkgLTMuMjkxNjZDMi4zMjcyNyAtMy4yOTE2NiAyLjQyMjkxIC0zLjE4MDA3IDIuNDIyOTEgLTIuOTE3MDZDMi40MjI5MSAtMi44MDU0OCAyLjM5OSAtMi42OTM5IDIuMzc1MDkgLTIuNTgyMzJMMS42MjU5IDAuMzk4NTA2WicgaWQ9J2cxLTEwNicvPgo8L2RlZnM+CjxnIGlkPSdwYWdlMSc+Cjx1c2UgeD0nMTMyLjEzNycgeGxpbms6aHJlZj0nI2cyLTY0JyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzEzOC45NDQnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMTQ0LjY5MicgeGxpbms6aHJlZj0nI2cxLTEwNicgeT0nLTE2LjI4ODQnLz4KPHJlY3QgaGVpZ2h0PScwLjQ3ODE4Nycgd2lkdGg9JzE2Ljk4MicgeD0nMTMyLjEzNycgeT0nLTEzLjIyMTgnLz4KPHVzZSB4PScxMzIuMTk3JyB4bGluazpocmVmPScjZzItNjQnIHk9Jy0xLjc5MzI2Jy8+Cjx1c2UgeD0nMTM5LjAwMycgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTEuNzkzMjYnLz4KPHVzZSB4PScxNDUuNjMxJyB4bGluazpocmVmPScjZzEtMTA1JyB5PScwJy8+Cjx1c2UgeD0nMTUzLjYzNScgeGxpbms6aHJlZj0nI2cwLTI1JyB5PSctOS45OTM5MycvPgo8dXNlIHg9JzE2Ny40MTYnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMTczLjE2NCcgeGxpbms6aHJlZj0nI2cxLTEwNicgeT0nLTE2LjI4ODQnLz4KPHVzZSB4PScxNzcuNTQ2JyB4bGluazpocmVmPScjZzMtNDAnIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMTgyLjA4MScgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTE4LjA4MTcnLz4KPHVzZSB4PScxOTEuMzY1JyB4bGluazpocmVmPScjZzMtNDMnIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMjAzLjA5MycgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzIwNy44MDInIHhsaW5rOmhyZWY9JyNnMS0xMDUnIHk9Jy0xNi4yODg0Jy8+Cjx1c2UgeD0nMjExLjE4MycgeGxpbms6aHJlZj0nI2czLTQxJyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzIxOC4zNzUnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTguMDgxNycvPgo8dXNlIHg9JzIzMC4yOTUnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMjM2LjA0NCcgeGxpbms6aHJlZj0nI2cxLTEwNicgeT0nLTE2LjI4ODQnLz4KPHVzZSB4PScyNDAuNDI2JyB4bGluazpocmVmPScjZzMtNDAnIHk9Jy0xOC4wODE3Jy8+Cjx1c2UgeD0nMjQ0Ljk2MScgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTE4LjA4MTcnLz4KPHVzZSB4PScyNTEuNTg5JyB4bGluazpocmVmPScjZzMtNDEnIHk9Jy0xOC4wODE3Jy8+CjxyZWN0IGhlaWdodD0nMC40NzgxODcnIHdpZHRoPSc4OC45NTU1JyB4PScxNjcuNDE2JyB5PSctMTMuMjIxOCcvPgo8dXNlIHg9JzIwNy44MzknIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTEuNzkzMjYnLz4KPHVzZSB4PScyMTIuNTQ4JyB4bGluazpocmVmPScjZzEtMTA1JyB5PScwJy8+CjwvZz4KPC9zdmc+Cgo8IS0tIERFUFRIPTAgLS0+" alt="\frac{\partial f_j}{\partial x_i} \approx \frac{f_j(x + \epsilon_i) - f_j(x)}
+                                               {\epsilon_i}"/></p>
+</div><p>Second order centered finite difference scheme:</p>
+<div class="math">
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJz8+CjwhLS0gVGhpcyBmaWxlIHdhcyBnZW5lcmF0ZWQgYnkgZHZpc3ZnbSAxLjE0LjEgLS0+CjxzdmcgaGVpZ2h0PScyOS4wODEycHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMS4xOTU1MSAtMjkuMDg3IDM4OC4yMzggMjkuMDgxMicgd2lkdGg9JzM4OC4yMzhwdCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+CjxkZWZzPgo8cGF0aCBkPSdNNy44Nzg0NiAtMi43NDk2OUM4LjA4MTY5IC0yLjc0OTY5IDguMjk2ODkgLTIuNzQ5NjkgOC4yOTY4OSAtMi45ODg3OVM4LjA4MTY5IC0zLjIyNzkgNy44Nzg0NiAtMy4yMjc5SDEuNDEwNzFDMS4yMDc0NyAtMy4yMjc5IDAuOTkyMjc5IC0zLjIyNzkgMC45OTIyNzkgLTIuOTg4NzlTMS4yMDc0NyAtMi43NDk2OSAxLjQxMDcxIC0yLjc0OTY5SDcuODc4NDZaJyBpZD0nZzAtMCcvPgo8cGF0aCBkPSdNOC42MzE2MyAtNS40MDM3NEM4LjYzMTYzIC01LjY1NDc5IDguNTQ3OTUgLTUuNzYyMzkgOC40NjQyNiAtNS43NjIzOUM4LjQxNjQ0IC01Ljc2MjM5IDguMzA4ODQgLTUuNzE0NTcgOC4yOTY4OSAtNS40Mzk2QzguMjQ5MDcgLTQuNjE0NjkgNy40MTIyIC00LjEyNDUzIDYuNjM1MTIgLTQuMTI0NTNDNS45NDE3MiAtNC4xMjQ1MyA1LjM0Mzk2IC00LjQ5NTE0IDQuNzIyMjkgLTQuOTEzNTdDNC4wNzY3MSAtNS4zNDM5NiAzLjQzMTEzIC01Ljc3NDM1IDIuNjU0MDUgLTUuNzc0MzVDMS41NDIyMiAtNS43NzQzNSAwLjY1NzUzNCAtNC45MjU1MyAwLjY1NzUzNCAtMy44MjU2NUMwLjY1NzUzNCAtMy41NjI2NCAwLjc1MzE3NiAtMy40NjcgMC44MjQ5MDcgLTMuNDY3QzAuOTQ0NDU4IC0zLjQ2NyAwLjk5MjI3OSAtMy42OTQxNSAwLjk5MjI3OSAtMy43NDE5N0MxLjA1MjA1IC00Ljc0NjIgMi4wMzIzOCAtNS4xMDQ4NiAyLjY1NDA1IC01LjEwNDg2QzMuMzQ3NDUgLTUuMTA0ODYgMy45NDUyMSAtNC43MzQyNSA0LjU2Njg3IC00LjMxNTgyQzUuMjEyNDUgLTMuODg1NDMgNS44NTgwMyAtMy40NTUwNCA2LjYzNTEyIC0zLjQ1NTA0QzcuNzQ2OTUgLTMuNDU1MDQgOC42MzE2MyAtNC4zMDM4NiA4LjYzMTYzIC01LjQwMzc0Wk04LjYzMTYzIC0yLjYwNjIzQzguNjMxNjMgLTIuOTUyOTMgOC40ODgxNyAtMi45NzY4NCA4LjQ2NDI2IC0yLjk3Njg0QzguNDE2NDQgLTIuOTc2ODQgOC4zMDg4NCAtMi45MTcwNiA4LjI5Njg5IC0yLjY1NDA1QzguMjQ5MDcgLTEuODI5MTQgNy40MTIyIC0xLjMzODk4IDYuNjM1MTIgLTEuMzM4OThDNS45NDE3MiAtMS4zMzg5OCA1LjM0Mzk2IC0xLjcwOTU5IDQuNzIyMjkgLTIuMTI4MDJDNC4wNzY3MSAtMi41NTg0MSAzLjQzMTEzIC0yLjk4ODc5IDIuNjU0MDUgLTIuOTg4NzlDMS41NDIyMiAtMi45ODg3OSAwLjY1NzUzNCAtMi4xMzk5OCAwLjY1NzUzNCAtMS4wNDAxQzAuNjU3NTM0IC0wLjc3NzA4NiAwLjc1MzE3NiAtMC42ODE0NDUgMC44MjQ5MDcgLTAuNjgxNDQ1QzAuOTQ0NDU4IC0wLjY4MTQ0NSAwLjk5MjI3OSAtMC45MDg1OTMgMC45OTIyNzkgLTAuOTU2NDEzQzEuMDUyMDUgLTEuOTYwNjUgMi4wMzIzOCAtMi4zMTkzIDIuNjU0MDUgLTIuMzE5M0MzLjM0NzQ1IC0yLjMxOTMgMy45NDUyMSAtMS45NDg2OSA0LjU2Njg3IC0xLjUzMDI2QzUuMjEyNDUgLTEuMDk5ODggNS44NTgwMyAtMC42Njk0ODkgNi42MzUxMiAtMC42Njk0ODlDNy43NzA4NiAtMC42Njk0ODkgOC42MzE2MyAtMS41NTQxNyA4LjYzMTYzIC0yLjYwNjIzWicgaWQ9J2cwLTI1Jy8+CjxwYXRoIGQ9J00yLjI0NzU3IC0xLjYyNTlDMi4zNzUwOSAtMS43NDU0NSAyLjcwOTg0IC0yLjAwODQ3IDIuODM3MzYgLTIuMTIwMDVDMy4zMzE1MSAtMi41NzQzNSAzLjgwMTc0IC0zLjAxMjcgMy44MDE3NCAtMy43Mzc5OEMzLjgwMTc0IC00LjY4NjQzIDMuMDA0NzMgLTUuMzAwMTIgMi4wMDg0NyAtNS4zMDAxMkMxLjA1MjA1IC01LjMwMDEyIDAuNDIyNDE2IC00LjU3NDg0IDAuNDIyNDE2IC0zLjg2NTVDMC40MjI0MTYgLTMuNDc0OTcgMC43MzMyNSAtMy40MTkxOCAwLjg0NDgzMiAtMy40MTkxOEMxLjAxMjIgLTMuNDE5MTggMS4yNTkyOCAtMy41Mzg3MyAxLjI1OTI4IC0zLjg0MTU5QzEuMjU5MjggLTQuMjU2MDQgMC44NjA3NzIgLTQuMjU2MDQgMC43NjUxMzEgLTQuMjU2MDRDMC45OTYyNjQgLTQuODM3ODYgMS41MzAyNiAtNS4wMzcxMSAxLjkyMDggLTUuMDM3MTFDMi42NjIwMiAtNS4wMzcxMSAzLjA0NDU4IC00LjQwNzQ3IDMuMDQ0NTggLTMuNzM3OThDMy4wNDQ1OCAtMi45MDkwOSAyLjQ2Mjc2IC0yLjMwMzM2IDEuNTIyMjkgLTEuMzM4OThMMC41MTgwNTcgLTAuMzAyODY0QzAuNDIyNDE2IC0wLjIxNTE5MyAwLjQyMjQxNiAtMC4xOTkyNTMgMC40MjI0MTYgMEgzLjU3MDYxTDMuODAxNzQgLTEuNDI2NjVIMy41NTQ2N0MzLjUzMDc2IC0xLjI2NzI1IDMuNDY3IC0wLjg2ODc0MiAzLjM3MTM2IC0wLjcxNzMxQzMuMzIzNTQgLTAuNjUzNTQ5IDIuNzE3ODEgLTAuNjUzNTQ5IDIuNTkwMjkgLTAuNjUzNTQ5SDEuMTcxNjFMMi4yNDc1NyAtMS42MjU5WicgaWQ9J2czLTUwJy8+CjxwYXRoIGQ9J00zLjg4NTQzIDIuOTA1MTFDMy44ODU0MyAyLjg2OTI0IDMuODg1NDMgMi44NDUzMyAzLjY4MjE5IDIuNjQyMDlDMi40ODY2NyAxLjQzNDYyIDEuODE3MTkgLTAuNTM3OTgzIDEuODE3MTkgLTIuOTc2ODRDMS44MTcxOSAtNS4yOTYxNCAyLjM3OTA4IC03LjI5MjY1IDMuNzY1ODggLTguNzAzMzZDMy44ODU0MyAtOC44MTA5NiAzLjg4NTQzIC04LjgzNDg3IDMuODg1NDMgLTguODcwNzNDMy44ODU0MyAtOC45NDI0NyAzLjgyNTY1IC04Ljk2NjM4IDMuNzc3ODMgLTguOTY2MzhDMy42MjI0MiAtOC45NjYzOCAyLjY0MjA5IC04LjEwNTYgMi4wNTYyOSAtNi45MzRDMS40NDY1OCAtNS43MjY1MyAxLjE3MTYxIC00LjQ0NzMyIDEuMTcxNjEgLTIuOTc2ODRDMS4xNzE2MSAtMS45MTI4MyAxLjMzODk4IC0wLjQ5MDE2MiAxLjk2MDY1IDAuNzg5MDQxQzIuNjY2IDIuMjIzNjYgMy42NDYzMyAzLjAwMDc1IDMuNzc3ODMgMy4wMDA3NUMzLjgyNTY1IDMuMDAwNzUgMy44ODU0MyAyLjk3Njg0IDMuODg1NDMgMi45MDUxMVonIGlkPSdnNC00MCcvPgo8cGF0aCBkPSdNMy4zNzEzNiAtMi45NzY4NEMzLjM3MTM2IC0zLjg4NTQzIDMuMjUxODEgLTUuMzY3ODcgMi41ODIzMiAtNi43NTQ2N0MxLjg3Njk2IC04LjE4OTI5IDAuODk2NjM4IC04Ljk2NjM4IDAuNzY1MTMxIC04Ljk2NjM4QzAuNzE3MzEgLTguOTY2MzggMC42NTc1MzQgLTguOTQyNDcgMC42NTc1MzQgLTguODcwNzNDMC42NTc1MzQgLTguODM0ODcgMC42NTc1MzQgLTguODEwOTYgMC44NjA3NzIgLTguNjA3NzJDMi4wNTYyOSAtNy40MDAyNSAyLjcyNTc4IC01LjQyNzY1IDIuNzI1NzggLTIuOTg4NzlDMi43MjU3OCAtMC42Njk0ODkgMi4xNjM4OSAxLjMyNzAyIDAuNzc3MDg2IDIuNzM3NzNDMC42NTc1MzQgMi44NDUzMyAwLjY1NzUzNCAyLjg2OTI0IDAuNjU3NTM0IDIuOTA1MTFDMC42NTc1MzQgMi45NzY4NCAwLjcxNzMxIDMuMDAwNzUgMC43NjUxMzEgMy4wMDA3NUMwLjkyMDU0OCAzLjAwMDc1IDEuOTAwODcgMi4xMzk5OCAyLjQ4NjY3IDAuOTY4MzY5QzMuMDk2MzkgLTAuMjUxMDU5IDMuMzcxMzYgLTEuNTQyMjIgMy4zNzEzNiAtMi45NzY4NFonIGlkPSdnNC00MScvPgo8cGF0aCBkPSdNNC43NzAxMSAtMi43NjE2NEg4LjA2OTc0QzguMjM3MTEgLTIuNzYxNjQgOC40NTIzIC0yLjc2MTY0IDguNDUyMyAtMi45NzY4NEM4LjQ1MjMgLTMuMjAzOTkgOC4yNDkwNyAtMy4yMDM5OSA4LjA2OTc0IC0zLjIwMzk5SDQuNzcwMTFWLTYuNTAzNjFDNC43NzAxMSAtNi42NzA5OCA0Ljc3MDExIC02Ljg4NjE4IDQuNTU0OTIgLTYuODg2MThDNC4zMjc3NyAtNi44ODYxOCA0LjMyNzc3IC02LjY4Mjk0IDQuMzI3NzcgLTYuNTAzNjFWLTMuMjAzOTlIMS4wMjgxNEMwLjg2MDc3MiAtMy4yMDM5OSAwLjY0NTU3OSAtMy4yMDM5OSAwLjY0NTU3OSAtMi45ODg3OUMwLjY0NTU3OSAtMi43NjE2NCAwLjg0ODgxNyAtMi43NjE2NCAxLjAyODE0IC0yLjc2MTY0SDQuMzI3NzdWMC41Mzc5ODNDNC4zMjc3NyAwLjcwNTM1NSA0LjMyNzc3IDAuOTIwNTQ4IDQuNTQyOTYgMC45MjA1NDhDNC43NzAxMSAwLjkyMDU0OCA0Ljc3MDExIDAuNzE3MzEgNC43NzAxMSAwLjUzNzk4M1YtMi43NjE2NFonIGlkPSdnNC00MycvPgo8cGF0aCBkPSdNNC4zMTU4MiAtNy43ODI4MUM0LjMxNTgyIC04LjAwOTk2IDQuMzE1ODIgLTguMDY5NzQgNC4xNDg0NCAtOC4wNjk3NEM0LjA1MjggLTguMDY5NzQgNC4wMTY5NCAtOC4wNjk3NCAzLjkyMTMgLTcuOTI2MjhMMC4zMjI3OSAtMi4zNDMyMVYtMS45OTY1MUgzLjQ2N1YtMC45MDg1OTNDMy40NjcgLTAuNDY2MjUyIDMuNDQzMDkgLTAuMzQ2NyAyLjU3MDM2IC0wLjM0NjdIMi4zMzEyNlYwQzIuNjA2MjMgLTAuMDIzOTEwMyAzLjU1MDY4IC0wLjAyMzkxMDMgMy44ODU0MyAtMC4wMjM5MTAzUzUuMTc2NTkgLTAuMDIzOTEwMyA1LjQ1MTU2IDBWLTAuMzQ2N0g1LjIxMjQ1QzQuMzUxNjggLTAuMzQ2NyA0LjMxNTgyIC0wLjQ2NjI1MiA0LjMxNTgyIC0wLjkwODU5M1YtMS45OTY1MUg1LjUyMzI5Vi0yLjM0MzIxSDQuMzE1ODJWLTcuNzgyODFaTTMuNTI2NzcgLTYuODUwMzFWLTIuMzQzMjFIMC42MjE2NjlMMy41MjY3NyAtNi44NTAzMVonIGlkPSdnNC01MicvPgo8cGF0aCBkPSdNMy40Nzg5NSAtMi43MTM4MkMzLjY1ODI4IC0yLjcxMzgyIDMuODYxNTIgLTIuNzEzODIgMy44NjE1MiAtMi45MDUxMUMzLjg2MTUyIC0zLjA2MDUyIDMuNzQxOTcgLTMuMDYwNTIgMy41MjY3NyAtMy4wNjA1MkgxLjU5MDA0QzEuODg4OTIgLTQuMTQ4NDQgMi41OTQyNyAtNC44MDU5OCAzLjY1ODI4IC00LjgwNTk4SDQuMDA0OThDNC4yMDgyMiAtNC44MDU5OCA0LjM4NzU1IC00LjgwNTk4IDQuMzg3NTUgLTQuOTk3MjZDNC4zODc1NSAtNS4xNTI2OCA0LjI1NjA0IC01LjE1MjY4IDQuMDQwODUgLTUuMTUyNjhIMy42MzQzN0MyLjE2Mzg5IC01LjE1MjY4IDAuNTQ5OTM4IC0zLjk4MTA3IDAuNTQ5OTM4IC0yLjEwNDExQzAuNTQ5OTM4IC0wLjc3NzA4NiAxLjQ0NjU4IDAuMTE5NTUyIDIuNjMwMTQgMC4xMTk1NTJDMy4zOTUyNyAwLjExOTU1MiA0LjE0ODQ0IC0wLjM1ODY1NSA0LjE0ODQ0IC0wLjQ3ODIwN0M0LjE0ODQ0IC0wLjU0OTkzOCA0LjExMjU4IC0wLjYyMTY2OSA0LjA0MDg1IC0wLjYyMTY2OUM0LjAwNDk4IC0wLjYyMTY2OSAzLjk4MTA3IC0wLjYwOTcxNCAzLjkyMTMgLTAuNTYxODkzQzMuNDY3IC0wLjI2MzAxNCAzLjAyNDY2IC0wLjExOTU1MiAyLjY2NiAtMC4xMTk1NTJDMi4wMzIzOCAtMC4xMTk1NTIgMS4zNjI4OSAtMC41Mzc5ODMgMS4zNjI4OSAtMS42OTc2M0MxLjM2Mjg5IC0xLjkyNDc4IDEuMzg2OCAtMi4yMzU2MiAxLjQ5NDQgLTIuNzEzODJIMy40Nzg5NVonIGlkPSdnMi0xNScvPgo8cGF0aCBkPSdNNS40Mjc2NSAtMy45OTMwM0M1LjM1NTkyIC00LjY2MjUyIDQuOTM3NDggLTUuNDYzNTEgMy44NjE1MiAtNS40NjM1MUMyLjE3NTg0IC01LjQ2MzUxIDAuNDU0Mjk2IC0zLjc1MzkyIDAuNDU0Mjk2IC0xLjg1MzA1QzAuNDU0Mjk2IC0xLjEyMzc5IDAuOTU2NDEzIDAuMjUxMDU5IDIuNTgyMzIgMC4yNTEwNTlDNS40MDM3NCAwLjI1MTA1OSA2LjYxMTIxIC0zLjg2MTUyIDYuNjExMjEgLTUuNDk5MzhDNi42MTEyMSAtNy4yMjA5MiA1LjY0Mjg0IC04LjU0Nzk1IDQuMTEyNTggLTguNTQ3OTVDMi4zNzkwOCAtOC41NDc5NSAxLjg2NTAxIC03LjAyOTY0IDEuODY1MDEgLTYuNzA2ODVDMS44NjUwMSAtNi41OTkyNSAxLjkzNjc0IC02LjMzNjI0IDIuMjcxNDggLTYuMzM2MjRDMi42ODk5MSAtNi4zMzYyNCAyLjg2OTI0IC02LjcxODggMi44NjkyNCAtNi45MjIwNEMyLjg2OTI0IC03LjI5MjY1IDIuNDk4NjMgLTcuMjkyNjUgMi4zNDMyMSAtNy4yOTI2NUMyLjgzMzM3IC04LjE3NzMzIDMuNzQxOTcgLTguMjYxMDIgNC4wNjQ3NiAtOC4yNjEwMkM1LjExNjgxIC04LjI2MTAyIDUuNzg2MyAtNy40MjQxNiA1Ljc4NjMgLTYuMDg1MThDNS43ODYzIC01LjMyMDA1IDUuNTU5MTUgLTQuNDM1MzcgNS40Mzk2IC0zLjk5MzAzSDUuNDI3NjVaTTIuNjE4MTggLTAuMDcxNzMxQzEuNDk0NCAtMC4wNzE3MzEgMS4zMDMxMSAtMC45NTY0MTMgMS4zMDMxMSAtMS40NTg1M0MxLjMwMzExIC0xLjk4NDU2IDEuNjM3ODYgLTMuMjE1OTQgMS44MTcxOSAtMy42NTgyOEMxLjk3MjYgLTQuMDE2OTQgMi42NTQwNSAtNS4yMjQ0MSAzLjg5NzM4IC01LjIyNDQxQzQuOTg1MzEgLTUuMjI0NDEgNS4yMzYzNiAtNC4yNzk5NSA1LjIzNjM2IC0zLjYzNDM3QzUuMjM2MzYgLTIuNzQ5NjkgNC40NTkyOCAtMC4wNzE3MzEgMi42MTgxOCAtMC4wNzE3MzFaJyBpZD0nZzItNjQnLz4KPHBhdGggZD0nTTUuMzMyIC00LjgwNTk4QzUuNTcxMTEgLTQuODA1OTggNS42NjY3NSAtNC44MDU5OCA1LjY2Njc1IC01LjAzMzEzQzUuNjY2NzUgLTUuMTUyNjggNS41NzExMSAtNS4xNTI2OCA1LjM1NTkyIC01LjE1MjY4SDQuMzg3NTVDNC42MTQ2OSAtNi4zODQwNiA0Ljc4MjA3IC03LjIzMjg4IDQuODc3NzEgLTcuNjE1NDRDNC45NDk0NCAtNy45MDIzNyA1LjIwMDUgLTguMTc3MzMgNS41MTEzMyAtOC4xNzczM0M1Ljc2MjM5IC04LjE3NzMzIDYuMDEzNDUgLTguMDY5NzQgNi4xMzMgLTcuOTYyMTRDNS42NjY3NSAtNy45MTQzMiA1LjUyMzI5IC03LjU2NzYyIDUuNTIzMjkgLTcuMzY0MzhDNS41MjMyOSAtNy4xMjUyOCA1LjcwMjYyIC02Ljk4MTgyIDUuOTI5NzYgLTYuOTgxODJDNi4xNjg4NyAtNi45ODE4MiA2LjUyNzUyIC03LjE4NTA2IDYuNTI3NTIgLTcuNjM5MzVDNi41Mjc1MiAtOC4xNDE0NyA2LjAyNTQgLTguNDE2NDQgNS40OTkzOCAtOC40MTY0NEM0Ljk4NTMxIC04LjQxNjQ0IDQuNDgzMTkgLTguMDMzODcgNC4yNDQwOCAtNy41Njc2MkM0LjAyODg5IC03LjE0OTE5IDMuOTA5MzQgLTYuNzE4OCAzLjYzNDM3IC01LjE1MjY4SDIuODMzMzdDMi42MDYyMyAtNS4xNTI2OCAyLjQ4NjY3IC01LjE1MjY4IDIuNDg2NjcgLTQuOTM3NDhDMi40ODY2NyAtNC44MDU5OCAyLjU1ODQxIC00LjgwNTk4IDIuNzk3NTEgLTQuODA1OThIMy41NjI2NEMzLjM0NzQ1IC0zLjY5NDE1IDIuODU3MjkgLTAuOTkyMjc5IDIuNTgyMzIgMC4yODY5MjRDMi4zNzkwOCAxLjMyNzAyIDIuMTk5NzUgMi4xOTk3NSAxLjYwMTk5IDIuMTk5NzVDMS41NjYxMyAyLjE5OTc1IDEuMjE5NDMgMi4xOTk3NSAxLjAwNDIzIDEuOTcyNkMxLjYxMzk1IDEuOTI0NzggMS42MTM5NSAxLjM5ODc1IDEuNjEzOTUgMS4zODY4QzEuNjEzOTUgMS4xNDc3IDEuNDM0NjIgMS4wMDQyMyAxLjIwNzQ3IDEuMDA0MjNDMC45NjgzNjkgMS4wMDQyMyAwLjYwOTcxNCAxLjIwNzQ3IDAuNjA5NzE0IDEuNjYxNzdDMC42MDk3MTQgMi4xNzU4NCAxLjEzNTc0IDIuNDM4ODUgMS42MDE5OSAyLjQzODg1QzIuODIxNDIgMi40Mzg4NSAzLjMyMzU0IDAuMjUxMDU5IDMuNDU1MDQgLTAuMzQ2N0MzLjY3MDI0IC0xLjI2NzI1IDQuMjU2MDQgLTQuNDQ3MzIgNC4zMTU4MiAtNC44MDU5OEg1LjMzMlonIGlkPSdnMi0xMDInLz4KPHBhdGggZD0nTTUuNjY2NzUgLTQuODc3NzFDNS4yODQxOCAtNC44MDU5OCA1LjE0MDcyIC00LjUxOTA1IDUuMTQwNzIgLTQuMjkxOTFDNS4xNDA3MiAtNC4wMDQ5OCA1LjM2Nzg3IC0zLjkwOTM0IDUuNTM1MjQgLTMuOTA5MzRDNS44OTM5IC0zLjkwOTM0IDYuMTQ0OTYgLTQuMjIwMTcgNi4xNDQ5NiAtNC41NDI5NkM2LjE0NDk2IC01LjA0NTA4IDUuNTcxMTEgLTUuMjcyMjMgNS4wNjg5OSAtNS4yNzIyM0M0LjMzOTczIC01LjI3MjIzIDMuOTMzMjUgLTQuNTU0OTIgMy44MjU2NSAtNC4zMjc3N0MzLjU1MDY4IC01LjIyNDQxIDIuODA5NDYgLTUuMjcyMjMgMi41OTQyNyAtNS4yNzIyM0MxLjM3NDg0IC01LjI3MjIzIDAuNzI5MjY1IC0zLjcwNjEgMC43MjkyNjUgLTMuNDQzMDlDMC43MjkyNjUgLTMuMzk1MjcgMC43NzcwODYgLTMuMzM1NDkgMC44NjA3NzIgLTMuMzM1NDlDMC45NTY0MTMgLTMuMzM1NDkgMC45ODAzMjQgLTMuNDA3MjIgMS4wMDQyMyAtMy40NTUwNEMxLjQxMDcxIC00Ljc4MjA3IDIuMjExNzEgLTUuMDMzMTMgMi41NTg0MSAtNS4wMzMxM0MzLjA5NjM5IC01LjAzMzEzIDMuMjAzOTkgLTQuNTMxMDEgMy4yMDM5OSAtNC4yNDQwOEMzLjIwMzk5IC0zLjk4MTA3IDMuMTMyMjUgLTMuNzA2MSAyLjk4ODc5IC0zLjEzMjI1TDIuNTgyMzIgLTEuNDk0NEMyLjQwMjk5IC0wLjc3NzA4NiAyLjA1NjI5IC0wLjExOTU1MiAxLjQyMjY3IC0wLjExOTU1MkMxLjM2Mjg5IC0wLjExOTU1MiAxLjA2NDAxIC0wLjExOTU1MiAwLjgxMjk1MSAtMC4yNzQ5NjlDMS4yNDMzNCAtMC4zNTg2NTUgMS4zMzg5OCAtMC43MTczMSAxLjMzODk4IC0wLjg2MDc3MkMxLjMzODk4IC0xLjA5OTg4IDEuMTU5NjUgLTEuMjQzMzQgMC45MzI1MDMgLTEuMjQzMzRDMC42NDU1NzkgLTEuMjQzMzQgMC4zMzQ3NDUgLTAuOTkyMjc5IDAuMzM0NzQ1IC0wLjYwOTcxNEMwLjMzNDc0NSAtMC4xMDc1OTcgMC44OTY2MzggMC4xMTk1NTIgMS40MTA3MSAwLjExOTU1MkMxLjk4NDU2IDAuMTE5NTUyIDIuMzkxMDMgLTAuMzM0NzQ1IDIuNjQyMDkgLTAuODI0OTA3QzIuODMzMzcgLTAuMTE5NTUyIDMuNDMxMTMgMC4xMTk1NTIgMy44NzM0NyAwLjExOTU1MkM1LjA5MjkgMC4xMTk1NTIgNS43Mzg0OCAtMS40NDY1OCA1LjczODQ4IC0xLjcwOTU5QzUuNzM4NDggLTEuNzY5MzYgNS42OTA2NiAtMS44MTcxOSA1LjYxODkzIC0xLjgxNzE5QzUuNTExMzMgLTEuODE3MTkgNS40OTkzOCAtMS43NTc0MSA1LjQ2MzUxIC0xLjY2MTc3QzUuMTQwNzIgLTAuNjA5NzE0IDQuNDQ3MzIgLTAuMTE5NTUyIDMuOTA5MzQgLTAuMTE5NTUyQzMuNDkwOTEgLTAuMTE5NTUyIDMuMjYzNzYgLTAuNDMwMzg2IDMuMjYzNzYgLTAuOTIwNTQ4QzMuMjYzNzYgLTEuMTgzNTYgMy4zMTE1OCAtMS4zNzQ4NCAzLjUwMjg2IC0yLjE2Mzg5TDMuOTIxMyAtMy43ODk3OUM0LjEwMDYyIC00LjUwNzEgNC41MDcxIC01LjAzMzEzIDUuMDU3MDQgLTUuMDMzMTNDNS4wODA5NSAtNS4wMzMxMyA1LjQxNTY5IC01LjAzMzEzIDUuNjY2NzUgLTQuODc3NzFaJyBpZD0nZzItMTIwJy8+CjxwYXRoIGQ9J00yLjM3NTA5IC00Ljk3MzM1QzIuMzc1MDkgLTUuMTQ4NjkgMi4yNDc1NyAtNS4yNzYyMSAyLjA2NDI2IC01LjI3NjIxQzEuODU3MDQgLTUuMjc2MjEgMS42MjU5IC01LjA4NDkzIDEuNjI1OSAtNC44NDU4M0MxLjYyNTkgLTQuNjcwNDkgMS43NTM0MiAtNC41NDI5NiAxLjkzNjc0IC00LjU0Mjk2QzIuMTQzOTYgLTQuNTQyOTYgMi4zNzUwOSAtNC43MzQyNSAyLjM3NTA5IC00Ljk3MzM1Wk0xLjIxMTQ2IC0yLjA0ODMyTDAuNzgxMDcxIC0wLjk0ODQ0M0MwLjc0MTIyIC0wLjgyODg5MiAwLjcwMTM3IC0wLjczMzI1IDAuNzAxMzcgLTAuNTk3NzU4QzAuNzAxMzcgLTAuMjA3MjIzIDEuMDA0MjMgMC4wNzk3MDExIDEuNDI2NjUgMC4wNzk3MDExQzIuMTk5NzUgMC4wNzk3MDExIDIuNTI2NTMgLTEuMDM2MTEgMi41MjY1MyAtMS4xMzk3M0MyLjUyNjUzIC0xLjIxOTQzIDIuNDYyNzYgLTEuMjQzMzQgMi40MDY5NyAtMS4yNDMzNEMyLjMxMTMzIC0xLjI0MzM0IDIuMjk1MzkgLTEuMTg3NTUgMi4yNzE0OCAtMS4xMDc4NUMyLjA4ODE3IC0wLjQ3MDIzNyAxLjc2MTM5IC0wLjE0MzQ2MiAxLjQ0MjU5IC0wLjE0MzQ2MkMxLjM0Njk1IC0wLjE0MzQ2MiAxLjI1MTMxIC0wLjE4MzMxMyAxLjI1MTMxIC0wLjM5ODUwNkMxLjI1MTMxIC0wLjU4OTc4OCAxLjMwNzEgLTAuNzMzMjUgMS40MTA3MSAtMC45ODAzMjRDMS40OTA0MSAtMS4xOTU1MiAxLjU3MDExIC0xLjQxMDcxIDEuNjU3NzggLTEuNjI1OUwxLjkwNDg2IC0yLjI3MTQ4QzEuOTc2NTkgLTIuNDU0NzkgMi4wNzIyMyAtMi43MDE4NyAyLjA3MjIzIC0yLjgzNzM2QzIuMDcyMjMgLTMuMjM1ODcgMS43NTM0MiAtMy41MTQ4MiAxLjM0Njk1IC0zLjUxNDgyQzAuNTczODQ4IC0zLjUxNDgyIDAuMjM5MTAzIC0yLjM5OSAwLjIzOTEwMyAtMi4yOTUzOUMwLjIzOTEwMyAtMi4yMjM2NiAwLjI5NDg5NCAtMi4xOTE3OCAwLjM1ODY1NSAtMi4xOTE3OEMwLjQ2MjI2NyAtMi4xOTE3OCAwLjQ3MDIzNyAtMi4yMzk2IDAuNDk0MTQ3IC0yLjMxOTNDMC43MTczMSAtMy4wNzY0NiAxLjA4Mzk0IC0zLjI5MTY2IDEuMzIzMDQgLTMuMjkxNjZDMS40MzQ2MiAtMy4yOTE2NiAxLjUxNDMyIC0zLjI1MTgxIDEuNTE0MzIgLTMuMDI4NjRDMS41MTQzMiAtMi45NDg5NCAxLjUwNjM1IC0yLjgzNzM2IDEuNDI2NjUgLTIuNTk4MjZMMS4yMTE0NiAtMi4wNDgzMlonIGlkPSdnMS0xMDUnLz4KPHBhdGggZD0nTTMuMjkxNjYgLTQuOTczMzVDMy4yOTE2NiAtNS4xMjQ3OCAzLjE3MjEgLTUuMjc2MjEgMi45ODA4MiAtNS4yNzYyMUMyLjc0MTcyIC01LjI3NjIxIDIuNTM0NSAtNS4wNTMwNSAyLjUzNDUgLTQuODQ1ODNDMi41MzQ1IC00LjY5NDQgMi42NTQwNSAtNC41NDI5NiAyLjg0NTMzIC00LjU0Mjk2QzMuMDg0NDMgLTQuNTQyOTYgMy4yOTE2NiAtNC43NjYxMyAzLjI5MTY2IC00Ljk3MzM1Wk0xLjYyNTkgMC4zOTg1MDZDMS41MDYzNSAwLjg4NDY4MiAxLjExNTgyIDEuNDAyNzQgMC42Mjk2MzkgMS40MDI3NEMwLjUwMjExNyAxLjQwMjc0IDAuMzgyNTY1IDEuMzcwODYgMC4zNjY2MjUgMS4zNjI4OUMwLjYxMzY5OSAxLjI0MzM0IDAuNjQ1NTc5IDEuMDI4MTQgMC42NDU1NzkgMC45NTY0MTNDMC42NDU1NzkgMC43NjUxMzEgMC41MDIxMTcgMC42NjE1MTkgMC4zMzQ3NDUgMC42NjE1MTlDMC4xMDM2MTEgMC42NjE1MTkgLTAuMTExNTgyIDAuODYwNzcyIC0wLjExMTU4MiAxLjEyMzc5Qy0wLjExMTU4MiAxLjQyNjY1IDAuMTgzMzEzIDEuNjI1OSAwLjYzNzYwOSAxLjYyNTlDMS4xMjM3OSAxLjYyNTkgMi4wMDA1IDEuMzIzMDQgMi4yMzk2IDAuMzY2NjI1TDIuOTU2OTEgLTIuNDg2NjdDMi45ODA4MiAtMi41ODIzMiAyLjk5Njc2IC0yLjY0NjA4IDIuOTk2NzYgLTIuNzY1NjNDMi45OTY3NiAtMy4yMDM5OSAyLjY0NjA4IC0zLjUxNDgyIDIuMTgzODEgLTMuNTE0ODJDMS4zMzg5OCAtMy41MTQ4MiAwLjg0NDgzMiAtMi4zOTkgMC44NDQ4MzIgLTIuMjk1MzlDMC44NDQ4MzIgLTIuMjIzNjYgMC45MDA2MjMgLTIuMTkxNzggMC45NjQzODQgLTIuMTkxNzhDMS4wNTIwNSAtMi4xOTE3OCAxLjA2MDAyIC0yLjIxNTY5IDEuMTE1ODIgLTIuMzM1MjRDMS4zNTQ5MiAtMi44ODUxOCAxLjc2MTM5IC0zLjI5MTY2IDIuMTU5OSAtMy4yOTE2NkMyLjMyNzI3IC0zLjI5MTY2IDIuNDIyOTEgLTMuMTgwMDcgMi40MjI5MSAtMi45MTcwNkMyLjQyMjkxIC0yLjgwNTQ4IDIuMzk5IC0yLjY5MzkgMi4zNzUwOSAtMi41ODIzMkwxLjYyNTkgMC4zOTg1MDZaJyBpZD0nZzEtMTA2Jy8+CjxwYXRoIGQ9J00yLjMyNzI3IC01LjI5MjE1QzIuMzM1MjQgLTUuMzA4MDkgMi4zNTkxNSAtNS40MTE3MSAyLjM1OTE1IC01LjQxOTY4QzIuMzU5MTUgLTUuNDU5NTMgMi4zMjcyNyAtNS41MzEyNiAyLjIzMTYzIC01LjUzMTI2QzIuMTk5NzUgLTUuNTMxMjYgMS45NTI2OCAtNS41MDczNSAxLjc2OTM2IC01LjQ5MTQxTDEuMzIzMDQgLTUuNDU5NTNDMS4xNDc3IC01LjQ0MzU5IDEuMDY4IC01LjQzNTYyIDEuMDY4IC01LjI5MjE1QzEuMDY4IC01LjE4MDU3IDEuMTc5NTggLTUuMTgwNTcgMS4yNzUyMiAtNS4xODA1N0MxLjY1Nzc4IC01LjE4MDU3IDEuNjU3NzggLTUuMTMyNzUgMS42NTc3OCAtNS4wNjEwMkMxLjY1Nzc4IC01LjAzNzExIDEuNjU3NzggLTUuMDIxMTcgMS42MTc5MyAtNC44Nzc3MUwwLjQ4NjE3NyAtMC4zNDI3MTVDMC40NTQyOTYgLTAuMjIzMTYzIDAuNDU0Mjk2IC0wLjE3NTM0MiAwLjQ1NDI5NiAtMC4xNjczNzJDMC40NTQyOTYgLTAuMDMxODgwNCAwLjU2NTg3OCAwLjA3OTcwMTEgMC43MTczMSAwLjA3OTcwMTFDMC45ODgyOTQgMC4wNzk3MDExIDEuMDUyMDUgLTAuMTc1MzQyIDEuMDgzOTQgLTAuMjg2OTI0QzEuMTYzNjQgLTAuNjIxNjY5IDEuMzcwODYgLTEuNDY2NSAxLjQ1ODUzIC0xLjgwMTI1QzEuODk2ODkgLTEuNzUzNDIgMi40MzA4OCAtMS42MDE5OSAyLjQzMDg4IC0xLjE0NzdDMi40MzA4OCAtMS4xMDc4NSAyLjQzMDg4IC0xLjA2OCAyLjQxNDk0IC0wLjk4ODI5NEMyLjM5MTAzIC0wLjg4NDY4MiAyLjM3NTA5IC0wLjc3MzEwMSAyLjM3NTA5IC0wLjczMzI1QzIuMzc1MDkgLTAuMjYzMDE0IDIuNzI1NzggMC4wNzk3MDExIDMuMTg4MDQgMC4wNzk3MDExQzMuNTIyNzkgMC4wNzk3MDExIDMuNzMwMDEgLTAuMTY3MzcyIDMuODMzNjIgLTAuMzE4ODA0QzQuMDI0OTEgLTAuNjEzNjk5IDQuMTUyNDMgLTEuMDkxOTEgNC4xNTI0MyAtMS4xMzk3M0M0LjE1MjQzIC0xLjIxOTQzIDQuMDg4NjcgLTEuMjQzMzQgNC4wMzI4OCAtMS4yNDMzNEMzLjkzNzI0IC0xLjI0MzM0IDMuOTIxMyAtMS4xOTU1MiAzLjg4OTQxIC0xLjA1MjA1QzMuNzg1OCAtMC42Nzc0NiAzLjU3ODU4IC0wLjE0MzQ2MiAzLjIwMzk5IC0wLjE0MzQ2MkMyLjk5Njc2IC0wLjE0MzQ2MiAyLjk0ODk0IC0wLjMxODgwNCAyLjk0ODk0IC0wLjUzMzk5OEMyLjk0ODk0IC0wLjYzNzYwOSAyLjk1NjkxIC0wLjczMzI1IDIuOTk2NzYgLTAuOTE2NTYzQzMuMDA0NzMgLTAuOTQ4NDQzIDMuMDM2NjEgLTEuMDc1OTcgMy4wMzY2MSAtMS4xNjM2NEMzLjAzNjYxIC0xLjgxNzE5IDIuMjE1NjkgLTEuOTYwNjUgMS44MDkyMiAtMi4wMTY0NEMyLjEwNDExIC0yLjE5MTc4IDIuMzc1MDkgLTIuNDYyNzYgMi40NzA3MyAtMi41NjYzOEMyLjkwOTA5IC0yLjk5Njc2IDMuMjY3NzUgLTMuMjkxNjYgMy42NTAzMSAtMy4yOTE2NkMzLjc1MzkyIC0zLjI5MTY2IDMuODQ5NTYgLTMuMjY3NzUgMy45MTMzMyAtMy4xODgwNEMzLjQ4Mjk0IC0zLjEzMjI1IDMuNDgyOTQgLTIuNzU3NjYgMy40ODI5NCAtMi43NDk2OUMzLjQ4Mjk0IC0yLjU3NDM1IDMuNjE4NDMgLTIuNDU0NzkgMy43OTM3NyAtMi40NTQ3OUM0LjAwODk3IC0yLjQ1NDc5IDQuMjQ4MDcgLTIuNjMwMTQgNC4yNDgwNyAtMi45NTY5MUM0LjI0ODA3IC0zLjIyNzkgNC4wNTY3OSAtMy41MTQ4MiAzLjY1ODI4IC0zLjUxNDgyQzMuMTk2MDEgLTMuNTE0ODIgMi43ODE1NyAtMy4xNjQxMyAyLjMyNzI3IC0yLjcwOTg0QzEuODY1MDEgLTIuMjU1NTQgMS42NjU3NSAtMi4xNjc4NyAxLjUzODIzIC0yLjExMjA4TDIuMzI3MjcgLTUuMjkyMTVaJyBpZD0nZzEtMTA3Jy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PSc3LjMzMzIyJyB4bGluazpocmVmPScjZzItNjQnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTQuMTQnIHhsaW5rOmhyZWY9JyNnMy01MCcgeT0nLTIzLjk2OTknLz4KPHVzZSB4PScxOC44NzIzJyB4bGluazpocmVmPScjZzItMTAyJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI0LjYyMDcnIHhsaW5rOmhyZWY9JyNnMS0xMDcnIHk9Jy0xNy44MzgyJy8+CjxyZWN0IGhlaWdodD0nMC40NzgxODcnIHdpZHRoPSczNC43MjczJyB4PScxLjE5NTUxJyB5PSctMTQuNzcxNicvPgo8dXNlIHg9JzEuMTk1NTEnIHhsaW5rOmhyZWY9JyNnMi02NCcgeT0nLTMuMzQzMDEnLz4KPHVzZSB4PSc4LjAwMjMnIHhsaW5rOmhyZWY9JyNnMi0xMjAnIHk9Jy0zLjM0MzAxJy8+Cjx1c2UgeD0nMTQuNjI5NScgeGxpbms6aHJlZj0nI2cxLTEwNScgeT0nLTEuNTQ5NzUnLz4KPHVzZSB4PScxOC4wMTA4JyB4bGluazpocmVmPScjZzItNjQnIHk9Jy0zLjM0MzAxJy8+Cjx1c2UgeD0nMjQuODE3NicgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTMuMzQzMDEnLz4KPHVzZSB4PSczMS40NDQ4JyB4bGluazpocmVmPScjZzEtMTA2JyB5PSctMS41NDk3NScvPgo8dXNlIHg9JzQwLjQzOTInIHhsaW5rOmhyZWY9JyNnMC0yNScgeT0nLTExLjU0MzcnLz4KPHVzZSB4PSc1NC4yMTkzJyB4bGluazpocmVmPScjZzItMTAyJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzU5Ljk2NzcnIHhsaW5rOmhyZWY9JyNnMS0xMDcnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nNjUuMDg3NScgeGxpbms6aHJlZj0nI2c0LTQwJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzY5LjYyMjgnIHhsaW5rOmhyZWY9JyNnMi0xMjAnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nNzguOTA2NycgeGxpbms6aHJlZj0nI2c0LTQzJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzkwLjYzNCcgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9Jzk1LjM0MycgeGxpbms6aHJlZj0nI2cxLTEwNScgeT0nLTE3LjgzODInLz4KPHVzZSB4PScxMDEuMzgxJyB4bGluazpocmVmPScjZzQtNDMnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTEzLjEwOCcgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzExNy44MTcnIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nMTIyLjE5OScgeGxpbms6aHJlZj0nI2c0LTQxJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzEyOS4zOTEnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzE0MS4zMTInIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTQ3LjA2JyB4bGluazpocmVmPScjZzEtMTA3JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzE1Mi4xOCcgeGxpbms6aHJlZj0nI2c0LTQwJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzE1Ni43MTUnIHhsaW5rOmhyZWY9JyNnMi0xMjAnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMTY1Ljk5OScgeGxpbms6aHJlZj0nI2c0LTQzJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzE3Ny43MjYnIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScxODIuNDM2JyB4bGluazpocmVmPScjZzEtMTA1JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzE4OC40NzMnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzIwMC4zOTQnIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyMDUuMTAzJyB4bGluazpocmVmPScjZzEtMTA2JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzIwOS40ODUnIHhsaW5rOmhyZWY9JyNnNC00MScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyMTYuNjc3JyB4bGluazpocmVmPScjZzQtNDMnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMjI4LjQwNCcgeGxpbms6aHJlZj0nI2cyLTEwMicgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyMzQuMTUzJyB4bGluazpocmVmPScjZzEtMTA3JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzIzOS4yNzMnIHhsaW5rOmhyZWY9JyNnNC00MCcgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyNDMuODA4JyB4bGluazpocmVmPScjZzItMTIwJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI1My4wOTInIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI2NS4wMTInIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PScyNjkuNzIxJyB4bGluazpocmVmPScjZzEtMTA1JyB5PSctMTcuODM4MicvPgo8dXNlIHg9JzI3NS43NTknIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI4Ny42OCcgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzI5Mi4zODknIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nMjk2Ljc3MScgeGxpbms6aHJlZj0nI2c0LTQxJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzMwMy45NjMnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzMxNS44ODMnIHhsaW5rOmhyZWY9JyNnMi0xMDInIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMzIxLjYzMicgeGxpbms6aHJlZj0nI2cxLTEwNycgeT0nLTE3LjgzODInLz4KPHVzZSB4PSczMjYuNzUxJyB4bGluazpocmVmPScjZzQtNDAnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMzMxLjI4NycgeGxpbms6aHJlZj0nI2cyLTEyMCcgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PSczNDAuNTcnIHhsaW5rOmhyZWY9JyNnMC0wJyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzM1Mi40OTEnIHhsaW5rOmhyZWY9JyNnMi0xNScgeT0nLTE5LjYzMTQnLz4KPHVzZSB4PSczNTcuMicgeGxpbms6aHJlZj0nI2cxLTEwNScgeT0nLTE3LjgzODInLz4KPHVzZSB4PSczNjMuMjM4JyB4bGluazpocmVmPScjZzQtNDMnIHk9Jy0xOS42MzE0Jy8+Cjx1c2UgeD0nMzc0Ljk2NScgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMTkuNjMxNCcvPgo8dXNlIHg9JzM3OS42NzQnIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xNy44MzgyJy8+Cjx1c2UgeD0nMzg0LjA1NicgeGxpbms6aHJlZj0nI2c0LTQxJyB5PSctMTkuNjMxNCcvPgo8cmVjdCBoZWlnaHQ9JzAuNDc4MTg3JyB3aWR0aD0nMzM1LjIxNCcgeD0nNTQuMjE5MycgeT0nLTE0Ljc3MTYnLz4KPHVzZSB4PScyMTAuMjkxJyB4bGluazpocmVmPScjZzQtNTInIHk9Jy0zLjM0MzAxJy8+Cjx1c2UgeD0nMjE2LjEyMicgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMy4zNDMwMScvPgo8dXNlIHg9JzIyMC44MzEnIHhsaW5rOmhyZWY9JyNnMS0xMDUnIHk9Jy0xLjU0OTc1Jy8+Cjx1c2UgeD0nMjI0LjIxMycgeGxpbms6aHJlZj0nI2cyLTE1JyB5PSctMy4zNDMwMScvPgo8dXNlIHg9JzIyOC45MjInIHhsaW5rOmhyZWY9JyNnMS0xMDYnIHk9Jy0xLjU0OTc1Jy8+CjwvZz4KPC9zdmc+Cgo8IS0tIERFUFRIPTAgLS0+" alt="\frac{\partial^2 f_k}{\partial x_i \partial x_j} \approx
+                                   \frac{
+                                      f_k(x + \epsilon_i + \epsilon_j) -
+                                      f_k(x + \epsilon_i - \epsilon_j) +
+                                      f_k(x - \epsilon_i - \epsilon_j) -
+                                      f_k(x - \epsilon_i + \epsilon_j)}
+                                   {4 \epsilon_i \epsilon_j}"/></p>
+</div></section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User manual - Define a physical model</a><ul>
+<li><a class="reference internal" href="#creation">1- Creation</a></li>
+<li><a class="reference internal" href="#definition">2- Definition</a><ul>
+<li><a class="reference internal" href="#symbolic-model-define-a-physical-model-with-analytical-formulas">2-1 <em>Symbolic model</em>: define a physical model with analytical formulas</a><ul>
+<li><a class="reference internal" href="#available-operators">Available operators</a></li>
+<li><a class="reference internal" href="#available-functions">Available functions</a></li>
+<li><a class="reference internal" href="#available-constants">Available constants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-model-define-a-physical-model-with-a-python-editor">2-2 <em>Python model</em>: define a physical model with a Python editor</a></li>
+<li><a class="reference internal" href="#coupling-model-define-a-physical-model-to-wrap-an-external-code-using-file-exchange">2-3 <em>Coupling model</em>: define a physical model to wrap an external code using file-exchange</a><ul>
+<li><a class="reference internal" href="#id1">2-3-1 <em>Definition</em></a></li>
+<li><a class="reference internal" href="#ansys-wizard">2-3-1 <em>Ansys wizard</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#yacs-model-define-a-physical-model-with-an-xml-file">2-4 <em>YACS model</em>: define a physical model with an XML file</a></li>
+<li><a class="reference internal" href="#fmi-model-define-a-physical-model-from-an-fmu-file">2-5 <em>FMI model</em>: define a physical model from an FMU file</a></li>
+<li><a class="reference internal" href="#differentiation-tab">2-6 Differentiation tab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../getting_started/user_manual_getting_started.html"
+                          title="previous chapter">User manual - First steps</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../field_model/user_manual_field_model.html"
+                          title="next chapter">User manual - Define a field model</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/physical_model/user_manual_physical_model.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../field_model/user_manual_field_model.html" title="User manual - Define a field model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../getting_started/user_manual_getting_started.html" title="User manual - First steps"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a physical model</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

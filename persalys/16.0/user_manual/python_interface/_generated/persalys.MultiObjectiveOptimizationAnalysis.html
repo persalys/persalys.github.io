@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MultiObjectiveOptimizationAnalysis &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script src="../../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MorrisAnalysis" href="persalys.MorrisAnalysis.html" />
+    <link rel="prev" title="OptimizationAnalysis" href="persalys.OptimizationAnalysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.MorrisAnalysis.html" title="MorrisAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.OptimizationAnalysis.html" title="OptimizationAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MultiObjectiveOptimizationAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="multiobjectiveoptimizationanalysis">
+<h1>MultiObjectiveOptimizationAnalysis<a class="headerlink" href="#multiobjectiveoptimizationanalysis" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">MultiObjectiveOptimizationAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Perform the multi-objective optimization analysis of a model.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>physicalModel</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
+</dd>
+<dt><strong>solverName</strong><span class="classifier">str</span></dt><dd><p>Optimization algorithm name (optional). Use <a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames" title="persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames"><code class="xref py py-func docutils literal notranslate"><span class="pre">GetSolverNames()</span></code></a> to list available names.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;Y0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Y1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;Y1&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bounds</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Interval</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;aModelPhys&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">X0</span><span class="p">,</span> <span class="n">X1</span><span class="p">],</span> <span class="p">[</span><span class="n">Y0</span><span class="p">,</span> <span class="n">Y1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;var g := 1.0 + 9.0 * (X0 + X1); g * (1.0 - sqrt(X0 / g))&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">MultiObjectiveOptimizationAnalysis</span><span class="p">(</span><span class="s1">&#39;anAnalysis&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">&#39;nsga2&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setInterestVariables</span><span class="p">([</span><span class="s1">&#39;Y0&#39;</span><span class="p">,</span> <span class="s1">&#39;Y1&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setBounds</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setPopulationSize</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setGenerationNumber</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setVariableInputs</span><span class="p">([</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> 
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">finalPop</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getFinalPop</span><span class="p">()</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fronts</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getFronts</span><span class="p">()</span> 
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>AlgorithmDictionary</strong></dt><dd></dd>
+<dt><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.thisown" title="persalys.MultiObjectiveOptimizationAnalysis.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames" title="persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GetSolverNames</span></code></a>(*args)</p></td>
+<td><p>Accessor to the list of solver names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.addConstraint" title="persalys.MultiObjectiveOptimizationAnalysis.addConstraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addConstraint</span></code></a>(*args)</p></td>
+<td><p>Adds a constraint to the analysis</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getBounds" title="persalys.MultiObjectiveOptimizationAnalysis.getBounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBounds</span></code></a>()</p></td>
+<td><p>Accessor to bounds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getClassName" title="persalys.MultiObjectiveOptimizationAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getErrorMessage" title="persalys.MultiObjectiveOptimizationAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getGenerationNumber" title="persalys.MultiObjectiveOptimizationAnalysis.getGenerationNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getGenerationNumber</span></code></a>()</p></td>
+<td><p>Accessor to the number of generations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getId" title="persalys.MultiObjectiveOptimizationAnalysis.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object's id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getInterestVariables" title="persalys.MultiObjectiveOptimizationAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumAbsoluteError" title="persalys.MultiObjectiveOptimizationAnalysis.getMaximumAbsoluteError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumAbsoluteError</span></code></a>()</p></td>
+<td><p>Accessor to maximum allowed absolute error.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumConstraintError" title="persalys.MultiObjectiveOptimizationAnalysis.getMaximumConstraintError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumConstraintError</span></code></a>()</p></td>
+<td><p>Accessor to maximum allowed constraint error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumEvaluationNumber" title="persalys.MultiObjectiveOptimizationAnalysis.getMaximumEvaluationNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumEvaluationNumber</span></code></a>()</p></td>
+<td><p>Accessor to maximum allowed number of evaluations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumRelativeError" title="persalys.MultiObjectiveOptimizationAnalysis.getMaximumRelativeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumRelativeError</span></code></a>()</p></td>
+<td><p>Accessor to maximum allowed relative error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumResidualError" title="persalys.MultiObjectiveOptimizationAnalysis.getMaximumResidualError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumResidualError</span></code></a>()</p></td>
+<td><p>Accessor to maximum allowed residual error.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getMinimization" title="persalys.MultiObjectiveOptimizationAnalysis.getMinimization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMinimization</span></code></a>()</p></td>
+<td><p>Test whether this is a minimization or maximization problem.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getName" title="persalys.MultiObjectiveOptimizationAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getPhysicalModel" title="persalys.MultiObjectiveOptimizationAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getPopulationSize" title="persalys.MultiObjectiveOptimizationAnalysis.getPopulationSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPopulationSize</span></code></a>()</p></td>
+<td><p>Accessor to popSize.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getPythonScript" title="persalys.MultiObjectiveOptimizationAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getRawEquations" title="persalys.MultiObjectiveOptimizationAnalysis.getRawEquations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRawEquations</span></code></a>()</p></td>
+<td><p>Accessor to constraints equations</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getResult" title="persalys.MultiObjectiveOptimizationAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Accessor to result.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getSeed" title="persalys.MultiObjectiveOptimizationAnalysis.getSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSeed</span></code></a>()</p></td>
+<td><p>Accessor to random generator seed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getShadowedId" title="persalys.MultiObjectiveOptimizationAnalysis.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getSolverName" title="persalys.MultiObjectiveOptimizationAnalysis.getSolverName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSolverName</span></code></a>()</p></td>
+<td><p>Accessor to solver name</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getStartingPoint" title="persalys.MultiObjectiveOptimizationAnalysis.getStartingPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStartingPoint</span></code></a>()</p></td>
+<td><p>Accessor to starting point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getVariableInputs" title="persalys.MultiObjectiveOptimizationAnalysis.getVariableInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVariableInputs</span></code></a>()</p></td>
+<td><p>Accessor to variable input names</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getVisibility" title="persalys.MultiObjectiveOptimizationAnalysis.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.getWarningMessage" title="persalys.MultiObjectiveOptimizationAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.hasName" title="persalys.MultiObjectiveOptimizationAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.hasValidResult" title="persalys.MultiObjectiveOptimizationAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.hasVisibleName" title="persalys.MultiObjectiveOptimizationAnalysis.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.isReliabilityAnalysis" title="persalys.MultiObjectiveOptimizationAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.isRunning" title="persalys.MultiObjectiveOptimizationAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.resetConstraints" title="persalys.MultiObjectiveOptimizationAnalysis.resetConstraints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resetConstraints</span></code></a>()</p></td>
+<td><p>Clears the current analysis constraints</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.run" title="persalys.MultiObjectiveOptimizationAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setBounds" title="persalys.MultiObjectiveOptimizationAnalysis.setBounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBounds</span></code></a>(bounds)</p></td>
+<td><p>Accessor to bounds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setGenerationNumber" title="persalys.MultiObjectiveOptimizationAnalysis.setGenerationNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setGenerationNumber</span></code></a>(generationNumber)</p></td>
+<td><p>Accessor to the number of generations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setInterestVariables" title="persalys.MultiObjectiveOptimizationAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumAbsoluteError" title="persalys.MultiObjectiveOptimizationAnalysis.setMaximumAbsoluteError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumAbsoluteError</span></code></a>(maximumAbsoluteError)</p></td>
+<td><p>Accessor to maximum allowed absolute error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumConstraintError" title="persalys.MultiObjectiveOptimizationAnalysis.setMaximumConstraintError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumConstraintError</span></code></a>(maximumConstraintError)</p></td>
+<td><p>Accessor to maximum allowed constraint error.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumEvaluationNumber" title="persalys.MultiObjectiveOptimizationAnalysis.setMaximumEvaluationNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumEvaluationNumber</span></code></a>(...)</p></td>
+<td><p>Accessor to maximum allowed number of evaluations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumRelativeError" title="persalys.MultiObjectiveOptimizationAnalysis.setMaximumRelativeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumRelativeError</span></code></a>(maximumRelativeError)</p></td>
+<td><p>Accessor to maximum allowed relative error.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumResidualError" title="persalys.MultiObjectiveOptimizationAnalysis.setMaximumResidualError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumResidualError</span></code></a>(maximumResidualError)</p></td>
+<td><p>Accessor to maximum allowed residual error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setMinimization" title="persalys.MultiObjectiveOptimizationAnalysis.setMinimization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMinimization</span></code></a>(varNames)</p></td>
+<td><p>Tell whether this is a minimization or maximization problem.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setName" title="persalys.MultiObjectiveOptimizationAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setPopulationSize" title="persalys.MultiObjectiveOptimizationAnalysis.setPopulationSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPopulationSize</span></code></a>(popSize)</p></td>
+<td><p>Accessor to popSize.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setSeed" title="persalys.MultiObjectiveOptimizationAnalysis.setSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSeed</span></code></a>(seed)</p></td>
+<td><p>Accessor to random generator seed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setShadowedId" title="persalys.MultiObjectiveOptimizationAnalysis.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setSolverName" title="persalys.MultiObjectiveOptimizationAnalysis.setSolverName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSolverName</span></code></a>(name)</p></td>
+<td><p>Accessor to solver name</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setStartingPoint" title="persalys.MultiObjectiveOptimizationAnalysis.setStartingPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setStartingPoint</span></code></a>(startingPoint)</p></td>
+<td><p>Accessor to starting point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setVariableInputs" title="persalys.MultiObjectiveOptimizationAnalysis.setVariableInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVariableInputs</span></code></a>(inputs)</p></td>
+<td><p>Accessor to variable input names</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.setVisibility" title="persalys.MultiObjectiveOptimizationAnalysis.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>canBeLaunched</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>defineProblem</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getElapsedTime</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getEqualityConstraints</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getInequalityConstraints</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getParentObserver</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getVariablesType</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>initialize</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setVariablesType</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GetSolverNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the list of solver names.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Description</span></code></a></span></dt><dd><p>List of available solver names.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.addConstraint">
+<span class="sig-name descname"><span class="pre">addConstraint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.addConstraint" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a constraint to the analysis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constraint</strong><span class="classifier">str</span></dt><dd><p>Constraint equation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getBounds">
+<span class="sig-name descname"><span class="pre">getBounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getBounds" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to bounds.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>bounds</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interval</span></code></a></span></dt><dd><p>Problem bounds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getErrorMessage">
+<span class="sig-name descname"><span class="pre">getErrorMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getErrorMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getGenerationNumber">
+<span class="sig-name descname"><span class="pre">getGenerationNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getGenerationNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the number of generations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>generationNumber</strong><span class="classifier">int</span></dt><dd><p>number of generations for the evolving algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getInterestVariables">
+<span class="sig-name descname"><span class="pre">getInterestVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getMaximumAbsoluteError">
+<span class="sig-name descname"><span class="pre">getMaximumAbsoluteError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumAbsoluteError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed absolute error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumAbsoluteError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed absolute error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getMaximumConstraintError">
+<span class="sig-name descname"><span class="pre">getMaximumConstraintError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumConstraintError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed constraint error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumConstraintError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed constraint error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getMaximumEvaluationNumber">
+<span class="sig-name descname"><span class="pre">getMaximumEvaluationNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumEvaluationNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed number of evaluations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>N</strong><span class="classifier">int</span></dt><dd><p>Maximum allowed number of evaluations</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getMaximumRelativeError">
+<span class="sig-name descname"><span class="pre">getMaximumRelativeError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumRelativeError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed relative error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumRelativeError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed relative error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getMaximumResidualError">
+<span class="sig-name descname"><span class="pre">getMaximumResidualError</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getMaximumResidualError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed residual error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumResidualError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed residual error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getMinimization">
+<span class="sig-name descname"><span class="pre">getMinimization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getMinimization" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether this is a minimization or maximization problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>value</strong><span class="classifier">bool</span></dt><dd><p><em>True</em> if this is a minimization problem (default), <em>False</em> otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getPhysicalModel">
+<span class="sig-name descname"><span class="pre">getPhysicalModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getPhysicalModel" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getPopulationSize">
+<span class="sig-name descname"><span class="pre">getPopulationSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getPopulationSize" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to popSize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>popSize</strong><span class="classifier">int</span></dt><dd><p>Initial population sample size.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getPythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getRawEquations">
+<span class="sig-name descname"><span class="pre">getRawEquations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getRawEquations" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to constraints equations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>equations</strong><span class="classifier">sequence of str</span></dt><dd><p>Constraints equations</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getResult" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to result.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiObjectiveOptimizationAnalysisResult</span></code></span></dt><dd><p>multi-objective analysis result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getSeed">
+<span class="sig-name descname"><span class="pre">getSeed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getSeed" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to random generator seed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>random generator seed for the evolving algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getShadowedId">
+<span class="sig-name descname"><span class="pre">getShadowedId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getSolverName">
+<span class="sig-name descname"><span class="pre">getSolverName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getSolverName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to solver name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>solver</strong><span class="classifier">str</span></dt><dd><p>Solver name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getStartingPoint">
+<span class="sig-name descname"><span class="pre">getStartingPoint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getStartingPoint" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to starting point.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>startingPoint</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Starting point.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getVariableInputs">
+<span class="sig-name descname"><span class="pre">getVariableInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getVariableInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to variable input names</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Description</span></code></a></span></dt><dd><p>Variable input names. It is set by default to the list of inputs of the model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getVisibility">
+<span class="sig-name descname"><span class="pre">getVisibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.getWarningMessage">
+<span class="sig-name descname"><span class="pre">getWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.getWarningMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.hasValidResult">
+<span class="sig-name descname"><span class="pre">hasValidResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.hasValidResult" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.hasVisibleName">
+<span class="sig-name descname"><span class="pre">hasVisibleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.hasVisibleName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.isReliabilityAnalysis">
+<span class="sig-name descname"><span class="pre">isReliabilityAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.isReliabilityAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.isRunning">
+<span class="sig-name descname"><span class="pre">isRunning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.isRunning" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.resetConstraints">
+<span class="sig-name descname"><span class="pre">resetConstraints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.resetConstraints" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the current analysis constraints</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.run" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setBounds">
+<span class="sig-name descname"><span class="pre">setBounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setBounds" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to bounds.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>bounds</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interval</span></code></a></span></dt><dd><p>Problem bounds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setGenerationNumber">
+<span class="sig-name descname"><span class="pre">setGenerationNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generationNumber</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setGenerationNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the number of generations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>generationNumber</strong><span class="classifier">int</span></dt><dd><p>number of generations for the evolving algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setInterestVariables">
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setMaximumAbsoluteError">
+<span class="sig-name descname"><span class="pre">setMaximumAbsoluteError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maximumAbsoluteError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumAbsoluteError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed absolute error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumAbsoluteError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed absolute error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setMaximumConstraintError">
+<span class="sig-name descname"><span class="pre">setMaximumConstraintError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maximumConstraintError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumConstraintError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed constraint error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumConstraintError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed constraint error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setMaximumEvaluationNumber">
+<span class="sig-name descname"><span class="pre">setMaximumEvaluationNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maximumEvaluationNumber</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumEvaluationNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed number of evaluations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>N</strong><span class="classifier">int</span></dt><dd><p>Maximum allowed number of evaluations.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setMaximumRelativeError">
+<span class="sig-name descname"><span class="pre">setMaximumRelativeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maximumRelativeError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumRelativeError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed relative error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumRelativeError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed relative error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setMaximumResidualError">
+<span class="sig-name descname"><span class="pre">setMaximumResidualError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maximumResidualError</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setMaximumResidualError" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to maximum allowed residual error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>maximumResidualError</strong><span class="classifier">float</span></dt><dd><p>Maximum allowed residual error.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setMinimization">
+<span class="sig-name descname"><span class="pre">setMinimization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setMinimization" title="Link to this definition">¶</a></dt>
+<dd><p>Tell whether this is a minimization or maximization problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>minimization</strong><span class="classifier">bool</span></dt><dd><p><em>True</em> if this is a minimization problem, <em>False</em> otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setPopulationSize">
+<span class="sig-name descname"><span class="pre">setPopulationSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">popSize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setPopulationSize" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to popSize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>popSize</strong><span class="classifier">int</span></dt><dd><p>Initial population sample size.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setSeed">
+<span class="sig-name descname"><span class="pre">setSeed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setSeed" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to random generator seed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>random generator seed for the evolving algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setShadowedId">
+<span class="sig-name descname"><span class="pre">setShadowedId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setSolverName">
+<span class="sig-name descname"><span class="pre">setSolverName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setSolverName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to solver name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>solver</strong><span class="classifier">str</span></dt><dd><p>Solver name. Use <a class="reference internal" href="#persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames" title="persalys.MultiObjectiveOptimizationAnalysis.GetSolverNames"><code class="xref py py-func docutils literal notranslate"><span class="pre">GetSolverNames()</span></code></a> to list available names.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setStartingPoint">
+<span class="sig-name descname"><span class="pre">setStartingPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">startingPoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setStartingPoint" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to starting point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>startingPoint</strong><span class="classifier">sequence of float</span></dt><dd><p>Starting point.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setVariableInputs">
+<span class="sig-name descname"><span class="pre">setVariableInputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setVariableInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to variable input names</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>inputs</strong><span class="classifier">sequence of str</span></dt><dd><p>Variable input names. It is set by default to the list of inputs of the model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.setVisibility">
+<span class="sig-name descname"><span class="pre">setVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.setVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.MultiObjectiveOptimizationAnalysis.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.MultiObjectiveOptimizationAnalysis.thisown" title="Link to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.OptimizationAnalysis.html"
+                          title="previous chapter">OptimizationAnalysis</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.MorrisAnalysis.html"
+                          title="next chapter">MorrisAnalysis</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.MultiObjectiveOptimizationAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.MorrisAnalysis.html" title="MorrisAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.OptimizationAnalysis.html" title="OptimizationAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">MultiObjectiveOptimizationAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual - First steps &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script src="../../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Define a physical model" href="../physical_model/user_manual_physical_model.html" />
+    <link rel="prev" title="User manual for graphical interface" href="../graphical_interface.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../physical_model/user_manual_physical_model.html" title="User manual - Define a physical model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../graphical_interface.html" title="User manual for graphical interface"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - First steps</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-manual-first-steps">
+<h1>User manual - First steps<a class="headerlink" href="#user-manual-first-steps" title="Link to this heading">¶</a></h1>
+<section id="getting-started-with-the-graphical-interface">
+<h2>1- Getting started with the graphical interface<a class="headerlink" href="#getting-started-with-the-graphical-interface" title="Link to this heading">¶</a></h2>
+<section id="main-window">
+<h3>1-1 Main window<a class="headerlink" href="#main-window" title="Link to this heading">¶</a></h3>
+<a class="reference internal image-reference" href="../../../_images/generalOverview.png"><img alt="../../../_images/generalOverview.png" class="align-center" src="../../../_images/generalOverview.png" style="width: 640px;" /></a>
+<p>The main window of the graphical interface consists of a working space in which the other
+windows (model definition or result window) open, surrounded by:</p>
+<ul>
+<li><p>The <strong>study tree</strong> displays the models and analyses performed in the studies. Elements are organized
+in sections, in bold (ex: <strong>Physical models</strong>, <strong>Evaluation</strong>, <strong>Definition</strong>), in which the user can create analyses and models.</p>
+<img alt="../../../_images/tree.png" class="align-center" src="../../../_images/tree.png" />
+</li>
+<li><p>The main <strong>menu bar</strong> and <strong>tool bar</strong>.</p>
+<img alt="../../../_images/menuBar.png" class="align-center" src="../../../_images/menuBar.png" />
+</li>
+<li><p>The <strong>Python console</strong> shown by default,</p>
+<img alt="../../../_images/pythonConsole.png" class="align-center" src="../../../_images/pythonConsole.png" />
+</li>
+<li><p>The <strong>Graph settings</strong> window appears when a figure is displayed in the main window to set up graphical parameters.
+Its content varies according to the type of graph:</p></li>
+</ul>
+<blockquote id="firstgraphsettings">
+<div><ul>
+<li><dl>
+<dt>for the <strong>Parallel coordinates plots</strong> and the <strong>Plot matrix</strong>, the window allows one to:</dt><dd><ul class="simple">
+<li><p>Select the variables to display and the axis order</p></li>
+<li><p>Modify the space where the values are plotted with the <strong>Ranks</strong> check button
+(default: physical space). Check off the button to display the rank of the values</p></li>
+<li><p>Export the figure</p></li>
+</ul>
+<img alt="../../../_images/cobweb_plotMatrix_Graph_settings.png" class="align-center" src="../../../_images/cobweb_plotMatrix_Graph_settings.png" />
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<blockquote id="secondgraphsettings">
+<div><ul>
+<li><dl class="simple">
+<dt>for the charts, the window allows one to:</dt><dd><ul class="simple">
+<li><p>Export the figure</p></li>
+<li><p>Specify the graph title (expected: string)</p></li>
+<li><p>Specify axis title (expected: string) in the <strong>X-axis</strong> and <strong>Y-axis</strong> tabs</p></li>
+<li><dl class="simple">
+<dt>Depending on the graph:</dt><dd><ul>
+<li><p>Select data to plot</p></li>
+<li><p>Modify the space where the values are plotted with the <strong>Ranks</strong> check button
+(default: physical space). Check off the button to display the rank of the values</p></li>
+<li><dl class="simple">
+<dt>Specify other axis parameters in the <strong>X-axis</strong> and <strong>Y-axis</strong> tabs:</dt><dd><ul>
+<li><p>minimum/maximum bounds (expected: floating point)</p></li>
+<li><p>log scale (check button only available if axis values are positive)</p></li>
+<li><p>X-axis label orientation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Reset the axis ranges</p></li>
+<li><p>Specify the <strong>plot style</strong>: color, marker size and style (cross, circle, diamond, square, plus)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/graphicConfiguration.png" class="align-center" src="../../../_images/graphicConfiguration.png" />
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="on-startup">
+<h3>1-2 On startup<a class="headerlink" href="#on-startup" title="Link to this heading">¶</a></h3>
+<img alt="../../../_images/window_startUp.png" class="align-center" src="../../../_images/window_startUp.png" />
+<dl class="simple">
+<dt>The interface startup window shows 3 items:</dt><dd><ul class="simple">
+<li><p><strong>New study</strong>: Create a new study.</p></li>
+<li><p><strong>Open study</strong>: Choose an existing study from a dialog box.
+The loaded study becomes the current study.</p></li>
+<li><p><strong>Import Python script</strong>: Load a Python Script from a dialog box.
+It is impossible to load a study when another one is already opened.</p></li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>Click on the icon <img alt="infoButton" src="../../../_images/documentinfo.png" /> to open the documentation</p></li>
+</ul>
+</section>
+<section id="menus">
+<h3>1-3 Menus<a class="headerlink" href="#menus" title="Link to this heading">¶</a></h3>
+<section id="file-menu">
+<h4>File Menu<a class="headerlink" href="#file-menu" title="Link to this heading">¶</a></h4>
+<img alt="../../../_images/fileMenu.png" class="align-center" src="../../../_images/fileMenu.png" />
+<p>The <strong>File</strong> menu gathers the following shortcuts:</p>
+<ul class="simple">
+<li><p><strong>New</strong>: Create a new study.</p></li>
+<li><p><strong>Open…</strong>: Choose an existing study from a dialog box.
+The loaded study becomes the current study.</p></li>
+<li><p><strong>Open Recent</strong>: Quick access to recently loaded studies.</p></li>
+<li><p><strong>Save</strong>: Save the current study.</p></li>
+<li><p><strong>Save As…</strong>: Choose the directory where to save the current project.</p></li>
+<li><p><strong>Import Python…</strong>: Load a Python Script from a dialog box.</p></li>
+<li><p><strong>Close</strong>: Close the current Study. A pop-up dialog window appears if the current Study has not been saved.
+Any Study may also be closed through its context menu.</p></li>
+<li><p><strong>Exit</strong>: Quit the interface.</p></li>
+</ul>
+</section>
+<section id="view-menu">
+<h4>View Menu<a class="headerlink" href="#view-menu" title="Link to this heading">¶</a></h4>
+<img alt="../../../_images/viewMenu.png" class="align-center" src="../../../_images/viewMenu.png" />
+<p>The <strong>View</strong> menu allows the user to display/hide the Python console.</p>
+</section>
+<section id="help-menu">
+<h4>Help Menu<a class="headerlink" href="#help-menu" title="Link to this heading">¶</a></h4>
+<img alt="../../../_images/helpMenu.png" class="align-center" src="../../../_images/helpMenu.png" />
+<p>The <strong>Help</strong> menu gathers the following shortcuts:</p>
+<ul class="simple">
+<li><p><strong>User’s manual</strong>: Open the user’s manual in a Web browser.</p></li>
+<li><p><strong>About Persalys</strong>: Display information (version, license, libraries, etc.) about the interface in a pop-up dialog window.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="create-a-study">
+<h2>2- Create a study<a class="headerlink" href="#create-a-study" title="Link to this heading">¶</a></h2>
+<p>There are several ways to create a new study:</p>
+<ul>
+<li><p>Use the button <strong>New Study</strong> of the startup window</p>
+<img alt="../../../_images/startUpWindowButtons.png" class="align-center" src="../../../_images/startUpWindowButtons.png" />
+</li>
+<li><p>Click on <img alt="newButton" src="../../../_images/document-new22x22.png" /> in the tool bar</p></li>
+<li><p>Click on <strong>New</strong> in the file menu</p></li>
+<li><p>Press Ctrl+N</p></li>
+</ul>
+<p>When a study is created, an item appears in the study tree. This item is associated with a window
+which provides ways to define models:</p>
+<img alt="../../../_images/window_OTStudy_startUp.png" class="align-center" src="../../../_images/window_OTStudy_startUp.png" />
+<p>The context menu of study item gathers the same actions as the window:</p>
+<blockquote>
+<div><img alt="../../../_images/studyItemContextMenu.png" class="align-center" src="../../../_images/studyItemContextMenu.png" />
+</div></blockquote>
+<dl class="simple" id="modelsdefonstudywindow">
+<dt>It proposes to create models:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>Models defined with a vector function:</dt><dd><ul>
+<li><p><strong>Symbolic model</strong>: Physical model defined with analytical formulas</p></li>
+<li><p><strong>Python model</strong>: Physical model defined with a Python script</p></li>
+<li><p><strong>YACS model</strong>: Physical model defined with a YACS scheme (optional)</p></li>
+<li><p><strong>FMI model</strong>: Physical model defined with a FMU file (optional)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Models defined with a field function:</dt><dd><ul>
+<li><p><strong>Symbolic Field model</strong>: Physical model defined with analytical formulas and a mesh</p></li>
+<li><p><strong>Python Field model</strong>: Physical model defined with a Python script and a mesh</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Models defined with a data sample:</dt><dd><ul>
+<li><p><strong>Data model</strong>: Physical model defined with a sample</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>The context menu also allows the following actions:</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the study</p></li>
+<li><p><strong>Export Python</strong>: Choose a directory to export the study as a Python script</p></li>
+<li><p><strong>Save</strong>: Save the study</p></li>
+<li><p><strong>Close</strong>: Close the study. A pop-up dialog window appears if the study has not been saved</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User manual - First steps</a><ul>
+<li><a class="reference internal" href="#getting-started-with-the-graphical-interface">1- Getting started with the graphical interface</a><ul>
+<li><a class="reference internal" href="#main-window">1-1 Main window</a></li>
+<li><a class="reference internal" href="#on-startup">1-2 On startup</a></li>
+<li><a class="reference internal" href="#menus">1-3 Menus</a><ul>
+<li><a class="reference internal" href="#file-menu">File Menu</a></li>
+<li><a class="reference internal" href="#view-menu">View Menu</a></li>
+<li><a class="reference internal" href="#help-menu">Help Menu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-a-study">2- Create a study</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../graphical_interface.html"
+                          title="previous chapter">User manual for graphical interface</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../physical_model/user_manual_physical_model.html"
+                          title="next chapter">User manual - Define a physical model</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/getting_started/user_manual_getting_started.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../physical_model/user_manual_physical_model.html" title="User manual - Define a physical model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../graphical_interface.html" title="User manual for graphical interface"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - First steps</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

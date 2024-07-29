@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FMIPhysicalModel &#8212; Persalys 16.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=514cf933" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script src="../../../_static/documentation_options.js?v=79c0efb0"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DataModel" href="persalys.DataModel.html" />
+    <link rel="prev" title="PythonFieldModel" href="persalys.PythonFieldModel.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.PythonFieldModel.html" title="PythonFieldModel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FMIPhysicalModel</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="fmiphysicalmodel">
+<h1>FMIPhysicalModel<a class="headerlink" href="#fmiphysicalmodel" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">FMIPhysicalModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model defined by a FMI scheme.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Model name</p>
+</dd>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables (optional)</p>
+</dd>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables (optional)</p>
+</dd>
+<dt><strong>fmuFile</strong><span class="classifier">str</span></dt><dd><p>FMU file name</p>
+</dd>
+<dt><strong>fmuType</strong><span class="classifier">str, default=’auto’</span></dt><dd><p>FMU type, either one of auto, ME or CS</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>When only the file name is provided, only variables marked with <em>Input</em> FMI
+causality are set as model input variables, and only variables marked with
+<em>Output</em> FMI causality are set as model output variables.</p>
+<p>The implementation is based on <a class="reference external" href="https://github.com/openturns/otfmi">OTFMI</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference internal" href="#persalys.FMIPhysicalModel.thisown" title="persalys.FMIPhysicalModel.thisown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thisown</span></code></a></dt><dd><p>The membership flag</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.addInput" title="persalys.FMIPhysicalModel.addInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addInput</span></code></a>(input)</p></td>
+<td><p>Add an input variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.addOutput" title="persalys.FMIPhysicalModel.addOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addOutput</span></code></a>(output)</p></td>
+<td><p>Add an output variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.clearInputs" title="persalys.FMIPhysicalModel.clearInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearInputs</span></code></a>()</p></td>
+<td><p>Remove all the input variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.clearOutputs" title="persalys.FMIPhysicalModel.clearOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearOutputs</span></code></a>()</p></td>
+<td><p>Remove all the output variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.exportStandalonePythonScript" title="persalys.FMIPhysicalModel.exportStandalonePythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exportStandalonePythonScript</span></code></a>(fileName)</p></td>
+<td><p>Export the model into a Python script.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getClassName" title="persalys.FMIPhysicalModel.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getCode" title="persalys.FMIPhysicalModel.getCode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCode</span></code></a>()</p></td>
+<td><p>Code accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getCopula" title="persalys.FMIPhysicalModel.getCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCopula</span></code></a>()</p></td>
+<td><p>Copula accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getDistribution" title="persalys.FMIPhysicalModel.getDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDistribution</span></code></a>()</p></td>
+<td><p>Distribution accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getEvalTime" title="persalys.FMIPhysicalModel.getEvalTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEvalTime</span></code></a>()</p></td>
+<td><p>Evaluation time accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getFMUFileName" title="persalys.FMIPhysicalModel.getFMUFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFMUFileName</span></code></a>()</p></td>
+<td><p>FMU file name accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getFMUInfo" title="persalys.FMIPhysicalModel.getFMUInfo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFMUInfo</span></code></a>()</p></td>
+<td><p>FMU infos accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getFunction" title="persalys.FMIPhysicalModel.getFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFunction</span></code></a>()</p></td>
+<td><p>Accessor to the underlying function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getId" title="persalys.FMIPhysicalModel.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object's id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getInputByName" title="persalys.FMIPhysicalModel.getInputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputByName</span></code></a>(*args)</p></td>
+<td><p>Input variable accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getInputDimension" title="persalys.FMIPhysicalModel.getInputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputDimension</span></code></a>()</p></td>
+<td><p>Number of input variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getInputNames" title="persalys.FMIPhysicalModel.getInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputNames</span></code></a>()</p></td>
+<td><p>Input variable names accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getInputRandomVector" title="persalys.FMIPhysicalModel.getInputRandomVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputRandomVector</span></code></a>()</p></td>
+<td><p>Input random vector accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getInputs" title="persalys.FMIPhysicalModel.getInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputs</span></code></a>()</p></td>
+<td><p>Input variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getMeshModel" title="persalys.FMIPhysicalModel.getMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMeshModel</span></code></a>()</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getName" title="persalys.FMIPhysicalModel.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getOutputByName" title="persalys.FMIPhysicalModel.getOutputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputByName</span></code></a>(*args)</p></td>
+<td><p>Output variable accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getOutputDimension" title="persalys.FMIPhysicalModel.getOutputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputDimension</span></code></a>()</p></td>
+<td><p>Number of output variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getOutputNames" title="persalys.FMIPhysicalModel.getOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputNames</span></code></a>()</p></td>
+<td><p>Output variable names accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getOutputRandomVector" title="persalys.FMIPhysicalModel.getOutputRandomVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputRandomVector</span></code></a>(outputNames)</p></td>
+<td><p>Output random vector accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getOutputs" title="persalys.FMIPhysicalModel.getOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputs</span></code></a>()</p></td>
+<td><p>Output variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getPointToFieldFunction" title="persalys.FMIPhysicalModel.getPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPointToFieldFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the underlying function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getProcessNumber" title="persalys.FMIPhysicalModel.getProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getProcessNumber</span></code></a>()</p></td>
+<td><p>Number of concurrent processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getPythonScript" title="persalys.FMIPhysicalModel.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Python script accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getRestrictedFunction" title="persalys.FMIPhysicalModel.getRestrictedFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the function restricted to its stochastic inputs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getRestrictedPointToFieldFunction" title="persalys.FMIPhysicalModel.getRestrictedPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedPointToFieldFunction</span></code></a>(outputNames)</p></td>
+<td><p>Accessor to the field function restricted to its stochastic inputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getSelectedOutputsNames" title="persalys.FMIPhysicalModel.getSelectedOutputsNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSelectedOutputsNames</span></code></a>()</p></td>
+<td><p>Accessor to the selected outputs names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getShadowedId" title="persalys.FMIPhysicalModel.getShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getShadowedId</span></code></a>()</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getStochasticInputNames" title="persalys.FMIPhysicalModel.getStochasticInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStochasticInputNames</span></code></a>()</p></td>
+<td><p>Accessor to the names of the stochastic input variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.getVisibility" title="persalys.FMIPhysicalModel.getVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisibility</span></code></a>()</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.hasInputNamed" title="persalys.FMIPhysicalModel.hasInputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasInputNamed</span></code></a>(inputName)</p></td>
+<td><p>Check if an input has the given name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.hasMesh" title="persalys.FMIPhysicalModel.hasMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasMesh</span></code></a>()</p></td>
+<td><p>Whether the model has a mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.hasName" title="persalys.FMIPhysicalModel.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.hasOutputNamed" title="persalys.FMIPhysicalModel.hasOutputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasOutputNamed</span></code></a>(outputName)</p></td>
+<td><p>Check if an output has the given name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.hasStochasticInputs" title="persalys.FMIPhysicalModel.hasStochasticInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasStochasticInputs</span></code></a>()</p></td>
+<td><p>Whether it contains stochastic variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.hasVisibleName" title="persalys.FMIPhysicalModel.hasVisibleName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasVisibleName</span></code></a>()</p></td>
+<td><p>Test if the object has a distinguishable name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.isParallel" title="persalys.FMIPhysicalModel.isParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isParallel</span></code></a>()</p></td>
+<td><p>Whether the evaluations of the model are parallelized.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.isValid" title="persalys.FMIPhysicalModel.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>()</p></td>
+<td><p>Whether it is valid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.removeInput" title="persalys.FMIPhysicalModel.removeInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeInput</span></code></a>(inputName)</p></td>
+<td><p>Remove an input variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.removeOutput" title="persalys.FMIPhysicalModel.removeOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeOutput</span></code></a>(outputName)</p></td>
+<td><p>Remove an output variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.selectOutput" title="persalys.FMIPhysicalModel.selectOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selectOutput</span></code></a>(outputName, selected)</p></td>
+<td><p>Select output.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setCode" title="persalys.FMIPhysicalModel.setCode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCode</span></code></a>(code)</p></td>
+<td><p>Code accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setCopula" title="persalys.FMIPhysicalModel.setCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCopula</span></code></a>(inputNames, copula)</p></td>
+<td><p>Copula accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setDistribution" title="persalys.FMIPhysicalModel.setDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistribution</span></code></a>(inputName, distribution)</p></td>
+<td><p>Input distribution accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setDistributionParametersType" title="persalys.FMIPhysicalModel.setDistributionParametersType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistributionParametersType</span></code></a>(inputName, ...)</p></td>
+<td><p>Input distribution parameter type accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setEvalTime" title="persalys.FMIPhysicalModel.setEvalTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setEvalTime</span></code></a>(evalTime)</p></td>
+<td><p>Evaluation time accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setFMUFileName" title="persalys.FMIPhysicalModel.setFMUFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFMUFileName</span></code></a>(fileName)</p></td>
+<td><p>FMU file name accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setFiniteDifferenceStep" title="persalys.FMIPhysicalModel.setFiniteDifferenceStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFiniteDifferenceStep</span></code></a>(inputName, step)</p></td>
+<td><p>Finite difference step accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setInputDescription" title="persalys.FMIPhysicalModel.setInputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputDescription</span></code></a>(inputName, description)</p></td>
+<td><p>Input description accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setInputName" title="persalys.FMIPhysicalModel.setInputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputName</span></code></a>(inputName, newName)</p></td>
+<td><p>Input variable name accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setInputStochastic" title="persalys.FMIPhysicalModel.setInputStochastic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputStochastic</span></code></a>(inputName, stoch)</p></td>
+<td><p>Whether the input variable is stochastic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setInputValue" title="persalys.FMIPhysicalModel.setInputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputValue</span></code></a>(inputName, value)</p></td>
+<td><p>Input variable value accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setInputs" title="persalys.FMIPhysicalModel.setInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputs</span></code></a>(inputs)</p></td>
+<td><p>Input variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setMeshModel" title="persalys.FMIPhysicalModel.setMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMeshModel</span></code></a>(meshModel)</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setName" title="persalys.FMIPhysicalModel.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setOutputDescription" title="persalys.FMIPhysicalModel.setOutputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputDescription</span></code></a>(outputName, description)</p></td>
+<td><p>Output description accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setOutputName" title="persalys.FMIPhysicalModel.setOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputName</span></code></a>(outputName, newName)</p></td>
+<td><p>Output variable name accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setOutputValue" title="persalys.FMIPhysicalModel.setOutputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputValue</span></code></a>(outputName, value)</p></td>
+<td><p>Output variable name accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setOutputs" title="persalys.FMIPhysicalModel.setOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputs</span></code></a>(outputs)</p></td>
+<td><p>Output variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setParallel" title="persalys.FMIPhysicalModel.setParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setParallel</span></code></a>(flag)</p></td>
+<td><p>Whether the evaluations of the model are parallelized.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setProcessNumber" title="persalys.FMIPhysicalModel.setProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setProcessNumber</span></code></a>(processNumber)</p></td>
+<td><p>Number of concurrent processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setShadowedId" title="persalys.FMIPhysicalModel.setShadowedId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setShadowedId</span></code></a>(id)</p></td>
+<td><p>Accessor to the object's shadowed id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FMIPhysicalModel.setVisibility" title="persalys.FMIPhysicalModel.setVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setVisibility</span></code></a>(visible)</p></td>
+<td><p>Accessor to the object's visibility state.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>getFMUType</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>reassignVariables</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setFMUType</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.addInput">
+<span class="sig-name descname"><span class="pre">addInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.addInput" title="Link to this definition">¶</a></dt>
+<dd><p>Add an input variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>New variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.addOutput">
+<span class="sig-name descname"><span class="pre">addOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.addOutput" title="Link to this definition">¶</a></dt>
+<dd><p>Add an output variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>output</strong><span class="classifier"><a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>New variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.clearInputs">
+<span class="sig-name descname"><span class="pre">clearInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.clearInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Remove all the input variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.clearOutputs">
+<span class="sig-name descname"><span class="pre">clearOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.clearOutputs" title="Link to this definition">¶</a></dt>
+<dd><p>Remove all the output variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.exportStandalonePythonScript">
+<span class="sig-name descname"><span class="pre">exportStandalonePythonScript</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.exportStandalonePythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Export the model into a Python script.</p>
+<p>In the case of metamodels the script only depends on OpenTURNS
+and is meant to be used out of Persalys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>Path of the exported script</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getCode">
+<span class="sig-name descname"><span class="pre">getCode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getCode" title="Link to this definition">¶</a></dt>
+<dd><p>Code accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>code</strong><span class="classifier">str</span></dt><dd><p>Code text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getCopula">
+<span class="sig-name descname"><span class="pre">getCopula</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getCopula" title="Link to this definition">¶</a></dt>
+<dd><p>Copula accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>copula</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Copula.html#openturns.Copula" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Copula</span></code></a></span></dt><dd><p>The copula</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getDistribution">
+<span class="sig-name descname"><span class="pre">getDistribution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getDistribution" title="Link to this definition">¶</a></dt>
+<dd><p>Distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>Distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.ComposedDistribution</span></code></a></span></dt><dd><p>The composed distribution (marginals and dependence)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getEvalTime">
+<span class="sig-name descname"><span class="pre">getEvalTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getEvalTime" title="Link to this definition">¶</a></dt>
+<dd><p>Evaluation time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>evalTime</strong><span class="classifier">float</span></dt><dd><p>Evaluation time</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getFMUFileName">
+<span class="sig-name descname"><span class="pre">getFMUFileName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getFMUFileName" title="Link to this definition">¶</a></dt>
+<dd><p>FMU file name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>FMU file name containing the FMI scheme</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getFMUInfo">
+<span class="sig-name descname"><span class="pre">getFMUInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getFMUInfo" title="Link to this definition">¶</a></dt>
+<dd><p>FMU infos accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>fmuInfo</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">FMUInfo</span></code></span></dt><dd><p>FMU infos</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getFunction">
+<span class="sig-name descname"><span class="pre">getFunction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying function.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the outputs to be evaluated (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>function</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Function evaluating the outputs</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getInputByName">
+<span class="sig-name descname"><span class="pre">getInputByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getInputByName" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getInputDimension">
+<span class="sig-name descname"><span class="pre">getInputDimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getInputDimension" title="Link to this definition">¶</a></dt>
+<dd><p>Number of input variables accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dimension</strong><span class="classifier">int</span></dt><dd><p>Number of input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getInputNames">
+<span class="sig-name descname"><span class="pre">getInputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getInputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Input variable names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getInputRandomVector">
+<span class="sig-name descname"><span class="pre">getInputRandomVector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getInputRandomVector" title="Link to this definition">¶</a></dt>
+<dd><p>Input random vector accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.RandomVector</span></code></a></span></dt><dd><p>Input random vector</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getInputs">
+<span class="sig-name descname"><span class="pre">getInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getMeshModel">
+<span class="sig-name descname"><span class="pre">getMeshModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getMeshModel" title="Link to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getOutputByName">
+<span class="sig-name descname"><span class="pre">getOutputByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getOutputByName" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getOutputDimension">
+<span class="sig-name descname"><span class="pre">getOutputDimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getOutputDimension" title="Link to this definition">¶</a></dt>
+<dd><p>Number of output variables accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dimension</strong><span class="classifier">int</span></dt><dd><p>Number of output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getOutputNames">
+<span class="sig-name descname"><span class="pre">getOutputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getOutputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Output variable names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getOutputRandomVector">
+<span class="sig-name descname"><span class="pre">getOutputRandomVector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getOutputRandomVector" title="Link to this definition">¶</a></dt>
+<dd><p>Output random vector accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.RandomVector</span></code></a></span></dt><dd><p>Output random vector</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getOutputs">
+<span class="sig-name descname"><span class="pre">getOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getOutputs" title="Link to this definition">¶</a></dt>
+<dd><p>Output variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getPointToFieldFunction">
+<span class="sig-name descname"><span class="pre">getPointToFieldFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getPointToFieldFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying function.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the outputs to be evaluated (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>function</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointToFieldFunction</span></code></span></dt><dd><p>Function evaluating the outputs along the mesh nodes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getProcessNumber">
+<span class="sig-name descname"><span class="pre">getProcessNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getProcessNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getPythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getRestrictedFunction">
+<span class="sig-name descname"><span class="pre">getRestrictedFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getRestrictedFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the function restricted to its stochastic inputs.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Output variables (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>restricted</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Stochastic function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getRestrictedPointToFieldFunction">
+<span class="sig-name descname"><span class="pre">getRestrictedPointToFieldFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getRestrictedPointToFieldFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the field function restricted to its stochastic inputs.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Output variables (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>restricted</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointToFieldFunction</span></code></span></dt><dd><p>Stochastic field function (for model with mesh)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getSelectedOutputsNames">
+<span class="sig-name descname"><span class="pre">getSelectedOutputsNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getSelectedOutputsNames" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the selected outputs names.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Selected outputs names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getShadowedId">
+<span class="sig-name descname"><span class="pre">getShadowedId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getStochasticInputNames">
+<span class="sig-name descname"><span class="pre">getStochasticInputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getStochasticInputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the names of the stochastic input variables.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Names of the stochastic input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.getVisibility">
+<span class="sig-name descname"><span class="pre">getVisibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.getVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.hasInputNamed">
+<span class="sig-name descname"><span class="pre">hasInputNamed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.hasInputNamed" title="Link to this definition">¶</a></dt>
+<dd><p>Check if an input has the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether an input has the given name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.hasMesh">
+<span class="sig-name descname"><span class="pre">hasMesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.hasMesh" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the model has a mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasMesh</strong><span class="classifier">bool</span></dt><dd><p>Whether the model has a mesh</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.hasOutputNamed">
+<span class="sig-name descname"><span class="pre">hasOutputNamed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.hasOutputNamed" title="Link to this definition">¶</a></dt>
+<dd><p>Check if an output has the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether an output has the given name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.hasStochasticInputs">
+<span class="sig-name descname"><span class="pre">hasStochasticInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.hasStochasticInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Whether it contains stochastic variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether it contains stochastic variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.hasVisibleName">
+<span class="sig-name descname"><span class="pre">hasVisibleName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.hasVisibleName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object has a distinguishable name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasVisibleName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty and not the default one.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.isParallel">
+<span class="sig-name descname"><span class="pre">isParallel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.isParallel" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the evaluations of the model are parallelized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isParallel</strong><span class="classifier">bool</span></dt><dd><p>Whether the evaluations of the model are parallelized (available only for the Python model)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.isValid">
+<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.isValid" title="Link to this definition">¶</a></dt>
+<dd><p>Whether it is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isValid</strong><span class="classifier">bool</span></dt><dd><p>Whether it is valid</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.removeInput">
+<span class="sig-name descname"><span class="pre">removeInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.removeInput" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an input variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.removeOutput">
+<span class="sig-name descname"><span class="pre">removeOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.removeOutput" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an output variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.selectOutput">
+<span class="sig-name descname"><span class="pre">selectOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.selectOutput" title="Link to this definition">¶</a></dt>
+<dd><p>Select output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Output name</p>
+</dd>
+<dt><strong>isSelected</strong><span class="classifier">bool</span></dt><dd><p>Whether it is selected</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setCode">
+<span class="sig-name descname"><span class="pre">setCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setCode" title="Link to this definition">¶</a></dt>
+<dd><p>Code accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>code</strong><span class="classifier">str</span></dt><dd><p>Code text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setCopula">
+<span class="sig-name descname"><span class="pre">setCopula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputNames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copula</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setCopula" title="Link to this definition">¶</a></dt>
+<dd><p>Copula accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>copula</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Copula.html#openturns.Copula" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Copula</span></code></a></span></dt><dd><p>The copula</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setDistribution">
+<span class="sig-name descname"><span class="pre">setDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setDistribution" title="Link to this definition">¶</a></dt>
+<dd><p>Input distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Variable distribution</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setDistributionParametersType">
+<span class="sig-name descname"><span class="pre">setDistributionParametersType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributionParametersType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setDistributionParametersType" title="Link to this definition">¶</a></dt>
+<dd><p>Input distribution parameter type accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>parametersType</strong><span class="classifier">int</span></dt><dd><p>Distribution parameter type accessor</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setEvalTime">
+<span class="sig-name descname"><span class="pre">setEvalTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evalTime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setEvalTime" title="Link to this definition">¶</a></dt>
+<dd><p>Evaluation time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>evalTime</strong><span class="classifier">float</span></dt><dd><p>Evaluation time</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setFMUFileName">
+<span class="sig-name descname"><span class="pre">setFMUFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setFMUFileName" title="Link to this definition">¶</a></dt>
+<dd><p>FMU file name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>FMU file name containing the FMI scheme</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setFiniteDifferenceStep">
+<span class="sig-name descname"><span class="pre">setFiniteDifferenceStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setFiniteDifferenceStep" title="Link to this definition">¶</a></dt>
+<dd><p>Finite difference step accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>step</strong><span class="classifier">float</span></dt><dd><p>Finite difference step used to define the gradient of the model’s function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setInputDescription">
+<span class="sig-name descname"><span class="pre">setInputDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setInputDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Input description accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Description text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setInputName">
+<span class="sig-name descname"><span class="pre">setInputName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setInputName" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>newName</strong><span class="classifier">str</span></dt><dd><p>New name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setInputStochastic">
+<span class="sig-name descname"><span class="pre">setInputStochastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setInputStochastic" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the input variable is stochastic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>isStochastic</strong><span class="classifier">bool</span></dt><dd><p>Whether the input variable is stochastic</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setInputValue">
+<span class="sig-name descname"><span class="pre">setInputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setInputValue" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable value accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>New value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setInputs">
+<span class="sig-name descname"><span class="pre">setInputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setMeshModel">
+<span class="sig-name descname"><span class="pre">setMeshModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meshModel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setMeshModel" title="Link to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setOutputDescription">
+<span class="sig-name descname"><span class="pre">setOutputDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setOutputDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Output description accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Description text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setOutputName">
+<span class="sig-name descname"><span class="pre">setOutputName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setOutputName" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>newName</strong><span class="classifier">str</span></dt><dd><p>New name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setOutputValue">
+<span class="sig-name descname"><span class="pre">setOutputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setOutputValue" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>New value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setOutputs">
+<span class="sig-name descname"><span class="pre">setOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setOutputs" title="Link to this definition">¶</a></dt>
+<dd><p>Output variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setParallel">
+<span class="sig-name descname"><span class="pre">setParallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setParallel" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the evaluations of the model are parallelized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isParallel</strong><span class="classifier">bool</span></dt><dd><p>Whether the evaluations of the model are parallelized</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This is only implemented for the Python model.
+Also, on Windows platforms, ProcessPoolExecutor startup time being much higher,
+you may want to evaluate enough points in batch rather than many small blocks.
+Refer to the <em>setBlockSize</em> method of the various algorithms.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setProcessNumber">
+<span class="sig-name descname"><span class="pre">setProcessNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processNumber</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setProcessNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setShadowedId">
+<span class="sig-name descname"><span class="pre">setShadowedId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setShadowedId" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s shadowed id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.setVisibility">
+<span class="sig-name descname"><span class="pre">setVisibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visible</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FMIPhysicalModel.setVisibility" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s visibility state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visible</strong><span class="classifier">bool</span></dt><dd><p>Visibility flag.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="persalys.FMIPhysicalModel.thisown">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">thisown</span></span><a class="headerlink" href="#persalys.FMIPhysicalModel.thisown" title="Link to this definition">¶</a></dt>
+<dd><p>The membership flag</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.PythonFieldModel.html"
+                          title="previous chapter">PythonFieldModel</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.DataModel.html"
+                          title="next chapter">DataModel</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.FMIPhysicalModel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.PythonFieldModel.html" title="PythonFieldModel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 16.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FMIPhysicalModel</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>
