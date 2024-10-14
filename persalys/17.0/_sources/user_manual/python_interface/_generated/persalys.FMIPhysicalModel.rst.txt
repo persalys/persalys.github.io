@@ -1,0 +1,11 @@
+﻿FMIPhysicalModel
+=========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FMIPhysicalModel
+
+   
+   .. automethod:: __init__
+   
+

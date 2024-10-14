@@ -1,0 +1,11 @@
+﻿Input
+==============
+
+.. currentmodule:: persalys
+
+.. autoclass:: Input
+
+   
+   .. automethod:: __init__
+   
+

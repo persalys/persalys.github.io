@@ -1,0 +1,11 @@
+﻿OptimizationAnalysis
+=============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: OptimizationAnalysis
+
+   
+   .. automethod:: __init__
+   
+
