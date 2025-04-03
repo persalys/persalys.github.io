@@ -1,0 +1,11 @@
+﻿MeshModel
+==================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MeshModel
+
+   
+   .. automethod:: __init__
+   
+

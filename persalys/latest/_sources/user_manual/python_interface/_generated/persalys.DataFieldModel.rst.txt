@@ -1,0 +1,11 @@
+﻿DataFieldModel
+=======================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DataFieldModel
+
+   
+   .. automethod:: __init__
+   
+

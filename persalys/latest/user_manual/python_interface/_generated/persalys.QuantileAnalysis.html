@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>QuantileAnalysis &#8212; Persalys 18.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="QuantileAnalysisResult" href="persalys.QuantileAnalysisResult.html" />
+    <link rel="prev" title="FieldKarhunenLoeveAnalysis" href="persalys.FieldKarhunenLoeveAnalysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.QuantileAnalysisResult.html" title="QuantileAnalysisResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FieldKarhunenLoeveAnalysis.html" title="FieldKarhunenLoeveAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QuantileAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="quantileanalysis">
+<h1>QuantileAnalysis<a class="headerlink" href="#quantileanalysis" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">QuantileAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a data analysis of a design of experiments.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>design</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ot</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="o">.</span><span class="n">SetSeed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;data.csv&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">exportToCSVFile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="p">(</span><span class="s1">&#39;myDataModel&#39;</span><span class="p">,</span> <span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the Quantile analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">QuantileAnalysis</span><span class="p">(</span><span class="s1">&#39;analysis&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setTargetProbabilities</span><span class="p">([[</span><span class="mf">1e-2</span><span class="p">]]</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setTailTypes</span><span class="p">([</span><span class="n">persalys</span><span class="o">.</span><span class="n">QuantileAnalysisResult</span><span class="o">.</span><span class="n">Upper</span><span class="p">]</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getCDFThreshold" title="persalys.QuantileAnalysis.getCDFThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCDFThreshold</span></code></a>()</p></td>
+<td><p>CDF threshold accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getClassName" title="persalys.QuantileAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getConfidenceIntervalLevel" title="persalys.QuantileAnalysis.getConfidenceIntervalLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getConfidenceIntervalLevel</span></code></a>()</p></td>
+<td><p>Confidence level accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getDesignOfExperiment" title="persalys.QuantileAnalysis.getDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDesignOfExperiment</span></code></a>()</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getErrorMessage" title="persalys.QuantileAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getInterestVariables" title="persalys.QuantileAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getName" title="persalys.QuantileAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getParameterSampleSize" title="persalys.QuantileAnalysis.getParameterSampleSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getParameterSampleSize</span></code></a>()</p></td>
+<td><p>Parameters sample size accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getPythonScript" title="persalys.QuantileAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getResult" title="persalys.QuantileAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Result accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getSeed" title="persalys.QuantileAnalysis.getSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSeed</span></code></a>()</p></td>
+<td><p>Random generator seed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getTailTypes" title="persalys.QuantileAnalysis.getTailTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTailTypes</span></code></a>()</p></td>
+<td><p>Tail types accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getTargetProbabilities" title="persalys.QuantileAnalysis.getTargetProbabilities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTargetProbabilities</span></code></a>()</p></td>
+<td><p>Target probabilities accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getThreshold" title="persalys.QuantileAnalysis.getThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getThreshold</span></code></a>()</p></td>
+<td><p>Threshold accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getType" title="persalys.QuantileAnalysis.getType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getType</span></code></a>()</p></td>
+<td><p>Analysis type accessor</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.getWarningMessage" title="persalys.QuantileAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.hasName" title="persalys.QuantileAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.hasValidResult" title="persalys.QuantileAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.isReliabilityAnalysis" title="persalys.QuantileAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.isRunning" title="persalys.QuantileAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.run" title="persalys.QuantileAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setConfidenceIntervalLevel" title="persalys.QuantileAnalysis.setConfidenceIntervalLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setConfidenceIntervalLevel</span></code></a>(ciLevel)</p></td>
+<td><p>Confidence level accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setInterestVariables" title="persalys.QuantileAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setName" title="persalys.QuantileAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setParameterSampleSize" title="persalys.QuantileAnalysis.setParameterSampleSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setParameterSampleSize</span></code></a>(paramSampleSize)</p></td>
+<td><p>Parameters sample size accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setSeed" title="persalys.QuantileAnalysis.setSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSeed</span></code></a>(seed)</p></td>
+<td><p>Random generator seed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setTailTypes" title="persalys.QuantileAnalysis.setTailTypes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setTailTypes</span></code></a>(tailTypes)</p></td>
+<td><p>Tail types accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setTargetProbabilities" title="persalys.QuantileAnalysis.setTargetProbabilities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setTargetProbabilities</span></code></a>(targetProbas)</p></td>
+<td><p>Target probabilities accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setThreshold" title="persalys.QuantileAnalysis.setThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setThreshold</span></code></a>(threshold)</p></td>
+<td><p>Threshold accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysis.setType" title="persalys.QuantileAnalysis.setType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setType</span></code></a>(type)</p></td>
+<td><p>Analysis type accessor</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 76%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>checkThresholdCompatibility</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>computeWilksValidity</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getDefaultTargetProbability</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>plotGPD</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>plotMeanExcess</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>setDefaultTargetProbability</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getCDFThreshold">
+<span class="sig-name descname"><span class="pre">getCDFThreshold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getCDFThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>CDF threshold accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>cdfThreshold</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>CDF threshold sample, dimension: number of marginals, size=2. threshold[0]: lower threshold, threshold[1]: upper threshold.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getConfidenceIntervalLevel">
+<span class="sig-name descname"><span class="pre">getConfidenceIntervalLevel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getConfidenceIntervalLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confidence level accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ciLevel</strong><span class="classifier">double</span></dt><dd><p>Confidence level for quantile intervals.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getDesignOfExperiment">
+<span class="sig-name descname"><span class="pre">getDesignOfExperiment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getErrorMessage">
+<span class="sig-name descname"><span class="pre">getErrorMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getInterestVariables">
+<span class="sig-name descname"><span class="pre">getInterestVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getParameterSampleSize">
+<span class="sig-name descname"><span class="pre">getParameterSampleSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getParameterSampleSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters sample size accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>size</strong><span class="classifier">int</span></dt><dd><p>Number of Generalized Pareto set of parameters used for estimating quantiles confidence interval. It is set by default to 1000.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.QuantileAnalysisResult.html#persalys.QuantileAnalysisResult" title="persalys.QuantileAnalysisResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">persalys.QuantileAnalysisResult</span></code></a></span></dt><dd><p>Analysis result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getSeed">
+<span class="sig-name descname"><span class="pre">getSeed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random generator seed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Random generator seed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getTailTypes">
+<span class="sig-name descname"><span class="pre">getTailTypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getTailTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tail types accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>types</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Indices.html#openturns.Indices" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Indices</span></code></a></span></dt><dd><p>Collection of bit-wise tail type for each marginal. Lower = 1, Upper = 2, Bilateral = 4</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getTargetProbabilities">
+<span class="sig-name descname"><span class="pre">getTargetProbabilities</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getTargetProbabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target probabilities accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>targetProba</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointCollection</span></code></span></dt><dd><p>Collection (size: number of marginals) of points (dimension: number of terget probabilities for each marginals) for which the quantiles are estimated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getThreshold">
+<span class="sig-name descname"><span class="pre">getThreshold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>threshold</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Threshold sample, dimension: number of marginals, size=2. threshold[0]: lower threshold, threshold[1]: upper threshold.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis type accessor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>type</strong><span class="classifier">enum</span></dt><dd><p>Analysis type, either <cite>persalys.QuantileAnalysisResult.MonteCarlo</cite> or <cite>persalys.QuantileAnalysisResult.GeneralizedPareto</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.getWarningMessage">
+<span class="sig-name descname"><span class="pre">getWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.hasValidResult">
+<span class="sig-name descname"><span class="pre">hasValidResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.isReliabilityAnalysis">
+<span class="sig-name descname"><span class="pre">isReliabilityAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.isRunning">
+<span class="sig-name descname"><span class="pre">isRunning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setConfidenceIntervalLevel">
+<span class="sig-name descname"><span class="pre">setConfidenceIntervalLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ciLevel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setConfidenceIntervalLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confidence level accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ciLevel</strong><span class="classifier">double</span></dt><dd><p>Confidence level for quantile intervals.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setInterestVariables">
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setParameterSampleSize">
+<span class="sig-name descname"><span class="pre">setParameterSampleSize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paramSampleSize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setParameterSampleSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parameters sample size accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>size</strong><span class="classifier">int</span></dt><dd><p>Number of Generalized Pareto set of parameters used for estimating quantiles confidence interval.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setSeed">
+<span class="sig-name descname"><span class="pre">setSeed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setSeed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Random generator seed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>seed</strong><span class="classifier">int</span></dt><dd><p>Random generator seed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setTailTypes">
+<span class="sig-name descname"><span class="pre">setTailTypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tailTypes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setTailTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tail types accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>types</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Indices.html#openturns.Indices" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Indices</span></code></a></span></dt><dd><p>Collection of bit-wise tail type for each marginal. Lower = 1, Upper = 2, Bilateral = 4</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setTargetProbabilities">
+<span class="sig-name descname"><span class="pre">setTargetProbabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetProbas</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setTargetProbabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target probabilities accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>targetProba</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointCollection</span></code></span></dt><dd><p>Collection (size: number of marginals) of points (dimension: number of terget probabilities for each marginals) for which the quantiles are estimated.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setThreshold">
+<span class="sig-name descname"><span class="pre">setThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>threshold</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Threshold sample, dimension: number of marginals, size=2. threshold[0]: lower threshold, threshold[1]: upper threshold.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysis.setType">
+<span class="sig-name descname"><span class="pre">setType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysis.setType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis type accessor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>type</strong><span class="classifier">enum</span></dt><dd><p>Analysis type, either <cite>persalys.QuantileAnalysisResult.MonteCarlo</cite> or <cite>persalys.QuantileAnalysisResult.GeneralizedPareto</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.FieldKarhunenLoeveAnalysis.html"
+                        title="previous chapter">FieldKarhunenLoeveAnalysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.QuantileAnalysisResult.html"
+                        title="next chapter">QuantileAnalysisResult</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.QuantileAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.QuantileAnalysisResult.html" title="QuantileAnalysisResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FieldKarhunenLoeveAnalysis.html" title="FieldKarhunenLoeveAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QuantileAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

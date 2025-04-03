@@ -1,0 +1,11 @@
+﻿CopulaInferenceSetResult
+=================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CopulaInferenceSetResult
+
+   
+   .. automethod:: __init__
+   
+

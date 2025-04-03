@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>QuantileAnalysisResult &#8212; Persalys 18.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MetaModelAnalysis" href="persalys.MetaModelAnalysis.html" />
+    <link rel="prev" title="QuantileAnalysis" href="persalys.QuantileAnalysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.MetaModelAnalysis.html" title="MetaModelAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.QuantileAnalysis.html" title="QuantileAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QuantileAnalysisResult</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="quantileanalysisresult">
+<h1>QuantileAnalysisResult<a class="headerlink" href="#quantileanalysisresult" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">QuantileAnalysisResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the results of a quantile analysis.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.getClassName" title="persalys.QuantileAnalysisResult.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.getDesignOfExperiment" title="persalys.QuantileAnalysisResult.getDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDesignOfExperiment</span></code></a>()</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.getName" title="persalys.QuantileAnalysisResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.getPValue" title="persalys.QuantileAnalysisResult.getPValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPValue</span></code></a>(varName, tailType)</p></td>
+<td><p>P-value accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.getQuantiles" title="persalys.QuantileAnalysisResult.getQuantiles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getQuantiles</span></code></a>(varName)</p></td>
+<td><p>Quantile accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.getType" title="persalys.QuantileAnalysisResult.getType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getType</span></code></a>()</p></td>
+<td><p>Type accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.getWilksValidity" title="persalys.QuantileAnalysisResult.getWilksValidity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWilksValidity</span></code></a>(varName, tailType)</p></td>
+<td><p>Validity accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.hasName" title="persalys.QuantileAnalysisResult.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.QuantileAnalysisResult.setName" title="persalys.QuantileAnalysisResult.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.getDesignOfExperiment">
+<span class="sig-name descname"><span class="pre">getDesignOfExperiment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.getDesignOfExperiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>design</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments containing the analysed points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.getPValue">
+<span class="sig-name descname"><span class="pre">getPValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tailType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.getPValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>P-value accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>varName</strong><span class="classifier">str</span></dt><dd><p>Name of the marginal</p>
+</dd>
+<dt><strong>tailType</strong><span class="classifier">enum</span></dt><dd><p>Tail type, either <cite>persalys.QuantileAnalysisResult.Lower</cite> or <cite>persalys.QuantileAnalysisResult.Upper</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>p-value</strong><span class="classifier">double</span></dt><dd><p>P-value for the corresponding marginal and tail.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.getQuantiles">
+<span class="sig-name descname"><span class="pre">getQuantiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.getQuantiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantile accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>varName</strong><span class="classifier">str</span></dt><dd><p>Name of the marginal</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>quantile</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.SampleCollection</span></code></span></dt><dd><p>Each item in the collection contains the quantiles for a given tail type, each point in each item contains the quantile and its confidence interval for a given target probability.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.getType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>type</strong><span class="classifier">enum</span></dt><dd><p>Analysis type, either <cite>persalys.QuantileAnalysisResult.MonteCarlo</cite> or <cite>persalys.QuantileAnalysisResult.GeneralizedPareto</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.getWilksValidity">
+<span class="sig-name descname"><span class="pre">getWilksValidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">varName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tailType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.getWilksValidity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validity accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>varName</strong><span class="classifier">str</span></dt><dd><p>Name of the marginal</p>
+</dd>
+<dt><strong>tailType</strong><span class="classifier">enum</span></dt><dd><p>Tail type, either <cite>persalys.QuantileAnalysisResult.Lower</cite>, <cite>persalys.QuantileAnalysisResult.Upper</cite> or <cite>persalys.QuantileAnalysisResult.Bilateral</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>validity</strong><span class="classifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Interval.BoolCollection</span></code></span></dt><dd><p>Indicates for each target probability if the quantile is valid or not.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.QuantileAnalysisResult.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.QuantileAnalysisResult.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.QuantileAnalysis.html"
+                        title="previous chapter">QuantileAnalysis</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.MetaModelAnalysis.html"
+                        title="next chapter">MetaModelAnalysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.QuantileAnalysisResult.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.MetaModelAnalysis.html" title="MetaModelAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.QuantileAnalysis.html" title="QuantileAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QuantileAnalysisResult</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

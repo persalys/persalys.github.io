@@ -1,0 +1,11 @@
+﻿QuantileAnalysis
+=========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: QuantileAnalysis
+
+   
+   .. automethod:: __init__
+   
+

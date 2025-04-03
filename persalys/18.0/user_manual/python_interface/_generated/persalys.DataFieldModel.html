@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DataFieldModel &#8212; Persalys 18.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DataCleaning" href="persalys.DataCleaning.html" />
+    <link rel="prev" title="DataModel" href="persalys.DataModel.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.DataCleaning.html" title="DataCleaning"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataFieldModel</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="datafieldmodel">
+<h1>DataFieldModel<a class="headerlink" href="#datafieldmodel" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.DataFieldModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">DataFieldModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines field evaluation from external data and mesh.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>meshModel</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model indexing data</p>
+</dd>
+<dt><strong>processSample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.ProcessSample.html#openturns.ProcessSample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessSample</span></code></a></span></dt><dd><p>Field data, (optional)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">meshModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridMeshModel</span><span class="p">([</span><span class="n">persalys</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">)],</span> <span class="n">ot</span><span class="o">.</span><span class="n">Interval</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">12</span><span class="p">]),</span> <span class="p">[</span><span class="mi">12</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataFieldModel</span><span class="p">(</span><span class="s1">&#39;myModel&#39;</span><span class="p">,</span> <span class="n">meshModel</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fileName</span> <span class="o">=</span> <span class="s1">&#39;sample.csv&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">exportToCSVFile</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">importProcessSample</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Tools</span><span class="o">.</span><span class="n">Columns</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getClassName" title="persalys.DataFieldModel.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getId" title="persalys.DataFieldModel.getId"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getId</span></code></a>()</p></td>
+<td><p>Accessor to the object's id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getImplementation" title="persalys.DataFieldModel.getImplementation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getImplementation</span></code></a>()</p></td>
+<td><p>Accessor to the underlying implementation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getMeshModel" title="persalys.DataFieldModel.getMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMeshModel</span></code></a>()</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getName" title="persalys.DataFieldModel.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getProcessSample" title="persalys.DataFieldModel.getProcessSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getProcessSample</span></code></a>()</p></td>
+<td><p>Process sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getProcessSampleAsSample" title="persalys.DataFieldModel.getProcessSampleAsSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getProcessSampleAsSample</span></code></a>()</p></td>
+<td><p>Process sample accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataFieldModel.getPythonScript" title="persalys.DataFieldModel.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Python script accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataFieldModel.importProcessSample" title="persalys.DataFieldModel.importProcessSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">importProcessSample</span></code></a>(*args)</p></td>
+<td><p>Data import method.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataFieldModel.isValid" title="persalys.DataFieldModel.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>()</p></td>
+<td><p>Python script accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataFieldModel.setMeshModel" title="persalys.DataFieldModel.setMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMeshModel</span></code></a>(meshModel)</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataFieldModel.setName" title="persalys.DataFieldModel.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataFieldModel.setProcessSample" title="persalys.DataFieldModel.setProcessSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setProcessSample</span></code></a>(processSample)</p></td>
+<td><p>Process sample accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataFieldModel.setSampleAsProcessSample" title="persalys.DataFieldModel.setSampleAsProcessSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSampleAsProcessSample</span></code></a>(sample)</p></td>
+<td><p>Process sample accessor.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>Internal unique identifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getImplementation">
+<span class="sig-name descname"><span class="pre">getImplementation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getImplementation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>impl</strong><span class="classifier">Implementation</span></dt><dd><p>A copy of the underlying implementation object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getMeshModel">
+<span class="sig-name descname"><span class="pre">getMeshModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getMeshModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>meshModel</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getProcessSample">
+<span class="sig-name descname"><span class="pre">getProcessSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getProcessSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>processSample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.ProcessSample.html#openturns.ProcessSample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessSample</span></code></a></span></dt><dd><p>Process sample containing field data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getProcessSampleAsSample">
+<span class="sig-name descname"><span class="pre">getProcessSampleAsSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getProcessSampleAsSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sample</span></code></a></span></dt><dd><p>Sample (dimension n-vertices, size n-trajectories) containing field data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.importProcessSample">
+<span class="sig-name descname"><span class="pre">importProcessSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.importProcessSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data import method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>Name of the file containing field data.</p>
+</dd>
+<dt><strong>order</strong><span class="classifier">int</span></dt><dd><p>Wether data is mesh-indexed as lines or columns in the file (optional, default : persalys.Tools.Columns)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.isValid">
+<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.isValid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isValid</strong><span class="classifier">bool</span></dt><dd><p>Wether the model data is valid or not. It must contain only valid numerical values and data must be correctly indexed on the mesh model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.setMeshModel">
+<span class="sig-name descname"><span class="pre">setMeshModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meshModel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.setMeshModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>meshModel</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.setProcessSample">
+<span class="sig-name descname"><span class="pre">setProcessSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processSample</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.setProcessSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>processSample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.ProcessSample.html#openturns.ProcessSample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProcessSample</span></code></a></span></dt><dd><p>Process sample containing field data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataFieldModel.setSampleAsProcessSample">
+<span class="sig-name descname"><span class="pre">setSampleAsProcessSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataFieldModel.setSampleAsProcessSample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v.)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sample</span></code></a></span></dt><dd><p>Sample containing field data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.DataModel.html"
+                        title="previous chapter">DataModel</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.DataCleaning.html"
+                        title="next chapter">DataCleaning</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.DataFieldModel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.DataCleaning.html" title="DataCleaning"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataModel.html" title="DataModel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataFieldModel</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

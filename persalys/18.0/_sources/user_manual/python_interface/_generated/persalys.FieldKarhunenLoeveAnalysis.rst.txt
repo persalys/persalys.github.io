@@ -1,0 +1,11 @@
+﻿FieldKarhunenLoeveAnalysis
+===================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FieldKarhunenLoeveAnalysis
+
+   
+   .. automethod:: __init__
+   
+

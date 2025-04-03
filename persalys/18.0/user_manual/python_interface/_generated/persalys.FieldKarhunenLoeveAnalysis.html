@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>FieldKarhunenLoeveAnalysis &#8212; Persalys 18.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    
+    <link rel="shortcut icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="QuantileAnalysis" href="persalys.QuantileAnalysis.html" />
+    <link rel="prev" title="CopulaInferenceSetResult" href="persalys.CopulaInferenceSetResult.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.QuantileAnalysis.html" title="QuantileAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.CopulaInferenceSetResult.html" title="CopulaInferenceSetResult"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FieldKarhunenLoeveAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="fieldkarhunenloeveanalysis">
+<h1>FieldKarhunenLoeveAnalysis<a class="headerlink" href="#fieldkarhunenloeveanalysis" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">FieldKarhunenLoeveAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Karhunen-Loeve decomposition of a DataFieldModel</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>dataModel</strong><span class="classifier"><a class="reference internal" href="persalys.DataFieldModel.html#persalys.DataFieldModel" title="persalys.DataFieldModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFieldModel</span></code></a></span></dt><dd><p>Data to decompose</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The class has two main uses. Direct: when handling a <a class="reference internal" href="persalys.DataFieldModel.html#persalys.DataFieldModel" title="persalys.DataFieldModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFieldModel</span></code></a>. Indirect: used internally in <a class="reference internal" href="persalys.FieldMonteCarloAnalysis.html#persalys.FieldMonteCarloAnalysis" title="persalys.FieldMonteCarloAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldMonteCarloAnalysis</span></code></a></p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getClassName" title="persalys.FieldKarhunenLoeveAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getDataFieldModel" title="persalys.FieldKarhunenLoeveAnalysis.getDataFieldModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDataFieldModel</span></code></a>()</p></td>
+<td><p>DataFieldModel accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getErrorMessage" title="persalys.FieldKarhunenLoeveAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getInterestVariables" title="persalys.FieldKarhunenLoeveAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getKarhunenLoeveThreshold" title="persalys.FieldKarhunenLoeveAnalysis.getKarhunenLoeveThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getKarhunenLoeveThreshold</span></code></a>()</p></td>
+<td><p>Accessor to the limit ratio on eigenvalues.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getName" title="persalys.FieldKarhunenLoeveAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getPythonScript" title="persalys.FieldKarhunenLoeveAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getQuantileLevel" title="persalys.FieldKarhunenLoeveAnalysis.getQuantileLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getQuantileLevel</span></code></a>()</p></td>
+<td><p>Probability level accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getResult" title="persalys.FieldKarhunenLoeveAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Result accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.getWarningMessage" title="persalys.FieldKarhunenLoeveAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.hasName" title="persalys.FieldKarhunenLoeveAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.hasValidResult" title="persalys.FieldKarhunenLoeveAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.isReliabilityAnalysis" title="persalys.FieldKarhunenLoeveAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.isRunning" title="persalys.FieldKarhunenLoeveAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.run" title="persalys.FieldKarhunenLoeveAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.setInterestVariables" title="persalys.FieldKarhunenLoeveAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.setKarhunenLoeveThreshold" title="persalys.FieldKarhunenLoeveAnalysis.setKarhunenLoeveThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setKarhunenLoeveThreshold</span></code></a>(threshold)</p></td>
+<td><p>Accessor to the limit ratio on eigenvalues.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.setName" title="persalys.FieldKarhunenLoeveAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FieldKarhunenLoeveAnalysis.setQuantileLevel" title="persalys.FieldKarhunenLoeveAnalysis.setQuantileLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setQuantileLevel</span></code></a>(proba)</p></td>
+<td><p>Probability level accessor.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getClassName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getDataFieldModel">
+<span class="sig-name descname"><span class="pre">getDataFieldModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getDataFieldModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>DataFieldModel accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>dataModel</strong><span class="classifier"><a class="reference internal" href="persalys.DataFieldModel.html#persalys.DataFieldModel" title="persalys.DataFieldModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFieldModel</span></code></a></span></dt><dd><p><a class="reference internal" href="persalys.DataFieldModel.html#persalys.DataFieldModel" title="persalys.DataFieldModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFieldModel</span></code></a> associated to the analysis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getErrorMessage">
+<span class="sig-name descname"><span class="pre">getErrorMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getInterestVariables">
+<span class="sig-name descname"><span class="pre">getInterestVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getKarhunenLoeveThreshold">
+<span class="sig-name descname"><span class="pre">getKarhunenLoeveThreshold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the limit ratio on eigenvalues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>threshold</strong><span class="classifier">float, positive</span></dt><dd><p>The threshold s defined in <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.KarhunenLoeveAlgorithm.html#openturns.KarhunenLoeveAlgorithm.setThreshold" title="(in OpenTURNS v.)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">openturns.KarhunenLoeveAlgorithm.setThreshold()</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getPythonScript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getQuantileLevel">
+<span class="sig-name descname"><span class="pre">getQuantileLevel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getQuantileLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probability level accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>level</strong><span class="classifier">float</span></dt><dd><p>Probability level</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.FieldMonteCarloResult.html#persalys.FieldMonteCarloResult" title="persalys.FieldMonteCarloResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">persalys.FieldMonteCarloResult</span></code></a></span></dt><dd><p>Result</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.getWarningMessage">
+<span class="sig-name descname"><span class="pre">getWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.getWarningMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.hasName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.hasValidResult">
+<span class="sig-name descname"><span class="pre">hasValidResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.hasValidResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.isReliabilityAnalysis">
+<span class="sig-name descname"><span class="pre">isReliabilityAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.isReliabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.isRunning">
+<span class="sig-name descname"><span class="pre">isRunning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.isRunning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.setInterestVariables">
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.setInterestVariables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.setKarhunenLoeveThreshold">
+<span class="sig-name descname"><span class="pre">setKarhunenLoeveThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.setKarhunenLoeveThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the limit ratio on eigenvalues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>threshold</strong><span class="classifier">float, positive</span></dt><dd><p>The threshold s defined in <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.KarhunenLoeveAlgorithm.html#openturns.KarhunenLoeveAlgorithm.getThreshold" title="(in OpenTURNS v.)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">openturns.KarhunenLoeveAlgorithm.getThreshold()</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.setName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FieldKarhunenLoeveAnalysis.setQuantileLevel">
+<span class="sig-name descname"><span class="pre">setQuantileLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proba</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FieldKarhunenLoeveAnalysis.setQuantileLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Probability level accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>level</strong><span class="classifier">float, <img class="math" src="../../../_images/math/564b4a4dbd2aac90ff140e4da2b3a99206897e71.svg" alt="0 &lt; p &lt; 1" style="vertical-align: -3px"/></span></dt><dd><p>Probability level</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="persalys.CopulaInferenceSetResult.html"
+                        title="previous chapter">CopulaInferenceSetResult</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="persalys.QuantileAnalysis.html"
+                        title="next chapter">QuantileAnalysis</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.FieldKarhunenLoeveAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.QuantileAnalysis.html" title="QuantileAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.CopulaInferenceSetResult.html" title="CopulaInferenceSetResult"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 18.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FieldKarhunenLoeveAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

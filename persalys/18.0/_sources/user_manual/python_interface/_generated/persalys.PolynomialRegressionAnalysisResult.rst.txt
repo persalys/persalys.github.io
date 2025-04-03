@@ -1,0 +1,11 @@
+﻿PolynomialRegressionAnalysisResult
+===========================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: PolynomialRegressionAnalysisResult
+
+   
+   .. automethod:: __init__
+   
+
