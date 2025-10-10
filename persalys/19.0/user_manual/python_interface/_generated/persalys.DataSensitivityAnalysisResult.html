@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataSensitivityAnalysisResult &#8212; Persalys 19.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=cfd34034"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="InferenceAnalysis" href="persalys.InferenceAnalysis.html" />
+    <link rel="prev" title="DataSensitivityAnalysis" href="persalys.DataSensitivityAnalysis.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="../../../index.html">
+      <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.InferenceAnalysis.html" title="InferenceAnalysis"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataSensitivityAnalysis.html" title="DataSensitivityAnalysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 19.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataSensitivityAnalysisResult</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="datasensitivityanalysisresult">
+<h1>DataSensitivityAnalysisResult<a class="headerlink" href="#datasensitivityanalysisresult" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">DataSensitivityAnalysisResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult" title="Link to this definition">¶</a></dt>
+<dd><p>Results of a data sensitivity analysis.</p>
+<p>Provides access to first order sensitivity indices, their confidence intervals, and information about input independence.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getClassName" title="persalys.DataSensitivityAnalysisResult.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getDesignOfExperiment" title="persalys.DataSensitivityAnalysisResult.getDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDesignOfExperiment</span></code></a>()</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getElapsedTime" title="persalys.DataSensitivityAnalysisResult.getElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getElapsedTime</span></code></a>()</p></td>
+<td><p>Elapsed time in seconds to perform the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndices" title="persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFirstOrderSobolIndices</span></code></a>()</p></td>
+<td><p>Get the first order Sobol' indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndicesInterval" title="persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndicesInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFirstOrderSobolIndicesInterval</span></code></a>()</p></td>
+<td><p>Get the confidence intervals for the first order Sobol' indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getIndependenceWarningMessage" title="persalys.DataSensitivityAnalysisResult.getIndependenceWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getIndependenceWarningMessage</span></code></a>()</p></td>
+<td><p>Get the warning message if the input variables are not independent.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getName" title="persalys.DataSensitivityAnalysisResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getR2" title="persalys.DataSensitivityAnalysisResult.getR2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getR2</span></code></a>()</p></td>
+<td><p>Get the R² values of the linear regression models used to compute SRC indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getSRCIndices" title="persalys.DataSensitivityAnalysisResult.getSRCIndices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSRCIndices</span></code></a>()</p></td>
+<td><p>Get the Standardized Regression Coefficients (SRC) indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getSRCIndicesInterval" title="persalys.DataSensitivityAnalysisResult.getSRCIndicesInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSRCIndicesInterval</span></code></a>()</p></td>
+<td><p>Get the confidence intervals for the Standardized Regression Coefficients (SRC) indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getSignedSRCIndices" title="persalys.DataSensitivityAnalysisResult.getSignedSRCIndices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSignedSRCIndices</span></code></a>()</p></td>
+<td><p>Get the signed Standardized Regression Coefficients (SRC) indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.getSignedSRCIndicesInterval" title="persalys.DataSensitivityAnalysisResult.getSignedSRCIndicesInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSignedSRCIndicesInterval</span></code></a>()</p></td>
+<td><p>Get the confidence intervals for the signed Standardized Regression Coefficients (SRC) indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.hasName" title="persalys.DataSensitivityAnalysisResult.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.isIndependent" title="persalys.DataSensitivityAnalysisResult.isIndependent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isIndependent</span></code></a>()</p></td>
+<td><p>Performs Spearman test to check if the input variables are independent.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.setDesignOfExperiment" title="persalys.DataSensitivityAnalysisResult.setDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDesignOfExperiment</span></code></a>(doe)</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysisResult.setName" title="persalys.DataSensitivityAnalysisResult.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getDesignOfExperiment">
+<span class="sig-name descname"><span class="pre">getDesignOfExperiment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getDesignOfExperiment" title="Link to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>design</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments containing the analysed points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getElapsedTime">
+<span class="sig-name descname"><span class="pre">getElapsedTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getElapsedTime" title="Link to this definition">¶</a></dt>
+<dd><p>Elapsed time in seconds to perform the analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>time</strong><span class="classifier">double</span></dt><dd><p>Elapsed time in seconds to perform the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndices">
+<span class="sig-name descname"><span class="pre">getFirstOrderSobolIndices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndices" title="Link to this definition">¶</a></dt>
+<dd><p>Get the first order Sobol’ indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>indices</strong><span class="classifier">sequence of <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd><p>First order sensitivity indices for each output.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndicesInterval">
+<span class="sig-name descname"><span class="pre">getFirstOrderSobolIndicesInterval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getFirstOrderSobolIndicesInterval" title="Link to this definition">¶</a></dt>
+<dd><p>Get the confidence intervals for the first order Sobol’ indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>intervals</strong><span class="classifier">sequence of <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Interval</span></code></a></span></dt><dd><p>Confidence intervals for the first order sensitivity indices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getIndependenceWarningMessage">
+<span class="sig-name descname"><span class="pre">getIndependenceWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getIndependenceWarningMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Get the warning message if the input variables are not independent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message about input independence.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getR2">
+<span class="sig-name descname"><span class="pre">getR2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getR2" title="Link to this definition">¶</a></dt>
+<dd><p>Get the R² values of the linear regression models used to compute SRC indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>r2_values</strong><span class="classifier">sequence of float</span></dt><dd><p>R² values for each output.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getSRCIndices">
+<span class="sig-name descname"><span class="pre">getSRCIndices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getSRCIndices" title="Link to this definition">¶</a></dt>
+<dd><p>Get the Standardized Regression Coefficients (SRC) indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>indices</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>SRC indices for each output.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getSRCIndicesInterval">
+<span class="sig-name descname"><span class="pre">getSRCIndicesInterval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getSRCIndicesInterval" title="Link to this definition">¶</a></dt>
+<dd><p>Get the confidence intervals for the Standardized Regression Coefficients (SRC) indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>intervals</strong><span class="classifier">sequence of <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Interval</span></code></a></span></dt><dd><p>Confidence intervals for the SRC indices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getSignedSRCIndices">
+<span class="sig-name descname"><span class="pre">getSignedSRCIndices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getSignedSRCIndices" title="Link to this definition">¶</a></dt>
+<dd><p>Get the signed Standardized Regression Coefficients (SRC) indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>indices</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Signed SRC indices for each output.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.getSignedSRCIndicesInterval">
+<span class="sig-name descname"><span class="pre">getSignedSRCIndicesInterval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.getSignedSRCIndicesInterval" title="Link to this definition">¶</a></dt>
+<dd><p>Get the confidence intervals for the signed Standardized Regression Coefficients (SRC) indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>intervals</strong><span class="classifier">sequence of <a class="reference external" href="http://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Interval</span></code></a></span></dt><dd><p>Confidence intervals for the signed SRC indices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.isIndependent">
+<span class="sig-name descname"><span class="pre">isIndependent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.isIndependent" title="Link to this definition">¶</a></dt>
+<dd><p>Performs Spearman test to check if the input variables are independent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isIndependent</strong><span class="classifier">bool</span></dt><dd><p>if False, the input variables are not independent.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.setDesignOfExperiment">
+<span class="sig-name descname"><span class="pre">setDesignOfExperiment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doe</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.setDesignOfExperiment" title="Link to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>doe: :class:`~persalys.DesignOfExperiment`</strong></dt><dd><p>Design od experiments to be used</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysisResult.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysisResult.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.DataSensitivityAnalysis.html"
+                          title="previous chapter">DataSensitivityAnalysis</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.InferenceAnalysis.html"
+                          title="next chapter">InferenceAnalysis</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.DataSensitivityAnalysisResult.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.InferenceAnalysis.html" title="InferenceAnalysis"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataSensitivityAnalysis.html" title="DataSensitivityAnalysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 19.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataSensitivityAnalysisResult</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

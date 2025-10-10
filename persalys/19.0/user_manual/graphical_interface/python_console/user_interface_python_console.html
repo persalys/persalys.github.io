@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual - Get started with the Python console &#8212; Persalys 19.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=cfd34034"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual for the Python interface" href="../../python_interface/python_interface.html" />
+    <link rel="prev" title="User manual - Field analyses" href="../field_analysis/user_manual_field_analysis.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="../../../index.html">
+      <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../python_interface/python_interface.html" title="User manual for the Python interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 19.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Get started with the Python console</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-manual-get-started-with-the-python-console">
+<h1>User manual - Get started with the Python console<a class="headerlink" href="#user-manual-get-started-with-the-python-console" title="Link to this heading">¶</a></h1>
+<p>In this section, you will learn how to use the Python console to manipulate Persalys objects. The Python API documentation can be found here: <a class="reference internal" href="../../python_interface/python_interface.html#user-manual-python-interface"><span class="std std-ref">User manual for the Python interface</span></a>. If the Python console is not open in Persalys, you can open it from the Tools menu. The prerequisites for this section are that you are already familiar with Persalys and have basic Python knowledge.</p>
+<section id="walkthrough-example">
+<h2>1- Walkthrough example<a class="headerlink" href="#walkthrough-example" title="Link to this heading">¶</a></h2>
+<p>In this tutorial, we will create a Persalys study and access the objects via the Python API at the same time.</p>
+<p>First, import the Persalys Python package.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Let’s start by opening Persalys and clicking on the New Study button. A study named Study_0 is created. You can use the static GetInstanceByName method from the <a class="reference internal" href="../../python_interface/_generated/persalys.Study.html#persalys.Study" title="persalys.Study"><code class="xref py py-class docutils literal notranslate"><span class="pre">persalys.Study</span></code></a> to access it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">study_0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">GetInstanceByName</span><span class="p">(</span><span class="s2">&quot;Study_0&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">study_0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also create a study directly in Python and add it to the tree view:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">study_1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Study</span><span class="p">(</span><span class="s2">&quot;Study_1&quot;</span><span class="p">)</span>
+<span class="n">persalys</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">study_1</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/step_1.png" class="align-center" src="../../../_images/step_1.png" />
+<p>Remove study_1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">persalys</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">study_1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Add a Symbolic model to the remaining study and create a definition with one or more input variables and at least one output via the GUI. You can access the model in Python with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">study_0</span><span class="o">.</span><span class="n">getPhysicalModelByName</span><span class="p">(</span><span class="s2">&quot;SymbolicModel_0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/step_2.png" class="align-center" src="../../../_images/step_2.png" />
+<p>Add a distribution to your first input. You can check it in Python via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getInputByName</span><span class="p">(</span><span class="s2">&quot;X0&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x0</span><span class="o">.</span><span class="n">isStochastic</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x0</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">())</span>
+</pre></div>
+</div>
+<img alt="../../../_images/step_3.png" class="align-center" src="../../../_images/step_3.png" />
+<p>Now create a Monte Carlo central tendency analysis and run it. You can retrieve the analysis using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mcAnalysis</span> <span class="o">=</span> <span class="n">study_0</span><span class="o">.</span><span class="n">getAnalysisByName</span><span class="p">(</span><span class="s2">&quot;centralTendency_0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can check the result with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">mcAnalysis</span><span class="o">.</span><span class="n">getImplementation</span><span class="p">()</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/step_4.png" class="align-center" src="../../../_images/step_4.png" />
+<p>Now that we have covered the basic usage of the Python console, with the help of the Python interface documentation you should be able to manipulate every Persalys object in Python.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User manual - Get started with the Python console</a><ul>
+<li><a class="reference internal" href="#walkthrough-example">1- Walkthrough example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../field_analysis/user_manual_field_analysis.html"
+                          title="previous chapter">User manual - Field analyses</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../../python_interface/python_interface.html"
+                          title="next chapter">User manual for the Python interface</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/python_console/user_interface_python_console.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../python_interface/python_interface.html" title="User manual for the Python interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../field_analysis/user_manual_field_analysis.html" title="User manual - Field analyses"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 19.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Get started with the Python console</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>
