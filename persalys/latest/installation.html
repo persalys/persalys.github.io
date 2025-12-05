@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Installation &#8212; Persalys 19.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <script src="_static/documentation_options.js?v=6babc42d"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="icon" href="_static/persalys.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User manual" href="user_manual/user_manual.html" />
+    <link rel="prev" title="Welcome to Persalys documentation!" href="index.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="index.html">
+      <img class="logo" src="_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="user_manual/user_manual.html" title="User manual"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Persalys documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Persalys 19.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Installation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<section id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h2>
+<p>Persalys requires Windows &gt;=10.</p>
+<p>The default language setting can be overidden with the argument <code class="code docutils literal notranslate"><span class="pre">--lang=en|fr</span></code> added to the launcher executable command-line.</p>
+<p>To do so right-click on the desktop shortcut, select <code class="docutils literal notranslate"><span class="pre">Properties</span></code>, then edit the <code class="docutils literal notranslate"><span class="pre">target</span></code> field:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>\<span class="n">persalys_launcher</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">lang</span> <span class="n">en</span>
+</pre></div>
+</div>
+<p>In the same fashion the bundled software OpenGL renderer can be enabled/disabled with the argument <code class="code docutils literal notranslate"><span class="pre">--mesa=1|0</span></code>.</p>
+</section>
+<section id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Link to this heading">¶</a></h2>
+<p>Requirements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>glibc &gt;=2.28 (Debian 10+, Ubuntu 18.10+, Fedora 29+, CentOS/RHEL 8+)</p></li>
+<li><p>X11/Wayland with OpenGL &gt;=3.2</p></li>
+<li><p>FUSE userspace filesystem</p></li>
+</ul>
+</div></blockquote>
+<p>The AppImage binary requires the libfuse2 package to run which might not be installed by default, for example on Ubuntu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install libfuse2t64
+</pre></div>
+</div>
+<p>No installation is required, set the executable bit if needed and just run the .AppImage as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ chmod a+rx persalys-x.y-x86_64.AppImage
+$ ./persalys-x.y-x86_64.AppImage
+</pre></div>
+</div>
+<p>The LANGUAGE environment variable can be set to <code class="docutils literal notranslate"><span class="pre">en</span></code> or <code class="docutils literal notranslate"><span class="pre">fr</span></code> to override the default language:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ LANGUAGE=fr ./persalys-x.y-x86_64.AppImage
+</pre></div>
+</div>
+<p>Note that documentation links from the GUI cannot be opened in a snap-sandboxed browser: <a class="reference external" href="https://bugs.launchpad.net/snapd/+bug/1972762">https://bugs.launchpad.net/snapd/+bug/1972762</a>.</p>
+</section>
+<section id="additional-python-packages">
+<h2>Additional Python packages<a class="headerlink" href="#additional-python-packages" title="Link to this heading">¶</a></h2>
+<p>The Python environment can be amended with additional packages using the included nopip module
+by typing the following in the <a class="reference internal" href="user_manual/graphical_interface/getting_started/user_manual_getting_started.html#pythonconsole"><span class="std std-ref">Python console</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nopip</span><span class="w"> </span><span class="kn">import</span> <span class="n">install</span>
+<span class="n">install</span><span class="o">.</span><span class="n">modules</span><span class="p">([</span><span class="s2">&quot;&lt;module_name&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;--user&quot;</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;module_name&gt;</span></code> is the PyPI module name of the desired package.</p>
+<p>Modules are then installed in <code class="docutils literal notranslate"><span class="pre">~/.persalys_base</span></code> on Linux and in <code class="docutils literal notranslate"><span class="pre">&lt;USER_DIR&gt;\AppData\Roaming\Persalys\</span></code> on Windows.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#additional-python-packages">Additional Python packages</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to Persalys documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="user_manual/user_manual.html"
+                          title="next chapter">User manual</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="user_manual/user_manual.html" title="User manual"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Persalys documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Persalys 19.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Installation</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

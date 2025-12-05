@@ -1,0 +1,12 @@
+﻿LimitState
+===================
+
+.. currentmodule:: persalys
+
+.. autoclass:: LimitState
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

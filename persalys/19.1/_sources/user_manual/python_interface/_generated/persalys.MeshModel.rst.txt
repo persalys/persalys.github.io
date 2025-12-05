@@ -1,0 +1,12 @@
+﻿MeshModel
+==================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MeshModel
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

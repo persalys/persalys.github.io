@@ -1,0 +1,12 @@
+﻿FieldMonteCarloResult
+==============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FieldMonteCarloResult
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

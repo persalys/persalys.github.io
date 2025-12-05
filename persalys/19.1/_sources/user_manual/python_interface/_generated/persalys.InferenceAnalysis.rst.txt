@@ -1,0 +1,12 @@
+﻿InferenceAnalysis
+==========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: InferenceAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

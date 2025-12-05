@@ -1,0 +1,12 @@
+﻿AnsysParser
+====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: AnsysParser
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

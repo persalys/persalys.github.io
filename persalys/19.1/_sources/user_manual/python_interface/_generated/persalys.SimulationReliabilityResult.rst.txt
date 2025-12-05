@@ -1,0 +1,12 @@
+﻿SimulationReliabilityResult
+====================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: SimulationReliabilityResult
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

@@ -1,0 +1,12 @@
+﻿OptimizationAnalysis
+=============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: OptimizationAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+
