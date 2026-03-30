@@ -1,0 +1,12 @@
+﻿Variable
+=================
+
+.. currentmodule:: persalys
+
+.. autoclass:: Variable
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

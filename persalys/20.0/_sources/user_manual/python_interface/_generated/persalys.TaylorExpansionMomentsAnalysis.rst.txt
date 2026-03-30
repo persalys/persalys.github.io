@@ -1,0 +1,12 @@
+﻿TaylorExpansionMomentsAnalysis
+=======================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: TaylorExpansionMomentsAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

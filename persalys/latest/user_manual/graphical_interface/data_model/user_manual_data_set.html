@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual - Define a data set &#8212; Persalys 20.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=b1041009"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="User manual - Deterministic analyses" href="../deterministic_analysis/user_manual_deterministic_analysis.html" />
+    <link rel="prev" title="User manual - Define a field model" href="../field_model/user_manual_field_model.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="../../../index.html">
+      <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../deterministic_analysis/user_manual_deterministic_analysis.html" title="User manual - Deterministic analyses"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../field_model/user_manual_field_model.html" title="User manual - Define a field model"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a data set</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-manual-define-a-data-set">
+<h1>User manual - Define a data set<a class="headerlink" href="#user-manual-define-a-data-set" title="Link to this heading">¶</a></h1>
+<p>The interface allows the user to load data samples and analyze them.</p>
+<section id="creation">
+<h2>1- Creation<a class="headerlink" href="#creation" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>A data set can be created through:</dt><dd><ul>
+<li><p>the context menu of the study item</p>
+<img alt="../../../_images/studyItemContextMenu.png" class="align-center" src="../../../_images/studyItemContextMenu.png" />
+</li>
+<li><p>the <strong>Data set</strong> button of the study window</p>
+<img alt="../../../_images/studyWindowButtons.png" class="align-center" src="../../../_images/studyWindowButtons.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>The creation of a data set adds a new element in the study tree, below the <strong>Data sets</strong> section.</p>
+<dl class="simple">
+<dt>Different actions are available through the context menu of the data set (by right click):</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the data set</p></li>
+<li><p><strong>Define the data set</strong>: Open a new window to define the data set</p></li>
+<li><p><strong>Remove</strong>: Remove the data set and all the analyses depending on it</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/dataModelNameContextMenu.png" class="align-center" src="../../../_images/dataModelNameContextMenu.png" />
+<p id="datamodeldiagram">The item is associated with a <strong>Study workflow</strong> window.</p>
+<img alt="../../../_images/dataModelDiagram.png" class="align-center" src="../../../_images/dataModelDiagram.png" />
+<p>This diagram displays the possible actions an user can perform in real time. An action
+is active when its box is in dark blue and when a previous one is valid. A box is disabled when its box
+is in light blue, and the previous one is not valid.
+When the mouse pointer is hovered over a box, an information message appears at the bottom of
+the window in order to specify what sort of actions the box proposes. If the box is disabled the
+message indicates why the previous one is not valid.</p>
+<p>On the screenshot above, the mouse points over the <strong>Data analysis</strong> box: here
+the action is <strong>Analyse each variable</strong> (below the main window),
+but this action is available only if the user has defined at least one variable in the
+data set. So, here the only option of the user is to complete the data set.</p>
+</section>
+<section id="definition">
+<span id="datamodeldefinition"></span><h2>2- Definition<a class="headerlink" href="#definition" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>A new data set can be defined through:</dt><dd><ul>
+<li><p>the context menu of the data set item</p>
+<img alt="../../../_images/dataModelNameContextMenu.png" class="align-center" src="../../../_images/dataModelNameContextMenu.png" />
+</li>
+<li><p>the <strong>Data set definition</strong> box of the data set diagram</p>
+<img alt="../../../_images/modelDefBox.png" class="align-center" src="../../../_images/modelDefBox.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>When the definition is required the following window appears:</p>
+<img alt="../../../_images/data_model_definition.png" class="align-center" src="../../../_images/data_model_definition.png" />
+<p>When clicking on the <strong>…</strong> button, a dialog box offers to select
+a file (.txt or .csv): validate the dialog box, load the file and its content is displayed in
+the <strong>Sample</strong> part of the window.</p>
+<p>The <strong>Variables</strong> part shows the variables of the model in columns.</p>
+<p>In <strong>Variable</strong> row, variable names can be edited (select the cell and left-double click);
+If no column names is specified in the file header, default names are used (data_0, data_1, …).</p>
+<p>The <strong>Type</strong> row defines the type of each variable: by
+default, all variables are input except the last one, considered as an output variable.
+The user can enable/disable one or several variables, by checking off the corresponding column of the
+table. By default, all the columns are checked off. The model must contain at least one variable to
+validate the model.</p>
+<p>The table containing sample data can be edited using the right click
+popup menu:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>New lines can be added using <strong>Add row</strong> then can be edited.</p></li>
+<li><p>Lines can also be removed by selecting them and choosing <strong>Remove
+row(s)</strong>.</p></li>
+<li><p>Data cleaning wizard can also be launched. It will look for
+invalid values in the sample (NaNs/Infs) and will let the choice
+to the user to remove/replace them. Undefined values can be
+replaced by variable statistical moments (mean/median) or
+user-defined values. Each sample variable can be processed
+independently by toggling the corresponding checkbox in the
+variable column header.</p></li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/datacleaning.png" class="align-center" src="../../../_images/datacleaning.png" />
+<p>Documentation on the analysis that can be performed on a data set can be found
+in the <a class="reference internal" href="../data_analysis/user_manual_data_analysis.html#data-analysis"><span class="std std-ref">Data analysis</span></a> section of the user manual.</p>
+</section>
+</section>
+<section id="user-manual-define-a-field-data-set">
+<span id="datafieldmodel"></span><h1>User manual - Define a field data set<a class="headerlink" href="#user-manual-define-a-field-data-set" title="Link to this heading">¶</a></h1>
+<p>The interface allows the user to load field data (e.g. time series or
+more generally 1-D trajectories) and analyze them. Unlike symbolic and Python field data sets
+they are not associated with a field function or input vector.</p>
+<section id="id1">
+<h2>1- Creation<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>There are several ways to create a new data field data set:</dt><dd><ul>
+<li><p>Select an item in the context menu of the study item</p>
+<img alt="../../../_images/studyItemContextMenu.png" class="align-center" src="../../../_images/studyItemContextMenu.png" />
+</li>
+<li><p>Click on a button of the study window</p>
+<img alt="../../../_images/studyWindowButtons.png" class="align-center" src="../../../_images/studyWindowButtons.png" />
+</li>
+</ul>
+</dd>
+</dl>
+<p>The creation of a field data set adds two elements in the study
+tree, below the <strong>Data Field data sets</strong> section: a data set item and a mesh
+item.</p>
+<section id="data-set-item">
+<h3>Data set item<a class="headerlink" href="#data-set-item" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>Different actions are available through the context menu of the data set item (by right click):</dt><dd><ul class="simple">
+<li><p><strong>Rename</strong>: Rename the data set</p></li>
+<li><p><strong>Remove</strong>: Remove the data set and all the analyses depending on it.</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="../../../_images/dataFieldModelContextMenu.png" class="align-center" src="../../../_images/dataFieldModelContextMenu.png" />
+<p id="datafieldmodeldiagram">The data set item is associated with a <strong>Study workflow</strong> window.</p>
+<img alt="../../../_images/dataFieldModelDiagram.png" class="align-center" src="../../../_images/dataFieldModelDiagram.png" />
+<p>This diagram displays the possible actions an user can perform in real time. An action
+is active when its box is in dark blue and when a previous one is valid. A box is disabled when its box
+is in light blue, and the previous one is not valid.
+When the mouse pointer is hovered over a box, an information message appears at the bottom of
+the window in order to specify what sort of actions the box proposes. If the box is disabled the
+message indicates why the previous one is not valid.</p>
+</section>
+</section>
+<section id="model-definition">
+<h2>2- Model definition<a class="headerlink" href="#model-definition" title="Link to this heading">¶</a></h2>
+<p>A field data set can be defined by clicking on the <strong>Definition</strong>
+item, leading to the following window:</p>
+<img alt="../../../_images/data_field_model_definition.png" class="align-center" src="../../../_images/data_field_model_definition.png" />
+<p>When clicking on the <strong>…</strong> button, a dialog box offers to select
+a file (.txt or .csv): validate the dialog box, load the file and then its content is displayed in
+the table below.</p>
+<p>In the table, rows correpond to trajectories and columns contain field
+values data indexed on same mesh nodes. <em>Warning:</em> The number of mesh
+vertices must be compatible with the number of column tables.</p>
+<p>The appropriate data order can be chosen by selecting the appropriate radio button.</p>
+<p>If your data file contains the mesh as first row or column, you can click the
+checkbox to read it directly form the file.</p>
+<p>The table containing sample data can be edited using the right click
+popup menu:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>New lines can be added using <strong>Add row</strong> then can be edited.</p></li>
+<li><p>Lines can also be removed by selecting them and choosing <strong>Remove
+row(s)</strong>.</p></li>
+<li><p>Data cleaning wizard can also be launched. It will look for
+invalid values in the sample (NaNs/Infs) and will let the choice
+to the user to remove/replace them. Undefined values can be
+replaced by variable statistical moments (mean/median) or
+user-defined values. Each sample variable can be processed
+independently by toggling the corresponding checkbox in the
+variable column header.</p></li>
+</ul>
+</div></blockquote>
+<img alt="../../../_images/datacleaning.png" class="align-center" src="../../../_images/datacleaning.png" />
+</section>
+<section id="mesh-definition">
+<h2>3- Mesh definition<a class="headerlink" href="#mesh-definition" title="Link to this heading">¶</a></h2>
+<p>The data set item is associated with a <strong>Mesh</strong> window.</p>
+<img alt="../../../_images/defaultMeshWindow.png" class="align-center" src="../../../_images/defaultMeshWindow.png" />
+<p>This window allows one to define a 1D mesh. The default mesh contains <em>10 nodes</em> in the range <em>[0, 1]</em>.</p>
+<p>The window shows the index parameter name, description, bounds and number.</p>
+<p>To edit the index parameters, double-click on the column of interest (ex: name, description).</p>
+<blockquote>
+<div><img alt="../../../_images/indexParamTable.png" class="align-center" src="../../../_images/indexParamTable.png" />
+</div></blockquote>
+<p>To modify the mesh click on <strong>…</strong> button: The window shows
+two ways to define a mesh:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Regular mesh</em>: define the bounds (default: [0, 1], expected: floats) and the number of nodes (default: 10, expected: positive integer)</p></li>
+</ul>
+<blockquote>
+<div><img alt="../../../_images/meshWizard.png" class="align-center" src="../../../_images/meshWizard.png" />
+</div></blockquote>
+<ul class="simple">
+<li><p><em>Imported mesh</em>: Load a file containing only the mesh (in one row or one column, with or without header).</p></li>
+</ul>
+<blockquote>
+<div><img alt="../../../_images/importMeshWizard.png" class="align-center" src="../../../_images/importMeshWizard.png" />
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User manual - Define a data set</a><ul>
+<li><a class="reference internal" href="#creation">1- Creation</a></li>
+<li><a class="reference internal" href="#definition">2- Definition</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-manual-define-a-field-data-set">User manual - Define a field data set</a><ul>
+<li><a class="reference internal" href="#id1">1- Creation</a><ul>
+<li><a class="reference internal" href="#data-set-item">Data set item</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model-definition">2- Model definition</a></li>
+<li><a class="reference internal" href="#mesh-definition">3- Mesh definition</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../field_model/user_manual_field_model.html"
+                          title="previous chapter">User manual - Define a field model</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../deterministic_analysis/user_manual_deterministic_analysis.html"
+                          title="next chapter">User manual - Deterministic analyses</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/graphical_interface/data_model/user_manual_data_set.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../deterministic_analysis/user_manual_deterministic_analysis.html" title="User manual - Deterministic analyses"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../field_model/user_manual_field_model.html" title="User manual - Define a field model"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User manual - Define a data set</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,12 @@
+﻿CouplingStep
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CouplingStep
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

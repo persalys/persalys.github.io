@@ -1,0 +1,12 @@
+﻿ImportedDesignOfExperiment
+===================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: ImportedDesignOfExperiment
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+
