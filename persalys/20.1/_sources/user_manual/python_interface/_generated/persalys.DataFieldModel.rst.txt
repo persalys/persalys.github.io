@@ -1,0 +1,12 @@
+﻿DataFieldModel
+=======================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DataFieldModel
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

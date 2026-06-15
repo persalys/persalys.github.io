@@ -1,0 +1,12 @@
+﻿MetaModelAnalysisResult
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MetaModelAnalysisResult
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

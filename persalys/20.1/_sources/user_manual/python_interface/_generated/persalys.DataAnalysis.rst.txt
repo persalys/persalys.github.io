@@ -1,0 +1,12 @@
+﻿DataAnalysis
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DataAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

@@ -1,0 +1,12 @@
+﻿CalibrationAnalysis
+============================
+
+.. currentmodule:: persalys
+
+.. autoclass:: CalibrationAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+
