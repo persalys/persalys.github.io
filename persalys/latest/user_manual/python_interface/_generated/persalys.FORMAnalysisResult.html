@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>FORMAnalysisResult &#8212; Persalys 20.1dev documentation</title>
+    <title>FORMAnalysisResult &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.ImportanceSamplingAnalysis.html" title="ImportanceSamplingAnalysis"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">FORMAnalysisResult</a></li> 
@@ -62,6 +62,19 @@
 <dt class="sig sig-object py" id="persalys.FORMAnalysisResult">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">FORMAnalysisResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysisResult" title="Link to this definition">¶</a></dt>
 <dd><p>Class containing results of the FORM analysis.</p>
+<p>Available constructors are:
+- FORMAnalysisResult(formResult)
+- FORMAnalysisResult(multiFormResult)</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>formResult</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.FORMResult.html#openturns.FORMResult" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FORMResult</span></code></a></span></dt><dd><p>FORM result</p>
+</dd>
+<dt><strong>multiFormResult</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.MultiFORMResult.html#openturns.MultiFORMResult" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiFORMResult</span></code></a></span></dt><dd><p>MultiFORM result (for system limit states)</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -71,16 +84,25 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getElapsedTime" title="persalys.FORMAnalysisResult.getElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getElapsedTime</span></code></a>()</p></td>
 <td><p>Elapsed time in seconds to perform the analysis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getFORMResult" title="persalys.FORMAnalysisResult.getFORMResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFORMResult</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getEventProbability" title="persalys.FORMAnalysisResult.getEventProbability"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEventProbability</span></code></a>()</p></td>
+<td><p>Event probability accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getFORMResult" title="persalys.FORMAnalysisResult.getFORMResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFORMResult</span></code></a>()</p></td>
 <td><p>FORM result accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getName" title="persalys.FORMAnalysisResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getGeneralisedReliabilityIndex" title="persalys.FORMAnalysisResult.getGeneralisedReliabilityIndex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getGeneralisedReliabilityIndex</span></code></a>()</p></td>
+<td><p>Generalised reliability index accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getMultiFORMResult" title="persalys.FORMAnalysisResult.getMultiFORMResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMultiFORMResult</span></code></a>()</p></td>
+<td><p>MultiFORM result accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.getName" title="persalys.FORMAnalysisResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.hasName" title="persalys.FORMAnalysisResult.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.hasName" title="persalys.FORMAnalysisResult.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
 <td><p>Test if the object is named.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.setName" title="persalys.FORMAnalysisResult.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysisResult.setName" title="persalys.FORMAnalysisResult.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
 </tbody>
@@ -119,13 +141,55 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="persalys.FORMAnalysisResult.getEventProbability">
+<span class="sig-name descname"><span class="pre">getEventProbability</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysisResult.getEventProbability" title="Link to this definition">¶</a></dt>
+<dd><p>Event probability accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>eventProbability</strong><span class="classifier">float</span></dt><dd><p>Event probability</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="persalys.FORMAnalysisResult.getFORMResult">
 <span class="sig-name descname"><span class="pre">getFORMResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysisResult.getFORMResult" title="Link to this definition">¶</a></dt>
 <dd><p>FORM result accessor.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>formResu</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.FORMResult.html#openturns.FORMResult" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.FORMResult</span></code></a></span></dt><dd><p>FORM result</p>
+<dt><strong>formResult</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.FORMResult.html#openturns.FORMResult" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.FORMResult</span></code></a></span></dt><dd><p>FORM result</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FORMAnalysisResult.getGeneralisedReliabilityIndex">
+<span class="sig-name descname"><span class="pre">getGeneralisedReliabilityIndex</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysisResult.getGeneralisedReliabilityIndex" title="Link to this definition">¶</a></dt>
+<dd><p>Generalised reliability index accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>generalisedReliabilityIndex</strong><span class="classifier">float</span></dt><dd><p>Generalised reliability index</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FORMAnalysisResult.getMultiFORMResult">
+<span class="sig-name descname"><span class="pre">getMultiFORMResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysisResult.getMultiFORMResult" title="Link to this definition">¶</a></dt>
+<dd><p>MultiFORM result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>multiFormResult</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.MultiFORMResult.html#openturns.MultiFORMResult" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiFORMResult</span></code></a></span></dt><dd><p>MultiFORM result (for system limit states)</p>
 </dd>
 </dl>
 </dd>
@@ -228,7 +292,7 @@
         <li class="right" >
           <a href="persalys.ImportanceSamplingAnalysis.html" title="ImportanceSamplingAnalysis"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">FORMAnalysisResult</a></li> 

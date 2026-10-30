@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>User manual - Probabilistic analyses &#8212; Persalys 20.1dev documentation</title>
+    <title>User manual - Probabilistic analyses &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="../deterministic_analysis/user_manual_deterministic_analysis.html" title="User manual - Deterministic analyses"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">User manual - Probabilistic analyses</a></li> 
@@ -257,7 +257,7 @@ appear on the right.</p></li>
 <dl>
 <dt>A new limit state can be created through:</dt><dd><ul>
 <li><p>the context menu of the probabilistic model item</p>
-<img alt="../../../_images/probabilisticModelContextMenu.png" class="align-center" src="../../../_images/probabilisticModelContextMenu.png" />
+<img alt="../../../_images/probabilisticModelContextMenu1.png" class="align-center" src="../../../_images/probabilisticModelContextMenu1.png" />
 </li>
 <li><p>the <strong>Limit state definition</strong> box of the model diagram</p>
 <img alt="../../../_images/probaAnalysesBoxes.png" class="align-center" src="../../../_images/probaAnalysesBoxes.png" />
@@ -274,28 +274,34 @@ appear on the right.</p></li>
 <li><p><strong>Remove</strong>: Remove the limit state and all the analyses depending on it</p></li>
 </ul>
 </dd>
-<dt>This item is associated with a window which allows one to:</dt><dd><ul class="simple">
-<li><p>Select the output of interest</p></li>
+</dl>
+<p>This item is associated with a window which allows one to define one or more failure events.
+Each failure event is a row in the <strong>failure events</strong> table, where the user can:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Select the <strong>output</strong> of interest (combo box, lists all selected model outputs)</p></li>
 <li><dl class="simple">
-<dt>Define the failure event by:</dt><dd><ul>
-<li><dl class="simple">
-<dt>selecting an operator:</dt><dd><ul>
-<li><p>&lt;= (less or equal)</p></li>
-<li><p>&gt;= (greater or equal)</p></li>
-<li><p>&gt; (greater than)</p></li>
-<li><p>&lt; (less than)</p></li>
+<dt>Choose the <strong>operator</strong>:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>  (less than)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (less or equal)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>  (greater than)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (greater or equal)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>setting up the threshold defining the failure domain (default: 0., expected: floating points or integers)</p></li>
+<li><p>Set the <strong>threshold</strong> defining the failure domain (default: 0., expected: floating point or integer)</p></li>
+<li><p><strong>Remove</strong> the event with the <code class="docutils literal notranslate"><span class="pre">-</span></code> button (disabled when only one event remains)</p></li>
 </ul>
-</dd>
-</dl>
-</li>
+</div></blockquote>
+<p>To add a new failure event click the <strong>+ Add failure event</strong> button below the table.
+When more than one event is defined, a <strong>Type</strong> selector appears above the table:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Union</strong>: failure occurs when <em>at least one</em> event is satisfied (logical OR)</p></li>
+<li><p><strong>Intersection</strong>: failure occurs when <em>all</em> events are satisfied (logical AND)</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <img alt="../../../_images/limitState.png" class="align-center" src="../../../_images/limitState.png" />
 </section>
 <section id="threshold-exceedance-analysis">
@@ -360,8 +366,22 @@ see <a class="reference internal" href="../deterministic_analysis/user_manual_de
 </dd>
 </dl>
 </li>
-<li><p><strong>Advanced Parameters</strong> (default: hidden): the seed of the random generator (default: 0,
-positive integer expected)</p></li>
+<li><dl class="simple">
+<dt><strong>Compute individual event probabilities</strong> (default: unchecked): when the limit state</dt><dd><p>is a system event (Union or Intersection), check this option to also estimate the
+failure probability of each individual sub-event.
+The computation of individual probabilities uses every point already computed during the simulation,
+but depending on the model and on the method additional computations may be required.
+This option is not available for Importance sampling with an Intersection limit state.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Advanced Parameters</strong> (default: hidden):</dt><dd><ul>
+<li><p>the seed of the random generator (default: 0, positive integer expected)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -409,15 +429,23 @@ progress bar and Run/Stop buttons, to launch or stop the analysis.</p>
 on the chosen algorithm.</p>
 <section id="reliamontecarloresult">
 <span id="id2"></span><h4>3-3-1 Monte Carlo<a class="headerlink" href="#reliamontecarloresult" title="Link to this heading">¶</a></h4>
-<p>On the left, the <strong>Output</strong> section recalls the analysed output.</p>
+<p>For a <strong>system limit state</strong> (more than one failure event), the left panel shows a
+<strong>Limit state</strong> selector listing all sub-events. Selecting a sub-event updates the
+<strong>Summary</strong> (individual probability), <strong>Histogram</strong> and <strong>FORM results</strong> tabs accordingly.
+The <strong>Convergence graph</strong> tab always shows the convergence of the global (system) estimate.</p>
+<p>For a single-event limit state, no selector is shown.</p>
 <p>The results window gathers several tabs:</p>
 <ul>
 <li><dl>
 <dt>The <strong>Summary</strong> tab shows:</dt><dd><ul class="simple">
 <li><p>the elapsed computation time</p></li>
 <li><p>the number of performed simulations (i.e. calls to the model)</p></li>
-<li><p>the failure probability estimate, its coefficient of variation and the corresponding
+<li><p><strong>Global failure probability estimate</strong> (system events) or <strong>Failure probability estimate</strong>
+(single event): the probability estimate, its coefficient of variation and the corresponding
 confidence interval at 95%</p></li>
+<li><p><strong>Individual failure probability estimate</strong> (system events only, visible when
+<em>Compute individual event probabilities</em> was enabled): the failure probability of
+the currently selected sub-event, with its coefficient of variation and confidence interval.</p></li>
 </ul>
 <img alt="../../../_images/limitStateReliabilitySummary.png" class="align-center" src="../../../_images/limitStateReliabilitySummary.png" />
 </dd>
@@ -519,7 +547,7 @@ tab to display the tabs of a FORM result window.</p>
 <dl>
 <dt>A new central tendency analysis can be created in 3 different ways:</dt><dd><ul>
 <li><p>the context menu of the probabilistic model item</p>
-<img alt="../../../_images/probabilisticModelContextMenu.png" class="align-center" src="../../../_images/probabilisticModelContextMenu.png" />
+<img alt="../../../_images/probabilisticModelContextMenu1.png" class="align-center" src="../../../_images/probabilisticModelContextMenu1.png" />
 </li>
 <li><p>the <strong>Central tendency</strong> box of the model diagram</p>
 <img alt="../../../_images/probaAnalysesBoxes.png" class="align-center" src="../../../_images/probaAnalysesBoxes.png" />
@@ -738,7 +766,7 @@ mean (corresponding to the first and second order expansions), standard deviatio
 <dl>
 <dt>To create a new sensitivity analysis, 3 different ways are possible:</dt><dd><ul>
 <li><p>the context menu of the probabilistic model item</p>
-<img alt="../../../_images/probabilisticModelContextMenu.png" class="align-center" src="../../../_images/probabilisticModelContextMenu.png" />
+<img alt="../../../_images/probabilisticModelContextMenu1.png" class="align-center" src="../../../_images/probabilisticModelContextMenu1.png" />
 </li>
 <li><p>the <strong>Sensitivity</strong> box of the model diagram</p>
 <img alt="../../../_images/probaAnalysesBoxes.png" class="align-center" src="../../../_images/probaAnalysesBoxes.png" />
@@ -977,7 +1005,7 @@ bottom of the window to warn the user the result can be false.</p>
         <li class="right" >
           <a href="../deterministic_analysis/user_manual_deterministic_analysis.html" title="User manual - Deterministic analyses"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">User manual - Probabilistic analyses</a></li> 

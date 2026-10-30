@@ -1,0 +1,12 @@
+﻿FORMImportanceSamplingAnalysis
+=======================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FORMImportanceSamplingAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

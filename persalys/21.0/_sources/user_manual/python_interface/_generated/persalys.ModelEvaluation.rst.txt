@@ -1,0 +1,12 @@
+﻿ModelEvaluation
+========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: ModelEvaluation
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

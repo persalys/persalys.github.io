@@ -1,0 +1,12 @@
+﻿MetaModelAnalysis
+==========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MetaModelAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

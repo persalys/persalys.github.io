@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SymbolicFieldModel &#8212; Persalys 20.1dev documentation</title>
+    <title>SymbolicFieldModel &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.SymbolicPhysicalModel.html" title="SymbolicPhysicalModel"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SymbolicFieldModel</a></li> 
@@ -276,17 +276,17 @@ The function is defined by outputs = formulas(inputs).</p>
 </pre></div>
 </div>
 <p>Create the mesh model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">meshModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridMeshModel</span><span class="p">([</span><span class="n">persalys</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;aDescription&#39;</span><span class="p">)],</span> <span class="n">ot</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">),</span> <span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">meshModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridMeshModel</span><span class="p">([</span><span class="n">persalys</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'aDescription'</span><span class="p">)],</span> <span class="n">ot</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">),</span> <span class="p">[</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;z0&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">v0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;v0&#39;</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">formula</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;max(0, z0 + (m * 9.81 / c) * x + (m / c) * (v0 - (m * 9.81 / c)) * (1 - exp(-x * c / m)))&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicFieldModel</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">meshModel</span><span class="p">,</span> <span class="p">[</span><span class="n">z0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">formula</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'z0'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'v0'</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'m'</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'c'</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">formula</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'max(0, z0 + (m * 9.81 / c) * x + (m / c) * (v0 - (m * 9.81 / c)) * (1 - exp(-x * c / m)))'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicFieldModel</span><span class="p">(</span><span class="s1">'model'</span><span class="p">,</span> <span class="n">meshModel</span><span class="p">,</span> <span class="p">[</span><span class="n">z0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">formula</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getPointToFieldFunction</span><span class="p">()([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
@@ -1290,7 +1290,7 @@ Refer to the <em>setBlockSize</em> method of the various algorithms.</p>
         <li class="right" >
           <a href="persalys.SymbolicPhysicalModel.html" title="SymbolicPhysicalModel"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SymbolicFieldModel</a></li> 

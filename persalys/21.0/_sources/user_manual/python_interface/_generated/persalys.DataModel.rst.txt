@@ -1,0 +1,12 @@
+﻿DataModel
+==================
+
+.. currentmodule:: persalys
+
+.. autoclass:: DataModel
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

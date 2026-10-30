@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>MultiObjectiveOptimizationAnalysis &#8212; Persalys 20.1dev documentation</title>
+    <title>MultiObjectiveOptimizationAnalysis &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.OptimizationAnalysis.html" title="OptimizationAnalysis"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">MultiObjectiveOptimizationAnalysis</a></li> 
@@ -250,21 +250,21 @@
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;Y0&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Y1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;Y1&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'X0'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'X1'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'Y0'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Y1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'Y1'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bounds</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Interval</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;aModelPhys&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">X0</span><span class="p">,</span> <span class="n">X1</span><span class="p">],</span> <span class="p">[</span><span class="n">Y0</span><span class="p">,</span> <span class="n">Y1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;var g := 1.0 + 9.0 * (X0 + X1); g * (1.0 - sqrt(X0 / g))&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'aModelPhys'</span><span class="p">,</span> <span class="p">[</span><span class="n">X0</span><span class="p">,</span> <span class="n">X1</span><span class="p">],</span> <span class="p">[</span><span class="n">Y0</span><span class="p">,</span> <span class="n">Y1</span><span class="p">],</span> <span class="p">[</span><span class="s1">'X0'</span><span class="p">,</span> <span class="s1">'var g := 1.0 + 9.0 * (X0 + X1); g * (1.0 - sqrt(X0 / g))'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the analysis:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">MultiObjectiveOptimizationAnalysis</span><span class="p">(</span><span class="s1">&#39;anAnalysis&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">&#39;nsga2&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setInterestVariables</span><span class="p">([</span><span class="s1">&#39;Y0&#39;</span><span class="p">,</span> <span class="s1">&#39;Y1&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">MultiObjectiveOptimizationAnalysis</span><span class="p">(</span><span class="s1">'anAnalysis'</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="s1">'nsga2'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setInterestVariables</span><span class="p">([</span><span class="s1">'Y0'</span><span class="p">,</span> <span class="s1">'Y1'</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setBounds</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setPopulationSize</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setGenerationNumber</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setVariableInputs</span><span class="p">([</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setVariableInputs</span><span class="p">([</span><span class="s1">'X0'</span><span class="p">,</span> <span class="s1">'X1'</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -975,7 +975,7 @@
         <li class="right" >
           <a href="persalys.OptimizationAnalysis.html" title="OptimizationAnalysis"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">MultiObjectiveOptimizationAnalysis</a></li> 

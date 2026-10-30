@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>MonteCarloReliabilityAnalysis &#8212; Persalys 20.1dev documentation</title>
+    <title>MonteCarloReliabilityAnalysis &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.LimitState.html" title="LimitState"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">MonteCarloReliabilityAnalysis</a></li> 
@@ -81,61 +81,67 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getClassName" title="persalys.MonteCarloReliabilityAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getErrorMessage" title="persalys.MonteCarloReliabilityAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getComputeIndividualEventProbabilities" title="persalys.MonteCarloReliabilityAnalysis.getComputeIndividualEventProbabilities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getComputeIndividualEventProbabilities</span></code></a>()</p></td>
+<td><p>Compute individual event probabilities accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getErrorMessage" title="persalys.MonteCarloReliabilityAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
 <td><p>Error message accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getInterestVariables" title="persalys.MonteCarloReliabilityAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getInterestVariables" title="persalys.MonteCarloReliabilityAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
 <td><p>Get the variables to analyse.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getLimitState" title="persalys.MonteCarloReliabilityAnalysis.getLimitState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLimitState</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getLimitState" title="persalys.MonteCarloReliabilityAnalysis.getLimitState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLimitState</span></code></a>()</p></td>
 <td><p>Limit-state accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getMaximumCalls" title="persalys.MonteCarloReliabilityAnalysis.getMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCalls</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getMaximumCalls" title="persalys.MonteCarloReliabilityAnalysis.getMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCalls</span></code></a>()</p></td>
 <td><p>Maximum calls accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getMaximumCoefficientOfVariation" title="persalys.MonteCarloReliabilityAnalysis.getMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCoefficientOfVariation</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getMaximumCoefficientOfVariation" title="persalys.MonteCarloReliabilityAnalysis.getMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCoefficientOfVariation</span></code></a>()</p></td>
 <td><p>Maximum coefficient of variation accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getMaximumElapsedTime" title="persalys.MonteCarloReliabilityAnalysis.getMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumElapsedTime</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getMaximumElapsedTime" title="persalys.MonteCarloReliabilityAnalysis.getMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumElapsedTime</span></code></a>()</p></td>
 <td><p>Maximum elapsed time accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getName" title="persalys.MonteCarloReliabilityAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getName" title="persalys.MonteCarloReliabilityAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getPhysicalModel" title="persalys.MonteCarloReliabilityAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getPhysicalModel" title="persalys.MonteCarloReliabilityAnalysis.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
 <td><p>Physical model accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getPythonScript" title="persalys.MonteCarloReliabilityAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getPythonScript" title="persalys.MonteCarloReliabilityAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
 <td><p>Physical model accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getResult" title="persalys.MonteCarloReliabilityAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getResult" title="persalys.MonteCarloReliabilityAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
 <td><p>Result accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getSeed" title="persalys.MonteCarloReliabilityAnalysis.getSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSeed</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getSeed" title="persalys.MonteCarloReliabilityAnalysis.getSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSeed</span></code></a>()</p></td>
 <td><p>Seed accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getWarningMessage" title="persalys.MonteCarloReliabilityAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.getWarningMessage" title="persalys.MonteCarloReliabilityAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
 <td><p>Warning message accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.hasName" title="persalys.MonteCarloReliabilityAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.hasName" title="persalys.MonteCarloReliabilityAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
 <td><p>Test if the object is named.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.hasValidResult" title="persalys.MonteCarloReliabilityAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.hasValidResult" title="persalys.MonteCarloReliabilityAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
 <td><p>Whether the analysis has been run.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.isReliabilityAnalysis" title="persalys.MonteCarloReliabilityAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.isReliabilityAnalysis" title="persalys.MonteCarloReliabilityAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
 <td><p>Whether the analysis involves reliability.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.isRunning" title="persalys.MonteCarloReliabilityAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.isRunning" title="persalys.MonteCarloReliabilityAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
 <td><p>Whether the analysis is running.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.run" title="persalys.MonteCarloReliabilityAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.run" title="persalys.MonteCarloReliabilityAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
 <td><p>Launch the analysis.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.setBlockSize" title="persalys.MonteCarloReliabilityAnalysis.setBlockSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlockSize</span></code></a>(size)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.setBlockSize" title="persalys.MonteCarloReliabilityAnalysis.setBlockSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlockSize</span></code></a>(size)</p></td>
 <td><p>Block size accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.setInterestVariables" title="persalys.MonteCarloReliabilityAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(outputsNames)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.setComputeIndividualEventProbabilities" title="persalys.MonteCarloReliabilityAnalysis.setComputeIndividualEventProbabilities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setComputeIndividualEventProbabilities</span></code></a>(compute)</p></td>
+<td><p>Compute individual event probabilities accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.setInterestVariables" title="persalys.MonteCarloReliabilityAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
 <td><p>Set the variables to analyse.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.MonteCarloReliabilityAnalysis.setMaximumCalls" title="persalys.MonteCarloReliabilityAnalysis.setMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCalls</span></code></a>(maxi)</p></td>
@@ -161,18 +167,18 @@
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">'Yield strength'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'F'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">'Traction load'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="s1">'deviation'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'myPhysicalModel'</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">'R-F/(pi_*100.0)'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the limit state:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">&#39;ls1&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">'ls1'</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Process a reliability analysis using the Monte Carlo method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">MonteCarloReliabilityAnalysis</span><span class="p">(</span><span class="s1">&#39;myAnalysis&#39;</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">MonteCarloReliabilityAnalysis</span><span class="p">(</span><span class="s1">'myAnalysis'</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setMaximumCalls</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -210,6 +216,20 @@ It is set by default to 1.</p>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.MonteCarloReliabilityAnalysis.getComputeIndividualEventProbabilities">
+<span class="sig-name descname"><span class="pre">getComputeIndividualEventProbabilities</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MonteCarloReliabilityAnalysis.getComputeIndividualEventProbabilities" title="Link to this definition">¶</a></dt>
+<dd><p>Compute individual event probabilities accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True to compute individual event probabilities, false otherwise.</p>
 </dd>
 </dl>
 </dd>
@@ -462,8 +482,23 @@ It is set by default to 1.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="persalys.MonteCarloReliabilityAnalysis.setComputeIndividualEventProbabilities">
+<span class="sig-name descname"><span class="pre">setComputeIndividualEventProbabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MonteCarloReliabilityAnalysis.setComputeIndividualEventProbabilities" title="Link to this definition">¶</a></dt>
+<dd><p>Compute individual event probabilities accessor.</p>
+<p>Individual probabilities cannot be computed with importance sampling for an intersection limit state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True to compute individual event probabilities, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="persalys.MonteCarloReliabilityAnalysis.setInterestVariables">
-<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputsNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MonteCarloReliabilityAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.MonteCarloReliabilityAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -599,7 +634,7 @@ It is set by default to 1.</p>
         <li class="right" >
           <a href="persalys.LimitState.html" title="LimitState"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">MonteCarloReliabilityAnalysis</a></li> 

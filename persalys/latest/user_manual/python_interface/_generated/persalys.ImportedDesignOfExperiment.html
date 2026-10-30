@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ImportedDesignOfExperiment &#8212; Persalys 20.1dev documentation</title>
+    <title>ImportedDesignOfExperiment &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.GridDesignOfExperiment.html" title="GridDesignOfExperiment"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ImportedDesignOfExperiment</a></li> 
@@ -187,16 +187,16 @@ ImportedDesignOfExperiment(<em>name, physicalModel, fileName, inputColumns, outp
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;X0&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;X1&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;Y0&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;aModelPhys&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">X0</span><span class="p">,</span> <span class="n">X1</span><span class="p">],</span> <span class="p">[</span><span class="n">Y0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;sin(X0)+8*X1&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'X0'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'X1'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'Y0'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'aModelPhys'</span><span class="p">,</span> <span class="p">[</span><span class="n">X0</span><span class="p">,</span> <span class="n">X1</span><span class="p">],</span> <span class="p">[</span><span class="n">Y0</span><span class="p">],</span> <span class="p">[</span><span class="s1">'sin(X0)+8*X1'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the design of experiments:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;normal.csv&#39;</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">'normal.csv'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">exportToCSVFile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ImportedDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;aDesign&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ImportedDesignOfExperiment</span><span class="p">(</span><span class="s1">'aDesign'</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 <dl class="py method">
@@ -677,7 +677,7 @@ By default, the type is Monte-Carlo.</p>
         <li class="right" >
           <a href="persalys.GridDesignOfExperiment.html" title="GridDesignOfExperiment"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">ImportedDesignOfExperiment</a></li> 

@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>FORMAnalysis &#8212; Persalys 20.1dev documentation</title>
+    <title>FORMAnalysis &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.FORMAnalysisResult.html" title="FORMAnalysisResult"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">FORMAnalysis</a></li> 
@@ -123,7 +123,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysis.run" title="persalys.FORMAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
 <td><p>Launch the analysis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysis.setInterestVariables" title="persalys.FORMAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(outputsNames)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMAnalysis.setInterestVariables" title="persalys.FORMAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
 <td><p>Set the variables to analyse.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMAnalysis.setName" title="persalys.FORMAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
@@ -143,18 +143,18 @@
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">'Yield strength'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'F'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">'Traction load'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="s1">'deviation'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'myPhysicalModel'</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">'R-F/(pi_*100.0)'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the limit state:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">&#39;ls1&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">'ls1'</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Process a reliability analysis using the FORM method:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FORMAnalysis</span><span class="p">(</span><span class="s1">&#39;myAnalysis&#39;</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FORMAnalysis</span><span class="p">(</span><span class="s1">'myAnalysis'</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -389,7 +389,7 @@ distribution of the physical model</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="persalys.FORMAnalysis.setInterestVariables">
-<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputsNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -499,7 +499,7 @@ distribution of the physical model</p>
         <li class="right" >
           <a href="persalys.FORMAnalysisResult.html" title="FORMAnalysisResult"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">FORMAnalysis</a></li> 

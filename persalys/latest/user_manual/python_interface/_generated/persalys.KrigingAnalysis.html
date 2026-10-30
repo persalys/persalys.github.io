@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>KrigingAnalysis &#8212; Persalys 20.1dev documentation</title>
+    <title>KrigingAnalysis &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.FunctionalChaosAnalysisResult.html" title="FunctionalChaosAnalysisResult"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">KrigingAnalysis</a></li> 
@@ -210,21 +210,21 @@
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">xi1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi1&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">xi2</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi2&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">xi3</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;xi3&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;y0&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">xi1</span><span class="p">,</span> <span class="n">xi2</span><span class="p">,</span> <span class="n">xi3</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;sin(xi1) + 7. * (sin(xi2)) ^ 2 + 0.1 * xi3^4 * sin(xi1)&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">xi1</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'xi1'</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xi2</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'xi2'</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xi3</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'xi3'</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'y0'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'myPhysicalModel'</span><span class="p">,</span> <span class="p">[</span><span class="n">xi1</span><span class="p">,</span> <span class="n">xi2</span><span class="p">,</span> <span class="n">xi3</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">],</span> <span class="p">[</span><span class="s1">'sin(xi1) + 7. * (sin(xi2)) ^ 2 + 0.1 * xi3^4 * sin(xi1)'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the design of experiments:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ProbabilisticDesignOfExperiment</span><span class="p">(</span><span class="s1">&#39;aDesign&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;LHS&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ProbabilisticDesignOfExperiment</span><span class="p">(</span><span class="s1">'aDesign'</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">'LHS'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">aDesign</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">aDoE</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DesignOfExperiment</span><span class="p">(</span><span class="n">aDesign</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Create the Kriging Analysis:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">KrigingAnalysis</span><span class="p">(</span><span class="s1">&#39;kriging&#39;</span><span class="p">,</span> <span class="n">aDoE</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">KrigingAnalysis</span><span class="p">(</span><span class="s1">'kriging'</span><span class="p">,</span> <span class="n">aDoE</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span><span class="o">.</span><span class="n">setBasis</span><span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">LinearBasisFactory</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span><span class="o">.</span><span class="n">setCovarianceModel</span><span class="p">(</span><span class="n">ot</span><span class="o">.</span><span class="n">GeneralizedExponential</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">kriging</span><span class="o">.</span><span class="n">setLeaveOneOutValidation</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -879,7 +879,7 @@ The points are randomly picked in the data sample (by default the seed is 1).</p
         <li class="right" >
           <a href="persalys.FunctionalChaosAnalysisResult.html" title="FunctionalChaosAnalysisResult"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">KrigingAnalysis</a></li> 

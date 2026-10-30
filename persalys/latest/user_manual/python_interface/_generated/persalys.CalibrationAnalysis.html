@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CalibrationAnalysis &#8212; Persalys 20.1dev documentation</title>
+    <title>CalibrationAnalysis &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.Observations.html" title="Observations"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">CalibrationAnalysis</a></li> 
@@ -176,31 +176,31 @@
 </pre></div>
 </div>
 <p>Create the Chaboche model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">700e6</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">750e6</span><span class="p">,</span> <span class="mf">11e6</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Parameter R&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mf">2500e6</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">2750e6</span><span class="p">,</span> <span class="mf">250e6</span><span class="p">),</span> <span class="s1">&#39;Parameter C&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gamma</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;gam&#39;</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;Parameter gamma&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mf">700e6</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">750e6</span><span class="p">,</span> <span class="mf">11e6</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">'Parameter R'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">C</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'C'</span><span class="p">,</span> <span class="mf">2500e6</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">2750e6</span><span class="p">,</span> <span class="mf">250e6</span><span class="p">),</span> <span class="s1">'Parameter C'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gamma</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'gam'</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">'Parameter gamma'</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dist_strain</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">strain</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;strain&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">dist_strain</span><span class="p">,</span> <span class="s1">&#39;Strain&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sigma</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="s1">&#39;Stress (Pa)&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">strain</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'strain'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">dist_strain</span><span class="p">,</span> <span class="s1">'Strain'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sigma</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'sigma'</span><span class="p">,</span> <span class="s1">'Stress (Pa)'</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;model1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">strain</span><span class="p">],</span> <span class="p">[</span><span class="n">sigma</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R + C / gam * (1 - exp(-gam * strain))&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'model1'</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">strain</span><span class="p">],</span> <span class="p">[</span><span class="n">sigma</span><span class="p">],</span> <span class="p">[</span><span class="s1">'R + C / gam * (1 - exp(-gam * strain))'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Generate observations:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nbObs</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">strainObs</span> <span class="o">=</span> <span class="n">dist_strain</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="n">nbObs</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">strainObs</span><span class="o">.</span><span class="n">setDescription</span><span class="p">([</span><span class="s1">&#39;strain&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">strainObs</span><span class="o">.</span><span class="n">setDescription</span><span class="p">([</span><span class="s1">'strain'</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stressSampleNoise</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">40.e6</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="n">nbObs</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stressSample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">ParametricFunction</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">getFunction</span><span class="p">(),</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mf">750e6</span><span class="p">,</span> <span class="mf">2750e6</span><span class="p">,</span> <span class="mf">10.</span><span class="p">])(</span><span class="n">strainObs</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stressObs</span> <span class="o">=</span> <span class="n">stressSample</span> <span class="o">+</span> <span class="n">stressSampleNoise</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observations</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Observations</span><span class="p">(</span><span class="s1">&#39;obs1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">strainObs</span><span class="p">,</span> <span class="n">stressObs</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observations</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Observations</span><span class="p">(</span><span class="s1">'obs1'</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">strainObs</span><span class="p">,</span> <span class="n">stressObs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Process a calibration analysis:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CalibrationAnalysis</span><span class="p">(</span><span class="s1">&#39;myAnalysis&#39;</span><span class="p">,</span> <span class="n">observations</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CalibrationAnalysis</span><span class="p">(</span><span class="s1">'myAnalysis'</span><span class="p">,</span> <span class="n">observations</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -717,7 +717,7 @@ The optimization problem and the starting point are not taken into account.</p>
         <li class="right" >
           <a href="persalys.Observations.html" title="Observations"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">CalibrationAnalysis</a></li> 

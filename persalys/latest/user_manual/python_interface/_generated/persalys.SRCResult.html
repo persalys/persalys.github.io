@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SRCResult &#8212; Persalys 20.1dev documentation</title>
+    <title>SRCResult &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.SRCAnalysis.html" title="SRCAnalysis"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SRCResult</a></li> 
@@ -80,14 +80,26 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SRCResult.getIndices" title="persalys.SRCResult.getIndices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getIndices</span></code></a>()</p></td>
 <td><p>SRC indices accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SRCResult.getInputNames" title="persalys.SRCResult.getInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputNames</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SRCResult.getIndicesInterval" title="persalys.SRCResult.getIndicesInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getIndicesInterval</span></code></a>()</p></td>
+<td><p>SRC indices confidence interval accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SRCResult.getInputNames" title="persalys.SRCResult.getInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputNames</span></code></a>()</p></td>
 <td><p>Input variable names accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SRCResult.getName" title="persalys.SRCResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SRCResult.getName" title="persalys.SRCResult.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SRCResult.getOutputNames" title="persalys.SRCResult.getOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputNames</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SRCResult.getOutputNames" title="persalys.SRCResult.getOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputNames</span></code></a>()</p></td>
 <td><p>Output variable names accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SRCResult.getR2" title="persalys.SRCResult.getR2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getR2</span></code></a>()</p></td>
+<td><p>R² coefficient accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SRCResult.getSignedIndices" title="persalys.SRCResult.getSignedIndices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSignedIndices</span></code></a>()</p></td>
+<td><p>Signed SRC indices accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.SRCResult.getSignedIndicesInterval" title="persalys.SRCResult.getSignedIndicesInterval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSignedIndicesInterval</span></code></a>()</p></td>
+<td><p>Signed SRC indices confidence interval accessor.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SRCResult.hasName" title="persalys.SRCResult.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
 <td><p>Test if the object is named.</p></td>
@@ -97,22 +109,6 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.SRCResult.setName" title="persalys.SRCResult.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
 <td><p>Accessor to the object's name.</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><strong>getIndicesInterval</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>getR2</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>getSignedIndices</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>getSignedIndicesInterval</strong></p></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -192,6 +188,20 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="persalys.SRCResult.getIndicesInterval">
+<span class="sig-name descname"><span class="pre">getIndicesInterval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SRCResult.getIndicesInterval" title="Link to this definition">¶</a></dt>
+<dd><p>SRC indices confidence interval accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>interval</strong><span class="classifier">sequence of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Interval</span></code></a></span></dt><dd><p>SRC indices confidence interval</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="persalys.SRCResult.getInputNames">
 <span class="sig-name descname"><span class="pre">getInputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SRCResult.getInputNames" title="Link to this definition">¶</a></dt>
 <dd><p>Input variable names accessor.</p>
@@ -227,6 +237,48 @@
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Output variable names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.SRCResult.getR2">
+<span class="sig-name descname"><span class="pre">getR2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SRCResult.getR2" title="Link to this definition">¶</a></dt>
+<dd><p>R² coefficient accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>r2</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd><p>R² coefficient for each output variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.SRCResult.getSignedIndices">
+<span class="sig-name descname"><span class="pre">getSignedIndices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SRCResult.getSignedIndices" title="Link to this definition">¶</a></dt>
+<dd><p>Signed SRC indices accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>indices</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd><p>Signed SRC indices</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.SRCResult.getSignedIndicesInterval">
+<span class="sig-name descname"><span class="pre">getSignedIndicesInterval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.SRCResult.getSignedIndicesInterval" title="Link to this definition">¶</a></dt>
+<dd><p>Signed SRC indices confidence interval accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>interval</strong><span class="classifier">sequence of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Interval</span></code></a></span></dt><dd><p>Signed SRC indices confidence interval</p>
 </dd>
 </dl>
 </dd>
@@ -329,7 +381,7 @@
         <li class="right" >
           <a href="persalys.SRCAnalysis.html" title="SRCAnalysis"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">SRCResult</a></li> 

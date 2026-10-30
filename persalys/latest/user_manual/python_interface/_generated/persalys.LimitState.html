@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>LimitState &#8212; Persalys 20.1dev documentation</title>
+    <title>LimitState &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.SRCResult.html" title="SRCResult"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">LimitState</a></li> 
@@ -69,11 +69,14 @@
 </dd>
 <dt><strong>physicalModel</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
 </dd>
-<dt><strong>outputName</strong><span class="classifier">str</span></dt><dd><p>Interest variable name</p>
+<dt><strong>outputNames</strong><span class="classifier">str or collection of str</span></dt><dd><p>Name(s) of output variable(s) of interest in limit state</p>
 </dd>
-<dt><strong>operator</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonOperator</span></code></a></span></dt><dd><p>Comparison operator against threshold (optional)</p>
+<dt><strong>operator</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonOperator</span></code></a> or collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonOperator</span></code></a></span></dt><dd><p>Comparison operator(s) against threshold(s) (optional)</p>
 </dd>
-<dt><strong>threshold</strong><span class="classifier">float</span></dt><dd><p>Threshold value (optional)</p>
+<dt><strong>threshold</strong><span class="classifier">float or <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Threshold value(s) (optional)</p>
+</dd>
+<dt><strong>type</strong><span class="classifier">int</span></dt><dd><p>Type of system limit state (optional, default is Union)
+Possible values are persalys.LimitState.Union and persalys.LimitState.Intersection.</p>
 </dd>
 </dl>
 </dd>
@@ -81,6 +84,12 @@
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.addFailureEvent" title="persalys.LimitState.addFailureEvent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addFailureEvent</span></code></a>(*args)</p></td>
+<td><p>Add one failure event to the limit state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.asComposedEvent" title="persalys.LimitState.asComposedEvent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">asComposedEvent</span></code></a>()</p></td>
+<td><p>Get the the threshold event constructed specifically for importance sampling.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getClassName" title="persalys.LimitState.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
@@ -93,11 +102,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getName" title="persalys.LimitState.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getOperator" title="persalys.LimitState.getOperator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOperator</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getNumberOfFailureEvents" title="persalys.LimitState.getNumberOfFailureEvents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getNumberOfFailureEvents</span></code></a>()</p></td>
+<td><p>Get the number of failure events in the limit state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getOperator" title="persalys.LimitState.getOperator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOperator</span></code></a>(index)</p></td>
 <td><p>Comparison operator accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getOutputName" title="persalys.LimitState.getOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputName</span></code></a>()</p></td>
-<td><p>Accessor to the name of output variable of interest in limit state.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getOperators" title="persalys.LimitState.getOperators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOperators</span></code></a>()</p></td>
+<td><p>Comparison operators accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getOutputNames" title="persalys.LimitState.getOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputNames</span></code></a>()</p></td>
+<td><p>Output variable names accessor.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getPhysicalModel" title="persalys.LimitState.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
 <td><p>Physical model for limit state accessor.</p></td>
@@ -105,23 +120,50 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getPythonScript" title="persalys.LimitState.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
 <td><p>Python script for limit state accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getThreshold" title="persalys.LimitState.getThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getThreshold</span></code></a>()</p></td>
-<td><p>Threshold value for limit state accessor.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getThreshold" title="persalys.LimitState.getThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getThreshold</span></code></a>(index)</p></td>
+<td><p>Threshold value accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getThresholdEvent" title="persalys.LimitState.getThresholdEvent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getThresholdEvent</span></code></a>()</p></td>
+<td><p>Get the threshold event corresponding to the limit state.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.getThresholds" title="persalys.LimitState.getThresholds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getThresholds</span></code></a>()</p></td>
+<td><p>Threshold values accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.getType" title="persalys.LimitState.getType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getType</span></code></a>()</p></td>
+<td><p>Aggregation type accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.isSystemLimitState" title="persalys.LimitState.isSystemLimitState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isSystemLimitState</span></code></a>()</p></td>
+<td><p>Whether the limit state contains several failure events.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.isValid" title="persalys.LimitState.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>()</p></td>
 <td><p>Whether limit state is valid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.setName" title="persalys.LimitState.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.removeFailureEvent" title="persalys.LimitState.removeFailureEvent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeFailureEvent</span></code></a>(index)</p></td>
+<td><p>Remove one failure event from the limit state.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.setName" title="persalys.LimitState.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.setOperator" title="persalys.LimitState.setOperator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOperator</span></code></a>(comparisonOperator)</p></td>
-<td><p>Comparison operator accessor.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.setOperator" title="persalys.LimitState.setOperator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOperator</span></code></a>(index, comparisonOperator)</p></td>
+<td><p>Set one comparison operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.setOutputName" title="persalys.LimitState.setOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputName</span></code></a>(outputName)</p></td>
-<td><p>Accessor to the name of output variable of interest in limit state.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.setOperators" title="persalys.LimitState.setOperators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOperators</span></code></a>(operators)</p></td>
+<td><p>Set all comparison operators.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.setThreshold" title="persalys.LimitState.setThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setThreshold</span></code></a>(threshold)</p></td>
-<td><p>Threshold value for limit state accessor.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.setOutputName" title="persalys.LimitState.setOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputName</span></code></a>(index, outputName)</p></td>
+<td><p>Set one output variable name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.setOutputNames" title="persalys.LimitState.setOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputNames</span></code></a>(outputNames)</p></td>
+<td><p>Set all output variable names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.setThreshold" title="persalys.LimitState.setThreshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setThreshold</span></code></a>(index, threshold)</p></td>
+<td><p>Set one threshold value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.LimitState.setThresholds" title="persalys.LimitState.setThresholds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setThresholds</span></code></a>(thresholds)</p></td>
+<td><p>Set all threshold values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.LimitState.setType" title="persalys.LimitState.setType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setType</span></code></a>(type)</p></td>
+<td><p>Set the aggregation type of a system limit state.</p></td>
 </tr>
 </tbody>
 </table>
@@ -131,20 +173,52 @@
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">physicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;model1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">'Yield strength'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'F'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">'Traction load'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="s1">'deviation'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">physicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'model1'</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">'R-F/(pi_*100.0)'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the limit state:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">&#39;ls1&#39;</span><span class="p">,</span> <span class="n">physicalModel</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">'ls1'</span><span class="p">,</span> <span class="n">physicalModel</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="persalys.LimitState.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.__init__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.addFailureEvent">
+<span class="sig-name descname"><span class="pre">addFailureEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.addFailureEvent" title="Link to this definition">¶</a></dt>
+<dd><p>Add one failure event to the limit state.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>variableName</strong><span class="classifier">str</span></dt><dd><p>Variable name associated with the failure event</p>
+</dd>
+<dt><strong>comparisonOperator</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonOperator</span></code></a>, optional</span></dt><dd><p>Comparison operator</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, optional</span></dt><dd><p>Threshold value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.asComposedEvent">
+<span class="sig-name descname"><span class="pre">asComposedEvent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.asComposedEvent" title="Link to this definition">¶</a></dt>
+<dd><p>Get the the threshold event constructed specifically for importance sampling.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>event</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomVector</span></code></a></span></dt><dd><p>Threshold event</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="persalys.LimitState.getClassName">
@@ -203,12 +277,32 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.getNumberOfFailureEvents">
+<span class="sig-name descname"><span class="pre">getNumberOfFailureEvents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getNumberOfFailureEvents" title="Link to this definition">¶</a></dt>
+<dd><p>Get the number of failure events in the limit state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>numberOfFailureEvents</strong><span class="classifier">int</span></dt><dd><p>Number of failure events</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="persalys.LimitState.getOperator">
-<span class="sig-name descname"><span class="pre">getOperator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOperator" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOperator" title="Link to this definition">¶</a></dt>
 <dd><p>Comparison operator accessor.</p>
 <dl class="field-list">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>Failure event index</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
 <dt><strong>operator</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.ComparisonOperator</span></code></a></span></dt><dd><p>Comparison operator</p>
 </dd>
 </dl>
@@ -217,13 +311,27 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="persalys.LimitState.getOutputName">
-<span class="sig-name descname"><span class="pre">getOutputName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOutputName" title="Link to this definition">¶</a></dt>
-<dd><p>Accessor to the name of output variable of interest in limit state.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="persalys.LimitState.getOperators">
+<span class="sig-name descname"><span class="pre">getOperators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOperators" title="Link to this definition">¶</a></dt>
+<dd><p>Comparison operators accessor.</p>
+<dl class="field-list">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>outputName</strong><span class="classifier">str</span></dt><dd><p>Interest variable name</p>
+<dd class="field-odd"><dl>
+<dt><strong>operators</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonOperator</span></code></a></span></dt><dd><p>Comparison operators</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.getOutputNames">
+<span class="sig-name descname"><span class="pre">getOutputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getOutputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputNames</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Description</span></code></a></span></dt><dd><p>Output variable names</p>
 </dd>
 </dl>
 </dd>
@@ -260,12 +368,74 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="persalys.LimitState.getThreshold">
-<span class="sig-name descname"><span class="pre">getThreshold</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getThreshold" title="Link to this definition">¶</a></dt>
-<dd><p>Threshold value for limit state accessor.</p>
+<span class="sig-name descname"><span class="pre">getThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getThreshold" title="Link to this definition">¶</a></dt>
+<dd><p>Threshold value accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>Failure event index</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>threshold</strong><span class="classifier">float</span></dt><dd><p>Threshold value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.getThresholdEvent">
+<span class="sig-name descname"><span class="pre">getThresholdEvent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getThresholdEvent" title="Link to this definition">¶</a></dt>
+<dd><p>Get the threshold event corresponding to the limit state.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>event</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomVector</span></code></a></span></dt><dd><p>Threshold event</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.getThresholds">
+<span class="sig-name descname"><span class="pre">getThresholds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getThresholds" title="Link to this definition">¶</a></dt>
+<dd><p>Threshold values accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>thresholds</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Threshold values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.getType" title="Link to this definition">¶</a></dt>
+<dd><p>Aggregation type accessor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>threshold</strong><span class="classifier">float</span></dt><dd><p>Threshold value</p>
+<dt><strong>type</strong><span class="classifier">int</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">persalys.LimitState.Union</span></code> or <code class="docutils literal notranslate"><span class="pre">persalys.LimitState.Intersection</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.isSystemLimitState">
+<span class="sig-name descname"><span class="pre">isSystemLimitState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.isSystemLimitState" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the limit state contains several failure events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isSystemLimitState</strong><span class="classifier">bool</span></dt><dd><p>Whether the limit state is a system limit state</p>
 </dd>
 </dl>
 </dd>
@@ -280,6 +450,20 @@
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>isValid</strong><span class="classifier">bool</span></dt><dd><p>Whether it is valid</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.removeFailureEvent">
+<span class="sig-name descname"><span class="pre">removeFailureEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.removeFailureEvent" title="Link to this definition">¶</a></dt>
+<dd><p>Remove one failure event from the limit state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>Failure event index</p>
 </dd>
 </dl>
 </dd>
@@ -302,11 +486,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="persalys.LimitState.setOperator">
-<span class="sig-name descname"><span class="pre">setOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comparisonOperator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOperator" title="Link to this definition">¶</a></dt>
-<dd><p>Comparison operator accessor.</p>
+<span class="sig-name descname"><span class="pre">setOperator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comparisonOperator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOperator" title="Link to this definition">¶</a></dt>
+<dd><p>Set one comparison operator.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>Failure event index</p>
+</dd>
 <dt><strong>operator</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.ComparisonOperator</span></code></a></span></dt><dd><p>Comparison operator</p>
 </dd>
 </dl>
@@ -315,13 +501,43 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.setOperators">
+<span class="sig-name descname"><span class="pre">setOperators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operators</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOperators" title="Link to this definition">¶</a></dt>
+<dd><p>Set all comparison operators.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>operators</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.ComparisonOperator.html#openturns.ComparisonOperator" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonOperator</span></code></a></span></dt><dd><p>Comparison operators</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="persalys.LimitState.setOutputName">
-<span class="sig-name descname"><span class="pre">setOutputName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOutputName" title="Link to this definition">¶</a></dt>
-<dd><p>Accessor to the name of output variable of interest in limit state.</p>
+<span class="sig-name descname"><span class="pre">setOutputName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOutputName" title="Link to this definition">¶</a></dt>
+<dd><p>Set one output variable name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>outputName</strong><span class="classifier">str</span></dt><dd><p>Interest variable name</p>
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>Failure event index</p>
+</dd>
+<dt><strong>outputName</strong><span class="classifier">str</span></dt><dd><p>Output variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.setOutputNames">
+<span class="sig-name descname"><span class="pre">setOutputNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setOutputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Set all output variable names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">collection of str</span></dt><dd><p>Output variable names</p>
 </dd>
 </dl>
 </dd>
@@ -330,12 +546,42 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="persalys.LimitState.setThreshold">
-<span class="sig-name descname"><span class="pre">setThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setThreshold" title="Link to this definition">¶</a></dt>
-<dd><p>Threshold value for limit state accessor.</p>
+<span class="sig-name descname"><span class="pre">setThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setThreshold" title="Link to this definition">¶</a></dt>
+<dd><p>Set one threshold value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>Failure event index</p>
+</dd>
 <dt><strong>threshold</strong><span class="classifier">float</span></dt><dd><p>Threshold value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.setThresholds">
+<span class="sig-name descname"><span class="pre">setThresholds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thresholds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setThresholds" title="Link to this definition">¶</a></dt>
+<dd><p>Set all threshold values.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>thresholds</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Threshold values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.LimitState.setType">
+<span class="sig-name descname"><span class="pre">setType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.LimitState.setType" title="Link to this definition">¶</a></dt>
+<dd><p>Set the aggregation type of a system limit state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>type</strong><span class="classifier">int</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">persalys.LimitState.Union</span></code> or <code class="docutils literal notranslate"><span class="pre">persalys.LimitState.Intersection</span></code></p>
 </dd>
 </dl>
 </dd>
@@ -396,7 +642,7 @@
         <li class="right" >
           <a href="persalys.SRCResult.html" title="SRCResult"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">LimitState</a></li> 

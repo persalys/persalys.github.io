@@ -1,0 +1,12 @@
+﻿FittingTestResult
+==========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FittingTestResult
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

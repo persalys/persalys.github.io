@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CouplingPhysicalModel &#8212; Persalys 20.1dev documentation</title>
+    <title>CouplingPhysicalModel &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.CouplingStep.html" title="CouplingStep"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">CouplingPhysicalModel</a></li> 
@@ -316,20 +316,20 @@ The name of the temporary working directory is computed from a hash of the input
 </pre></div>
 </div>
 <p>input.txt is generated from the existing input_template.txt by replacing the &#64;XN tokens:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingInputFile</span><span class="p">(</span><span class="s1">&#39;/tmp/input_template.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span><span class="o">.</span><span class="n">setConfiguredPath</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span><span class="o">.</span><span class="n">setVariables</span><span class="p">([</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;@X0&#39;</span><span class="p">,</span> <span class="s1">&#39;@X1&#39;</span><span class="p">,</span> <span class="s1">&#39;@X2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingInputFile</span><span class="p">(</span><span class="s1">'/tmp/input_template.txt'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span><span class="o">.</span><span class="n">setConfiguredPath</span><span class="p">(</span><span class="s1">'input.txt'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">input_file</span><span class="o">.</span><span class="n">setVariables</span><span class="p">([</span><span class="s1">'X0'</span><span class="p">,</span> <span class="s1">'X1'</span><span class="p">,</span> <span class="s1">'X2'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'@X0'</span><span class="p">,</span> <span class="s1">'@X1'</span><span class="p">,</span> <span class="s1">'@X2'</span><span class="p">],</span> <span class="p">[</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>external_program.py reads input.txt and writes output.txt:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resource_file</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingResourceFile</span><span class="p">(</span><span class="s1">&#39;external_program.py&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resource_file</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingResourceFile</span><span class="p">(</span><span class="s1">'external_program.py'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>output variables Yj are read from output.txt and delimited by tokens, no token/line/column skipped:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output_file</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingOutputFile</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output_file</span><span class="o">.</span><span class="n">setVariables</span><span class="p">([</span><span class="s1">&#39;Y0&#39;</span><span class="p">,</span> <span class="s1">&#39;Y1&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Y0=&#39;</span><span class="p">,</span> <span class="s1">&#39;Y1=&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">step</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingStep</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span> <span class="o">+</span> <span class="s1">&#39; external_program.py input.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">input_file</span><span class="p">],</span> <span class="p">[</span><span class="n">resource_file</span><span class="p">],</span> <span class="p">[</span><span class="n">output_file</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingPhysicalModel</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">step</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output_file</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingOutputFile</span><span class="p">(</span><span class="s1">'output.txt'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_file</span><span class="o">.</span><span class="n">setVariables</span><span class="p">([</span><span class="s1">'Y0'</span><span class="p">,</span> <span class="s1">'Y1'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'Y0='</span><span class="p">,</span> <span class="s1">'Y1='</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">step</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingStep</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span> <span class="o">+</span> <span class="s1">' external_program.py input.txt'</span><span class="p">,</span> <span class="p">[</span><span class="n">input_file</span><span class="p">],</span> <span class="p">[</span><span class="n">resource_file</span><span class="p">],</span> <span class="p">[</span><span class="n">output_file</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">CouplingPhysicalModel</span><span class="p">(</span><span class="s1">'A'</span><span class="p">,</span> <span class="p">[</span><span class="n">step</span><span class="p">])</span>
 </pre></div>
 </div>
 <dl class="py method">
@@ -1454,7 +1454,7 @@ If empty, the model is executed locally.</p>
         <li class="right" >
           <a href="persalys.CouplingStep.html" title="CouplingStep"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">CouplingPhysicalModel</a></li> 

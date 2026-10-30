@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>InferenceAnalysis &#8212; Persalys 21.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="InferenceResult" href="persalys.InferenceResult.html" />
+    <link rel="prev" title="ImportedDataset" href="persalys.ImportedDataset.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="../../../index.html">
+      <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.InferenceResult.html" title="InferenceResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.ImportedDataset.html" title="ImportedDataset"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">InferenceAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="inferenceanalysis">
+<h1>InferenceAnalysis<a class="headerlink" href="#inferenceanalysis" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">InferenceAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Perform a Kolmogorov goodness-of-fit test for 1-D continuous distributions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>design</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getClassName" title="persalys.InferenceAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getDesignOfExperiment" title="persalys.InferenceAnalysis.getDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDesignOfExperiment</span></code></a>()</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getDistributionsFactories" title="persalys.InferenceAnalysis.getDistributionsFactories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDistributionsFactories</span></code></a>(variableName)</p></td>
+<td><p>Get the sequence of distributions to test for a variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getErrorMessage" title="persalys.InferenceAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getInterestVariables" title="persalys.InferenceAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getLevel" title="persalys.InferenceAnalysis.getLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLevel</span></code></a>()</p></td>
+<td><p>Level accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getName" title="persalys.InferenceAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getPythonScript" title="persalys.InferenceAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getResult" title="persalys.InferenceAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Result accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.getWarningMessage" title="persalys.InferenceAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.hasName" title="persalys.InferenceAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.hasValidResult" title="persalys.InferenceAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.isReliabilityAnalysis" title="persalys.InferenceAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.isRunning" title="persalys.InferenceAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.run" title="persalys.InferenceAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.setDistributionsFactories" title="persalys.InferenceAnalysis.setDistributionsFactories"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistributionsFactories</span></code></a>(variableName, ...)</p></td>
+<td><p>Set the sequence of distributions to test for a variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.setInterestVariables" title="persalys.InferenceAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.setLevel" title="persalys.InferenceAnalysis.setLevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setLevel</span></code></a>(level)</p></td>
+<td><p>Level accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.InferenceAnalysis.setName" title="persalys.InferenceAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>getEstimateParametersConfidenceInterval</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getLillieforsMaximumSamplingSize</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getLillieforsMinimumSamplingSize</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getLillieforsPrecision</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>getParametersConfidenceIntervalLevel</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>getTestType</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setEstimateParametersConfidenceInterval</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>setLillieforsMaximumSamplingSize</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setLillieforsMinimumSamplingSize</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>setLillieforsPrecision</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setParametersConfidenceIntervalLevel</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>setTestType</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">openturns</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ot</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="o">.</span><span class="n">SetSeed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">'data.csv'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">exportToCSVFile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">importedDataset</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ImportedDataset</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="p">(</span><span class="s1">'myDataModel'</span><span class="p">,</span> <span class="n">importedDataset</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create the Inference Analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">InferenceAnalysis</span><span class="p">(</span><span class="s1">'analysis'</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resultX0</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getFittingTestResultForVariable</span><span class="p">(</span><span class="s1">'X0'</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getDesignOfExperiment">
+<span class="sig-name descname"><span class="pre">getDesignOfExperiment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getDesignOfExperiment" title="Link to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getDistributionsFactories">
+<span class="sig-name descname"><span class="pre">getDistributionsFactories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variableName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getDistributionsFactories" title="Link to this definition">¶</a></dt>
+<dd><p>Get the sequence of distributions to test for a variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variable</strong><span class="classifier">str</span></dt><dd><p>Name of the variable</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>factories</strong><span class="classifier">sequence of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.DistributionFactory.html#openturns.DistributionFactory" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.DistributionFactory</span></code></a></span></dt><dd><p>Distributions to test</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getErrorMessage">
+<span class="sig-name descname"><span class="pre">getErrorMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getErrorMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getInterestVariables">
+<span class="sig-name descname"><span class="pre">getInterestVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getLevel">
+<span class="sig-name descname"><span class="pre">getLevel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getLevel" title="Link to this definition">¶</a></dt>
+<dd><p>Level accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>level</strong><span class="classifier">float, <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nOC42MjEwMDdwdCcgdmVyc2lvbj0nMS4xJyB2aWV3Qm94PScwIC04LjMwMjE5MSA2NS45NjAyMyA4LjYyMTAwNycgd2lkdGg9JzY1Ljk2MDIzcHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTcuODc4NDU2IC01LjgyMjE2N0M4LjA5MzY0OSAtNS45MTc4MDggOC4xMTc1NTkgLTYuMDAxNDk0IDguMTE3NTU5IC02LjA3MzIyNUM4LjExNzU1OSAtNi4yMDQ3MzIgOC4wMjE5MTggLTYuMzAwMzc0IDcuODkwNDExIC02LjMwMDM3NEM3Ljg2NjUwMSAtNi4zMDAzNzQgNy44NTQ1NDUgLTYuMjg4NDE4IDcuNjg3MTczIC02LjIxNjY4N0wxLjIxOTQyNyAtMy4yMzk4NTFDMS4wMDQyMzQgLTMuMTQ0MjA5IDAuOTgwMzI0IC0zLjA2MDUyMyAwLjk4MDMyNCAtMi45ODg3OTJDMC45ODAzMjQgLTIuOTA1MTA2IDAuOTkyMjc5IC0yLjgzMzM3NSAxLjIxOTQyNyAtMi43MjU3NzhMNy42ODcxNzMgMC4yNTEwNTlDNy44NDI1OSAwLjMyMjc5IDcuODY2NTAxIDAuMzM0NzQ1IDcuODkwNDExIDAuMzM0NzQ1QzguMDIxOTE4IDAuMzM0NzQ1IDguMTE3NTU5IDAuMjM5MTAzIDguMTE3NTU5IDAuMTA3NTk3QzguMTE3NTU5IDAuMDM1ODY2IDguMDkzNjQ5IC0wLjA0NzgyMSA3Ljg3ODQ1NiAtMC4xNDM0NjJMMS43MjE1NDQgLTIuOTc2ODM3TDcuODc4NDU2IC01LjgyMjE2N1onIGlkPSdnMC02MCcvPgo8cGF0aCBkPSdNNS4zNTU5MTUgLTMuODI1NjU0QzUuMzU1OTE1IC00LjgxNzkzMyA1LjI5NjEzOSAtNS43ODYzMDEgNC44NjU3NTMgLTYuNjk0ODk0QzQuMzc1NTkyIC03LjY4NzE3MyAzLjUxNDgxOSAtNy45NTAxODcgMi45MjkwMTYgLTcuOTUwMTg3QzIuMjM1NjE2IC03Ljk1MDE4NyAxLjM4NjggLTcuNjAzNDg3IDAuOTQ0NDU4IC02LjYxMTIwOEMwLjYwOTcxNCAtNS44NTgwMzIgMC40OTAxNjIgLTUuMTE2ODEyIDAuNDkwMTYyIC0zLjgyNTY1NEMwLjQ5MDE2MiAtMi42NjYwMDIgMC41NzM4NDggLTEuNzkzMjc1IDEuMDA0MjM0IC0wLjk0NDQ1OEMxLjQ3MDQ4NiAtMC4wMzU4NjYgMi4yOTUzOTIgMC4yNTEwNTkgMi45MTcwNjEgMC4yNTEwNTlDMy45NTcxNjEgMC4yNTEwNTkgNC41NTQ5MTkgLTAuMzcwNjEgNC45MDE2MTkgLTEuMDY0MDFDNS4zMzIwMDUgLTEuOTYwNjQ4IDUuMzU1OTE1IC0zLjEzMjI1NCA1LjM1NTkxNSAtMy44MjU2NTRaTTIuOTE3MDYxIDAuMDExOTU1QzIuNTM0NDk2IDAuMDExOTU1IDEuNzU3NDEgLTAuMjAzMjM4IDEuNTMwMjYyIC0xLjUwNjM1MUMxLjM5ODc1NSAtMi4yMjM2NjEgMS4zOTg3NTUgLTMuMTMyMjU0IDEuMzk4NzU1IC0zLjk2OTExNkMxLjM5ODc1NSAtNC45NDk0NCAxLjM5ODc1NSAtNS44MzQxMjIgMS41OTAwMzcgLTYuNTM5NDc3QzEuNzkzMjc1IC03LjM0MDQ3MyAyLjQwMjk4OSAtNy43MTEwODMgMi45MTcwNjEgLTcuNzExMDgzQzMuMzcxMzU3IC03LjcxMTA4MyA0LjA2NDc1NyAtNy40MzYxMTUgNC4yOTE5MDUgLTYuNDA3OTdDNC40NDczMjMgLTUuNzI2NTI2IDQuNDQ3MzIzIC00Ljc4MjA2NyA0LjQ0NzMyMyAtMy45NjkxMTZDNC40NDczMjMgLTMuMTY4MTIgNC40NDczMjMgLTIuMjU5NTI3IDQuMzE1ODE2IC0xLjUzMDI2MkM0LjA4ODY2NyAtMC4yMTUxOTMgMy4zMzU0OTIgMC4wMTE5NTUgMi45MTcwNjEgMC4wMTE5NTVaJyBpZD0nZzEtNDgnLz4KPHBhdGggZD0nTTMuNDQzMDg4IC03LjY2MzI2M0MzLjQ0MzA4OCAtNy45MzgyMzIgMy40NDMwODggLTcuOTUwMTg3IDMuMjAzOTg1IC03Ljk1MDE4N0MyLjkxNzA2MSAtNy42MjczOTcgMi4zMTkzMDMgLTcuMTg1MDU2IDEuMDg3OTIgLTcuMTg1MDU2Vi02LjgzODM1NkMxLjM2Mjg4OSAtNi44MzgzNTYgMS45NjA2NDggLTYuODM4MzU2IDIuNjE4MTgyIC03LjE0OTE5MVYtMC45MjA1NDhDMi42MTgxODIgLTAuNDkwMTYyIDIuNTgyMzE2IC0wLjM0NjcgMS41MzAyNjIgLTAuMzQ2N0gxLjE1OTY1MVYwQzEuNDgyNDQxIC0wLjAyMzkxIDIuNjQyMDkyIC0wLjAyMzkxIDMuMDM2NjEzIC0wLjAyMzkxUzQuNTc4ODI5IC0wLjAyMzkxIDQuOTAxNjE5IDBWLTAuMzQ2N0g0LjUzMTAwOUMzLjQ3ODk1NCAtMC4zNDY3IDMuNDQzMDg4IC0wLjQ5MDE2MiAzLjQ0MzA4OCAtMC45MjA1NDhWLTcuNjYzMjYzWicgaWQ9J2cxLTQ5Jy8+CjxwYXRoIGQ9J000LjU3ODgyOSAtMi43NzM1OTlDNC44NDE4NDMgLTIuNzczNTk5IDQuODY1NzUzIC0yLjc3MzU5OSA0Ljg2NTc1MyAtMy4wMDA3NDdDNC44NjU3NTMgLTQuMjA4MjE5IDQuMjIwMTc0IC01LjMzMjAwNSAyLjc3MzU5OSAtNS4zMzIwMDVDMS40MTA3MSAtNS4zMzIwMDUgMC4zNTg2NTUgLTQuMTAwNjIzIDAuMzU4NjU1IC0yLjYxODE4MkMwLjM1ODY1NSAtMS4wNDAxIDEuNTc4MDgyIDAuMTE5NTUyIDIuOTA1MTA2IDAuMTE5NTUyQzQuMzI3NzcxIDAuMTE5NTUyIDQuODY1NzUzIC0xLjE3MTYwNiA0Ljg2NTc1MyAtMS40MjI2NjVDNC44NjU3NTMgLTEuNDk0Mzk2IDQuODA1OTc4IC0xLjU0MjIxNyA0LjczNDI0NyAtMS41NDIyMTdDNC42Mzg2MDUgLTEuNTQyMjE3IDQuNjE0Njk1IC0xLjQ4MjQ0MSA0LjU5MDc4NSAtMS40MjI2NjVDNC4yNzk5NSAtMC40MTg0MzEgMy40Nzg5NTQgLTAuMTQzNDYyIDIuOTc2ODM3IC0wLjE0MzQ2MlMxLjI2NzI0OCAtMC40NzgyMDcgMS4yNjcyNDggLTIuNTQ2NDUxVi0yLjc3MzU5OUg0LjU3ODgyOVpNMS4yNzkyMDMgLTMuMDAwNzQ3QzEuMzc0ODQ0IC00Ljg3NzcwOSAyLjQyNjg5OSAtNS4wOTI5MDIgMi43NjE2NDQgLTUuMDkyOTAyQzQuMDQwODQ3IC01LjA5MjkwMiA0LjExMjU3OCAtMy40MDcyMjMgNC4xMjQ1MzMgLTMuMDAwNzQ3SDEuMjc5MjAzWicgaWQ9J2cxLTEwMScvPgo8cGF0aCBkPSdNMi4wNTYyODkgLTguMjk2ODg3TDAuMzk0NTIxIC04LjE2NTM4Vi03LjgxODY4QzEuMjA3NDcyIC03LjgxODY4IDEuMzAzMTEzIC03LjczNDk5NCAxLjMwMzExMyAtNy4xNDkxOTFWLTAuODg0NjgyQzEuMzAzMTEzIC0wLjM0NjcgMS4xNzE2MDYgLTAuMzQ2NyAwLjM5NDUyMSAtMC4zNDY3VjBDMC43MjkyNjUgLTAuMDIzOTEgMS4zMTUwNjggLTAuMDIzOTEgMS42NzM3MjQgLTAuMDIzOTFTMi42MzAxMzcgLTAuMDIzOTEgMi45NjQ4ODIgMFYtMC4zNDY3QzIuMTk5NzUxIC0wLjM0NjcgMi4wNTYyODkgLTAuMzQ2NyAyLjA1NjI4OSAtMC44ODQ2ODJWLTguMjk2ODg3WicgaWQ9J2cxLTEwOCcvPgo8cGF0aCBkPSdNNC44Nzc3MDkgLTQuMDE2OTM2QzQuOTg1MzA1IC00LjI3OTk1IDUuMTg4NTQzIC00Ljc5NDAyMiA1Ljk1MzY3NCAtNC44MDU5NzhWLTUuMTUyNjc3QzUuNjA2OTc0IC01LjEyODc2NyA1LjQzOTYwMSAtNS4xMjg3NjcgNS4wNjg5OTEgLTUuMTI4NzY3QzQuODE3OTMzIC01LjEyODc2NyA0LjYzODYwNSAtNS4xMjg3NjcgNC4wODg2NjcgLTUuMTUyNjc3Vi00LjgwNTk3OEM0LjU5MDc4NSAtNC43ODIwNjcgNC42NTA1NiAtNC40MjM0MTIgNC42NTA1NiAtNC4yOTE5MDVDNC42NTA1NiAtNC4xODQzMDkgNC42MjY2NSAtNC4xMjQ1MzMgNC41NjY4NzQgLTMuOTgxMDcxTDMuMzQ3NDQ3IC0wLjg5NjYzOEwyLjAwODQ2OCAtNC4yNjc5OTVDMS45NDg2OTIgLTQuNDM1MzY3IDEuOTM2NzM3IC00LjQzNTM2NyAxLjkzNjczNyAtNC40OTUxNDNDMS45MzY3MzcgLTQuODA1OTc4IDIuMzkxMDM0IC00LjgwNTk3OCAyLjYwNjIyNyAtNC44MDU5NzhWLTUuMTUyNjc3QzIuMzA3MzQ3IC01LjEyODc2NyAxLjY4NTY3OSAtNS4xMjg3NjcgMS4zNjI4ODkgLTUuMTI4NzY3QzAuOTY4MzY5IC01LjEyODc2NyAwLjk0NDQ1OCAtNS4xMjg3NjcgMC4yMTUxOTMgLTUuMTUyNjc3Vi00LjgwNTk3OEMwLjg4NDY4MiAtNC44MDU5NzggMS4wMDQyMzQgLTQuNzU4MTU3IDEuMTQ3Njk2IC00LjM4NzU0N0wyLjg1NzI4NSAtMC4xMDc1OTdDMi45MTcwNjEgMC4wNTk3NzYgMi45NDA5NzEgMC4xMTk1NTIgMy4wODQ0MzMgMC4xMTk1NTJDMy4xNjgxMiAwLjExOTU1MiAzLjIzOTg1MSAwLjA5NTY0MSAzLjMyMzUzNyAtMC4xMDc1OTdMNC44Nzc3MDkgLTQuMDE2OTM2WicgaWQ9J2cxLTExOCcvPgo8L2RlZnM+CjxnIGlkPSdwYWdlMSc+Cjx1c2UgeD0nMCcgeGxpbms6aHJlZj0nI2cxLTQ4JyB5PScwJy8+Cjx1c2UgeD0nOS4xNzM4MicgeGxpbms6aHJlZj0nI2cwLTYwJyB5PScwJy8+Cjx1c2UgeD0nMjEuNTk5MycgeGxpbms6aHJlZj0nI2cxLTEwOCcgeT0nMCcvPgo8dXNlIHg9JzI0Ljg1MDk2MicgeGxpbms6aHJlZj0nI2cxLTEwMScgeT0nMCcvPgo8dXNlIHg9JzMwLjA1MzYyJyB4bGluazpocmVmPScjZzEtMTE4JyB5PScwJy8+Cjx1c2UgeD0nMzUuOTA2NjEnIHhsaW5rOmhyZWY9JyNnMS0xMDEnIHk9JzAnLz4KPHVzZSB4PSc0MS4xMDkyNjgnIHhsaW5rOmhyZWY9JyNnMS0xMDgnIHk9JzAnLz4KPHVzZSB4PSc0Ny42ODE3NTknIHhsaW5rOmhyZWY9JyNnMC02MCcgeT0nMCcvPgo8dXNlIHg9JzYwLjEwNzIzOScgeGxpbms6aHJlZj0nI2cxLTQ5JyB5PScwJy8+CjwvZz4KPC9zdmc+CjwhLS0gREVQVEg9MCAtLT4=" alt="0 &lt; {\rm level} &lt; 1" style="vertical-align: 0px"/>, optional</span></dt><dd><p>The risk of committing a Type I error, that is an incorrect rejection of a true
+null hypothesis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getPythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getResult" title="Link to this definition">¶</a></dt>
+<dd><p>Result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.InferenceResult.html#persalys.InferenceResult" title="persalys.InferenceResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">InferenceResult</span></code></a></span></dt><dd><p>Result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.getWarningMessage">
+<span class="sig-name descname"><span class="pre">getWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.getWarningMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.hasValidResult">
+<span class="sig-name descname"><span class="pre">hasValidResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.hasValidResult" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.isReliabilityAnalysis">
+<span class="sig-name descname"><span class="pre">isReliabilityAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.isReliabilityAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.isRunning">
+<span class="sig-name descname"><span class="pre">isRunning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.isRunning" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.run" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.setDistributionsFactories">
+<span class="sig-name descname"><span class="pre">setDistributionsFactories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributionsFactories</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setDistributionsFactories" title="Link to this definition">¶</a></dt>
+<dd><p>Set the sequence of distributions to test for a variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>variable</strong><span class="classifier">str</span></dt><dd><p>Name of the variable</p>
+</dd>
+<dt><strong>factories</strong><span class="classifier">sequence of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.DistributionFactory.html#openturns.DistributionFactory" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.DistributionFactory</span></code></a></span></dt><dd><p>Distributions to test</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.setInterestVariables">
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.setLevel">
+<span class="sig-name descname"><span class="pre">setLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setLevel" title="Link to this definition">¶</a></dt>
+<dd><p>Level accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>level</strong><span class="classifier">float, <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nOC42MjEwMDdwdCcgdmVyc2lvbj0nMS4xJyB2aWV3Qm94PScwIC04LjMwMjE5MSA2NS45NjAyMyA4LjYyMTAwNycgd2lkdGg9JzY1Ljk2MDIzcHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTcuODc4NDU2IC01LjgyMjE2N0M4LjA5MzY0OSAtNS45MTc4MDggOC4xMTc1NTkgLTYuMDAxNDk0IDguMTE3NTU5IC02LjA3MzIyNUM4LjExNzU1OSAtNi4yMDQ3MzIgOC4wMjE5MTggLTYuMzAwMzc0IDcuODkwNDExIC02LjMwMDM3NEM3Ljg2NjUwMSAtNi4zMDAzNzQgNy44NTQ1NDUgLTYuMjg4NDE4IDcuNjg3MTczIC02LjIxNjY4N0wxLjIxOTQyNyAtMy4yMzk4NTFDMS4wMDQyMzQgLTMuMTQ0MjA5IDAuOTgwMzI0IC0zLjA2MDUyMyAwLjk4MDMyNCAtMi45ODg3OTJDMC45ODAzMjQgLTIuOTA1MTA2IDAuOTkyMjc5IC0yLjgzMzM3NSAxLjIxOTQyNyAtMi43MjU3NzhMNy42ODcxNzMgMC4yNTEwNTlDNy44NDI1OSAwLjMyMjc5IDcuODY2NTAxIDAuMzM0NzQ1IDcuODkwNDExIDAuMzM0NzQ1QzguMDIxOTE4IDAuMzM0NzQ1IDguMTE3NTU5IDAuMjM5MTAzIDguMTE3NTU5IDAuMTA3NTk3QzguMTE3NTU5IDAuMDM1ODY2IDguMDkzNjQ5IC0wLjA0NzgyMSA3Ljg3ODQ1NiAtMC4xNDM0NjJMMS43MjE1NDQgLTIuOTc2ODM3TDcuODc4NDU2IC01LjgyMjE2N1onIGlkPSdnMC02MCcvPgo8cGF0aCBkPSdNNS4zNTU5MTUgLTMuODI1NjU0QzUuMzU1OTE1IC00LjgxNzkzMyA1LjI5NjEzOSAtNS43ODYzMDEgNC44NjU3NTMgLTYuNjk0ODk0QzQuMzc1NTkyIC03LjY4NzE3MyAzLjUxNDgxOSAtNy45NTAxODcgMi45MjkwMTYgLTcuOTUwMTg3QzIuMjM1NjE2IC03Ljk1MDE4NyAxLjM4NjggLTcuNjAzNDg3IDAuOTQ0NDU4IC02LjYxMTIwOEMwLjYwOTcxNCAtNS44NTgwMzIgMC40OTAxNjIgLTUuMTE2ODEyIDAuNDkwMTYyIC0zLjgyNTY1NEMwLjQ5MDE2MiAtMi42NjYwMDIgMC41NzM4NDggLTEuNzkzMjc1IDEuMDA0MjM0IC0wLjk0NDQ1OEMxLjQ3MDQ4NiAtMC4wMzU4NjYgMi4yOTUzOTIgMC4yNTEwNTkgMi45MTcwNjEgMC4yNTEwNTlDMy45NTcxNjEgMC4yNTEwNTkgNC41NTQ5MTkgLTAuMzcwNjEgNC45MDE2MTkgLTEuMDY0MDFDNS4zMzIwMDUgLTEuOTYwNjQ4IDUuMzU1OTE1IC0zLjEzMjI1NCA1LjM1NTkxNSAtMy44MjU2NTRaTTIuOTE3MDYxIDAuMDExOTU1QzIuNTM0NDk2IDAuMDExOTU1IDEuNzU3NDEgLTAuMjAzMjM4IDEuNTMwMjYyIC0xLjUwNjM1MUMxLjM5ODc1NSAtMi4yMjM2NjEgMS4zOTg3NTUgLTMuMTMyMjU0IDEuMzk4NzU1IC0zLjk2OTExNkMxLjM5ODc1NSAtNC45NDk0NCAxLjM5ODc1NSAtNS44MzQxMjIgMS41OTAwMzcgLTYuNTM5NDc3QzEuNzkzMjc1IC03LjM0MDQ3MyAyLjQwMjk4OSAtNy43MTEwODMgMi45MTcwNjEgLTcuNzExMDgzQzMuMzcxMzU3IC03LjcxMTA4MyA0LjA2NDc1NyAtNy40MzYxMTUgNC4yOTE5MDUgLTYuNDA3OTdDNC40NDczMjMgLTUuNzI2NTI2IDQuNDQ3MzIzIC00Ljc4MjA2NyA0LjQ0NzMyMyAtMy45NjkxMTZDNC40NDczMjMgLTMuMTY4MTIgNC40NDczMjMgLTIuMjU5NTI3IDQuMzE1ODE2IC0xLjUzMDI2MkM0LjA4ODY2NyAtMC4yMTUxOTMgMy4zMzU0OTIgMC4wMTE5NTUgMi45MTcwNjEgMC4wMTE5NTVaJyBpZD0nZzEtNDgnLz4KPHBhdGggZD0nTTMuNDQzMDg4IC03LjY2MzI2M0MzLjQ0MzA4OCAtNy45MzgyMzIgMy40NDMwODggLTcuOTUwMTg3IDMuMjAzOTg1IC03Ljk1MDE4N0MyLjkxNzA2MSAtNy42MjczOTcgMi4zMTkzMDMgLTcuMTg1MDU2IDEuMDg3OTIgLTcuMTg1MDU2Vi02LjgzODM1NkMxLjM2Mjg4OSAtNi44MzgzNTYgMS45NjA2NDggLTYuODM4MzU2IDIuNjE4MTgyIC03LjE0OTE5MVYtMC45MjA1NDhDMi42MTgxODIgLTAuNDkwMTYyIDIuNTgyMzE2IC0wLjM0NjcgMS41MzAyNjIgLTAuMzQ2N0gxLjE1OTY1MVYwQzEuNDgyNDQxIC0wLjAyMzkxIDIuNjQyMDkyIC0wLjAyMzkxIDMuMDM2NjEzIC0wLjAyMzkxUzQuNTc4ODI5IC0wLjAyMzkxIDQuOTAxNjE5IDBWLTAuMzQ2N0g0LjUzMTAwOUMzLjQ3ODk1NCAtMC4zNDY3IDMuNDQzMDg4IC0wLjQ5MDE2MiAzLjQ0MzA4OCAtMC45MjA1NDhWLTcuNjYzMjYzWicgaWQ9J2cxLTQ5Jy8+CjxwYXRoIGQ9J000LjU3ODgyOSAtMi43NzM1OTlDNC44NDE4NDMgLTIuNzczNTk5IDQuODY1NzUzIC0yLjc3MzU5OSA0Ljg2NTc1MyAtMy4wMDA3NDdDNC44NjU3NTMgLTQuMjA4MjE5IDQuMjIwMTc0IC01LjMzMjAwNSAyLjc3MzU5OSAtNS4zMzIwMDVDMS40MTA3MSAtNS4zMzIwMDUgMC4zNTg2NTUgLTQuMTAwNjIzIDAuMzU4NjU1IC0yLjYxODE4MkMwLjM1ODY1NSAtMS4wNDAxIDEuNTc4MDgyIDAuMTE5NTUyIDIuOTA1MTA2IDAuMTE5NTUyQzQuMzI3NzcxIDAuMTE5NTUyIDQuODY1NzUzIC0xLjE3MTYwNiA0Ljg2NTc1MyAtMS40MjI2NjVDNC44NjU3NTMgLTEuNDk0Mzk2IDQuODA1OTc4IC0xLjU0MjIxNyA0LjczNDI0NyAtMS41NDIyMTdDNC42Mzg2MDUgLTEuNTQyMjE3IDQuNjE0Njk1IC0xLjQ4MjQ0MSA0LjU5MDc4NSAtMS40MjI2NjVDNC4yNzk5NSAtMC40MTg0MzEgMy40Nzg5NTQgLTAuMTQzNDYyIDIuOTc2ODM3IC0wLjE0MzQ2MlMxLjI2NzI0OCAtMC40NzgyMDcgMS4yNjcyNDggLTIuNTQ2NDUxVi0yLjc3MzU5OUg0LjU3ODgyOVpNMS4yNzkyMDMgLTMuMDAwNzQ3QzEuMzc0ODQ0IC00Ljg3NzcwOSAyLjQyNjg5OSAtNS4wOTI5MDIgMi43NjE2NDQgLTUuMDkyOTAyQzQuMDQwODQ3IC01LjA5MjkwMiA0LjExMjU3OCAtMy40MDcyMjMgNC4xMjQ1MzMgLTMuMDAwNzQ3SDEuMjc5MjAzWicgaWQ9J2cxLTEwMScvPgo8cGF0aCBkPSdNMi4wNTYyODkgLTguMjk2ODg3TDAuMzk0NTIxIC04LjE2NTM4Vi03LjgxODY4QzEuMjA3NDcyIC03LjgxODY4IDEuMzAzMTEzIC03LjczNDk5NCAxLjMwMzExMyAtNy4xNDkxOTFWLTAuODg0NjgyQzEuMzAzMTEzIC0wLjM0NjcgMS4xNzE2MDYgLTAuMzQ2NyAwLjM5NDUyMSAtMC4zNDY3VjBDMC43MjkyNjUgLTAuMDIzOTEgMS4zMTUwNjggLTAuMDIzOTEgMS42NzM3MjQgLTAuMDIzOTFTMi42MzAxMzcgLTAuMDIzOTEgMi45NjQ4ODIgMFYtMC4zNDY3QzIuMTk5NzUxIC0wLjM0NjcgMi4wNTYyODkgLTAuMzQ2NyAyLjA1NjI4OSAtMC44ODQ2ODJWLTguMjk2ODg3WicgaWQ9J2cxLTEwOCcvPgo8cGF0aCBkPSdNNC44Nzc3MDkgLTQuMDE2OTM2QzQuOTg1MzA1IC00LjI3OTk1IDUuMTg4NTQzIC00Ljc5NDAyMiA1Ljk1MzY3NCAtNC44MDU5NzhWLTUuMTUyNjc3QzUuNjA2OTc0IC01LjEyODc2NyA1LjQzOTYwMSAtNS4xMjg3NjcgNS4wNjg5OTEgLTUuMTI4NzY3QzQuODE3OTMzIC01LjEyODc2NyA0LjYzODYwNSAtNS4xMjg3NjcgNC4wODg2NjcgLTUuMTUyNjc3Vi00LjgwNTk3OEM0LjU5MDc4NSAtNC43ODIwNjcgNC42NTA1NiAtNC40MjM0MTIgNC42NTA1NiAtNC4yOTE5MDVDNC42NTA1NiAtNC4xODQzMDkgNC42MjY2NSAtNC4xMjQ1MzMgNC41NjY4NzQgLTMuOTgxMDcxTDMuMzQ3NDQ3IC0wLjg5NjYzOEwyLjAwODQ2OCAtNC4yNjc5OTVDMS45NDg2OTIgLTQuNDM1MzY3IDEuOTM2NzM3IC00LjQzNTM2NyAxLjkzNjczNyAtNC40OTUxNDNDMS45MzY3MzcgLTQuODA1OTc4IDIuMzkxMDM0IC00LjgwNTk3OCAyLjYwNjIyNyAtNC44MDU5NzhWLTUuMTUyNjc3QzIuMzA3MzQ3IC01LjEyODc2NyAxLjY4NTY3OSAtNS4xMjg3NjcgMS4zNjI4ODkgLTUuMTI4NzY3QzAuOTY4MzY5IC01LjEyODc2NyAwLjk0NDQ1OCAtNS4xMjg3NjcgMC4yMTUxOTMgLTUuMTUyNjc3Vi00LjgwNTk3OEMwLjg4NDY4MiAtNC44MDU5NzggMS4wMDQyMzQgLTQuNzU4MTU3IDEuMTQ3Njk2IC00LjM4NzU0N0wyLjg1NzI4NSAtMC4xMDc1OTdDMi45MTcwNjEgMC4wNTk3NzYgMi45NDA5NzEgMC4xMTk1NTIgMy4wODQ0MzMgMC4xMTk1NTJDMy4xNjgxMiAwLjExOTU1MiAzLjIzOTg1MSAwLjA5NTY0MSAzLjMyMzUzNyAtMC4xMDc1OTdMNC44Nzc3MDkgLTQuMDE2OTM2WicgaWQ9J2cxLTExOCcvPgo8L2RlZnM+CjxnIGlkPSdwYWdlMSc+Cjx1c2UgeD0nMCcgeGxpbms6aHJlZj0nI2cxLTQ4JyB5PScwJy8+Cjx1c2UgeD0nOS4xNzM4MicgeGxpbms6aHJlZj0nI2cwLTYwJyB5PScwJy8+Cjx1c2UgeD0nMjEuNTk5MycgeGxpbms6aHJlZj0nI2cxLTEwOCcgeT0nMCcvPgo8dXNlIHg9JzI0Ljg1MDk2MicgeGxpbms6aHJlZj0nI2cxLTEwMScgeT0nMCcvPgo8dXNlIHg9JzMwLjA1MzYyJyB4bGluazpocmVmPScjZzEtMTE4JyB5PScwJy8+Cjx1c2UgeD0nMzUuOTA2NjEnIHhsaW5rOmhyZWY9JyNnMS0xMDEnIHk9JzAnLz4KPHVzZSB4PSc0MS4xMDkyNjgnIHhsaW5rOmhyZWY9JyNnMS0xMDgnIHk9JzAnLz4KPHVzZSB4PSc0Ny42ODE3NTknIHhsaW5rOmhyZWY9JyNnMC02MCcgeT0nMCcvPgo8dXNlIHg9JzYwLjEwNzIzOScgeGxpbms6aHJlZj0nI2cxLTQ5JyB5PScwJy8+CjwvZz4KPC9zdmc+CjwhLS0gREVQVEg9MCAtLT4=" alt="0 &lt; {\rm level} &lt; 1" style="vertical-align: 0px"/>, optional</span></dt><dd><p>The risk of committing a Type I error, that is an incorrect rejection of a true
+null hypothesis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.InferenceAnalysis.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.InferenceAnalysis.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.ImportedDataset.html"
+                          title="previous chapter">ImportedDataset</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.InferenceResult.html"
+                          title="next chapter">InferenceResult</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.InferenceAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.InferenceResult.html" title="InferenceResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.ImportedDataset.html" title="ImportedDataset"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">InferenceAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>FORMImportanceSamplingAnalysis &#8212; Persalys 20.1dev documentation</title>
+    <title>FORMImportanceSamplingAnalysis &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.MonteCarloReliabilityAnalysis.html" title="MonteCarloReliabilityAnalysis"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">FORMImportanceSamplingAnalysis</a></li> 
@@ -81,26 +81,32 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getClassName" title="persalys.FORMImportanceSamplingAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getErrorMessage" title="persalys.FORMImportanceSamplingAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getComputeIndividualEventProbabilities" title="persalys.FORMImportanceSamplingAnalysis.getComputeIndividualEventProbabilities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getComputeIndividualEventProbabilities</span></code></a>()</p></td>
+<td><p>Compute individual event probabilities accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getErrorMessage" title="persalys.FORMImportanceSamplingAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
 <td><p>Error message accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getFORMResult" title="persalys.FORMImportanceSamplingAnalysis.getFORMResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFORMResult</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getFORMResult" title="persalys.FORMImportanceSamplingAnalysis.getFORMResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFORMResult</span></code></a>()</p></td>
 <td><p>FORM result accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getInterestVariables" title="persalys.FORMImportanceSamplingAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getInterestVariables" title="persalys.FORMImportanceSamplingAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
 <td><p>Get the variables to analyse.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getLimitState" title="persalys.FORMImportanceSamplingAnalysis.getLimitState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLimitState</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getLimitState" title="persalys.FORMImportanceSamplingAnalysis.getLimitState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLimitState</span></code></a>()</p></td>
 <td><p>Limit-state accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getMaximumCalls" title="persalys.FORMImportanceSamplingAnalysis.getMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCalls</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getMaximumCalls" title="persalys.FORMImportanceSamplingAnalysis.getMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCalls</span></code></a>()</p></td>
 <td><p>Maximum calls accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getMaximumCoefficientOfVariation" title="persalys.FORMImportanceSamplingAnalysis.getMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCoefficientOfVariation</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getMaximumCoefficientOfVariation" title="persalys.FORMImportanceSamplingAnalysis.getMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumCoefficientOfVariation</span></code></a>()</p></td>
 <td><p>Maximum coefficient of variation accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getMaximumElapsedTime" title="persalys.FORMImportanceSamplingAnalysis.getMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumElapsedTime</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getMaximumElapsedTime" title="persalys.FORMImportanceSamplingAnalysis.getMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMaximumElapsedTime</span></code></a>()</p></td>
 <td><p>Maximum elapsed time accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getMultiFORMResult" title="persalys.FORMImportanceSamplingAnalysis.getMultiFORMResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMultiFORMResult</span></code></a>()</p></td>
+<td><p>MultiFORM result accessor.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getName" title="persalys.FORMImportanceSamplingAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
 <td><p>Accessor to the object's name.</p></td>
@@ -123,7 +129,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getSeed" title="persalys.FORMImportanceSamplingAnalysis.getSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSeed</span></code></a>()</p></td>
 <td><p>Seed accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoint" title="persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStandardSpaceDesignPoint</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoints" title="persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStandardSpaceDesignPoints</span></code></a>()</p></td>
 <td><p>Accessor to standard space design point.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.getWarningMessage" title="persalys.FORMImportanceSamplingAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
@@ -147,31 +153,34 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setBlockSize" title="persalys.FORMImportanceSamplingAnalysis.setBlockSize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlockSize</span></code></a>(size)</p></td>
 <td><p>Block size accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setInterestVariables" title="persalys.FORMImportanceSamplingAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(outputsNames)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setComputeIndividualEventProbabilities" title="persalys.FORMImportanceSamplingAnalysis.setComputeIndividualEventProbabilities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setComputeIndividualEventProbabilities</span></code></a>(compute)</p></td>
+<td><p>Compute individual event probabilities accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setInterestVariables" title="persalys.FORMImportanceSamplingAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
 <td><p>Set the variables to analyse.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setMaximumCalls" title="persalys.FORMImportanceSamplingAnalysis.setMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCalls</span></code></a>(maxi)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setMaximumCalls" title="persalys.FORMImportanceSamplingAnalysis.setMaximumCalls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCalls</span></code></a>(maxi)</p></td>
 <td><p>Maximum calls accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setMaximumCoefficientOfVariation" title="persalys.FORMImportanceSamplingAnalysis.setMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCoefficientOfVariation</span></code></a>(coef)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setMaximumCoefficientOfVariation" title="persalys.FORMImportanceSamplingAnalysis.setMaximumCoefficientOfVariation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumCoefficientOfVariation</span></code></a>(coef)</p></td>
 <td><p>Maximum coefficient of variation accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setMaximumElapsedTime" title="persalys.FORMImportanceSamplingAnalysis.setMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumElapsedTime</span></code></a>(seconds)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setMaximumElapsedTime" title="persalys.FORMImportanceSamplingAnalysis.setMaximumElapsedTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMaximumElapsedTime</span></code></a>(seconds)</p></td>
 <td><p>Maximum elapsed time accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setName" title="persalys.FORMImportanceSamplingAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setName" title="persalys.FORMImportanceSamplingAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
 <td><p>Accessor to the object's name.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setOptimizationAlgorithm" title="persalys.FORMImportanceSamplingAnalysis.setOptimizationAlgorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOptimizationAlgorithm</span></code></a>(solver)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setOptimizationAlgorithm" title="persalys.FORMImportanceSamplingAnalysis.setOptimizationAlgorithm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOptimizationAlgorithm</span></code></a>(solver)</p></td>
 <td><p>Accessor to the optimization algorithm used to find the design point.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setPhysicalStartingPoint" title="persalys.FORMImportanceSamplingAnalysis.setPhysicalStartingPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPhysicalStartingPoint</span></code></a>(point)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setPhysicalStartingPoint" title="persalys.FORMImportanceSamplingAnalysis.setPhysicalStartingPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPhysicalStartingPoint</span></code></a>(point)</p></td>
 <td><p>Physical starting point accessor.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setSeed" title="persalys.FORMImportanceSamplingAnalysis.setSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSeed</span></code></a>(seed)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setSeed" title="persalys.FORMImportanceSamplingAnalysis.setSeed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setSeed</span></code></a>(seed)</p></td>
 <td><p>Seed accessor.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoint" title="persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setStandardSpaceDesignPoint</span></code></a>(point)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoints" title="persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setStandardSpaceDesignPoints</span></code></a>(points)</p></td>
 <td><p>Accessor to standard space design point.</p></td>
 </tr>
 </tbody>
@@ -182,18 +191,18 @@
 </pre></div>
 </div>
 <p>Create the model:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">&#39;Yield strength&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">&#39;Traction load&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;deviation&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">&#39;myPhysicalModel&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;R-F/(pi_*100.0)&#39;</span><span class="p">])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">R</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">LogNormalMuSigma</span><span class="p">(</span><span class="mf">300.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span><span class="o">.</span><span class="n">getDistribution</span><span class="p">(),</span> <span class="s1">'Yield strength'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'F'</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">75000.</span><span class="p">,</span> <span class="mf">5000.</span><span class="p">),</span> <span class="s1">'Traction load'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="s1">'deviation'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myPhysicalModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">SymbolicPhysicalModel</span><span class="p">(</span><span class="s1">'myPhysicalModel'</span><span class="p">,</span> <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">],</span> <span class="p">[</span><span class="n">G</span><span class="p">],</span> <span class="p">[</span><span class="s1">'R-F/(pi_*100.0)'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Create the limit state:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">&#39;ls1&#39;</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">limitState</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">LimitState</span><span class="p">(</span><span class="s1">'ls1'</span><span class="p">,</span> <span class="n">myPhysicalModel</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">,</span> <span class="n">ot</span><span class="o">.</span><span class="n">Less</span><span class="p">(),</span> <span class="mf">0.</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Process the reliability analysis:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FORMImportanceSamplingAnalysis</span><span class="p">(</span><span class="s1">&#39;myAnalysis&#39;</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">FORMImportanceSamplingAnalysis</span><span class="p">(</span><span class="s1">'myAnalysis'</span><span class="p">,</span> <span class="n">limitState</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">setMaximumCalls</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
@@ -231,6 +240,20 @@ It is set by default to 1.</p>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.getComputeIndividualEventProbabilities">
+<span class="sig-name descname"><span class="pre">getComputeIndividualEventProbabilities</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.getComputeIndividualEventProbabilities" title="Link to this definition">¶</a></dt>
+<dd><p>Compute individual event probabilities accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True to compute individual event probabilities, false otherwise.</p>
 </dd>
 </dl>
 </dd>
@@ -329,6 +352,20 @@ It is set by default to 1.</p>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>maxTime</strong><span class="classifier">positive int</span></dt><dd><p>The maximum elapsed time in seconds. It is set by default to 60 seconds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.getMultiFORMResult">
+<span class="sig-name descname"><span class="pre">getMultiFORMResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.getMultiFORMResult" title="Link to this definition">¶</a></dt>
+<dd><p>MultiFORM result accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.MultiFORMResult.html#openturns.MultiFORMResult" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiFORMResult</span></code></a></span></dt><dd><p>Result of the MultiFORM analysis (for system limit states)</p>
 </dd>
 </dl>
 </dd>
@@ -436,13 +473,13 @@ distribution of the physical model</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoint">
-<span class="sig-name descname"><span class="pre">getStandardSpaceDesignPoint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoint" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoints">
+<span class="sig-name descname"><span class="pre">getStandardSpaceDesignPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.getStandardSpaceDesignPoints" title="Link to this definition">¶</a></dt>
 <dd><p>Accessor to standard space design point.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>point</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Point</span></code></a></span></dt><dd><p>Standard space design point. It is the mean of the Normal distribution used to sample.</p>
+<dt><strong>point</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Standard space design point. It is the mean of the Normal distribution used to sample.</p>
 </dd>
 </dl>
 </dd>
@@ -541,8 +578,23 @@ It is set by default to 1.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.setComputeIndividualEventProbabilities">
+<span class="sig-name descname"><span class="pre">setComputeIndividualEventProbabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compute</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.setComputeIndividualEventProbabilities" title="Link to this definition">¶</a></dt>
+<dd><p>Compute individual event probabilities accessor.</p>
+<p>Individual probabilities cannot be computed with importance sampling for an intersection limit state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True to compute individual event probabilities, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.setInterestVariables">
-<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputsNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
 <dd><p>Set the variables to analyse.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -655,13 +707,13 @@ distribution of the physical model</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoint">
-<span class="sig-name descname"><span class="pre">setStandardSpaceDesignPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoint" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoints">
+<span class="sig-name descname"><span class="pre">setStandardSpaceDesignPoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.FORMImportanceSamplingAnalysis.setStandardSpaceDesignPoints" title="Link to this definition">¶</a></dt>
 <dd><p>Accessor to standard space design point.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>point</strong><span class="classifier">sequence of float</span></dt><dd><p>Standard space design point. It is the mean of the Normal distribution used to sample</p>
+<dd class="field-odd"><dl>
+<dt><strong>points</strong><span class="classifier">class:<cite>openturns.Sample</cite></span></dt><dd><p>Standard space design points. It is the mean of the Normal distribution used to sample.</p>
 </dd>
 </dl>
 </dd>
@@ -722,7 +774,7 @@ distribution of the physical model</p>
         <li class="right" >
           <a href="persalys.MonteCarloReliabilityAnalysis.html" title="MonteCarloReliabilityAnalysis"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">FORMImportanceSamplingAnalysis</a></li> 

@@ -1,0 +1,12 @@
+﻿FORMAnalysis
+=====================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FORMAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

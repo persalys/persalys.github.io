@@ -1,0 +1,12 @@
+﻿FieldMonteCarloAnalysis
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FieldMonteCarloAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

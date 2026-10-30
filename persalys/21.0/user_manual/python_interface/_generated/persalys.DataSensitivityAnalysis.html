@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataSensitivityAnalysis &#8212; Persalys 21.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DataSensitivityAnalysisResult" href="persalys.DataSensitivityAnalysisResult.html" />
+    <link rel="prev" title="DataAnalysisResult" href="persalys.DataAnalysisResult.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="../../../index.html">
+      <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.DataSensitivityAnalysisResult.html" title="DataSensitivityAnalysisResult"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataAnalysisResult.html" title="DataAnalysisResult"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataSensitivityAnalysis</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="datasensitivityanalysis">
+<h1>DataSensitivityAnalysis<a class="headerlink" href="#datasensitivityanalysis" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">DataSensitivityAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Perform a sensitivity analysis on a design of experiments.
+see <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.experimental.RankSobolSensitivityAlgorithm.html#openturns.experimental.RankSobolSensitivityAlgorithm" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.experimental.RankSobolSensitivityAlgorithm</span></code></a> for more details.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the analysis.</p>
+</dd>
+<dt><strong>design</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments to analyze.</p>
+</dd>
+<dt><strong>type</strong><span class="classifier">int, optional</span></dt><dd><p>Type of sensitivity analysis to perform, encoded in a byte with : 
+- persalys.DataSensitivityAnalysisResult.RankSobol for Rank Sobol indices
+- persalys.DataSensitivityAnalysisResult.SRC for SRC indices
+- persalys.DataSensitivityAnalysisResult.GlobalHSIC for global HSIC indices
+- persalys.DataSensitivityAnalysisResult.TargetHSIC for target HSIC indices
+- persalys.DataSensitivityAnalysisResult.ConditionalHSIC for conditional HSIC indices
+The default value is RankSobol | SRC (Rank Sobol and SRC indices are computed by default).</p>
+</dd>
+<dt><strong>interestVariables</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Description</span></code></a>, optional</span></dt><dd><p>Description of the variables of interest for the sensitivity analysis. 
+The variables of interest must be a subset of the output variables in the design of experiment. 
+If not provided, all output variables will be considered as variables of interest.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.computeAsymptoticPValues" title="persalys.DataSensitivityAnalysis.computeAsymptoticPValues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeAsymptoticPValues</span></code></a>(hsicType)</p></td>
+<td><p>Whether to compute asymptotic p-values for HSIC indices of the given type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.computeCovModelParameters" title="persalys.DataSensitivityAnalysis.computeCovModelParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeCovModelParameters</span></code></a>(...)</p></td>
+<td><p>Set whether the parameters of the covariance models should be estimated from the data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.computeHSIC" title="persalys.DataSensitivityAnalysis.computeHSIC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeHSIC</span></code></a>(hsicType)</p></td>
+<td><p>Whether to compute HSIC indices of the given type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.computePermutationPValues" title="persalys.DataSensitivityAnalysis.computePermutationPValues"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computePermutationPValues</span></code></a>(hsicType)</p></td>
+<td><p>Whether to compute permutation p-values for HSIC indices of the given type.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.computeRankSobol" title="persalys.DataSensitivityAnalysis.computeRankSobol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeRankSobol</span></code></a>()</p></td>
+<td><p>Whether to compute Rank Sobol indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.computeSRC" title="persalys.DataSensitivityAnalysis.computeSRC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">computeSRC</span></code></a>()</p></td>
+<td><p>Whether to compute SRC indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.defaultHSICParametersChanged" title="persalys.DataSensitivityAnalysis.defaultHSICParametersChanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">defaultHSICParametersChanged</span></code></a>()</p></td>
+<td><p>Whether the default parameters for HSIC indices computation have been changed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getClassName" title="persalys.DataSensitivityAnalysis.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getConditionalCriticalDomain" title="persalys.DataSensitivityAnalysis.getConditionalCriticalDomain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getConditionalCriticalDomain</span></code></a>()</p></td>
+<td><p>Get the critical domain for conditional HSIC sensitivity analyses.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getCovarianceModels" title="persalys.DataSensitivityAnalysis.getCovarianceModels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCovarianceModels</span></code></a>(hsicType)</p></td>
+<td><p>Get the covariance models used for the computation of HSIC indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getDesignOfExperiment" title="persalys.DataSensitivityAnalysis.getDesignOfExperiment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDesignOfExperiment</span></code></a>()</p></td>
+<td><p>Design of experiments accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getErrorMessage" title="persalys.DataSensitivityAnalysis.getErrorMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getErrorMessage</span></code></a>()</p></td>
+<td><p>Error message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getFilterAlphas" title="persalys.DataSensitivityAnalysis.getFilterAlphas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFilterAlphas</span></code></a>()</p></td>
+<td><p>Get the alpha parameters for the target HSIC filter functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getFilterFunctions" title="persalys.DataSensitivityAnalysis.getFilterFunctions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFilterFunctions</span></code></a>()</p></td>
+<td><p>Get the filter functions for the target HSIC indices computation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getInterestVariables" title="persalys.DataSensitivityAnalysis.getInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInterestVariables</span></code></a>()</p></td>
+<td><p>Get the variables to analyse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getName" title="persalys.DataSensitivityAnalysis.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getPythonScript" title="persalys.DataSensitivityAnalysis.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getResult" title="persalys.DataSensitivityAnalysis.getResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getResult</span></code></a>()</p></td>
+<td><p>Get the result of the sensitivity analysis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getTargetCriticalDomain" title="persalys.DataSensitivityAnalysis.getTargetCriticalDomain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getTargetCriticalDomain</span></code></a>()</p></td>
+<td><p>Get the critical domain for target HSIC sensitivity analyses.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getWarningMessage" title="persalys.DataSensitivityAnalysis.getWarningMessage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWarningMessage</span></code></a>()</p></td>
+<td><p>Warning message accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getWeightAlphas" title="persalys.DataSensitivityAnalysis.getWeightAlphas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWeightAlphas</span></code></a>()</p></td>
+<td><p>Get the alpha parameters for the conditional HSIC weight functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.getWeightFunctions" title="persalys.DataSensitivityAnalysis.getWeightFunctions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getWeightFunctions</span></code></a>()</p></td>
+<td><p>Get the weight functions for the conditional HSIC indices computation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.hasName" title="persalys.DataSensitivityAnalysis.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.hasValidResult" title="persalys.DataSensitivityAnalysis.hasValidResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasValidResult</span></code></a>()</p></td>
+<td><p>Whether the analysis has been run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.isReliabilityAnalysis" title="persalys.DataSensitivityAnalysis.isReliabilityAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isReliabilityAnalysis</span></code></a>()</p></td>
+<td><p>Whether the analysis involves reliability.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.isRunning" title="persalys.DataSensitivityAnalysis.isRunning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isRunning</span></code></a>()</p></td>
+<td><p>Whether the analysis is running.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.run" title="persalys.DataSensitivityAnalysis.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Launch the analysis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setCovarianceModels" title="persalys.DataSensitivityAnalysis.setCovarianceModels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCovarianceModels</span></code></a>(covarianceModels, hsicType)</p></td>
+<td><p>Set the covariance models used for the computation of HSIC indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setFilterAlphas" title="persalys.DataSensitivityAnalysis.setFilterAlphas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFilterAlphas</span></code></a>(filterAlphas, criticalDomain)</p></td>
+<td><p>Set the alpha parameters for the target HSIC filter functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setFilterFunctions" title="persalys.DataSensitivityAnalysis.setFilterFunctions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFilterFunctions</span></code></a>(filterFunctions)</p></td>
+<td><p>Set the filter functions for the target HSIC indices computation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setHSICParameters" title="persalys.DataSensitivityAnalysis.setHSICParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setHSICParameters</span></code></a>(computePermutationPValues, ...)</p></td>
+<td><p>Set the parameters for the HSIC indices computation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setInterestVariables" title="persalys.DataSensitivityAnalysis.setInterestVariables"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInterestVariables</span></code></a>(variablesNames)</p></td>
+<td><p>Set the variables to analyse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setName" title="persalys.DataSensitivityAnalysis.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setType" title="persalys.DataSensitivityAnalysis.setType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setType</span></code></a>(analysisType)</p></td>
+<td><p>Set the type of sensitivity analysis to perform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setWeightAlphas" title="persalys.DataSensitivityAnalysis.setWeightAlphas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setWeightAlphas</span></code></a>(weightAlphas, criticalDomain)</p></td>
+<td><p>Set the alpha parameters for the conditional HSIC weight functions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.setWeightFunctions" title="persalys.DataSensitivityAnalysis.setWeightFunctions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setWeightFunctions</span></code></a>(weightFunctions)</p></td>
+<td><p>Set the weight functions for the conditional HSIC indices computation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataSensitivityAnalysis.useUStatistic" title="persalys.DataSensitivityAnalysis.useUStatistic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">useUStatistic</span></code></a>(hsicType)</p></td>
+<td><p>Whether to use the U-statistic for the computation of HSIC indices.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">openturns</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">openturns.usecases</span><span class="w"> </span><span class="kn">import</span> <span class="n">ishigami_function</span>
+</pre></div>
+</div>
+<p>Create the csv:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">im</span> <span class="o">=</span> <span class="n">ishigami_function</span><span class="o">.</span><span class="n">IshigamiModel</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">inputDistribution</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_sample</span> <span class="o">=</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_sample</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_sample</span><span class="o">.</span><span class="n">exportToCSVFile</span><span class="p">(</span><span class="s1">'data.csv'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">importedDataset</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ImportedDataset</span><span class="p">(</span><span class="s1">'data.csv'</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="p">(</span><span class="s1">'myDataModel'</span><span class="p">,</span> <span class="n">importedDataset</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create and run the analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataSensitivityAnalysis</span><span class="p">(</span><span class="s1">'sensitivity'</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataSensitivityAnalysisResult</span><span class="o">.</span><span class="n">RankSobol</span> <span class="o">|</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataSensitivityAnalysisResult</span><span class="o">.</span><span class="n">SRC</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the result:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">getResult</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">isIndependent</span><span class="p">():</span>
+<span class="gp">... </span>   <span class="c1"># The inputs need to be independant for the result to be valid</span>
+<span class="gp">... </span>   <span class="n">firstOrderIndices</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getFirstOrderIndices</span><span class="p">()</span>
+<span class="gp">... </span>   <span class="n">firstOrderIndicesInterval</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getFirstOrderIndicesInterval</span><span class="p">()</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="n">independenceWarning</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">getIndependenceWarningMessage</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.computeAsymptoticPValues">
+<span class="sig-name descname"><span class="pre">computeAsymptoticPValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hsicType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.computeAsymptoticPValues" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to compute asymptotic p-values for HSIC indices of the given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hsicType</strong><span class="classifier">int</span></dt><dd><p>Type of HSIC indices (Global, Target or Conditional).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True if asymptotic p-values will be computed, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.computeCovModelParameters">
+<span class="sig-name descname"><span class="pre">computeCovModelParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">computeCovModelParameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.computeCovModelParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Set whether the parameters of the covariance models should be estimated from the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>computeCovModelParameters</strong><span class="classifier">bool</span></dt><dd><p>If true, the scale parameters of the covariance models will be set to the standard deviation of the corresponding variable in the design of experiment. If false, the covariance models parameters will not be changed. True by default.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.computeHSIC">
+<span class="sig-name descname"><span class="pre">computeHSIC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hsicType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.computeHSIC" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to compute HSIC indices of the given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hsicType</strong><span class="classifier">int</span></dt><dd><p>Type of HSIC indices (Global, Target or Conditional).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True if HSIC indices of the given type will be computed, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.computePermutationPValues">
+<span class="sig-name descname"><span class="pre">computePermutationPValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hsicType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.computePermutationPValues" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to compute permutation p-values for HSIC indices of the given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hsicType</strong><span class="classifier">int</span></dt><dd><p>Type of HSIC indices (Global, Target or Conditional).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True if permutation p-values will be computed, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.computeRankSobol">
+<span class="sig-name descname"><span class="pre">computeRankSobol</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.computeRankSobol" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to compute Rank Sobol indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True if Rank Sobol indices will be computed, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.computeSRC">
+<span class="sig-name descname"><span class="pre">computeSRC</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.computeSRC" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to compute SRC indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>compute</strong><span class="classifier">bool</span></dt><dd><p>True if SRC indices will be computed, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.defaultHSICParametersChanged">
+<span class="sig-name descname"><span class="pre">defaultHSICParametersChanged</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.defaultHSICParametersChanged" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the default parameters for HSIC indices computation have been changed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>changed</strong><span class="classifier">bool</span></dt><dd><p>True if the default parameters for HSIC indices computation have been changed, false otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getConditionalCriticalDomain">
+<span class="sig-name descname"><span class="pre">getConditionalCriticalDomain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getConditionalCriticalDomain" title="Link to this definition">¶</a></dt>
+<dd><p>Get the critical domain for conditional HSIC sensitivity analyses.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>criticalDomain</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interval</span></code></a></span></dt><dd><p>The critical domain interval. Empty if no critical domain has been set.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getCovarianceModels">
+<span class="sig-name descname"><span class="pre">getCovarianceModels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hsicType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getCovarianceModels" title="Link to this definition">¶</a></dt>
+<dd><p>Get the covariance models used for the computation of HSIC indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hsicType</strong><span class="classifier">int</span></dt><dd><p>Type of HSIC indices (Global, Target or Conditional).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>covarianceModels</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CovarianceModel</span></code></a></span></dt><dd><p>Collection of covariance models used for the computation of HSIC indices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getDesignOfExperiment">
+<span class="sig-name descname"><span class="pre">getDesignOfExperiment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getDesignOfExperiment" title="Link to this definition">¶</a></dt>
+<dd><p>Design of experiments accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.DesignOfExperiment.html#persalys.DesignOfExperiment" title="persalys.DesignOfExperiment"><code class="xref py py-class docutils literal notranslate"><span class="pre">DesignOfExperiment</span></code></a></span></dt><dd><p>Design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getErrorMessage">
+<span class="sig-name descname"><span class="pre">getErrorMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getErrorMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Error message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Error message if the analysis failed</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getFilterAlphas">
+<span class="sig-name descname"><span class="pre">getFilterAlphas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getFilterAlphas" title="Link to this definition">¶</a></dt>
+<dd><p>Get the alpha parameters for the target HSIC filter functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>filterAlphas</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Alpha parameters for each output variable of interest. Empty if filter functions were set directly.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getFilterFunctions">
+<span class="sig-name descname"><span class="pre">getFilterFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getFilterFunctions" title="Link to this definition">¶</a></dt>
+<dd><p>Get the filter functions for the target HSIC indices computation.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>filterFunctions</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a></span></dt><dd><p>Collection of filter functions. May be empty if filter alphas were set
+and the analysis has not been launched yet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getInterestVariables">
+<span class="sig-name descname"><span class="pre">getInterestVariables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Get the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getPythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getResult" title="Link to this definition">¶</a></dt>
+<dd><p>Get the result of the sensitivity analysis.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>result</strong><span class="classifier"><a class="reference internal" href="persalys.DataSensitivityAnalysisResult.html#persalys.DataSensitivityAnalysisResult" title="persalys.DataSensitivityAnalysisResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSensitivityAnalysisResult</span></code></a></span></dt><dd><p>Result of the sensitivity analysis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getTargetCriticalDomain">
+<span class="sig-name descname"><span class="pre">getTargetCriticalDomain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getTargetCriticalDomain" title="Link to this definition">¶</a></dt>
+<dd><p>Get the critical domain for target HSIC sensitivity analyses.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>criticalDomain</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interval</span></code></a></span></dt><dd><p>The critical domain interval. Empty if no critical domain has been set.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getWarningMessage">
+<span class="sig-name descname"><span class="pre">getWarningMessage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getWarningMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Warning message accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>message</strong><span class="classifier">str</span></dt><dd><p>Warning message which can appear during the analysis computation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getWeightAlphas">
+<span class="sig-name descname"><span class="pre">getWeightAlphas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getWeightAlphas" title="Link to this definition">¶</a></dt>
+<dd><p>Get the alpha parameters for the conditional HSIC weight functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>weightAlphas</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Alpha parameters for each output variable of interest. Empty if weight functions were set directly.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.getWeightFunctions">
+<span class="sig-name descname"><span class="pre">getWeightFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.getWeightFunctions" title="Link to this definition">¶</a></dt>
+<dd><p>Get the weight functions for the conditional HSIC indices computation.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>weightFunctions</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a></span></dt><dd><p>Collection of weight functions. May be empty if weight alphas were set
+and the analysis has not been launched yet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.hasValidResult">
+<span class="sig-name descname"><span class="pre">hasValidResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.hasValidResult" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis has been run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasValidResult</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis has already been run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.isReliabilityAnalysis">
+<span class="sig-name descname"><span class="pre">isReliabilityAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.isReliabilityAnalysis" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis involves reliability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isReliabilityAnalysis</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis involves a reliability analysis</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.isRunning">
+<span class="sig-name descname"><span class="pre">isRunning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.isRunning" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the analysis is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isRunning</strong><span class="classifier">bool</span></dt><dd><p>Whether the analysis is running</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.run" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the analysis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setCovarianceModels">
+<span class="sig-name descname"><span class="pre">setCovarianceModels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">covarianceModels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsicType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setCovarianceModels" title="Link to this definition">¶</a></dt>
+<dd><p>Set the covariance models used for the computation of HSIC indices.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>covarianceModels</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CovarianceModel</span></code></a></span></dt><dd><p>Collection of covariance models to use for the computation of HSIC indices. 
+The size of the collection must be equal to the total number of input and output variables in the design of experiment.</p>
+</dd>
+<dt><strong>hsicType</strong><span class="classifier">int</span></dt><dd><p>Type of HSIC indices (Global, Target or Conditional).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setFilterAlphas">
+<span class="sig-name descname"><span class="pre">setFilterAlphas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filterAlphas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criticalDomain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setFilterAlphas" title="Link to this definition">¶</a></dt>
+<dd><p>Set the alpha parameters for the target HSIC filter functions.</p>
+<p>The filter functions are constructed as  <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nMTEuOTU1MTY4cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMCAtOC45NjYzNzYgMTQyLjA4Njg5NSAxMS45NTUxNjgnIHdpZHRoPScxNDIuMDg2ODk1cHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTIuMzc1MDkzIC00Ljk3MzM1QzIuMzc1MDkzIC01LjE0ODY5MiAyLjI0NzU3MiAtNS4yNzYyMTQgMi4wNjQyNTkgLTUuMjc2MjE0QzEuODU3MDM2IC01LjI3NjIxNCAxLjYyNTkwMyAtNS4wODQ5MzIgMS42MjU5MDMgLTQuODQ1ODI4QzEuNjI1OTAzIC00LjY3MDQ4NiAxLjc1MzQyNSAtNC41NDI5NjQgMS45MzY3MzcgLTQuNTQyOTY0QzIuMTQzOTYgLTQuNTQyOTY0IDIuMzc1MDkzIC00LjczNDI0NyAyLjM3NTA5MyAtNC45NzMzNVpNMS4yMTE0NTcgLTIuMDQ4MzE5TDAuNzgxMDcxIC0wLjk0ODQ0M0MwLjc0MTIyIC0wLjgyODg5MiAwLjcwMTM3IC0wLjczMzI1IDAuNzAxMzcgLTAuNTk3NzU4QzAuNzAxMzcgLTAuMjA3MjIzIDEuMDA0MjM0IDAuMDc5NzAxIDEuNDI2NjUgMC4wNzk3MDFDMi4xOTk3NTEgMC4wNzk3MDEgMi41MjY1MjYgLTEuMDM2MTE1IDIuNTI2NTI2IC0xLjEzOTcyNkMyLjUyNjUyNiAtMS4yMTk0MjcgMi40NjI3NjUgLTEuMjQzMzM3IDIuNDA2OTc0IC0xLjI0MzMzN0MyLjMxMTMzMyAtMS4yNDMzMzcgMi4yOTUzOTIgLTEuMTg3NTQ3IDIuMjcxNDgyIC0xLjEwNzg0NkMyLjA4ODE2OSAtMC40NzAyMzcgMS43NjEzOTUgLTAuMTQzNDYyIDEuNDQyNTkgLTAuMTQzNDYyQzEuMzQ2OTQ5IC0wLjE0MzQ2MiAxLjI1MTMwOCAtMC4xODMzMTMgMS4yNTEzMDggLTAuMzk4NTA2QzEuMjUxMzA4IC0wLjU4OTc4OCAxLjMwNzA5OCAtMC43MzMyNSAxLjQxMDcxIC0wLjk4MDMyNEMxLjQ5MDQxMSAtMS4xOTU1MTcgMS41NzAxMTIgLTEuNDEwNzEgMS42NTc3ODMgLTEuNjI1OTAzTDEuOTA0ODU3IC0yLjI3MTQ4MkMxLjk3NjU4OCAtMi40NTQ3OTUgMi4wNzIyMjkgLTIuNzAxODY4IDIuMDcyMjI5IC0yLjgzNzM2QzIuMDcyMjI5IC0zLjIzNTg2NiAxLjc1MzQyNSAtMy41MTQ4MTkgMS4zNDY5NDkgLTMuNTE0ODE5QzAuNTczODQ4IC0zLjUxNDgxOSAwLjIzOTEwMyAtMi4zOTkwMDQgMC4yMzkxMDMgLTIuMjk1MzkyQzAuMjM5MTAzIC0yLjIyMzY2MSAwLjI5NDg5NCAtMi4xOTE3ODEgMC4zNTg2NTUgLTIuMTkxNzgxQzAuNDYyMjY3IC0yLjE5MTc4MSAwLjQ3MDIzNyAtMi4yMzk2MDEgMC40OTQxNDcgLTIuMzE5MzAzQzAuNzE3MzEgLTMuMDc2NDYzIDEuMDgzOTM1IC0zLjI5MTY1NiAxLjMyMzAzOSAtMy4yOTE2NTZDMS40MzQ2MiAtMy4yOTE2NTYgMS41MTQzMjEgLTMuMjUxODA2IDEuNTE0MzIxIC0zLjAyODY0M0MxLjUxNDMyMSAtMi45NDg5NDEgMS41MDYzNTEgLTIuODM3MzYgMS40MjY2NSAtMi41OTgyNTdMMS4yMTE0NTcgLTIuMDQ4MzE5WicgaWQ9J2cxLTEwNScvPgo8cGF0aCBkPSdNNS41MzUyNDMgLTMuMDI0NjU4QzUuNTM1MjQzIC00LjE4NDMwOSA0Ljg3NzcwOSAtNS4yNzIyMjkgMy42MTA0NjEgLTUuMjcyMjI5QzIuMDQ0MzM0IC01LjI3MjIyOSAwLjQ3ODIwNyAtMy41NjI2NCAwLjQ3ODIwNyAtMS44NjUwMDZDMC40NzgyMDcgLTAuODI0OTA3IDEuMTIzNzg2IDAuMTE5NTUyIDIuMzQzMjEzIDAuMTE5NTUyQzMuMDg0NDMzIDAuMTE5NTUyIDMuOTY5MTE2IC0wLjE2NzM3MiA0LjgxNzkzMyAtMC44ODQ2ODJDNC45ODUzMDUgLTAuMjE1MTkzIDUuMzU1OTE1IDAuMTE5NTUyIDUuODY5OTg4IDAuMTE5NTUyQzYuNTE1NTY3IDAuMTE5NTUyIDYuODM4MzU2IC0wLjU0OTkzOCA2LjgzODM1NiAtMC43MDUzNTVDNi44MzgzNTYgLTAuODEyOTUxIDYuNzU0NjcgLTAuODEyOTUxIDYuNzE4ODA0IC0wLjgxMjk1MUM2LjYyMzE2MyAtMC44MTI5NTEgNi42MTEyMDggLTAuNzc3MDg2IDYuNTc1MzQyIC0wLjY4MTQ0NUM2LjQ2Nzc0NiAtMC4zODI1NjUgNi4xOTI3NzcgLTAuMTE5NTUyIDUuOTA1ODUzIC0wLjExOTU1MkM1LjUzNTI0MyAtMC4xMTk1NTIgNS41MzUyNDMgLTAuODg0NjgyIDUuNTM1MjQzIC0xLjYxMzk0OEM2Ljc1NDY3IC0zLjA3MjQ3OCA3LjA0MTU5NCAtNC41Nzg4MjkgNy4wNDE1OTQgLTQuNTkwNzg1QzcuMDQxNTk0IC00LjY5ODM4MSA2Ljk0NTk1MyAtNC42OTgzODEgNi45MTAwODcgLTQuNjk4MzgxQzYuODAyNDkxIC00LjY5ODM4MSA2Ljc5MDUzNSAtNC42NjI1MTYgNi43NDI3MTUgLTQuNDQ3MzIzQzYuNTg3Mjk4IC0zLjkyMTI5NSA2LjI3NjQ2MyAtMi45ODg3OTIgNS41MzUyNDMgLTIuMDA4NDY4Vi0zLjAyNDY1OFpNNC43ODIwNjcgLTEuMTcxNjA2QzMuNzMwMDEyIC0wLjIyNzE0OCAyLjc4NTU1NCAtMC4xMTk1NTIgMi4zNjcxMjMgLTAuMTE5NTUyQzEuNTE4MzA2IC0wLjExOTU1MiAxLjI3OTIwMyAtMC44NzI3MjcgMS4yNzkyMDMgLTEuNDM0NjJDMS4yNzkyMDMgLTEuOTQ4NjkyIDEuNTQyMjE3IC0zLjE2ODEyIDEuOTEyODI3IC0zLjgyNTY1NEMyLjQwMjk4OSAtNC42NjI1MTYgMy4wNzI0NzggLTUuMDMzMTI2IDMuNjEwNDYxIC01LjAzMzEyNkM0Ljc3MDExMiAtNS4wMzMxMjYgNC43NzAxMTIgLTMuNTE0ODE5IDQuNzcwMTEyIC0yLjUxMDU4NUM0Ljc3MDExMiAtMi4yMTE3MDYgNC43NTgxNTcgLTEuOTAwODcyIDQuNzU4MTU3IC0xLjYwMTk5M0M0Ljc1ODE1NyAtMS4zNjI4ODkgNC43NzAxMTIgLTEuMzAzMTEzIDQuNzgyMDY3IC0xLjE3MTYwNlonIGlkPSdnMi0xMScvPgo8cGF0aCBkPSdNNi4wNzMyMjUgLTQuNTA3MDk4QzYuMjI4NjQzIC00LjUwNzA5OCA2LjYyMzE2MyAtNC41MDcwOTggNi42MjMxNjMgLTQuODg5NjY0QzYuNjIzMTYzIC01LjE1MjY3NyA2LjM5NjAxNSAtNS4xNTI2NzcgNi4xODA4MjIgLTUuMTUyNjc3SDMuNTM4NzNDMS43NDU0NTUgLTUuMTUyNjc3IDAuNDU0Mjk2IC0zLjE1NjE2NCAwLjQ1NDI5NiAtMS43NDU0NTVDMC40NTQyOTYgLTAuNzI5MjY1IDEuMTExODMxIDAuMTE5NTUyIDIuMTg3Nzk2IDAuMTE5NTUyQzMuNTk4NTA2IDAuMTE5NTUyIDUuMTQwNzIyIC0xLjM5ODc1NSA1LjE0MDcyMiAtMy4xOTIwM0M1LjE0MDcyMiAtMy42NTgyODEgNS4wMzMxMjYgLTQuMTEyNTc4IDQuNzQ2MjAyIC00LjUwNzA5OEg2LjA3MzIyNVpNMi4xOTk3NTEgLTAuMTE5NTUyQzEuNTkwMDM3IC0wLjExOTU1MiAxLjE0NzY5NiAtMC41ODU4MDMgMS4xNDc2OTYgLTEuNDEwNzFDMS4xNDc2OTYgLTIuMTI4MDIgMS41NzgwODIgLTQuNTA3MDk4IDMuMzM1NDkyIC00LjUwNzA5OEMzLjg0OTU2NCAtNC41MDcwOTggNC40MjM0MTIgLTQuMjU2MDQgNC40MjM0MTIgLTMuMzM1NDkyQzQuNDIzNDEyIC0yLjkxNzA2MSA0LjIzMjEzIC0xLjkxMjgyNyAzLjgxMzY5OSAtMS4yMTk0MjdDMy4zODMzMTMgLTAuNTE0MDcyIDIuNzM3NzMzIC0wLjExOTU1MiAyLjE5OTc1MSAtMC4xMTk1NTJaJyBpZD0nZzItMjcnLz4KPHBhdGggZD0nTTIuMzMxMjU4IDAuMDQ3ODIxQzIuMzMxMjU4IC0wLjY0NTU3OSAyLjEwNDExIC0xLjE1OTY1MSAxLjYxMzk0OCAtMS4xNTk2NTFDMS4yMzEzODIgLTEuMTU5NjUxIDEuMDQwMSAtMC44NDg4MTcgMS4wNDAxIC0wLjU4NTgwM1MxLjIxOTQyNyAwIDEuNjI1OTAzIDBDMS43ODEzMiAwIDEuOTEyODI3IC0wLjA0NzgyMSAyLjAyMDQyMyAtMC4xNTU0MTdDMi4wNDQzMzQgLTAuMTc5MzI4IDIuMDU2Mjg5IC0wLjE3OTMyOCAyLjA2ODI0NCAtMC4xNzkzMjhDMi4wOTIxNTQgLTAuMTc5MzI4IDIuMDkyMTU0IC0wLjAxMTk1NSAyLjA5MjE1NCAwLjA0NzgyMUMyLjA5MjE1NCAwLjQ0MjM0MSAyLjAyMDQyMyAxLjIxOTQyNyAxLjMyNzAyNCAxLjk5NjUxM0MxLjE5NTUxNyAyLjEzOTk3NSAxLjE5NTUxNyAyLjE2Mzg4NSAxLjE5NTUxNyAyLjE4Nzc5NkMxLjE5NTUxNyAyLjI0NzU3MiAxLjI1NTI5MyAyLjMwNzM0NyAxLjMxNTA2OCAyLjMwNzM0N0MxLjQxMDcxIDIuMzA3MzQ3IDIuMzMxMjU4IDEuNDIyNjY1IDIuMzMxMjU4IDAuMDQ3ODIxWicgaWQ9J2cyLTU5Jy8+CjxwYXRoIGQ9J001LjEyODc2NyAtOC41MjQwMzVDNS4xMjg3NjcgLTguNTM1OTkgNS4yMDA0OTggLTguNzE1MzE4IDUuMjAwNDk4IC04LjczOTIyOEM1LjIwMDQ5OCAtOC44ODI2OSA1LjA4MDk0NiAtOC45NjYzNzYgNC45ODUzMDUgLTguOTY2Mzc2QzQuOTI1NTI5IC04Ljk2NjM3NiA0LjgxNzkzMyAtOC45NjYzNzYgNC43MjIyOTEgLTguNzAzMzYyTDAuNzE3MzEgMi41NDY0NTFDMC43MTczMSAyLjU1ODQwNiAwLjY0NTU3OSAyLjczNzczMyAwLjY0NTU3OSAyLjc2MTY0NEMwLjY0NTU3OSAyLjkwNTEwNiAwLjc2NTEzMSAyLjk4ODc5MiAwLjg2MDc3MiAyLjk4ODc5MkMwLjkzMjUwMyAyLjk4ODc5MiAxLjA0MDEgMi45NzY4MzcgMS4xMjM3ODYgMi43MjU3NzhMNS4xMjg3NjcgLTguNTI0MDM1WicgaWQ9J2cyLTYxJy8+CjxwYXRoIGQ9J00xLjg3Njk2MSAtMC44ODQ2ODJDMS43NjkzNjUgLTAuNDY2MjUyIDEuNzQ1NDU1IC0wLjM0NjcgMC45MDg1OTMgLTAuMzQ2N0MwLjY4MTQ0NSAtMC4zNDY3IDAuNTYxODkzIC0wLjM0NjcgMC41NjE4OTMgLTAuMTMxNTA3QzAuNTYxODkzIDAgMC42MzM2MjQgMCAwLjg3MjcyNyAwSDQuNjYyNTE2QzcuMDc3NDYgMCA5LjQzMjYyOCAtMi40OTg2MyA5LjQzMjYyOCAtNS4xNjQ2MzNDOS40MzI2MjggLTYuODg2MTc3IDguNDA0NDgzIC04LjE2NTM4IDYuNjk0ODk0IC04LjE2NTM4SDIuODU3Mjg1QzIuNjMwMTM3IC04LjE2NTM4IDIuNTIyNTQgLTguMTY1MzggMi41MjI1NCAtNy45MzgyMzJDMi41MjI1NCAtNy44MTg2OCAyLjYzMDEzNyAtNy44MTg2OCAyLjgwOTQ2NSAtNy44MTg2OEMzLjUzODczIC03LjgxODY4IDMuNTM4NzMgLTcuNzIzMDM5IDMuNTM4NzMgLTcuNTkxNTMyQzMuNTM4NzMgLTcuNTY3NjIxIDMuNTM4NzMgLTcuNDk1ODkgMy40OTA5MDkgLTcuMzE2NTYzTDEuODc2OTYxIC0wLjg4NDY4MlpNNC4zOTk1MDIgLTcuMzUyNDI4QzQuNTA3MDk4IC03Ljc5NDc3IDQuNTU0OTE5IC03LjgxODY4IDUuMDIxMTcxIC03LjgxODY4SDYuMzM2MjM5QzcuNDYwMDI1IC03LjgxODY4IDguNDg4MTY5IC03LjIwODk2NiA4LjQ4ODE2OSAtNS41NTkxNTNDOC40ODgxNjkgLTQuOTYxMzk1IDguMjQ5MDY2IC0yLjg4MTE5NiA3LjA4OTQxNSAtMS41NjYxMjdDNi43NTQ2NyAtMS4xNzE2MDYgNS44NDYwNzcgLTAuMzQ2NyA0LjQ3MTIzMyAtMC4zNDY3SDMuMTA4MzQ0QzIuOTQwOTcxIC0wLjM0NjcgMi45MTcwNjEgLTAuMzQ2NyAyLjg0NTMzIC0wLjM1ODY1NUMyLjcxMzgyMyAtMC4zNzA2MSAyLjcwMTg2OCAtMC4zOTQ1MjEgMi43MDE4NjggLTAuNDkwMTYyQzIuNzAxODY4IC0wLjU3Mzg0OCAyLjcyNTc3OCAtMC42NDU1NzkgMi43NDk2ODkgLTAuNzUzMTc2TDQuMzk5NTAyIC03LjM1MjQyOFonIGlkPSdnMi02OCcvPgo8cGF0aCBkPSdNNi4wMTM0NSAtNy45OTgwMDdDNi4wMjU0MDUgLTguMDQ1ODI4IDYuMDQ5MzE1IC04LjExNzU1OSA2LjA0OTMxNSAtOC4xNzczMzVDNi4wNDkzMTUgLTguMjk2ODg3IDUuOTI5NzYzIC04LjI5Njg4NyA1LjkwNTg1MyAtOC4yOTY4ODdDNS44OTM4OTggLTguMjk2ODg3IDUuMzA4MDk1IC04LjI0OTA2NiA1LjI0ODMxOSAtOC4yMzcxMTFDNS4wNDUwODEgLTguMjI1MTU2IDQuODY1NzUzIC04LjIwMTI0NSA0LjY1MDU2IC04LjE4OTI5QzQuMzUxNjgxIC04LjE2NTM4IDQuMjY3OTk1IC04LjE1MzQyNSA0LjI2Nzk5NSAtNy45MzgyMzJDNC4yNjc5OTUgLTcuODE4NjggNC4zNjM2MzYgLTcuODE4NjggNC41MzEwMDkgLTcuODE4NjhDNS4xMTY4MTIgLTcuODE4NjggNS4xMjg3NjcgLTcuNzExMDgzIDUuMTI4NzY3IC03LjU5MTUzMkM1LjEyODc2NyAtNy41MTk4MDEgNS4xMDQ4NTcgLTcuNDI0MTU5IDUuMDkyOTAyIC03LjM4ODI5NEw0LjM2MzYzNiAtNC40ODMxODhDNC4yMzIxMyAtNC43OTQwMjIgMy45MDkzNCAtNS4yNzIyMjkgMy4yODc2NzEgLTUuMjcyMjI5QzEuOTM2NzM3IC01LjI3MjIyOSAwLjQ3ODIwNyAtMy41MjY3NzUgMC40NzgyMDcgLTEuNzU3NDFDMC40NzgyMDcgLTAuNTczODQ4IDEuMTcxNjA2IDAuMTE5NTUyIDEuOTg0NTU4IDAuMTE5NTUyQzIuNjQyMDkyIDAuMTE5NTUyIDMuMjAzOTg1IC0wLjM5NDUyMSAzLjUzODczIC0wLjc4OTA0MUMzLjY1ODI4MSAtMC4wODM2ODYgNC4yMjAxNzQgMC4xMTk1NTIgNC41Nzg4MjkgMC4xMTk1NTJTNS4yMjQ0MDggLTAuMDk1NjQxIDUuNDM5NjAxIC0wLjUyNjAyN0M1LjYzMDg4NCAtMC45MzI1MDMgNS43OTgyNTcgLTEuNjYxNzY4IDUuNzk4MjU3IC0xLjcwOTU4OUM1Ljc5ODI1NyAtMS43NjkzNjUgNS43NTA0MzYgLTEuODE3MTg2IDUuNjc4NzA1IC0xLjgxNzE4NkM1LjU3MTEwOCAtMS44MTcxODYgNS41NTkxNTMgLTEuNzU3NDEgNS41MTEzMzMgLTEuNTc4MDgyQzUuMzMyMDA1IC0wLjg3MjcyNyA1LjEwNDg1NyAtMC4xMTk1NTIgNC42MTQ2OTUgLTAuMTE5NTUyQzQuMjY3OTk1IC0wLjExOTU1MiA0LjI0NDA4NSAtMC40MzAzODYgNC4yNDQwODUgLTAuNjY5NDg5QzQuMjQ0MDg1IC0wLjcxNzMxIDQuMjQ0MDg1IC0wLjk2ODM2OSA0LjMyNzc3MSAtMS4zMDMxMTNMNi4wMTM0NSAtNy45OTgwMDdaTTMuNTk4NTA2IC0xLjQyMjY2NUMzLjUzODczIC0xLjIxOTQyNyAzLjUzODczIC0xLjE5NTUxNyAzLjM3MTM1NyAtMC45NjgzNjlDMy4xMDgzNDQgLTAuNjMzNjI0IDIuNTgyMzE2IC0wLjExOTU1MiAyLjAyMDQyMyAtMC4xMTk1NTJDMS41MzAyNjIgLTAuMTE5NTUyIDEuMjU1MjkzIC0wLjU2MTg5MyAxLjI1NTI5MyAtMS4yNjcyNDhDMS4yNTUyOTMgLTEuOTI0NzgyIDEuNjI1OTAzIC0zLjI2Mzc2MSAxLjg1MzA1MSAtMy43NjU4NzhDMi4yNTk1MjcgLTQuNjAyNzQgMi44MjE0MiAtNS4wMzMxMjYgMy4yODc2NzEgLTUuMDMzMTI2QzQuMDc2NzEyIC01LjAzMzEyNiA0LjIzMjEzIC00LjA1MjgwMiA0LjIzMjEzIC0zLjk1NzE2MUM0LjIzMjEzIC0zLjk0NTIwNSA0LjE5NjI2NCAtMy43ODk3ODggNC4xODQzMDkgLTMuNzY1ODc4TDMuNTk4NTA2IC0xLjQyMjY2NVonIGlkPSdnMi0xMDAnLz4KPHBhdGggZD0nTTMuMTQ0MjA5IDEuMzM4OTc5QzIuODIxNDIgMS43OTMyNzUgMi4zNTUxNjggMi4xOTk3NTEgMS43NjkzNjUgMi4xOTk3NTFDMS42MjU5MDMgMi4xOTk3NTEgMS4wNTIwNTUgMi4xNzU4NDEgMC44NzI3MjcgMS42MjU5MDNDMC45MDg1OTMgMS42Mzc4NTggMC45NjgzNjkgMS42Mzc4NTggMC45OTIyNzkgMS42Mzc4NThDMS4zNTA5MzQgMS42Mzc4NTggMS41OTAwMzcgMS4zMjcwMjQgMS41OTAwMzcgMS4wNTIwNTVTMS4zNjI4ODkgMC42ODE0NDUgMS4xODM1NjIgMC42ODE0NDVDMC45OTIyNzkgMC42ODE0NDUgMC41NzM4NDggMC44MjQ5MDcgMC41NzM4NDggMS40MTA3MUMwLjU3Mzg0OCAyLjAyMDQyMyAxLjA4NzkyIDIuNDM4ODU0IDEuNzY5MzY1IDIuNDM4ODU0QzIuOTY0ODgyIDIuNDM4ODU0IDQuMTcyMzU0IDEuMzM4OTc5IDQuNTA3MDk4IDAuMDExOTU1TDUuNjc4NzA1IC00LjY1MDU2QzUuNjkwNjYgLTQuNzEwMzM2IDUuNzE0NTcgLTQuNzgyMDY3IDUuNzE0NTcgLTQuODUzNzk4QzUuNzE0NTcgLTUuMDMzMTI2IDUuNTcxMTA4IC01LjE1MjY3NyA1LjM5MTc4MSAtNS4xNTI2NzdDNS4yODQxODQgLTUuMTUyNjc3IDUuMDMzMTI2IC01LjEwNDg1NyA0LjkzNzQ4NCAtNC43NDYyMDJMNC4wNTI4MDIgLTEuMjMxMzgyQzMuOTkzMDI2IC0xLjAxNjE4OSAzLjk5MzAyNiAtMC45OTIyNzkgMy44OTczODUgLTAuODYwNzcyQzMuNjU4MjgxIC0wLjUyNjAyNyAzLjI2Mzc2MSAtMC4xMTk1NTIgMi42ODk5MTMgLTAuMTE5NTUyQzIuMDIwNDIzIC0wLjExOTU1MiAxLjk2MDY0OCAtMC43NzcwODYgMS45NjA2NDggLTEuMDk5ODc1QzEuOTYwNjQ4IC0xLjc4MTMyIDIuMjgzNDM3IC0yLjcwMTg2OCAyLjYwNjIyNyAtMy41NjI2NEMyLjczNzczMyAtMy45MDkzNCAyLjgwOTQ2NSAtNC4wNzY3MTIgMi44MDk0NjUgLTQuMzE1ODE2QzIuODA5NDY1IC00LjgxNzkzMyAyLjQ1MDgwOSAtNS4yNzIyMjkgMS44NjUwMDYgLTUuMjcyMjI5QzAuNzY1MTMxIC01LjI3MjIyOSAwLjMyMjc5IC0zLjUzODczIDAuMzIyNzkgLTMuNDQzMDg4QzAuMzIyNzkgLTMuMzk1MjY4IDAuMzcwNjEgLTMuMzM1NDkyIDAuNDU0Mjk2IC0zLjMzNTQ5MkMwLjU2MTg5MyAtMy4zMzU0OTIgMC41NzM4NDggLTMuMzgzMzEzIDAuNjIxNjY5IC0zLjU1MDY4NUMwLjkwODU5MyAtNC41NTQ5MTkgMS4zNjI4ODkgLTUuMDMzMTI2IDEuODI5MTQxIC01LjAzMzEyNkMxLjkzNjczNyAtNS4wMzMxMjYgMi4xMzk5NzUgLTUuMDMzMTI2IDIuMTM5OTc1IC00LjYzODYwNUMyLjEzOTk3NSAtNC4zMjc3NzEgMi4wMDg0NjggLTMuOTgxMDcxIDEuODI5MTQxIC0zLjUyNjc3NUMxLjI0MzMzNyAtMS45NjA2NDggMS4yNDMzMzcgLTEuNTY2MTI3IDEuMjQzMzM3IC0xLjI3OTIwM0MxLjI0MzMzNyAtMC4xNDM0NjIgMi4wNTYyODkgMC4xMTk1NTIgMi42NTQwNDcgMC4xMTk1NTJDMy4wMDA3NDcgMC4xMTk1NTIgMy40MzExMzMgMC4wMTE5NTUgMy44NDk1NjQgLTAuNDMwMzg2TDMuODYxNTE5IC0wLjQxODQzMUMzLjY4MjE5MiAwLjI4NjkyNCAzLjU2MjY0IDAuNzUzMTc2IDMuMTQ0MjA5IDEuMzM4OTc5WicgaWQ9J2cyLTEyMScvPgo8cGF0aCBkPSdNMy44ODU0MyAyLjkwNTEwNkMzLjg4NTQzIDIuODY5MjQgMy44ODU0MyAyLjg0NTMzIDMuNjgyMTkyIDIuNjQyMDkyQzIuNDg2Njc1IDEuNDM0NjIgMS44MTcxODYgLTAuNTM3OTgzIDEuODE3MTg2IC0yLjk3NjgzN0MxLjgxNzE4NiAtNS4yOTYxMzkgMi4zNzkwNzggLTcuMjkyNjUzIDMuNzY1ODc4IC04LjcwMzM2MkMzLjg4NTQzIC04LjgxMDk1OSAzLjg4NTQzIC04LjgzNDg2OSAzLjg4NTQzIC04Ljg3MDczNUMzLjg4NTQzIC04Ljk0MjQ2NiAzLjgyNTY1NCAtOC45NjYzNzYgMy43Nzc4MzMgLTguOTY2Mzc2QzMuNjIyNDE2IC04Ljk2NjM3NiAyLjY0MjA5MiAtOC4xMDU2MDQgMi4wNTYyODkgLTYuOTMzOTk4QzEuNDQ2NTc1IC01LjcyNjUyNiAxLjE3MTYwNiAtNC40NDczMjMgMS4xNzE2MDYgLTIuOTc2ODM3QzEuMTcxNjA2IC0xLjkxMjgyNyAxLjMzODk3OSAtMC40OTAxNjIgMS45NjA2NDggMC43ODkwNDFDMi42NjYwMDIgMi4yMjM2NjEgMy42NDYzMjYgMy4wMDA3NDcgMy43Nzc4MzMgMy4wMDA3NDdDMy44MjU2NTQgMy4wMDA3NDcgMy44ODU0MyAyLjk3NjgzNyAzLjg4NTQzIDIuOTA1MTA2WicgaWQ9J2czLTQwJy8+CjxwYXRoIGQ9J00zLjM3MTM1NyAtMi45NzY4MzdDMy4zNzEzNTcgLTMuODg1NDMgMy4yNTE4MDYgLTUuMzY3ODcgMi41ODIzMTYgLTYuNzU0NjdDMS44NzY5NjEgLTguMTg5MjkgMC44OTY2MzggLTguOTY2Mzc2IDAuNzY1MTMxIC04Ljk2NjM3NkMwLjcxNzMxIC04Ljk2NjM3NiAwLjY1NzUzNCAtOC45NDI0NjYgMC42NTc1MzQgLTguODcwNzM1QzAuNjU3NTM0IC04LjgzNDg2OSAwLjY1NzUzNCAtOC44MTA5NTkgMC44NjA3NzIgLTguNjA3NzIxQzIuMDU2Mjg5IC03LjQwMDI0OSAyLjcyNTc3OCAtNS40Mjc2NDYgMi43MjU3NzggLTIuOTg4NzkyQzIuNzI1Nzc4IC0wLjY2OTQ4OSAyLjE2Mzg4NSAxLjMyNzAyNCAwLjc3NzA4NiAyLjczNzczM0MwLjY1NzUzNCAyLjg0NTMzIDAuNjU3NTM0IDIuODY5MjQgMC42NTc1MzQgMi45MDUxMDZDMC42NTc1MzQgMi45NzY4MzcgMC43MTczMSAzLjAwMDc0NyAwLjc2NTEzMSAzLjAwMDc0N0MwLjkyMDU0OCAzLjAwMDc0NyAxLjkwMDg3MiAyLjEzOTk3NSAyLjQ4NjY3NSAwLjk2ODM2OUMzLjA5NjM4OSAtMC4yNTEwNTkgMy4zNzEzNTcgLTEuNTQyMjE3IDMuMzcxMzU3IC0yLjk3NjgzN1onIGlkPSdnMy00MScvPgo8cGF0aCBkPSdNNC41Nzg4MjkgLTIuNzczNTk5QzQuODQxODQzIC0yLjc3MzU5OSA0Ljg2NTc1MyAtMi43NzM1OTkgNC44NjU3NTMgLTMuMDAwNzQ3QzQuODY1NzUzIC00LjIwODIxOSA0LjIyMDE3NCAtNS4zMzIwMDUgMi43NzM1OTkgLTUuMzMyMDA1QzEuNDEwNzEgLTUuMzMyMDA1IDAuMzU4NjU1IC00LjEwMDYyMyAwLjM1ODY1NSAtMi42MTgxODJDMC4zNTg2NTUgLTEuMDQwMSAxLjU3ODA4MiAwLjExOTU1MiAyLjkwNTEwNiAwLjExOTU1MkM0LjMyNzc3MSAwLjExOTU1MiA0Ljg2NTc1MyAtMS4xNzE2MDYgNC44NjU3NTMgLTEuNDIyNjY1QzQuODY1NzUzIC0xLjQ5NDM5NiA0LjgwNTk3OCAtMS41NDIyMTcgNC43MzQyNDcgLTEuNTQyMjE3QzQuNjM4NjA1IC0xLjU0MjIxNyA0LjYxNDY5NSAtMS40ODI0NDEgNC41OTA3ODUgLTEuNDIyNjY1QzQuMjc5OTUgLTAuNDE4NDMxIDMuNDc4OTU0IC0wLjE0MzQ2MiAyLjk3NjgzNyAtMC4xNDM0NjJTMS4yNjcyNDggLTAuNDc4MjA3IDEuMjY3MjQ4IC0yLjU0NjQ1MVYtMi43NzM1OTlINC41Nzg4MjlaTTEuMjc5MjAzIC0zLjAwMDc0N0MxLjM3NDg0NCAtNC44Nzc3MDkgMi40MjY4OTkgLTUuMDkyOTAyIDIuNzYxNjQ0IC01LjA5MjkwMkM0LjA0MDg0NyAtNS4wOTI5MDIgNC4xMTI1NzggLTMuNDA3MjIzIDQuMTI0NTMzIC0zLjAwMDc0N0gxLjI3OTIwM1onIGlkPSdnMy0xMDEnLz4KPHBhdGggZD0nTTIuOTI5MDE2IDEuOTcyNjAzQzIuMTYzODg1IDEuOTcyNjAzIDIuMDIwNDIzIDEuOTcyNjAzIDIuMDIwNDIzIDEuNDM0NjJWLTAuNjQ1NTc5QzIuMjM1NjE2IC0wLjM0NjcgMi43MjU3NzggMC4xMTk1NTIgMy40OTA5MDkgMC4xMTk1NTJDNC44NjU3NTMgMC4xMTk1NTIgNi4wNzMyMjUgLTEuMDQwMSA2LjA3MzIyNSAtMi41ODIzMTZDNi4wNzMyMjUgLTQuMTAwNjIzIDQuOTQ5NDQgLTUuMjcyMjI5IDMuNjQ2MzI2IC01LjI3MjIyOUMyLjU5NDI3MSAtNS4yNzIyMjkgMi4wMzIzNzkgLTQuNTE5MDU0IDEuOTk2NTEzIC00LjQ3MTIzM1YtNS4yNzIyMjlMMC4zMzQ3NDUgLTUuMTQwNzIyVi00Ljc5NDAyMkMxLjE3MTYwNiAtNC43OTQwMjIgMS4yNDMzMzcgLTQuNzEwMzM2IDEuMjQzMzM3IC00LjE4NDMwOVYxLjQzNDYyQzEuMjQzMzM3IDEuOTcyNjAzIDEuMTExODMxIDEuOTcyNjAzIDAuMzM0NzQ1IDEuOTcyNjAzVjIuMzE5MzAzQzAuNjQ1NTc5IDIuMjk1MzkyIDEuMjkxMTU4IDIuMjk1MzkyIDEuNjI1OTAzIDIuMjk1MzkyQzEuOTcyNjAzIDIuMjk1MzkyIDIuNjE4MTgyIDIuMjk1MzkyIDIuOTI5MDE2IDIuMzE5MzAzVjEuOTcyNjAzWk0yLjAyMDQyMyAtMy44MTM2OTlDMi4wMjA0MjMgLTQuMDQwODQ3IDIuMDIwNDIzIC00LjA1MjgwMiAyLjE1MTkzIC00LjI0NDA4NUMyLjUxMDU4NSAtNC43ODIwNjcgMy4wOTYzODkgLTUuMDA5MjE1IDMuNTUwNjg1IC01LjAwOTIxNUM0LjQ0NzMyMyAtNS4wMDkyMTUgNS4xNjQ2MzMgLTMuOTIxMjk1IDUuMTY0NjMzIC0yLjU4MjMxNkM1LjE2NDYzMyAtMS4xNTk2NTEgNC4zNTE2ODEgLTAuMTE5NTUyIDMuNDMxMTMzIC0wLjExOTU1MkMzLjA2MDUyMyAtMC4xMTk1NTIgMi43MTM4MjMgLTAuMjc0OTY5IDIuNDc0NzIgLTAuNTAyMTE3QzIuMTk5NzUxIC0wLjc3NzA4NiAyLjAyMDQyMyAtMS4wMTYxODkgMi4wMjA0MjMgLTEuMzUwOTM0Vi0zLjgxMzY5OVonIGlkPSdnMy0xMTInLz4KPHBhdGggZD0nTTMuMzQ3NDQ3IC0yLjgyMTQyQzMuNjk0MTQ3IC0zLjI3NTcxNiA0LjE5NjI2NCAtMy45MjEyOTUgNC40MjM0MTIgLTQuMTcyMzU0QzQuOTEzNTc0IC00LjcyMjI5MSA1LjQ3NTQ2NyAtNC44MDU5NzggNS44NTgwMzIgLTQuODA1OTc4Vi01LjE1MjY3N0M1LjM0Mzk2IC01LjEyODc2NyA1LjMyMDA1IC01LjEyODc2NyA0Ljg1Mzc5OCAtNS4xMjg3NjdDNC4zOTk1MDIgLTUuMTI4NzY3IDQuMzc1NTkyIC01LjEyODc2NyAzLjc3NzgzMyAtNS4xNTI2NzdWLTQuODA1OTc4QzMuOTMzMjUgLTQuNzgyMDY3IDQuMTI0NTMzIC00LjcxMDMzNiA0LjEyNDUzMyAtNC40MzUzNjdDNC4xMjQ1MzMgLTQuMjMyMTMgNC4wMTY5MzYgLTQuMTAwNjIzIDMuOTQ1MjA1IC00LjAwNDk4MUwzLjE4MDA3NSAtMy4wMzY2MTNMMi4yNDc1NzIgLTQuMjY3OTk1QzIuMjExNzA2IC00LjMxNTgxNiAyLjEzOTk3NSAtNC40MjM0MTIgMi4xMzk5NzUgLTQuNTA3MDk4QzIuMTM5OTc1IC00LjU3ODgyOSAyLjE5OTc1MSAtNC43OTQwMjIgMi41NTg0MDYgLTQuODA1OTc4Vi01LjE1MjY3N0MyLjI1OTUyNyAtNS4xMjg3NjcgMS42NDk4MTMgLTUuMTI4NzY3IDEuMzI3MDI0IC01LjEyODc2N0MwLjkzMjUwMyAtNS4xMjg3NjcgMC45MDg1OTMgLTUuMTI4NzY3IDAuMTc5MzI4IC01LjE1MjY3N1YtNC44MDU5NzhDMC43ODkwNDEgLTQuODA1OTc4IDEuMDE2MTg5IC00Ljc4MjA2NyAxLjI2NzI0OCAtNC40NTkyNzhMMi42NjYwMDIgLTIuNjMwMTM3QzIuNjg5OTEzIC0yLjYwNjIyNyAyLjczNzczMyAtMi41MzQ0OTYgMi43Mzc3MzMgLTIuNDk4NjNTMS44MDUyMyAtMS4yOTExNTggMS42ODU2NzkgLTEuMTM1NzQxQzEuMTU5NjUxIC0wLjQ5MDE2MiAwLjYzMzYyNCAtMC4zNTg2NTUgMC4xMTk1NTIgLTAuMzQ2N1YwQzAuNTczODQ4IC0wLjAyMzkxIDAuNTk3NzU4IC0wLjAyMzkxIDEuMTExODMxIC0wLjAyMzkxQzEuNTY2MTI3IC0wLjAyMzkxIDEuNTkwMDM3IC0wLjAyMzkxIDIuMTg3Nzk2IDBWLTAuMzQ2N0MxLjkwMDg3MiAtMC4zODI1NjUgMS44NTMwNTEgLTAuNTYxODkzIDEuODUzMDUxIC0wLjcyOTI2NUMxLjg1MzA1MSAtMC45MjA1NDggMS45MzY3MzcgLTEuMDE2MTg5IDIuMDU2Mjg5IC0xLjE3MTYwNkMyLjIzNTYxNiAtMS40MjI2NjUgMi42MzAxMzcgLTEuOTEyODI3IDIuOTE3MDYxIC0yLjI4MzQzN0wzLjg5NzM4NSAtMS4wMDQyMzRDNC4xMDA2MjMgLTAuNzQxMjIgNC4xMDA2MjMgLTAuNzE3MzEgNC4xMDA2MjMgLTAuNjQ1NTc5QzQuMTAwNjIzIC0wLjU0OTkzOCA0LjAwNDk4MSAtMC4zNTg2NTUgMy42ODIxOTIgLTAuMzQ2N1YwQzMuOTkzMDI2IC0wLjAyMzkxIDQuNTc4ODI5IC0wLjAyMzkxIDQuOTEzNTc0IC0wLjAyMzkxQzUuMzA4MDk1IC0wLjAyMzkxIDUuMzMyMDA1IC0wLjAyMzkxIDYuMDQ5MzE1IDBWLTAuMzQ2N0M1LjQxNTY5MSAtMC4zNDY3IDUuMjAwNDk4IC0wLjM3MDYxIDQuOTEzNTc0IC0wLjc1MzE3NkwzLjM0NzQ0NyAtMi44MjE0MlonIGlkPSdnMy0xMjAnLz4KPHBhdGggZD0nTTcuODc4NDU2IC0yLjc0OTY4OUM4LjA4MTY5NCAtMi43NDk2ODkgOC4yOTY4ODcgLTIuNzQ5Njg5IDguMjk2ODg3IC0yLjk4ODc5MlM4LjA4MTY5NCAtMy4yMjc4OTUgNy44Nzg0NTYgLTMuMjI3ODk1SDEuNDEwNzFDMS4yMDc0NzIgLTMuMjI3ODk1IDAuOTkyMjc5IC0zLjIyNzg5NSAwLjk5MjI3OSAtMi45ODg3OTJTMS4yMDc0NzIgLTIuNzQ5Njg5IDEuNDEwNzEgLTIuNzQ5Njg5SDcuODc4NDU2WicgaWQ9J2cwLTAnLz4KPHBhdGggZD0nTTIuMjk1MzkyIC0yLjk4ODc5MkMyLjI5NTM5MiAtMy4zMzU0OTIgMi4wMDg0NjggLTMuNjIyNDE2IDEuNjYxNzY4IC0zLjYyMjQxNlMxLjAyODE0NCAtMy4zMzU0OTIgMS4wMjgxNDQgLTIuOTg4NzkyUzEuMzE1MDY4IC0yLjM1NTE2OCAxLjY2MTc2OCAtMi4zNTUxNjhTMi4yOTUzOTIgLTIuNjQyMDkyIDIuMjk1MzkyIC0yLjk4ODc5MlonIGlkPSdnMC0xJy8+CjxwYXRoIGQ9J005Ljk3MDYxIC0yLjc0OTY4OUM5LjMxMzA3NiAtMi4yNDc1NzIgOC45OTAyODYgLTEuNzU3NDEgOC44OTQ2NDUgLTEuNjAxOTkzQzguMzU2NjYzIC0wLjc3NzA4NiA4LjI2MTAyMSAtMC4wMjM5MSA4LjI2MTAyMSAtMC4wMTE5NTVDOC4yNjEwMjEgMC4xMzE1MDcgOC40MDQ0ODMgMC4xMzE1MDcgOC41MDAxMjUgMC4xMzE1MDdDOC43MDMzNjIgMC4xMzE1MDcgOC43MTUzMTggMC4xMDc1OTcgOC43NjMxMzggLTAuMTA3NTk3QzkuMDM4MTA3IC0xLjI3OTIwMyA5Ljc0MzQ2MiAtMi4yODM0MzcgMTEuMDk0Mzk2IC0yLjgzMzM3NUMxMS4yMzc4NTggLTIuODgxMTk2IDExLjI3MzcyNCAtMi45MDUxMDYgMTEuMjczNzI0IC0yLjk4ODc5MlMxMS4yMDE5OTMgLTMuMTA4MzQ0IDExLjE3ODA4MiAtMy4xMjAyOTlDMTAuNjUyMDU1IC0zLjMyMzUzNyA5LjIwNTQ3OSAtMy45MjEyOTUgOC43NTExODMgLTUuOTI5NzYzQzguNzE1MzE4IC02LjA3MzIyNSA4LjcwMzM2MiAtNi4xMDkwOTEgOC41MDAxMjUgLTYuMTA5MDkxQzguNDA0NDgzIC02LjEwOTA5MSA4LjI2MTAyMSAtNi4xMDkwOTEgOC4yNjEwMjEgLTUuOTY1NjI5QzguMjYxMDIxIC01Ljk0MTcxOSA4LjM2ODYxOCAtNS4xODg1NDMgOC44NzA3MzUgLTQuMzg3NTQ3QzkuMTA5ODM4IC00LjAyODg5MiA5LjQ1NjUzOCAtMy42MTA0NjEgOS45NzA2MSAtMy4yMjc4OTVIMS4wODc5MkMwLjg3MjcyNyAtMy4yMjc4OTUgMC42NTc1MzQgLTMuMjI3ODk1IDAuNjU3NTM0IC0yLjk4ODc5MlMwLjg3MjcyNyAtMi43NDk2ODkgMS4wODc5MiAtMi43NDk2ODlIOS45NzA2MVonIGlkPSdnMC0zMycvPgo8cGF0aCBkPSdNMS4xMzU3NDEgLTIuNzQ5Njg5QzEuMjA3NDcyIC0yLjc0OTY4OSAxLjQ3MDQ4NiAtMi43NDk2ODkgMS40NzA0ODYgLTIuOTg4NzkyUzEuMjA3NDcyIC0zLjIyNzg5NSAxLjEzNTc0MSAtMy4yMjc4OTVWLTQuNzk0MDIyQzEuMTM1NzQxIC00Ljk4NTMwNSAxLjEzNTc0MSAtNS4yMTI0NTMgMC44OTY2MzggLTUuMjEyNDUzUzAuNjU3NTM0IC00Ljk4NTMwNSAwLjY1NzUzNCAtNC43OTQwMjJWLTEuMTgzNTYyQzAuNjU3NTM0IC0wLjk5MjI3OSAwLjY1NzUzNCAtMC43NjUxMzEgMC44OTY2MzggLTAuNzY1MTMxUzEuMTM1NzQxIC0wLjk5MjI3OSAxLjEzNTc0MSAtMS4xODM1NjJWLTIuNzQ5Njg5WicgaWQ9J2cwLTU1Jy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PScwJyB4bGluazpocmVmPScjZzItMTIxJyB5PScwJy8+Cjx1c2UgeD0nOS40NTc0ODEnIHhsaW5rOmhyZWY9JyNnMC01NScgeT0nMCcvPgo8dXNlIHg9JzkuNDU3NDgxJyB4bGluazpocmVmPScjZzAtMzMnIHk9JzAnLz4KPHVzZSB4PScyNC43MzM1MTMnIHhsaW5rOmhyZWY9JyNnMy0xMDEnIHk9JzAnLz4KPHVzZSB4PScyOS45MzYxNzEnIHhsaW5rOmhyZWY9JyNnMy0xMjAnIHk9JzAnLz4KPHVzZSB4PSczNi4xMTQzMjcnIHhsaW5rOmhyZWY9JyNnMy0xMTInIHk9JzAnLz4KPHVzZSB4PSc0Mi42MTc2NScgeGxpbms6aHJlZj0nI2czLTQwJyB5PScwJy8+Cjx1c2UgeD0nNDcuMTY5OTc1JyB4bGluazpocmVmPScjZzAtMCcgeT0nMCcvPgo8dXNlIHg9JzU2LjQ2ODQ3MicgeGxpbms6aHJlZj0nI2cyLTEwMCcgeT0nMCcvPgo8dXNlIHg9JzYyLjU1MTE2NScgeGxpbms6aHJlZj0nI2czLTQwJyB5PScwJy8+Cjx1c2UgeD0nNjcuMTAzNDkxJyB4bGluazpocmVmPScjZzItMTIxJyB5PScwJy8+Cjx1c2UgeD0nNzMuMjQwMTQzJyB4bGluazpocmVmPScjZzItNTknIHk9JzAnLz4KPHVzZSB4PSc3OC40ODQzMDInIHhsaW5rOmhyZWY9JyNnMi02OCcgeT0nMCcvPgo8dXNlIHg9Jzg4LjUyODc3NycgeGxpbms6aHJlZj0nI2czLTQxJyB5PScwJy8+Cjx1c2UgeD0nOTMuMDgxMTAzJyB4bGluazpocmVmPScjZzItNjEnIHk9JzAnLz4KPHVzZSB4PSc5OC45MzQwOTMnIHhsaW5rOmhyZWY9JyNnMy00MCcgeT0nMCcvPgo8dXNlIHg9JzEwMy40ODY0MTknIHhsaW5rOmhyZWY9JyNnMi0xMScgeT0nMCcvPgo8dXNlIHg9JzExMC45MzIwMjcnIHhsaW5rOmhyZWY9JyNnMS0xMDUnIHk9JzEuNzkzMjYzJy8+Cjx1c2UgeD0nMTE2Ljk2OTk2MicgeGxpbms6aHJlZj0nI2cwLTEnIHk9JzAnLz4KPHVzZSB4PScxMjIuOTQ3NTE2JyB4bGluazpocmVmPScjZzItMjcnIHk9JzAnLz4KPHVzZSB4PScxMjkuNjAwOTcxJyB4bGluazpocmVmPScjZzEtMTA1JyB5PScxLjc5MzI2MycvPgo8dXNlIHg9JzEzMi45ODIyNDMnIHhsaW5rOmhyZWY9JyNnMy00MScgeT0nMCcvPgo8dXNlIHg9JzEzNy41MzQ1NjknIHhsaW5rOmhyZWY9JyNnMy00MScgeT0nMCcvPgo8L2c+Cjwvc3ZnPgo8IS0tIERFUFRIPTQgLS0+" alt="y \mapsto \exp(-d(y, D) / (\alpha_i \cdot \sigma_i))" style="vertical-align: -4px"/> where <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nNi45NDA2MzZwdCcgdmVyc2lvbj0nMS4xJyB2aWV3Qm94PScwIC01LjE0NzM3MyAxMC4zMjg3NDggNi45NDA2MzYnIHdpZHRoPScxMC4zMjg3NDhwdCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+CjxkZWZzPgo8cGF0aCBkPSdNMi4zNzUwOTMgLTQuOTczMzVDMi4zNzUwOTMgLTUuMTQ4NjkyIDIuMjQ3NTcyIC01LjI3NjIxNCAyLjA2NDI1OSAtNS4yNzYyMTRDMS44NTcwMzYgLTUuMjc2MjE0IDEuNjI1OTAzIC01LjA4NDkzMiAxLjYyNTkwMyAtNC44NDU4MjhDMS42MjU5MDMgLTQuNjcwNDg2IDEuNzUzNDI1IC00LjU0Mjk2NCAxLjkzNjczNyAtNC41NDI5NjRDMi4xNDM5NiAtNC41NDI5NjQgMi4zNzUwOTMgLTQuNzM0MjQ3IDIuMzc1MDkzIC00Ljk3MzM1Wk0xLjIxMTQ1NyAtMi4wNDgzMTlMMC43ODEwNzEgLTAuOTQ4NDQzQzAuNzQxMjIgLTAuODI4ODkyIDAuNzAxMzcgLTAuNzMzMjUgMC43MDEzNyAtMC41OTc3NThDMC43MDEzNyAtMC4yMDcyMjMgMS4wMDQyMzQgMC4wNzk3MDEgMS40MjY2NSAwLjA3OTcwMUMyLjE5OTc1MSAwLjA3OTcwMSAyLjUyNjUyNiAtMS4wMzYxMTUgMi41MjY1MjYgLTEuMTM5NzI2QzIuNTI2NTI2IC0xLjIxOTQyNyAyLjQ2Mjc2NSAtMS4yNDMzMzcgMi40MDY5NzQgLTEuMjQzMzM3QzIuMzExMzMzIC0xLjI0MzMzNyAyLjI5NTM5MiAtMS4xODc1NDcgMi4yNzE0ODIgLTEuMTA3ODQ2QzIuMDg4MTY5IC0wLjQ3MDIzNyAxLjc2MTM5NSAtMC4xNDM0NjIgMS40NDI1OSAtMC4xNDM0NjJDMS4zNDY5NDkgLTAuMTQzNDYyIDEuMjUxMzA4IC0wLjE4MzMxMyAxLjI1MTMwOCAtMC4zOTg1MDZDMS4yNTEzMDggLTAuNTg5Nzg4IDEuMzA3MDk4IC0wLjczMzI1IDEuNDEwNzEgLTAuOTgwMzI0QzEuNDkwNDExIC0xLjE5NTUxNyAxLjU3MDExMiAtMS40MTA3MSAxLjY1Nzc4MyAtMS42MjU5MDNMMS45MDQ4NTcgLTIuMjcxNDgyQzEuOTc2NTg4IC0yLjQ1NDc5NSAyLjA3MjIyOSAtMi43MDE4NjggMi4wNzIyMjkgLTIuODM3MzZDMi4wNzIyMjkgLTMuMjM1ODY2IDEuNzUzNDI1IC0zLjUxNDgxOSAxLjM0Njk0OSAtMy41MTQ4MTlDMC41NzM4NDggLTMuNTE0ODE5IDAuMjM5MTAzIC0yLjM5OTAwNCAwLjIzOTEwMyAtMi4yOTUzOTJDMC4yMzkxMDMgLTIuMjIzNjYxIDAuMjk0ODk0IC0yLjE5MTc4MSAwLjM1ODY1NSAtMi4xOTE3ODFDMC40NjIyNjcgLTIuMTkxNzgxIDAuNDcwMjM3IC0yLjIzOTYwMSAwLjQ5NDE0NyAtMi4zMTkzMDNDMC43MTczMSAtMy4wNzY0NjMgMS4wODM5MzUgLTMuMjkxNjU2IDEuMzIzMDM5IC0zLjI5MTY1NkMxLjQzNDYyIC0zLjI5MTY1NiAxLjUxNDMyMSAtMy4yNTE4MDYgMS41MTQzMjEgLTMuMDI4NjQzQzEuNTE0MzIxIC0yLjk0ODk0MSAxLjUwNjM1MSAtMi44MzczNiAxLjQyNjY1IC0yLjU5ODI1N0wxLjIxMTQ1NyAtMi4wNDgzMTlaJyBpZD0nZzAtMTA1Jy8+CjxwYXRoIGQ9J001LjUzNTI0MyAtMy4wMjQ2NThDNS41MzUyNDMgLTQuMTg0MzA5IDQuODc3NzA5IC01LjI3MjIyOSAzLjYxMDQ2MSAtNS4yNzIyMjlDMi4wNDQzMzQgLTUuMjcyMjI5IDAuNDc4MjA3IC0zLjU2MjY0IDAuNDc4MjA3IC0xLjg2NTAwNkMwLjQ3ODIwNyAtMC44MjQ5MDcgMS4xMjM3ODYgMC4xMTk1NTIgMi4zNDMyMTMgMC4xMTk1NTJDMy4wODQ0MzMgMC4xMTk1NTIgMy45NjkxMTYgLTAuMTY3MzcyIDQuODE3OTMzIC0wLjg4NDY4MkM0Ljk4NTMwNSAtMC4yMTUxOTMgNS4zNTU5MTUgMC4xMTk1NTIgNS44Njk5ODggMC4xMTk1NTJDNi41MTU1NjcgMC4xMTk1NTIgNi44MzgzNTYgLTAuNTQ5OTM4IDYuODM4MzU2IC0wLjcwNTM1NUM2LjgzODM1NiAtMC44MTI5NTEgNi43NTQ2NyAtMC44MTI5NTEgNi43MTg4MDQgLTAuODEyOTUxQzYuNjIzMTYzIC0wLjgxMjk1MSA2LjYxMTIwOCAtMC43NzcwODYgNi41NzUzNDIgLTAuNjgxNDQ1QzYuNDY3NzQ2IC0wLjM4MjU2NSA2LjE5Mjc3NyAtMC4xMTk1NTIgNS45MDU4NTMgLTAuMTE5NTUyQzUuNTM1MjQzIC0wLjExOTU1MiA1LjUzNTI0MyAtMC44ODQ2ODIgNS41MzUyNDMgLTEuNjEzOTQ4QzYuNzU0NjcgLTMuMDcyNDc4IDcuMDQxNTk0IC00LjU3ODgyOSA3LjA0MTU5NCAtNC41OTA3ODVDNy4wNDE1OTQgLTQuNjk4MzgxIDYuOTQ1OTUzIC00LjY5ODM4MSA2LjkxMDA4NyAtNC42OTgzODFDNi44MDI0OTEgLTQuNjk4MzgxIDYuNzkwNTM1IC00LjY2MjUxNiA2Ljc0MjcxNSAtNC40NDczMjNDNi41ODcyOTggLTMuOTIxMjk1IDYuMjc2NDYzIC0yLjk4ODc5MiA1LjUzNTI0MyAtMi4wMDg0NjhWLTMuMDI0NjU4Wk00Ljc4MjA2NyAtMS4xNzE2MDZDMy43MzAwMTIgLTAuMjI3MTQ4IDIuNzg1NTU0IC0wLjExOTU1MiAyLjM2NzEyMyAtMC4xMTk1NTJDMS41MTgzMDYgLTAuMTE5NTUyIDEuMjc5MjAzIC0wLjg3MjcyNyAxLjI3OTIwMyAtMS40MzQ2MkMxLjI3OTIwMyAtMS45NDg2OTIgMS41NDIyMTcgLTMuMTY4MTIgMS45MTI4MjcgLTMuODI1NjU0QzIuNDAyOTg5IC00LjY2MjUxNiAzLjA3MjQ3OCAtNS4wMzMxMjYgMy42MTA0NjEgLTUuMDMzMTI2QzQuNzcwMTEyIC01LjAzMzEyNiA0Ljc3MDExMiAtMy41MTQ4MTkgNC43NzAxMTIgLTIuNTEwNTg1QzQuNzcwMTEyIC0yLjIxMTcwNiA0Ljc1ODE1NyAtMS45MDA4NzIgNC43NTgxNTcgLTEuNjAxOTkzQzQuNzU4MTU3IC0xLjM2Mjg4OSA0Ljc3MDExMiAtMS4zMDMxMTMgNC43ODIwNjcgLTEuMTcxNjA2WicgaWQ9J2cxLTExJy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PScwJyB4bGluazpocmVmPScjZzEtMTEnIHk9JzAnLz4KPHVzZSB4PSc3LjQ0NTYwOScgeGxpbms6aHJlZj0nI2cwLTEwNScgeT0nMS43OTMyNjMnLz4KPC9nPgo8L3N2Zz4KPCEtLSBERVBUSD0yIC0tPg==" alt="\alpha_i" style="vertical-align: -2px"/> is the alpha parameter, <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nNi45NDA2MzZwdCcgdmVyc2lvbj0nMS4xJyB2aWV3Qm94PScwIC01LjE0NzM3MyA5LjUzNjU5NSA2Ljk0MDYzNicgd2lkdGg9JzkuNTM2NTk1cHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTIuMzc1MDkzIC00Ljk3MzM1QzIuMzc1MDkzIC01LjE0ODY5MiAyLjI0NzU3MiAtNS4yNzYyMTQgMi4wNjQyNTkgLTUuMjc2MjE0QzEuODU3MDM2IC01LjI3NjIxNCAxLjYyNTkwMyAtNS4wODQ5MzIgMS42MjU5MDMgLTQuODQ1ODI4QzEuNjI1OTAzIC00LjY3MDQ4NiAxLjc1MzQyNSAtNC41NDI5NjQgMS45MzY3MzcgLTQuNTQyOTY0QzIuMTQzOTYgLTQuNTQyOTY0IDIuMzc1MDkzIC00LjczNDI0NyAyLjM3NTA5MyAtNC45NzMzNVpNMS4yMTE0NTcgLTIuMDQ4MzE5TDAuNzgxMDcxIC0wLjk0ODQ0M0MwLjc0MTIyIC0wLjgyODg5MiAwLjcwMTM3IC0wLjczMzI1IDAuNzAxMzcgLTAuNTk3NzU4QzAuNzAxMzcgLTAuMjA3MjIzIDEuMDA0MjM0IDAuMDc5NzAxIDEuNDI2NjUgMC4wNzk3MDFDMi4xOTk3NTEgMC4wNzk3MDEgMi41MjY1MjYgLTEuMDM2MTE1IDIuNTI2NTI2IC0xLjEzOTcyNkMyLjUyNjUyNiAtMS4yMTk0MjcgMi40NjI3NjUgLTEuMjQzMzM3IDIuNDA2OTc0IC0xLjI0MzMzN0MyLjMxMTMzMyAtMS4yNDMzMzcgMi4yOTUzOTIgLTEuMTg3NTQ3IDIuMjcxNDgyIC0xLjEwNzg0NkMyLjA4ODE2OSAtMC40NzAyMzcgMS43NjEzOTUgLTAuMTQzNDYyIDEuNDQyNTkgLTAuMTQzNDYyQzEuMzQ2OTQ5IC0wLjE0MzQ2MiAxLjI1MTMwOCAtMC4xODMzMTMgMS4yNTEzMDggLTAuMzk4NTA2QzEuMjUxMzA4IC0wLjU4OTc4OCAxLjMwNzA5OCAtMC43MzMyNSAxLjQxMDcxIC0wLjk4MDMyNEMxLjQ5MDQxMSAtMS4xOTU1MTcgMS41NzAxMTIgLTEuNDEwNzEgMS42NTc3ODMgLTEuNjI1OTAzTDEuOTA0ODU3IC0yLjI3MTQ4MkMxLjk3NjU4OCAtMi40NTQ3OTUgMi4wNzIyMjkgLTIuNzAxODY4IDIuMDcyMjI5IC0yLjgzNzM2QzIuMDcyMjI5IC0zLjIzNTg2NiAxLjc1MzQyNSAtMy41MTQ4MTkgMS4zNDY5NDkgLTMuNTE0ODE5QzAuNTczODQ4IC0zLjUxNDgxOSAwLjIzOTEwMyAtMi4zOTkwMDQgMC4yMzkxMDMgLTIuMjk1MzkyQzAuMjM5MTAzIC0yLjIyMzY2MSAwLjI5NDg5NCAtMi4xOTE3ODEgMC4zNTg2NTUgLTIuMTkxNzgxQzAuNDYyMjY3IC0yLjE5MTc4MSAwLjQ3MDIzNyAtMi4yMzk2MDEgMC40OTQxNDcgLTIuMzE5MzAzQzAuNzE3MzEgLTMuMDc2NDYzIDEuMDgzOTM1IC0zLjI5MTY1NiAxLjMyMzAzOSAtMy4yOTE2NTZDMS40MzQ2MiAtMy4yOTE2NTYgMS41MTQzMjEgLTMuMjUxODA2IDEuNTE0MzIxIC0zLjAyODY0M0MxLjUxNDMyMSAtMi45NDg5NDEgMS41MDYzNTEgLTIuODM3MzYgMS40MjY2NSAtMi41OTgyNTdMMS4yMTE0NTcgLTIuMDQ4MzE5WicgaWQ9J2cwLTEwNScvPgo8cGF0aCBkPSdNNi4wNzMyMjUgLTQuNTA3MDk4QzYuMjI4NjQzIC00LjUwNzA5OCA2LjYyMzE2MyAtNC41MDcwOTggNi42MjMxNjMgLTQuODg5NjY0QzYuNjIzMTYzIC01LjE1MjY3NyA2LjM5NjAxNSAtNS4xNTI2NzcgNi4xODA4MjIgLTUuMTUyNjc3SDMuNTM4NzNDMS43NDU0NTUgLTUuMTUyNjc3IDAuNDU0Mjk2IC0zLjE1NjE2NCAwLjQ1NDI5NiAtMS43NDU0NTVDMC40NTQyOTYgLTAuNzI5MjY1IDEuMTExODMxIDAuMTE5NTUyIDIuMTg3Nzk2IDAuMTE5NTUyQzMuNTk4NTA2IDAuMTE5NTUyIDUuMTQwNzIyIC0xLjM5ODc1NSA1LjE0MDcyMiAtMy4xOTIwM0M1LjE0MDcyMiAtMy42NTgyODEgNS4wMzMxMjYgLTQuMTEyNTc4IDQuNzQ2MjAyIC00LjUwNzA5OEg2LjA3MzIyNVpNMi4xOTk3NTEgLTAuMTE5NTUyQzEuNTkwMDM3IC0wLjExOTU1MiAxLjE0NzY5NiAtMC41ODU4MDMgMS4xNDc2OTYgLTEuNDEwNzFDMS4xNDc2OTYgLTIuMTI4MDIgMS41NzgwODIgLTQuNTA3MDk4IDMuMzM1NDkyIC00LjUwNzA5OEMzLjg0OTU2NCAtNC41MDcwOTggNC40MjM0MTIgLTQuMjU2MDQgNC40MjM0MTIgLTMuMzM1NDkyQzQuNDIzNDEyIC0yLjkxNzA2MSA0LjIzMjEzIC0xLjkxMjgyNyAzLjgxMzY5OSAtMS4yMTk0MjdDMy4zODMzMTMgLTAuNTE0MDcyIDIuNzM3NzMzIC0wLjExOTU1MiAyLjE5OTc1MSAtMC4xMTk1NTJaJyBpZD0nZzEtMjcnLz4KPC9kZWZzPgo8ZyBpZD0ncGFnZTEnPgo8dXNlIHg9JzAnIHhsaW5rOmhyZWY9JyNnMS0yNycgeT0nMCcvPgo8dXNlIHg9JzYuNjUzNDU1JyB4bGluazpocmVmPScjZzAtMTA1JyB5PScxLjc5MzI2MycvPgo8L2c+Cjwvc3ZnPgo8IS0tIERFUFRIPTIgLS0+" alt="\sigma_i" style="vertical-align: -2px"/> is the standard deviation of the i-th output variable and <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nMTEuOTU1MTY4cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMCAtOC45NjYzNzYgMzYuNjEyNjMgMTEuOTU1MTY4JyB3aWR0aD0nMzYuNjEyNjNwdCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+CjxkZWZzPgo8cGF0aCBkPSdNMy44ODU0MyAyLjkwNTEwNkMzLjg4NTQzIDIuODY5MjQgMy44ODU0MyAyLjg0NTMzIDMuNjgyMTkyIDIuNjQyMDkyQzIuNDg2Njc1IDEuNDM0NjIgMS44MTcxODYgLTAuNTM3OTgzIDEuODE3MTg2IC0yLjk3NjgzN0MxLjgxNzE4NiAtNS4yOTYxMzkgMi4zNzkwNzggLTcuMjkyNjUzIDMuNzY1ODc4IC04LjcwMzM2MkMzLjg4NTQzIC04LjgxMDk1OSAzLjg4NTQzIC04LjgzNDg2OSAzLjg4NTQzIC04Ljg3MDczNUMzLjg4NTQzIC04Ljk0MjQ2NiAzLjgyNTY1NCAtOC45NjYzNzYgMy43Nzc4MzMgLTguOTY2Mzc2QzMuNjIyNDE2IC04Ljk2NjM3NiAyLjY0MjA5MiAtOC4xMDU2MDQgMi4wNTYyODkgLTYuOTMzOTk4QzEuNDQ2NTc1IC01LjcyNjUyNiAxLjE3MTYwNiAtNC40NDczMjMgMS4xNzE2MDYgLTIuOTc2ODM3QzEuMTcxNjA2IC0xLjkxMjgyNyAxLjMzODk3OSAtMC40OTAxNjIgMS45NjA2NDggMC43ODkwNDFDMi42NjYwMDIgMi4yMjM2NjEgMy42NDYzMjYgMy4wMDA3NDcgMy43Nzc4MzMgMy4wMDA3NDdDMy44MjU2NTQgMy4wMDA3NDcgMy44ODU0MyAyLjk3NjgzNyAzLjg4NTQzIDIuOTA1MTA2WicgaWQ9J2cxLTQwJy8+CjxwYXRoIGQ9J00zLjM3MTM1NyAtMi45NzY4MzdDMy4zNzEzNTcgLTMuODg1NDMgMy4yNTE4MDYgLTUuMzY3ODcgMi41ODIzMTYgLTYuNzU0NjdDMS44NzY5NjEgLTguMTg5MjkgMC44OTY2MzggLTguOTY2Mzc2IDAuNzY1MTMxIC04Ljk2NjM3NkMwLjcxNzMxIC04Ljk2NjM3NiAwLjY1NzUzNCAtOC45NDI0NjYgMC42NTc1MzQgLTguODcwNzM1QzAuNjU3NTM0IC04LjgzNDg2OSAwLjY1NzUzNCAtOC44MTA5NTkgMC44NjA3NzIgLTguNjA3NzIxQzIuMDU2Mjg5IC03LjQwMDI0OSAyLjcyNTc3OCAtNS40Mjc2NDYgMi43MjU3NzggLTIuOTg4NzkyQzIuNzI1Nzc4IC0wLjY2OTQ4OSAyLjE2Mzg4NSAxLjMyNzAyNCAwLjc3NzA4NiAyLjczNzczM0MwLjY1NzUzNCAyLjg0NTMzIDAuNjU3NTM0IDIuODY5MjQgMC42NTc1MzQgMi45MDUxMDZDMC42NTc1MzQgMi45NzY4MzcgMC43MTczMSAzLjAwMDc0NyAwLjc2NTEzMSAzLjAwMDc0N0MwLjkyMDU0OCAzLjAwMDc0NyAxLjkwMDg3MiAyLjEzOTk3NSAyLjQ4NjY3NSAwLjk2ODM2OUMzLjA5NjM4OSAtMC4yNTEwNTkgMy4zNzEzNTcgLTEuNTQyMjE3IDMuMzcxMzU3IC0yLjk3NjgzN1onIGlkPSdnMS00MScvPgo8cGF0aCBkPSdNMi4zMzEyNTggMC4wNDc4MjFDMi4zMzEyNTggLTAuNjQ1NTc5IDIuMTA0MTEgLTEuMTU5NjUxIDEuNjEzOTQ4IC0xLjE1OTY1MUMxLjIzMTM4MiAtMS4xNTk2NTEgMS4wNDAxIC0wLjg0ODgxNyAxLjA0MDEgLTAuNTg1ODAzUzEuMjE5NDI3IDAgMS42MjU5MDMgMEMxLjc4MTMyIDAgMS45MTI4MjcgLTAuMDQ3ODIxIDIuMDIwNDIzIC0wLjE1NTQxN0MyLjA0NDMzNCAtMC4xNzkzMjggMi4wNTYyODkgLTAuMTc5MzI4IDIuMDY4MjQ0IC0wLjE3OTMyOEMyLjA5MjE1NCAtMC4xNzkzMjggMi4wOTIxNTQgLTAuMDExOTU1IDIuMDkyMTU0IDAuMDQ3ODIxQzIuMDkyMTU0IDAuNDQyMzQxIDIuMDIwNDIzIDEuMjE5NDI3IDEuMzI3MDI0IDEuOTk2NTEzQzEuMTk1NTE3IDIuMTM5OTc1IDEuMTk1NTE3IDIuMTYzODg1IDEuMTk1NTE3IDIuMTg3Nzk2QzEuMTk1NTE3IDIuMjQ3NTcyIDEuMjU1MjkzIDIuMzA3MzQ3IDEuMzE1MDY4IDIuMzA3MzQ3QzEuNDEwNzEgMi4zMDczNDcgMi4zMzEyNTggMS40MjI2NjUgMi4zMzEyNTggMC4wNDc4MjFaJyBpZD0nZzAtNTknLz4KPHBhdGggZD0nTTEuODc2OTYxIC0wLjg4NDY4MkMxLjc2OTM2NSAtMC40NjYyNTIgMS43NDU0NTUgLTAuMzQ2NyAwLjkwODU5MyAtMC4zNDY3QzAuNjgxNDQ1IC0wLjM0NjcgMC41NjE4OTMgLTAuMzQ2NyAwLjU2MTg5MyAtMC4xMzE1MDdDMC41NjE4OTMgMCAwLjYzMzYyNCAwIDAuODcyNzI3IDBINC42NjI1MTZDNy4wNzc0NiAwIDkuNDMyNjI4IC0yLjQ5ODYzIDkuNDMyNjI4IC01LjE2NDYzM0M5LjQzMjYyOCAtNi44ODYxNzcgOC40MDQ0ODMgLTguMTY1MzggNi42OTQ4OTQgLTguMTY1MzhIMi44NTcyODVDMi42MzAxMzcgLTguMTY1MzggMi41MjI1NCAtOC4xNjUzOCAyLjUyMjU0IC03LjkzODIzMkMyLjUyMjU0IC03LjgxODY4IDIuNjMwMTM3IC03LjgxODY4IDIuODA5NDY1IC03LjgxODY4QzMuNTM4NzMgLTcuODE4NjggMy41Mzg3MyAtNy43MjMwMzkgMy41Mzg3MyAtNy41OTE1MzJDMy41Mzg3MyAtNy41Njc2MjEgMy41Mzg3MyAtNy40OTU4OSAzLjQ5MDkwOSAtNy4zMTY1NjNMMS44NzY5NjEgLTAuODg0NjgyWk00LjM5OTUwMiAtNy4zNTI0MjhDNC41MDcwOTggLTcuNzk0NzcgNC41NTQ5MTkgLTcuODE4NjggNS4wMjExNzEgLTcuODE4NjhINi4zMzYyMzlDNy40NjAwMjUgLTcuODE4NjggOC40ODgxNjkgLTcuMjA4OTY2IDguNDg4MTY5IC01LjU1OTE1M0M4LjQ4ODE2OSAtNC45NjEzOTUgOC4yNDkwNjYgLTIuODgxMTk2IDcuMDg5NDE1IC0xLjU2NjEyN0M2Ljc1NDY3IC0xLjE3MTYwNiA1Ljg0NjA3NyAtMC4zNDY3IDQuNDcxMjMzIC0wLjM0NjdIMy4xMDgzNDRDMi45NDA5NzEgLTAuMzQ2NyAyLjkxNzA2MSAtMC4zNDY3IDIuODQ1MzMgLTAuMzU4NjU1QzIuNzEzODIzIC0wLjM3MDYxIDIuNzAxODY4IC0wLjM5NDUyMSAyLjcwMTg2OCAtMC40OTAxNjJDMi43MDE4NjggLTAuNTczODQ4IDIuNzI1Nzc4IC0wLjY0NTU3OSAyLjc0OTY4OSAtMC43NTMxNzZMNC4zOTk1MDIgLTcuMzUyNDI4WicgaWQ9J2cwLTY4Jy8+CjxwYXRoIGQ9J002LjAxMzQ1IC03Ljk5ODAwN0M2LjAyNTQwNSAtOC4wNDU4MjggNi4wNDkzMTUgLTguMTE3NTU5IDYuMDQ5MzE1IC04LjE3NzMzNUM2LjA0OTMxNSAtOC4yOTY4ODcgNS45Mjk3NjMgLTguMjk2ODg3IDUuOTA1ODUzIC04LjI5Njg4N0M1Ljg5Mzg5OCAtOC4yOTY4ODcgNS4zMDgwOTUgLTguMjQ5MDY2IDUuMjQ4MzE5IC04LjIzNzExMUM1LjA0NTA4MSAtOC4yMjUxNTYgNC44NjU3NTMgLTguMjAxMjQ1IDQuNjUwNTYgLTguMTg5MjlDNC4zNTE2ODEgLTguMTY1MzggNC4yNjc5OTUgLTguMTUzNDI1IDQuMjY3OTk1IC03LjkzODIzMkM0LjI2Nzk5NSAtNy44MTg2OCA0LjM2MzYzNiAtNy44MTg2OCA0LjUzMTAwOSAtNy44MTg2OEM1LjExNjgxMiAtNy44MTg2OCA1LjEyODc2NyAtNy43MTEwODMgNS4xMjg3NjcgLTcuNTkxNTMyQzUuMTI4NzY3IC03LjUxOTgwMSA1LjEwNDg1NyAtNy40MjQxNTkgNS4wOTI5MDIgLTcuMzg4Mjk0TDQuMzYzNjM2IC00LjQ4MzE4OEM0LjIzMjEzIC00Ljc5NDAyMiAzLjkwOTM0IC01LjI3MjIyOSAzLjI4NzY3MSAtNS4yNzIyMjlDMS45MzY3MzcgLTUuMjcyMjI5IDAuNDc4MjA3IC0zLjUyNjc3NSAwLjQ3ODIwNyAtMS43NTc0MUMwLjQ3ODIwNyAtMC41NzM4NDggMS4xNzE2MDYgMC4xMTk1NTIgMS45ODQ1NTggMC4xMTk1NTJDMi42NDIwOTIgMC4xMTk1NTIgMy4yMDM5ODUgLTAuMzk0NTIxIDMuNTM4NzMgLTAuNzg5MDQxQzMuNjU4MjgxIC0wLjA4MzY4NiA0LjIyMDE3NCAwLjExOTU1MiA0LjU3ODgyOSAwLjExOTU1MlM1LjIyNDQwOCAtMC4wOTU2NDEgNS40Mzk2MDEgLTAuNTI2MDI3QzUuNjMwODg0IC0wLjkzMjUwMyA1Ljc5ODI1NyAtMS42NjE3NjggNS43OTgyNTcgLTEuNzA5NTg5QzUuNzk4MjU3IC0xLjc2OTM2NSA1Ljc1MDQzNiAtMS44MTcxODYgNS42Nzg3MDUgLTEuODE3MTg2QzUuNTcxMTA4IC0xLjgxNzE4NiA1LjU1OTE1MyAtMS43NTc0MSA1LjUxMTMzMyAtMS41NzgwODJDNS4zMzIwMDUgLTAuODcyNzI3IDUuMTA0ODU3IC0wLjExOTU1MiA0LjYxNDY5NSAtMC4xMTk1NTJDNC4yNjc5OTUgLTAuMTE5NTUyIDQuMjQ0MDg1IC0wLjQzMDM4NiA0LjI0NDA4NSAtMC42Njk0ODlDNC4yNDQwODUgLTAuNzE3MzEgNC4yNDQwODUgLTAuOTY4MzY5IDQuMzI3NzcxIC0xLjMwMzExM0w2LjAxMzQ1IC03Ljk5ODAwN1pNMy41OTg1MDYgLTEuNDIyNjY1QzMuNTM4NzMgLTEuMjE5NDI3IDMuNTM4NzMgLTEuMTk1NTE3IDMuMzcxMzU3IC0wLjk2ODM2OUMzLjEwODM0NCAtMC42MzM2MjQgMi41ODIzMTYgLTAuMTE5NTUyIDIuMDIwNDIzIC0wLjExOTU1MkMxLjUzMDI2MiAtMC4xMTk1NTIgMS4yNTUyOTMgLTAuNTYxODkzIDEuMjU1MjkzIC0xLjI2NzI0OEMxLjI1NTI5MyAtMS45MjQ3ODIgMS42MjU5MDMgLTMuMjYzNzYxIDEuODUzMDUxIC0zLjc2NTg3OEMyLjI1OTUyNyAtNC42MDI3NCAyLjgyMTQyIC01LjAzMzEyNiAzLjI4NzY3MSAtNS4wMzMxMjZDNC4wNzY3MTIgLTUuMDMzMTI2IDQuMjMyMTMgLTQuMDUyODAyIDQuMjMyMTMgLTMuOTU3MTYxQzQuMjMyMTMgLTMuOTQ1MjA1IDQuMTk2MjY0IC0zLjc4OTc4OCA0LjE4NDMwOSAtMy43NjU4NzhMMy41OTg1MDYgLTEuNDIyNjY1WicgaWQ9J2cwLTEwMCcvPgo8cGF0aCBkPSdNMy4xNDQyMDkgMS4zMzg5NzlDMi44MjE0MiAxLjc5MzI3NSAyLjM1NTE2OCAyLjE5OTc1MSAxLjc2OTM2NSAyLjE5OTc1MUMxLjYyNTkwMyAyLjE5OTc1MSAxLjA1MjA1NSAyLjE3NTg0MSAwLjg3MjcyNyAxLjYyNTkwM0MwLjkwODU5MyAxLjYzNzg1OCAwLjk2ODM2OSAxLjYzNzg1OCAwLjk5MjI3OSAxLjYzNzg1OEMxLjM1MDkzNCAxLjYzNzg1OCAxLjU5MDAzNyAxLjMyNzAyNCAxLjU5MDAzNyAxLjA1MjA1NVMxLjM2Mjg4OSAwLjY4MTQ0NSAxLjE4MzU2MiAwLjY4MTQ0NUMwLjk5MjI3OSAwLjY4MTQ0NSAwLjU3Mzg0OCAwLjgyNDkwNyAwLjU3Mzg0OCAxLjQxMDcxQzAuNTczODQ4IDIuMDIwNDIzIDEuMDg3OTIgMi40Mzg4NTQgMS43NjkzNjUgMi40Mzg4NTRDMi45NjQ4ODIgMi40Mzg4NTQgNC4xNzIzNTQgMS4zMzg5NzkgNC41MDcwOTggMC4wMTE5NTVMNS42Nzg3MDUgLTQuNjUwNTZDNS42OTA2NiAtNC43MTAzMzYgNS43MTQ1NyAtNC43ODIwNjcgNS43MTQ1NyAtNC44NTM3OThDNS43MTQ1NyAtNS4wMzMxMjYgNS41NzExMDggLTUuMTUyNjc3IDUuMzkxNzgxIC01LjE1MjY3N0M1LjI4NDE4NCAtNS4xNTI2NzcgNS4wMzMxMjYgLTUuMTA0ODU3IDQuOTM3NDg0IC00Ljc0NjIwMkw0LjA1MjgwMiAtMS4yMzEzODJDMy45OTMwMjYgLTEuMDE2MTg5IDMuOTkzMDI2IC0wLjk5MjI3OSAzLjg5NzM4NSAtMC44NjA3NzJDMy42NTgyODEgLTAuNTI2MDI3IDMuMjYzNzYxIC0wLjExOTU1MiAyLjY4OTkxMyAtMC4xMTk1NTJDMi4wMjA0MjMgLTAuMTE5NTUyIDEuOTYwNjQ4IC0wLjc3NzA4NiAxLjk2MDY0OCAtMS4wOTk4NzVDMS45NjA2NDggLTEuNzgxMzIgMi4yODM0MzcgLTIuNzAxODY4IDIuNjA2MjI3IC0zLjU2MjY0QzIuNzM3NzMzIC0zLjkwOTM0IDIuODA5NDY1IC00LjA3NjcxMiAyLjgwOTQ2NSAtNC4zMTU4MTZDMi44MDk0NjUgLTQuODE3OTMzIDIuNDUwODA5IC01LjI3MjIyOSAxLjg2NTAwNiAtNS4yNzIyMjlDMC43NjUxMzEgLTUuMjcyMjI5IDAuMzIyNzkgLTMuNTM4NzMgMC4zMjI3OSAtMy40NDMwODhDMC4zMjI3OSAtMy4zOTUyNjggMC4zNzA2MSAtMy4zMzU0OTIgMC40NTQyOTYgLTMuMzM1NDkyQzAuNTYxODkzIC0zLjMzNTQ5MiAwLjU3Mzg0OCAtMy4zODMzMTMgMC42MjE2NjkgLTMuNTUwNjg1QzAuOTA4NTkzIC00LjU1NDkxOSAxLjM2Mjg4OSAtNS4wMzMxMjYgMS44MjkxNDEgLTUuMDMzMTI2QzEuOTM2NzM3IC01LjAzMzEyNiAyLjEzOTk3NSAtNS4wMzMxMjYgMi4xMzk5NzUgLTQuNjM4NjA1QzIuMTM5OTc1IC00LjMyNzc3MSAyLjAwODQ2OCAtMy45ODEwNzEgMS44MjkxNDEgLTMuNTI2Nzc1QzEuMjQzMzM3IC0xLjk2MDY0OCAxLjI0MzMzNyAtMS41NjYxMjcgMS4yNDMzMzcgLTEuMjc5MjAzQzEuMjQzMzM3IC0wLjE0MzQ2MiAyLjA1NjI4OSAwLjExOTU1MiAyLjY1NDA0NyAwLjExOTU1MkMzLjAwMDc0NyAwLjExOTU1MiAzLjQzMTEzMyAwLjAxMTk1NSAzLjg0OTU2NCAtMC40MzAzODZMMy44NjE1MTkgLTAuNDE4NDMxQzMuNjgyMTkyIDAuMjg2OTI0IDMuNTYyNjQgMC43NTMxNzYgMy4xNDQyMDkgMS4zMzg5NzlaJyBpZD0nZzAtMTIxJy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PScwJyB4bGluazpocmVmPScjZzAtMTAwJyB5PScwJy8+Cjx1c2UgeD0nNi4wODI2OTMnIHhsaW5rOmhyZWY9JyNnMS00MCcgeT0nMCcvPgo8dXNlIHg9JzEwLjYzNTAxOScgeGxpbms6aHJlZj0nI2cwLTEyMScgeT0nMCcvPgo8dXNlIHg9JzE2Ljc3MTY3JyB4bGluazpocmVmPScjZzAtNTknIHk9JzAnLz4KPHVzZSB4PScyMi4wMTU4MjknIHhsaW5rOmhyZWY9JyNnMC02OCcgeT0nMCcvPgo8dXNlIHg9JzMyLjA2MDMwNCcgeGxpbms6aHJlZj0nI2cxLTQxJyB5PScwJy8+CjwvZz4KPC9zdmc+CjwhLS0gREVQVEg9NCAtLT4=" alt="d(y, D)" style="vertical-align: -4px"/> is the distance from y to the critical domain D.
+Setting alphas clears any previously set filter functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>filterAlphas</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Alpha parameters for each output variable of interest.
+The size must be equal to the number of output variables of interest.</p>
+</dd>
+<dt><strong>criticalDomain</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interval</span></code></a></span></dt><dd><p>Critical domain for the sensitivity analysis. The distance to this domain will be used to construct the filter functions. The dimension of the interval must be equal to the number of output variables of interest.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setFilterFunctions">
+<span class="sig-name descname"><span class="pre">setFilterFunctions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filterFunctions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setFilterFunctions" title="Link to this definition">¶</a></dt>
+<dd><p>Set the filter functions for the target HSIC indices computation.</p>
+<p>Setting filter functions directly clears any previously set filter alphas.
+For most use cases, prefer <a class="reference internal" href="#persalys.DataSensitivityAnalysis.setFilterAlphas" title="persalys.DataSensitivityAnalysis.setFilterAlphas"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setFilterAlphas()</span></code></a> which allows the analysis
+to construct the functions automatically.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>filterFunctions</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a></span></dt><dd><p>Collection of filter functions to use for the computation of target HSIC indices.
+The size of the collection must be equal to the number of output variables of interest.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setHSICParameters">
+<span class="sig-name descname"><span class="pre">setHSICParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">computePermutationPValues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">computeAsymptoticPValues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useUStatistic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hsicType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setHSICParameters" title="Link to this definition">¶</a></dt>
+<dd><p>Set the parameters for the HSIC indices computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>computePermutationPValues</strong><span class="classifier">bool</span></dt><dd><p>Whether to compute permutation p-values.</p>
+</dd>
+<dt><strong>computeAsymptoticPValues</strong><span class="classifier">bool</span></dt><dd><p>Whether to compute asymptotic p-values.</p>
+</dd>
+<dt><strong>useUStatistic</strong><span class="classifier">bool</span></dt><dd><p>Whether to use the U-statistic for the computation. If false, the V-statistic will be used.</p>
+</dd>
+<dt><strong>hsicType</strong><span class="classifier">int</span></dt><dd><p>Type of HSIC indices (Global, Target or Conditional).
+For Conditional, asymptotic p-values and U-statistic are not supported and will be ignored.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setInterestVariables">
+<span class="sig-name descname"><span class="pre">setInterestVariables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variablesNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setInterestVariables" title="Link to this definition">¶</a></dt>
+<dd><p>Set the variables to analyse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>variablesNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the variables to analyse</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setType">
+<span class="sig-name descname"><span class="pre">setType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysisType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setType" title="Link to this definition">¶</a></dt>
+<dd><p>Set the type of sensitivity analysis to perform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>analysisType</strong><span class="classifier">int</span></dt><dd><p>Type of sensitivity analysis to perform, encoded in a byte with :</p>
+</dd>
+<dt><strong>- persalys.DataSensitivityAnalysis.RankSobol for Rank Sobol indices</strong></dt><dd></dd>
+<dt><strong>- persalys.DataSensitivityAnalysis.SRC for SRC indices</strong></dt><dd></dd>
+<dt><strong>- persalys.DataSensitivityAnalysis.GlobalHSIC for global HSIC indices</strong></dt><dd></dd>
+<dt><strong>- persalys.DataSensitivityAnalysis.TargetHSIC for target HSIC indices</strong></dt><dd></dd>
+<dt><strong>- persalys.DataSensitivityAnalysis.ConditionalHSIC for conditional HSIC indices</strong></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setWeightAlphas">
+<span class="sig-name descname"><span class="pre">setWeightAlphas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weightAlphas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criticalDomain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setWeightAlphas" title="Link to this definition">¶</a></dt>
+<dd><p>Set the alpha parameters for the conditional HSIC weight functions.</p>
+<p>The weight functions are constructed as  <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nMTEuOTU1MTY4cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMCAtOC45NjYzNzYgMTQyLjA4Njg5NSAxMS45NTUxNjgnIHdpZHRoPScxNDIuMDg2ODk1cHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTIuMzc1MDkzIC00Ljk3MzM1QzIuMzc1MDkzIC01LjE0ODY5MiAyLjI0NzU3MiAtNS4yNzYyMTQgMi4wNjQyNTkgLTUuMjc2MjE0QzEuODU3MDM2IC01LjI3NjIxNCAxLjYyNTkwMyAtNS4wODQ5MzIgMS42MjU5MDMgLTQuODQ1ODI4QzEuNjI1OTAzIC00LjY3MDQ4NiAxLjc1MzQyNSAtNC41NDI5NjQgMS45MzY3MzcgLTQuNTQyOTY0QzIuMTQzOTYgLTQuNTQyOTY0IDIuMzc1MDkzIC00LjczNDI0NyAyLjM3NTA5MyAtNC45NzMzNVpNMS4yMTE0NTcgLTIuMDQ4MzE5TDAuNzgxMDcxIC0wLjk0ODQ0M0MwLjc0MTIyIC0wLjgyODg5MiAwLjcwMTM3IC0wLjczMzI1IDAuNzAxMzcgLTAuNTk3NzU4QzAuNzAxMzcgLTAuMjA3MjIzIDEuMDA0MjM0IDAuMDc5NzAxIDEuNDI2NjUgMC4wNzk3MDFDMi4xOTk3NTEgMC4wNzk3MDEgMi41MjY1MjYgLTEuMDM2MTE1IDIuNTI2NTI2IC0xLjEzOTcyNkMyLjUyNjUyNiAtMS4yMTk0MjcgMi40NjI3NjUgLTEuMjQzMzM3IDIuNDA2OTc0IC0xLjI0MzMzN0MyLjMxMTMzMyAtMS4yNDMzMzcgMi4yOTUzOTIgLTEuMTg3NTQ3IDIuMjcxNDgyIC0xLjEwNzg0NkMyLjA4ODE2OSAtMC40NzAyMzcgMS43NjEzOTUgLTAuMTQzNDYyIDEuNDQyNTkgLTAuMTQzNDYyQzEuMzQ2OTQ5IC0wLjE0MzQ2MiAxLjI1MTMwOCAtMC4xODMzMTMgMS4yNTEzMDggLTAuMzk4NTA2QzEuMjUxMzA4IC0wLjU4OTc4OCAxLjMwNzA5OCAtMC43MzMyNSAxLjQxMDcxIC0wLjk4MDMyNEMxLjQ5MDQxMSAtMS4xOTU1MTcgMS41NzAxMTIgLTEuNDEwNzEgMS42NTc3ODMgLTEuNjI1OTAzTDEuOTA0ODU3IC0yLjI3MTQ4MkMxLjk3NjU4OCAtMi40NTQ3OTUgMi4wNzIyMjkgLTIuNzAxODY4IDIuMDcyMjI5IC0yLjgzNzM2QzIuMDcyMjI5IC0zLjIzNTg2NiAxLjc1MzQyNSAtMy41MTQ4MTkgMS4zNDY5NDkgLTMuNTE0ODE5QzAuNTczODQ4IC0zLjUxNDgxOSAwLjIzOTEwMyAtMi4zOTkwMDQgMC4yMzkxMDMgLTIuMjk1MzkyQzAuMjM5MTAzIC0yLjIyMzY2MSAwLjI5NDg5NCAtMi4xOTE3ODEgMC4zNTg2NTUgLTIuMTkxNzgxQzAuNDYyMjY3IC0yLjE5MTc4MSAwLjQ3MDIzNyAtMi4yMzk2MDEgMC40OTQxNDcgLTIuMzE5MzAzQzAuNzE3MzEgLTMuMDc2NDYzIDEuMDgzOTM1IC0zLjI5MTY1NiAxLjMyMzAzOSAtMy4yOTE2NTZDMS40MzQ2MiAtMy4yOTE2NTYgMS41MTQzMjEgLTMuMjUxODA2IDEuNTE0MzIxIC0zLjAyODY0M0MxLjUxNDMyMSAtMi45NDg5NDEgMS41MDYzNTEgLTIuODM3MzYgMS40MjY2NSAtMi41OTgyNTdMMS4yMTE0NTcgLTIuMDQ4MzE5WicgaWQ9J2cxLTEwNScvPgo8cGF0aCBkPSdNNS41MzUyNDMgLTMuMDI0NjU4QzUuNTM1MjQzIC00LjE4NDMwOSA0Ljg3NzcwOSAtNS4yNzIyMjkgMy42MTA0NjEgLTUuMjcyMjI5QzIuMDQ0MzM0IC01LjI3MjIyOSAwLjQ3ODIwNyAtMy41NjI2NCAwLjQ3ODIwNyAtMS44NjUwMDZDMC40NzgyMDcgLTAuODI0OTA3IDEuMTIzNzg2IDAuMTE5NTUyIDIuMzQzMjEzIDAuMTE5NTUyQzMuMDg0NDMzIDAuMTE5NTUyIDMuOTY5MTE2IC0wLjE2NzM3MiA0LjgxNzkzMyAtMC44ODQ2ODJDNC45ODUzMDUgLTAuMjE1MTkzIDUuMzU1OTE1IDAuMTE5NTUyIDUuODY5OTg4IDAuMTE5NTUyQzYuNTE1NTY3IDAuMTE5NTUyIDYuODM4MzU2IC0wLjU0OTkzOCA2LjgzODM1NiAtMC43MDUzNTVDNi44MzgzNTYgLTAuODEyOTUxIDYuNzU0NjcgLTAuODEyOTUxIDYuNzE4ODA0IC0wLjgxMjk1MUM2LjYyMzE2MyAtMC44MTI5NTEgNi42MTEyMDggLTAuNzc3MDg2IDYuNTc1MzQyIC0wLjY4MTQ0NUM2LjQ2Nzc0NiAtMC4zODI1NjUgNi4xOTI3NzcgLTAuMTE5NTUyIDUuOTA1ODUzIC0wLjExOTU1MkM1LjUzNTI0MyAtMC4xMTk1NTIgNS41MzUyNDMgLTAuODg0NjgyIDUuNTM1MjQzIC0xLjYxMzk0OEM2Ljc1NDY3IC0zLjA3MjQ3OCA3LjA0MTU5NCAtNC41Nzg4MjkgNy4wNDE1OTQgLTQuNTkwNzg1QzcuMDQxNTk0IC00LjY5ODM4MSA2Ljk0NTk1MyAtNC42OTgzODEgNi45MTAwODcgLTQuNjk4MzgxQzYuODAyNDkxIC00LjY5ODM4MSA2Ljc5MDUzNSAtNC42NjI1MTYgNi43NDI3MTUgLTQuNDQ3MzIzQzYuNTg3Mjk4IC0zLjkyMTI5NSA2LjI3NjQ2MyAtMi45ODg3OTIgNS41MzUyNDMgLTIuMDA4NDY4Vi0zLjAyNDY1OFpNNC43ODIwNjcgLTEuMTcxNjA2QzMuNzMwMDEyIC0wLjIyNzE0OCAyLjc4NTU1NCAtMC4xMTk1NTIgMi4zNjcxMjMgLTAuMTE5NTUyQzEuNTE4MzA2IC0wLjExOTU1MiAxLjI3OTIwMyAtMC44NzI3MjcgMS4yNzkyMDMgLTEuNDM0NjJDMS4yNzkyMDMgLTEuOTQ4NjkyIDEuNTQyMjE3IC0zLjE2ODEyIDEuOTEyODI3IC0zLjgyNTY1NEMyLjQwMjk4OSAtNC42NjI1MTYgMy4wNzI0NzggLTUuMDMzMTI2IDMuNjEwNDYxIC01LjAzMzEyNkM0Ljc3MDExMiAtNS4wMzMxMjYgNC43NzAxMTIgLTMuNTE0ODE5IDQuNzcwMTEyIC0yLjUxMDU4NUM0Ljc3MDExMiAtMi4yMTE3MDYgNC43NTgxNTcgLTEuOTAwODcyIDQuNzU4MTU3IC0xLjYwMTk5M0M0Ljc1ODE1NyAtMS4zNjI4ODkgNC43NzAxMTIgLTEuMzAzMTEzIDQuNzgyMDY3IC0xLjE3MTYwNlonIGlkPSdnMi0xMScvPgo8cGF0aCBkPSdNNi4wNzMyMjUgLTQuNTA3MDk4QzYuMjI4NjQzIC00LjUwNzA5OCA2LjYyMzE2MyAtNC41MDcwOTggNi42MjMxNjMgLTQuODg5NjY0QzYuNjIzMTYzIC01LjE1MjY3NyA2LjM5NjAxNSAtNS4xNTI2NzcgNi4xODA4MjIgLTUuMTUyNjc3SDMuNTM4NzNDMS43NDU0NTUgLTUuMTUyNjc3IDAuNDU0Mjk2IC0zLjE1NjE2NCAwLjQ1NDI5NiAtMS43NDU0NTVDMC40NTQyOTYgLTAuNzI5MjY1IDEuMTExODMxIDAuMTE5NTUyIDIuMTg3Nzk2IDAuMTE5NTUyQzMuNTk4NTA2IDAuMTE5NTUyIDUuMTQwNzIyIC0xLjM5ODc1NSA1LjE0MDcyMiAtMy4xOTIwM0M1LjE0MDcyMiAtMy42NTgyODEgNS4wMzMxMjYgLTQuMTEyNTc4IDQuNzQ2MjAyIC00LjUwNzA5OEg2LjA3MzIyNVpNMi4xOTk3NTEgLTAuMTE5NTUyQzEuNTkwMDM3IC0wLjExOTU1MiAxLjE0NzY5NiAtMC41ODU4MDMgMS4xNDc2OTYgLTEuNDEwNzFDMS4xNDc2OTYgLTIuMTI4MDIgMS41NzgwODIgLTQuNTA3MDk4IDMuMzM1NDkyIC00LjUwNzA5OEMzLjg0OTU2NCAtNC41MDcwOTggNC40MjM0MTIgLTQuMjU2MDQgNC40MjM0MTIgLTMuMzM1NDkyQzQuNDIzNDEyIC0yLjkxNzA2MSA0LjIzMjEzIC0xLjkxMjgyNyAzLjgxMzY5OSAtMS4yMTk0MjdDMy4zODMzMTMgLTAuNTE0MDcyIDIuNzM3NzMzIC0wLjExOTU1MiAyLjE5OTc1MSAtMC4xMTk1NTJaJyBpZD0nZzItMjcnLz4KPHBhdGggZD0nTTIuMzMxMjU4IDAuMDQ3ODIxQzIuMzMxMjU4IC0wLjY0NTU3OSAyLjEwNDExIC0xLjE1OTY1MSAxLjYxMzk0OCAtMS4xNTk2NTFDMS4yMzEzODIgLTEuMTU5NjUxIDEuMDQwMSAtMC44NDg4MTcgMS4wNDAxIC0wLjU4NTgwM1MxLjIxOTQyNyAwIDEuNjI1OTAzIDBDMS43ODEzMiAwIDEuOTEyODI3IC0wLjA0NzgyMSAyLjAyMDQyMyAtMC4xNTU0MTdDMi4wNDQzMzQgLTAuMTc5MzI4IDIuMDU2Mjg5IC0wLjE3OTMyOCAyLjA2ODI0NCAtMC4xNzkzMjhDMi4wOTIxNTQgLTAuMTc5MzI4IDIuMDkyMTU0IC0wLjAxMTk1NSAyLjA5MjE1NCAwLjA0NzgyMUMyLjA5MjE1NCAwLjQ0MjM0MSAyLjAyMDQyMyAxLjIxOTQyNyAxLjMyNzAyNCAxLjk5NjUxM0MxLjE5NTUxNyAyLjEzOTk3NSAxLjE5NTUxNyAyLjE2Mzg4NSAxLjE5NTUxNyAyLjE4Nzc5NkMxLjE5NTUxNyAyLjI0NzU3MiAxLjI1NTI5MyAyLjMwNzM0NyAxLjMxNTA2OCAyLjMwNzM0N0MxLjQxMDcxIDIuMzA3MzQ3IDIuMzMxMjU4IDEuNDIyNjY1IDIuMzMxMjU4IDAuMDQ3ODIxWicgaWQ9J2cyLTU5Jy8+CjxwYXRoIGQ9J001LjEyODc2NyAtOC41MjQwMzVDNS4xMjg3NjcgLTguNTM1OTkgNS4yMDA0OTggLTguNzE1MzE4IDUuMjAwNDk4IC04LjczOTIyOEM1LjIwMDQ5OCAtOC44ODI2OSA1LjA4MDk0NiAtOC45NjYzNzYgNC45ODUzMDUgLTguOTY2Mzc2QzQuOTI1NTI5IC04Ljk2NjM3NiA0LjgxNzkzMyAtOC45NjYzNzYgNC43MjIyOTEgLTguNzAzMzYyTDAuNzE3MzEgMi41NDY0NTFDMC43MTczMSAyLjU1ODQwNiAwLjY0NTU3OSAyLjczNzczMyAwLjY0NTU3OSAyLjc2MTY0NEMwLjY0NTU3OSAyLjkwNTEwNiAwLjc2NTEzMSAyLjk4ODc5MiAwLjg2MDc3MiAyLjk4ODc5MkMwLjkzMjUwMyAyLjk4ODc5MiAxLjA0MDEgMi45NzY4MzcgMS4xMjM3ODYgMi43MjU3NzhMNS4xMjg3NjcgLTguNTI0MDM1WicgaWQ9J2cyLTYxJy8+CjxwYXRoIGQ9J00xLjg3Njk2MSAtMC44ODQ2ODJDMS43NjkzNjUgLTAuNDY2MjUyIDEuNzQ1NDU1IC0wLjM0NjcgMC45MDg1OTMgLTAuMzQ2N0MwLjY4MTQ0NSAtMC4zNDY3IDAuNTYxODkzIC0wLjM0NjcgMC41NjE4OTMgLTAuMTMxNTA3QzAuNTYxODkzIDAgMC42MzM2MjQgMCAwLjg3MjcyNyAwSDQuNjYyNTE2QzcuMDc3NDYgMCA5LjQzMjYyOCAtMi40OTg2MyA5LjQzMjYyOCAtNS4xNjQ2MzNDOS40MzI2MjggLTYuODg2MTc3IDguNDA0NDgzIC04LjE2NTM4IDYuNjk0ODk0IC04LjE2NTM4SDIuODU3Mjg1QzIuNjMwMTM3IC04LjE2NTM4IDIuNTIyNTQgLTguMTY1MzggMi41MjI1NCAtNy45MzgyMzJDMi41MjI1NCAtNy44MTg2OCAyLjYzMDEzNyAtNy44MTg2OCAyLjgwOTQ2NSAtNy44MTg2OEMzLjUzODczIC03LjgxODY4IDMuNTM4NzMgLTcuNzIzMDM5IDMuNTM4NzMgLTcuNTkxNTMyQzMuNTM4NzMgLTcuNTY3NjIxIDMuNTM4NzMgLTcuNDk1ODkgMy40OTA5MDkgLTcuMzE2NTYzTDEuODc2OTYxIC0wLjg4NDY4MlpNNC4zOTk1MDIgLTcuMzUyNDI4QzQuNTA3MDk4IC03Ljc5NDc3IDQuNTU0OTE5IC03LjgxODY4IDUuMDIxMTcxIC03LjgxODY4SDYuMzM2MjM5QzcuNDYwMDI1IC03LjgxODY4IDguNDg4MTY5IC03LjIwODk2NiA4LjQ4ODE2OSAtNS41NTkxNTNDOC40ODgxNjkgLTQuOTYxMzk1IDguMjQ5MDY2IC0yLjg4MTE5NiA3LjA4OTQxNSAtMS41NjYxMjdDNi43NTQ2NyAtMS4xNzE2MDYgNS44NDYwNzcgLTAuMzQ2NyA0LjQ3MTIzMyAtMC4zNDY3SDMuMTA4MzQ0QzIuOTQwOTcxIC0wLjM0NjcgMi45MTcwNjEgLTAuMzQ2NyAyLjg0NTMzIC0wLjM1ODY1NUMyLjcxMzgyMyAtMC4zNzA2MSAyLjcwMTg2OCAtMC4zOTQ1MjEgMi43MDE4NjggLTAuNDkwMTYyQzIuNzAxODY4IC0wLjU3Mzg0OCAyLjcyNTc3OCAtMC42NDU1NzkgMi43NDk2ODkgLTAuNzUzMTc2TDQuMzk5NTAyIC03LjM1MjQyOFonIGlkPSdnMi02OCcvPgo8cGF0aCBkPSdNNi4wMTM0NSAtNy45OTgwMDdDNi4wMjU0MDUgLTguMDQ1ODI4IDYuMDQ5MzE1IC04LjExNzU1OSA2LjA0OTMxNSAtOC4xNzczMzVDNi4wNDkzMTUgLTguMjk2ODg3IDUuOTI5NzYzIC04LjI5Njg4NyA1LjkwNTg1MyAtOC4yOTY4ODdDNS44OTM4OTggLTguMjk2ODg3IDUuMzA4MDk1IC04LjI0OTA2NiA1LjI0ODMxOSAtOC4yMzcxMTFDNS4wNDUwODEgLTguMjI1MTU2IDQuODY1NzUzIC04LjIwMTI0NSA0LjY1MDU2IC04LjE4OTI5QzQuMzUxNjgxIC04LjE2NTM4IDQuMjY3OTk1IC04LjE1MzQyNSA0LjI2Nzk5NSAtNy45MzgyMzJDNC4yNjc5OTUgLTcuODE4NjggNC4zNjM2MzYgLTcuODE4NjggNC41MzEwMDkgLTcuODE4NjhDNS4xMTY4MTIgLTcuODE4NjggNS4xMjg3NjcgLTcuNzExMDgzIDUuMTI4NzY3IC03LjU5MTUzMkM1LjEyODc2NyAtNy41MTk4MDEgNS4xMDQ4NTcgLTcuNDI0MTU5IDUuMDkyOTAyIC03LjM4ODI5NEw0LjM2MzYzNiAtNC40ODMxODhDNC4yMzIxMyAtNC43OTQwMjIgMy45MDkzNCAtNS4yNzIyMjkgMy4yODc2NzEgLTUuMjcyMjI5QzEuOTM2NzM3IC01LjI3MjIyOSAwLjQ3ODIwNyAtMy41MjY3NzUgMC40NzgyMDcgLTEuNzU3NDFDMC40NzgyMDcgLTAuNTczODQ4IDEuMTcxNjA2IDAuMTE5NTUyIDEuOTg0NTU4IDAuMTE5NTUyQzIuNjQyMDkyIDAuMTE5NTUyIDMuMjAzOTg1IC0wLjM5NDUyMSAzLjUzODczIC0wLjc4OTA0MUMzLjY1ODI4MSAtMC4wODM2ODYgNC4yMjAxNzQgMC4xMTk1NTIgNC41Nzg4MjkgMC4xMTk1NTJTNS4yMjQ0MDggLTAuMDk1NjQxIDUuNDM5NjAxIC0wLjUyNjAyN0M1LjYzMDg4NCAtMC45MzI1MDMgNS43OTgyNTcgLTEuNjYxNzY4IDUuNzk4MjU3IC0xLjcwOTU4OUM1Ljc5ODI1NyAtMS43NjkzNjUgNS43NTA0MzYgLTEuODE3MTg2IDUuNjc4NzA1IC0xLjgxNzE4NkM1LjU3MTEwOCAtMS44MTcxODYgNS41NTkxNTMgLTEuNzU3NDEgNS41MTEzMzMgLTEuNTc4MDgyQzUuMzMyMDA1IC0wLjg3MjcyNyA1LjEwNDg1NyAtMC4xMTk1NTIgNC42MTQ2OTUgLTAuMTE5NTUyQzQuMjY3OTk1IC0wLjExOTU1MiA0LjI0NDA4NSAtMC40MzAzODYgNC4yNDQwODUgLTAuNjY5NDg5QzQuMjQ0MDg1IC0wLjcxNzMxIDQuMjQ0MDg1IC0wLjk2ODM2OSA0LjMyNzc3MSAtMS4zMDMxMTNMNi4wMTM0NSAtNy45OTgwMDdaTTMuNTk4NTA2IC0xLjQyMjY2NUMzLjUzODczIC0xLjIxOTQyNyAzLjUzODczIC0xLjE5NTUxNyAzLjM3MTM1NyAtMC45NjgzNjlDMy4xMDgzNDQgLTAuNjMzNjI0IDIuNTgyMzE2IC0wLjExOTU1MiAyLjAyMDQyMyAtMC4xMTk1NTJDMS41MzAyNjIgLTAuMTE5NTUyIDEuMjU1MjkzIC0wLjU2MTg5MyAxLjI1NTI5MyAtMS4yNjcyNDhDMS4yNTUyOTMgLTEuOTI0NzgyIDEuNjI1OTAzIC0zLjI2Mzc2MSAxLjg1MzA1MSAtMy43NjU4NzhDMi4yNTk1MjcgLTQuNjAyNzQgMi44MjE0MiAtNS4wMzMxMjYgMy4yODc2NzEgLTUuMDMzMTI2QzQuMDc2NzEyIC01LjAzMzEyNiA0LjIzMjEzIC00LjA1MjgwMiA0LjIzMjEzIC0zLjk1NzE2MUM0LjIzMjEzIC0zLjk0NTIwNSA0LjE5NjI2NCAtMy43ODk3ODggNC4xODQzMDkgLTMuNzY1ODc4TDMuNTk4NTA2IC0xLjQyMjY2NVonIGlkPSdnMi0xMDAnLz4KPHBhdGggZD0nTTMuMTQ0MjA5IDEuMzM4OTc5QzIuODIxNDIgMS43OTMyNzUgMi4zNTUxNjggMi4xOTk3NTEgMS43NjkzNjUgMi4xOTk3NTFDMS42MjU5MDMgMi4xOTk3NTEgMS4wNTIwNTUgMi4xNzU4NDEgMC44NzI3MjcgMS42MjU5MDNDMC45MDg1OTMgMS42Mzc4NTggMC45NjgzNjkgMS42Mzc4NTggMC45OTIyNzkgMS42Mzc4NThDMS4zNTA5MzQgMS42Mzc4NTggMS41OTAwMzcgMS4zMjcwMjQgMS41OTAwMzcgMS4wNTIwNTVTMS4zNjI4ODkgMC42ODE0NDUgMS4xODM1NjIgMC42ODE0NDVDMC45OTIyNzkgMC42ODE0NDUgMC41NzM4NDggMC44MjQ5MDcgMC41NzM4NDggMS40MTA3MUMwLjU3Mzg0OCAyLjAyMDQyMyAxLjA4NzkyIDIuNDM4ODU0IDEuNzY5MzY1IDIuNDM4ODU0QzIuOTY0ODgyIDIuNDM4ODU0IDQuMTcyMzU0IDEuMzM4OTc5IDQuNTA3MDk4IDAuMDExOTU1TDUuNjc4NzA1IC00LjY1MDU2QzUuNjkwNjYgLTQuNzEwMzM2IDUuNzE0NTcgLTQuNzgyMDY3IDUuNzE0NTcgLTQuODUzNzk4QzUuNzE0NTcgLTUuMDMzMTI2IDUuNTcxMTA4IC01LjE1MjY3NyA1LjM5MTc4MSAtNS4xNTI2NzdDNS4yODQxODQgLTUuMTUyNjc3IDUuMDMzMTI2IC01LjEwNDg1NyA0LjkzNzQ4NCAtNC43NDYyMDJMNC4wNTI4MDIgLTEuMjMxMzgyQzMuOTkzMDI2IC0xLjAxNjE4OSAzLjk5MzAyNiAtMC45OTIyNzkgMy44OTczODUgLTAuODYwNzcyQzMuNjU4MjgxIC0wLjUyNjAyNyAzLjI2Mzc2MSAtMC4xMTk1NTIgMi42ODk5MTMgLTAuMTE5NTUyQzIuMDIwNDIzIC0wLjExOTU1MiAxLjk2MDY0OCAtMC43NzcwODYgMS45NjA2NDggLTEuMDk5ODc1QzEuOTYwNjQ4IC0xLjc4MTMyIDIuMjgzNDM3IC0yLjcwMTg2OCAyLjYwNjIyNyAtMy41NjI2NEMyLjczNzczMyAtMy45MDkzNCAyLjgwOTQ2NSAtNC4wNzY3MTIgMi44MDk0NjUgLTQuMzE1ODE2QzIuODA5NDY1IC00LjgxNzkzMyAyLjQ1MDgwOSAtNS4yNzIyMjkgMS44NjUwMDYgLTUuMjcyMjI5QzAuNzY1MTMxIC01LjI3MjIyOSAwLjMyMjc5IC0zLjUzODczIDAuMzIyNzkgLTMuNDQzMDg4QzAuMzIyNzkgLTMuMzk1MjY4IDAuMzcwNjEgLTMuMzM1NDkyIDAuNDU0Mjk2IC0zLjMzNTQ5MkMwLjU2MTg5MyAtMy4zMzU0OTIgMC41NzM4NDggLTMuMzgzMzEzIDAuNjIxNjY5IC0zLjU1MDY4NUMwLjkwODU5MyAtNC41NTQ5MTkgMS4zNjI4ODkgLTUuMDMzMTI2IDEuODI5MTQxIC01LjAzMzEyNkMxLjkzNjczNyAtNS4wMzMxMjYgMi4xMzk5NzUgLTUuMDMzMTI2IDIuMTM5OTc1IC00LjYzODYwNUMyLjEzOTk3NSAtNC4zMjc3NzEgMi4wMDg0NjggLTMuOTgxMDcxIDEuODI5MTQxIC0zLjUyNjc3NUMxLjI0MzMzNyAtMS45NjA2NDggMS4yNDMzMzcgLTEuNTY2MTI3IDEuMjQzMzM3IC0xLjI3OTIwM0MxLjI0MzMzNyAtMC4xNDM0NjIgMi4wNTYyODkgMC4xMTk1NTIgMi42NTQwNDcgMC4xMTk1NTJDMy4wMDA3NDcgMC4xMTk1NTIgMy40MzExMzMgMC4wMTE5NTUgMy44NDk1NjQgLTAuNDMwMzg2TDMuODYxNTE5IC0wLjQxODQzMUMzLjY4MjE5MiAwLjI4NjkyNCAzLjU2MjY0IDAuNzUzMTc2IDMuMTQ0MjA5IDEuMzM4OTc5WicgaWQ9J2cyLTEyMScvPgo8cGF0aCBkPSdNMy44ODU0MyAyLjkwNTEwNkMzLjg4NTQzIDIuODY5MjQgMy44ODU0MyAyLjg0NTMzIDMuNjgyMTkyIDIuNjQyMDkyQzIuNDg2Njc1IDEuNDM0NjIgMS44MTcxODYgLTAuNTM3OTgzIDEuODE3MTg2IC0yLjk3NjgzN0MxLjgxNzE4NiAtNS4yOTYxMzkgMi4zNzkwNzggLTcuMjkyNjUzIDMuNzY1ODc4IC04LjcwMzM2MkMzLjg4NTQzIC04LjgxMDk1OSAzLjg4NTQzIC04LjgzNDg2OSAzLjg4NTQzIC04Ljg3MDczNUMzLjg4NTQzIC04Ljk0MjQ2NiAzLjgyNTY1NCAtOC45NjYzNzYgMy43Nzc4MzMgLTguOTY2Mzc2QzMuNjIyNDE2IC04Ljk2NjM3NiAyLjY0MjA5MiAtOC4xMDU2MDQgMi4wNTYyODkgLTYuOTMzOTk4QzEuNDQ2NTc1IC01LjcyNjUyNiAxLjE3MTYwNiAtNC40NDczMjMgMS4xNzE2MDYgLTIuOTc2ODM3QzEuMTcxNjA2IC0xLjkxMjgyNyAxLjMzODk3OSAtMC40OTAxNjIgMS45NjA2NDggMC43ODkwNDFDMi42NjYwMDIgMi4yMjM2NjEgMy42NDYzMjYgMy4wMDA3NDcgMy43Nzc4MzMgMy4wMDA3NDdDMy44MjU2NTQgMy4wMDA3NDcgMy44ODU0MyAyLjk3NjgzNyAzLjg4NTQzIDIuOTA1MTA2WicgaWQ9J2czLTQwJy8+CjxwYXRoIGQ9J00zLjM3MTM1NyAtMi45NzY4MzdDMy4zNzEzNTcgLTMuODg1NDMgMy4yNTE4MDYgLTUuMzY3ODcgMi41ODIzMTYgLTYuNzU0NjdDMS44NzY5NjEgLTguMTg5MjkgMC44OTY2MzggLTguOTY2Mzc2IDAuNzY1MTMxIC04Ljk2NjM3NkMwLjcxNzMxIC04Ljk2NjM3NiAwLjY1NzUzNCAtOC45NDI0NjYgMC42NTc1MzQgLTguODcwNzM1QzAuNjU3NTM0IC04LjgzNDg2OSAwLjY1NzUzNCAtOC44MTA5NTkgMC44NjA3NzIgLTguNjA3NzIxQzIuMDU2Mjg5IC03LjQwMDI0OSAyLjcyNTc3OCAtNS40Mjc2NDYgMi43MjU3NzggLTIuOTg4NzkyQzIuNzI1Nzc4IC0wLjY2OTQ4OSAyLjE2Mzg4NSAxLjMyNzAyNCAwLjc3NzA4NiAyLjczNzczM0MwLjY1NzUzNCAyLjg0NTMzIDAuNjU3NTM0IDIuODY5MjQgMC42NTc1MzQgMi45MDUxMDZDMC42NTc1MzQgMi45NzY4MzcgMC43MTczMSAzLjAwMDc0NyAwLjc2NTEzMSAzLjAwMDc0N0MwLjkyMDU0OCAzLjAwMDc0NyAxLjkwMDg3MiAyLjEzOTk3NSAyLjQ4NjY3NSAwLjk2ODM2OUMzLjA5NjM4OSAtMC4yNTEwNTkgMy4zNzEzNTcgLTEuNTQyMjE3IDMuMzcxMzU3IC0yLjk3NjgzN1onIGlkPSdnMy00MScvPgo8cGF0aCBkPSdNNC41Nzg4MjkgLTIuNzczNTk5QzQuODQxODQzIC0yLjc3MzU5OSA0Ljg2NTc1MyAtMi43NzM1OTkgNC44NjU3NTMgLTMuMDAwNzQ3QzQuODY1NzUzIC00LjIwODIxOSA0LjIyMDE3NCAtNS4zMzIwMDUgMi43NzM1OTkgLTUuMzMyMDA1QzEuNDEwNzEgLTUuMzMyMDA1IDAuMzU4NjU1IC00LjEwMDYyMyAwLjM1ODY1NSAtMi42MTgxODJDMC4zNTg2NTUgLTEuMDQwMSAxLjU3ODA4MiAwLjExOTU1MiAyLjkwNTEwNiAwLjExOTU1MkM0LjMyNzc3MSAwLjExOTU1MiA0Ljg2NTc1MyAtMS4xNzE2MDYgNC44NjU3NTMgLTEuNDIyNjY1QzQuODY1NzUzIC0xLjQ5NDM5NiA0LjgwNTk3OCAtMS41NDIyMTcgNC43MzQyNDcgLTEuNTQyMjE3QzQuNjM4NjA1IC0xLjU0MjIxNyA0LjYxNDY5NSAtMS40ODI0NDEgNC41OTA3ODUgLTEuNDIyNjY1QzQuMjc5OTUgLTAuNDE4NDMxIDMuNDc4OTU0IC0wLjE0MzQ2MiAyLjk3NjgzNyAtMC4xNDM0NjJTMS4yNjcyNDggLTAuNDc4MjA3IDEuMjY3MjQ4IC0yLjU0NjQ1MVYtMi43NzM1OTlINC41Nzg4MjlaTTEuMjc5MjAzIC0zLjAwMDc0N0MxLjM3NDg0NCAtNC44Nzc3MDkgMi40MjY4OTkgLTUuMDkyOTAyIDIuNzYxNjQ0IC01LjA5MjkwMkM0LjA0MDg0NyAtNS4wOTI5MDIgNC4xMTI1NzggLTMuNDA3MjIzIDQuMTI0NTMzIC0zLjAwMDc0N0gxLjI3OTIwM1onIGlkPSdnMy0xMDEnLz4KPHBhdGggZD0nTTIuOTI5MDE2IDEuOTcyNjAzQzIuMTYzODg1IDEuOTcyNjAzIDIuMDIwNDIzIDEuOTcyNjAzIDIuMDIwNDIzIDEuNDM0NjJWLTAuNjQ1NTc5QzIuMjM1NjE2IC0wLjM0NjcgMi43MjU3NzggMC4xMTk1NTIgMy40OTA5MDkgMC4xMTk1NTJDNC44NjU3NTMgMC4xMTk1NTIgNi4wNzMyMjUgLTEuMDQwMSA2LjA3MzIyNSAtMi41ODIzMTZDNi4wNzMyMjUgLTQuMTAwNjIzIDQuOTQ5NDQgLTUuMjcyMjI5IDMuNjQ2MzI2IC01LjI3MjIyOUMyLjU5NDI3MSAtNS4yNzIyMjkgMi4wMzIzNzkgLTQuNTE5MDU0IDEuOTk2NTEzIC00LjQ3MTIzM1YtNS4yNzIyMjlMMC4zMzQ3NDUgLTUuMTQwNzIyVi00Ljc5NDAyMkMxLjE3MTYwNiAtNC43OTQwMjIgMS4yNDMzMzcgLTQuNzEwMzM2IDEuMjQzMzM3IC00LjE4NDMwOVYxLjQzNDYyQzEuMjQzMzM3IDEuOTcyNjAzIDEuMTExODMxIDEuOTcyNjAzIDAuMzM0NzQ1IDEuOTcyNjAzVjIuMzE5MzAzQzAuNjQ1NTc5IDIuMjk1MzkyIDEuMjkxMTU4IDIuMjk1MzkyIDEuNjI1OTAzIDIuMjk1MzkyQzEuOTcyNjAzIDIuMjk1MzkyIDIuNjE4MTgyIDIuMjk1MzkyIDIuOTI5MDE2IDIuMzE5MzAzVjEuOTcyNjAzWk0yLjAyMDQyMyAtMy44MTM2OTlDMi4wMjA0MjMgLTQuMDQwODQ3IDIuMDIwNDIzIC00LjA1MjgwMiAyLjE1MTkzIC00LjI0NDA4NUMyLjUxMDU4NSAtNC43ODIwNjcgMy4wOTYzODkgLTUuMDA5MjE1IDMuNTUwNjg1IC01LjAwOTIxNUM0LjQ0NzMyMyAtNS4wMDkyMTUgNS4xNjQ2MzMgLTMuOTIxMjk1IDUuMTY0NjMzIC0yLjU4MjMxNkM1LjE2NDYzMyAtMS4xNTk2NTEgNC4zNTE2ODEgLTAuMTE5NTUyIDMuNDMxMTMzIC0wLjExOTU1MkMzLjA2MDUyMyAtMC4xMTk1NTIgMi43MTM4MjMgLTAuMjc0OTY5IDIuNDc0NzIgLTAuNTAyMTE3QzIuMTk5NzUxIC0wLjc3NzA4NiAyLjAyMDQyMyAtMS4wMTYxODkgMi4wMjA0MjMgLTEuMzUwOTM0Vi0zLjgxMzY5OVonIGlkPSdnMy0xMTInLz4KPHBhdGggZD0nTTMuMzQ3NDQ3IC0yLjgyMTQyQzMuNjk0MTQ3IC0zLjI3NTcxNiA0LjE5NjI2NCAtMy45MjEyOTUgNC40MjM0MTIgLTQuMTcyMzU0QzQuOTEzNTc0IC00LjcyMjI5MSA1LjQ3NTQ2NyAtNC44MDU5NzggNS44NTgwMzIgLTQuODA1OTc4Vi01LjE1MjY3N0M1LjM0Mzk2IC01LjEyODc2NyA1LjMyMDA1IC01LjEyODc2NyA0Ljg1Mzc5OCAtNS4xMjg3NjdDNC4zOTk1MDIgLTUuMTI4NzY3IDQuMzc1NTkyIC01LjEyODc2NyAzLjc3NzgzMyAtNS4xNTI2NzdWLTQuODA1OTc4QzMuOTMzMjUgLTQuNzgyMDY3IDQuMTI0NTMzIC00LjcxMDMzNiA0LjEyNDUzMyAtNC40MzUzNjdDNC4xMjQ1MzMgLTQuMjMyMTMgNC4wMTY5MzYgLTQuMTAwNjIzIDMuOTQ1MjA1IC00LjAwNDk4MUwzLjE4MDA3NSAtMy4wMzY2MTNMMi4yNDc1NzIgLTQuMjY3OTk1QzIuMjExNzA2IC00LjMxNTgxNiAyLjEzOTk3NSAtNC40MjM0MTIgMi4xMzk5NzUgLTQuNTA3MDk4QzIuMTM5OTc1IC00LjU3ODgyOSAyLjE5OTc1MSAtNC43OTQwMjIgMi41NTg0MDYgLTQuODA1OTc4Vi01LjE1MjY3N0MyLjI1OTUyNyAtNS4xMjg3NjcgMS42NDk4MTMgLTUuMTI4NzY3IDEuMzI3MDI0IC01LjEyODc2N0MwLjkzMjUwMyAtNS4xMjg3NjcgMC45MDg1OTMgLTUuMTI4NzY3IDAuMTc5MzI4IC01LjE1MjY3N1YtNC44MDU5NzhDMC43ODkwNDEgLTQuODA1OTc4IDEuMDE2MTg5IC00Ljc4MjA2NyAxLjI2NzI0OCAtNC40NTkyNzhMMi42NjYwMDIgLTIuNjMwMTM3QzIuNjg5OTEzIC0yLjYwNjIyNyAyLjczNzczMyAtMi41MzQ0OTYgMi43Mzc3MzMgLTIuNDk4NjNTMS44MDUyMyAtMS4yOTExNTggMS42ODU2NzkgLTEuMTM1NzQxQzEuMTU5NjUxIC0wLjQ5MDE2MiAwLjYzMzYyNCAtMC4zNTg2NTUgMC4xMTk1NTIgLTAuMzQ2N1YwQzAuNTczODQ4IC0wLjAyMzkxIDAuNTk3NzU4IC0wLjAyMzkxIDEuMTExODMxIC0wLjAyMzkxQzEuNTY2MTI3IC0wLjAyMzkxIDEuNTkwMDM3IC0wLjAyMzkxIDIuMTg3Nzk2IDBWLTAuMzQ2N0MxLjkwMDg3MiAtMC4zODI1NjUgMS44NTMwNTEgLTAuNTYxODkzIDEuODUzMDUxIC0wLjcyOTI2NUMxLjg1MzA1MSAtMC45MjA1NDggMS45MzY3MzcgLTEuMDE2MTg5IDIuMDU2Mjg5IC0xLjE3MTYwNkMyLjIzNTYxNiAtMS40MjI2NjUgMi42MzAxMzcgLTEuOTEyODI3IDIuOTE3MDYxIC0yLjI4MzQzN0wzLjg5NzM4NSAtMS4wMDQyMzRDNC4xMDA2MjMgLTAuNzQxMjIgNC4xMDA2MjMgLTAuNzE3MzEgNC4xMDA2MjMgLTAuNjQ1NTc5QzQuMTAwNjIzIC0wLjU0OTkzOCA0LjAwNDk4MSAtMC4zNTg2NTUgMy42ODIxOTIgLTAuMzQ2N1YwQzMuOTkzMDI2IC0wLjAyMzkxIDQuNTc4ODI5IC0wLjAyMzkxIDQuOTEzNTc0IC0wLjAyMzkxQzUuMzA4MDk1IC0wLjAyMzkxIDUuMzMyMDA1IC0wLjAyMzkxIDYuMDQ5MzE1IDBWLTAuMzQ2N0M1LjQxNTY5MSAtMC4zNDY3IDUuMjAwNDk4IC0wLjM3MDYxIDQuOTEzNTc0IC0wLjc1MzE3NkwzLjM0NzQ0NyAtMi44MjE0MlonIGlkPSdnMy0xMjAnLz4KPHBhdGggZD0nTTcuODc4NDU2IC0yLjc0OTY4OUM4LjA4MTY5NCAtMi43NDk2ODkgOC4yOTY4ODcgLTIuNzQ5Njg5IDguMjk2ODg3IC0yLjk4ODc5MlM4LjA4MTY5NCAtMy4yMjc4OTUgNy44Nzg0NTYgLTMuMjI3ODk1SDEuNDEwNzFDMS4yMDc0NzIgLTMuMjI3ODk1IDAuOTkyMjc5IC0zLjIyNzg5NSAwLjk5MjI3OSAtMi45ODg3OTJTMS4yMDc0NzIgLTIuNzQ5Njg5IDEuNDEwNzEgLTIuNzQ5Njg5SDcuODc4NDU2WicgaWQ9J2cwLTAnLz4KPHBhdGggZD0nTTIuMjk1MzkyIC0yLjk4ODc5MkMyLjI5NTM5MiAtMy4zMzU0OTIgMi4wMDg0NjggLTMuNjIyNDE2IDEuNjYxNzY4IC0zLjYyMjQxNlMxLjAyODE0NCAtMy4zMzU0OTIgMS4wMjgxNDQgLTIuOTg4NzkyUzEuMzE1MDY4IC0yLjM1NTE2OCAxLjY2MTc2OCAtMi4zNTUxNjhTMi4yOTUzOTIgLTIuNjQyMDkyIDIuMjk1MzkyIC0yLjk4ODc5MlonIGlkPSdnMC0xJy8+CjxwYXRoIGQ9J005Ljk3MDYxIC0yLjc0OTY4OUM5LjMxMzA3NiAtMi4yNDc1NzIgOC45OTAyODYgLTEuNzU3NDEgOC44OTQ2NDUgLTEuNjAxOTkzQzguMzU2NjYzIC0wLjc3NzA4NiA4LjI2MTAyMSAtMC4wMjM5MSA4LjI2MTAyMSAtMC4wMTE5NTVDOC4yNjEwMjEgMC4xMzE1MDcgOC40MDQ0ODMgMC4xMzE1MDcgOC41MDAxMjUgMC4xMzE1MDdDOC43MDMzNjIgMC4xMzE1MDcgOC43MTUzMTggMC4xMDc1OTcgOC43NjMxMzggLTAuMTA3NTk3QzkuMDM4MTA3IC0xLjI3OTIwMyA5Ljc0MzQ2MiAtMi4yODM0MzcgMTEuMDk0Mzk2IC0yLjgzMzM3NUMxMS4yMzc4NTggLTIuODgxMTk2IDExLjI3MzcyNCAtMi45MDUxMDYgMTEuMjczNzI0IC0yLjk4ODc5MlMxMS4yMDE5OTMgLTMuMTA4MzQ0IDExLjE3ODA4MiAtMy4xMjAyOTlDMTAuNjUyMDU1IC0zLjMyMzUzNyA5LjIwNTQ3OSAtMy45MjEyOTUgOC43NTExODMgLTUuOTI5NzYzQzguNzE1MzE4IC02LjA3MzIyNSA4LjcwMzM2MiAtNi4xMDkwOTEgOC41MDAxMjUgLTYuMTA5MDkxQzguNDA0NDgzIC02LjEwOTA5MSA4LjI2MTAyMSAtNi4xMDkwOTEgOC4yNjEwMjEgLTUuOTY1NjI5QzguMjYxMDIxIC01Ljk0MTcxOSA4LjM2ODYxOCAtNS4xODg1NDMgOC44NzA3MzUgLTQuMzg3NTQ3QzkuMTA5ODM4IC00LjAyODg5MiA5LjQ1NjUzOCAtMy42MTA0NjEgOS45NzA2MSAtMy4yMjc4OTVIMS4wODc5MkMwLjg3MjcyNyAtMy4yMjc4OTUgMC42NTc1MzQgLTMuMjI3ODk1IDAuNjU3NTM0IC0yLjk4ODc5MlMwLjg3MjcyNyAtMi43NDk2ODkgMS4wODc5MiAtMi43NDk2ODlIOS45NzA2MVonIGlkPSdnMC0zMycvPgo8cGF0aCBkPSdNMS4xMzU3NDEgLTIuNzQ5Njg5QzEuMjA3NDcyIC0yLjc0OTY4OSAxLjQ3MDQ4NiAtMi43NDk2ODkgMS40NzA0ODYgLTIuOTg4NzkyUzEuMjA3NDcyIC0zLjIyNzg5NSAxLjEzNTc0MSAtMy4yMjc4OTVWLTQuNzk0MDIyQzEuMTM1NzQxIC00Ljk4NTMwNSAxLjEzNTc0MSAtNS4yMTI0NTMgMC44OTY2MzggLTUuMjEyNDUzUzAuNjU3NTM0IC00Ljk4NTMwNSAwLjY1NzUzNCAtNC43OTQwMjJWLTEuMTgzNTYyQzAuNjU3NTM0IC0wLjk5MjI3OSAwLjY1NzUzNCAtMC43NjUxMzEgMC44OTY2MzggLTAuNzY1MTMxUzEuMTM1NzQxIC0wLjk5MjI3OSAxLjEzNTc0MSAtMS4xODM1NjJWLTIuNzQ5Njg5WicgaWQ9J2cwLTU1Jy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PScwJyB4bGluazpocmVmPScjZzItMTIxJyB5PScwJy8+Cjx1c2UgeD0nOS40NTc0ODEnIHhsaW5rOmhyZWY9JyNnMC01NScgeT0nMCcvPgo8dXNlIHg9JzkuNDU3NDgxJyB4bGluazpocmVmPScjZzAtMzMnIHk9JzAnLz4KPHVzZSB4PScyNC43MzM1MTMnIHhsaW5rOmhyZWY9JyNnMy0xMDEnIHk9JzAnLz4KPHVzZSB4PScyOS45MzYxNzEnIHhsaW5rOmhyZWY9JyNnMy0xMjAnIHk9JzAnLz4KPHVzZSB4PSczNi4xMTQzMjcnIHhsaW5rOmhyZWY9JyNnMy0xMTInIHk9JzAnLz4KPHVzZSB4PSc0Mi42MTc2NScgeGxpbms6aHJlZj0nI2czLTQwJyB5PScwJy8+Cjx1c2UgeD0nNDcuMTY5OTc1JyB4bGluazpocmVmPScjZzAtMCcgeT0nMCcvPgo8dXNlIHg9JzU2LjQ2ODQ3MicgeGxpbms6aHJlZj0nI2cyLTEwMCcgeT0nMCcvPgo8dXNlIHg9JzYyLjU1MTE2NScgeGxpbms6aHJlZj0nI2czLTQwJyB5PScwJy8+Cjx1c2UgeD0nNjcuMTAzNDkxJyB4bGluazpocmVmPScjZzItMTIxJyB5PScwJy8+Cjx1c2UgeD0nNzMuMjQwMTQzJyB4bGluazpocmVmPScjZzItNTknIHk9JzAnLz4KPHVzZSB4PSc3OC40ODQzMDInIHhsaW5rOmhyZWY9JyNnMi02OCcgeT0nMCcvPgo8dXNlIHg9Jzg4LjUyODc3NycgeGxpbms6aHJlZj0nI2czLTQxJyB5PScwJy8+Cjx1c2UgeD0nOTMuMDgxMTAzJyB4bGluazpocmVmPScjZzItNjEnIHk9JzAnLz4KPHVzZSB4PSc5OC45MzQwOTMnIHhsaW5rOmhyZWY9JyNnMy00MCcgeT0nMCcvPgo8dXNlIHg9JzEwMy40ODY0MTknIHhsaW5rOmhyZWY9JyNnMi0xMScgeT0nMCcvPgo8dXNlIHg9JzExMC45MzIwMjcnIHhsaW5rOmhyZWY9JyNnMS0xMDUnIHk9JzEuNzkzMjYzJy8+Cjx1c2UgeD0nMTE2Ljk2OTk2MicgeGxpbms6aHJlZj0nI2cwLTEnIHk9JzAnLz4KPHVzZSB4PScxMjIuOTQ3NTE2JyB4bGluazpocmVmPScjZzItMjcnIHk9JzAnLz4KPHVzZSB4PScxMjkuNjAwOTcxJyB4bGluazpocmVmPScjZzEtMTA1JyB5PScxLjc5MzI2MycvPgo8dXNlIHg9JzEzMi45ODIyNDMnIHhsaW5rOmhyZWY9JyNnMy00MScgeT0nMCcvPgo8dXNlIHg9JzEzNy41MzQ1NjknIHhsaW5rOmhyZWY9JyNnMy00MScgeT0nMCcvPgo8L2c+Cjwvc3ZnPgo8IS0tIERFUFRIPTQgLS0+" alt="y \mapsto \exp(-d(y, D) / (\alpha_i \cdot \sigma_i))" style="vertical-align: -4px"/> where <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nNi45NDA2MzZwdCcgdmVyc2lvbj0nMS4xJyB2aWV3Qm94PScwIC01LjE0NzM3MyAxMC4zMjg3NDggNi45NDA2MzYnIHdpZHRoPScxMC4zMjg3NDhwdCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+CjxkZWZzPgo8cGF0aCBkPSdNMi4zNzUwOTMgLTQuOTczMzVDMi4zNzUwOTMgLTUuMTQ4NjkyIDIuMjQ3NTcyIC01LjI3NjIxNCAyLjA2NDI1OSAtNS4yNzYyMTRDMS44NTcwMzYgLTUuMjc2MjE0IDEuNjI1OTAzIC01LjA4NDkzMiAxLjYyNTkwMyAtNC44NDU4MjhDMS42MjU5MDMgLTQuNjcwNDg2IDEuNzUzNDI1IC00LjU0Mjk2NCAxLjkzNjczNyAtNC41NDI5NjRDMi4xNDM5NiAtNC41NDI5NjQgMi4zNzUwOTMgLTQuNzM0MjQ3IDIuMzc1MDkzIC00Ljk3MzM1Wk0xLjIxMTQ1NyAtMi4wNDgzMTlMMC43ODEwNzEgLTAuOTQ4NDQzQzAuNzQxMjIgLTAuODI4ODkyIDAuNzAxMzcgLTAuNzMzMjUgMC43MDEzNyAtMC41OTc3NThDMC43MDEzNyAtMC4yMDcyMjMgMS4wMDQyMzQgMC4wNzk3MDEgMS40MjY2NSAwLjA3OTcwMUMyLjE5OTc1MSAwLjA3OTcwMSAyLjUyNjUyNiAtMS4wMzYxMTUgMi41MjY1MjYgLTEuMTM5NzI2QzIuNTI2NTI2IC0xLjIxOTQyNyAyLjQ2Mjc2NSAtMS4yNDMzMzcgMi40MDY5NzQgLTEuMjQzMzM3QzIuMzExMzMzIC0xLjI0MzMzNyAyLjI5NTM5MiAtMS4xODc1NDcgMi4yNzE0ODIgLTEuMTA3ODQ2QzIuMDg4MTY5IC0wLjQ3MDIzNyAxLjc2MTM5NSAtMC4xNDM0NjIgMS40NDI1OSAtMC4xNDM0NjJDMS4zNDY5NDkgLTAuMTQzNDYyIDEuMjUxMzA4IC0wLjE4MzMxMyAxLjI1MTMwOCAtMC4zOTg1MDZDMS4yNTEzMDggLTAuNTg5Nzg4IDEuMzA3MDk4IC0wLjczMzI1IDEuNDEwNzEgLTAuOTgwMzI0QzEuNDkwNDExIC0xLjE5NTUxNyAxLjU3MDExMiAtMS40MTA3MSAxLjY1Nzc4MyAtMS42MjU5MDNMMS45MDQ4NTcgLTIuMjcxNDgyQzEuOTc2NTg4IC0yLjQ1NDc5NSAyLjA3MjIyOSAtMi43MDE4NjggMi4wNzIyMjkgLTIuODM3MzZDMi4wNzIyMjkgLTMuMjM1ODY2IDEuNzUzNDI1IC0zLjUxNDgxOSAxLjM0Njk0OSAtMy41MTQ4MTlDMC41NzM4NDggLTMuNTE0ODE5IDAuMjM5MTAzIC0yLjM5OTAwNCAwLjIzOTEwMyAtMi4yOTUzOTJDMC4yMzkxMDMgLTIuMjIzNjYxIDAuMjk0ODk0IC0yLjE5MTc4MSAwLjM1ODY1NSAtMi4xOTE3ODFDMC40NjIyNjcgLTIuMTkxNzgxIDAuNDcwMjM3IC0yLjIzOTYwMSAwLjQ5NDE0NyAtMi4zMTkzMDNDMC43MTczMSAtMy4wNzY0NjMgMS4wODM5MzUgLTMuMjkxNjU2IDEuMzIzMDM5IC0zLjI5MTY1NkMxLjQzNDYyIC0zLjI5MTY1NiAxLjUxNDMyMSAtMy4yNTE4MDYgMS41MTQzMjEgLTMuMDI4NjQzQzEuNTE0MzIxIC0yLjk0ODk0MSAxLjUwNjM1MSAtMi44MzczNiAxLjQyNjY1IC0yLjU5ODI1N0wxLjIxMTQ1NyAtMi4wNDgzMTlaJyBpZD0nZzAtMTA1Jy8+CjxwYXRoIGQ9J001LjUzNTI0MyAtMy4wMjQ2NThDNS41MzUyNDMgLTQuMTg0MzA5IDQuODc3NzA5IC01LjI3MjIyOSAzLjYxMDQ2MSAtNS4yNzIyMjlDMi4wNDQzMzQgLTUuMjcyMjI5IDAuNDc4MjA3IC0zLjU2MjY0IDAuNDc4MjA3IC0xLjg2NTAwNkMwLjQ3ODIwNyAtMC44MjQ5MDcgMS4xMjM3ODYgMC4xMTk1NTIgMi4zNDMyMTMgMC4xMTk1NTJDMy4wODQ0MzMgMC4xMTk1NTIgMy45NjkxMTYgLTAuMTY3MzcyIDQuODE3OTMzIC0wLjg4NDY4MkM0Ljk4NTMwNSAtMC4yMTUxOTMgNS4zNTU5MTUgMC4xMTk1NTIgNS44Njk5ODggMC4xMTk1NTJDNi41MTU1NjcgMC4xMTk1NTIgNi44MzgzNTYgLTAuNTQ5OTM4IDYuODM4MzU2IC0wLjcwNTM1NUM2LjgzODM1NiAtMC44MTI5NTEgNi43NTQ2NyAtMC44MTI5NTEgNi43MTg4MDQgLTAuODEyOTUxQzYuNjIzMTYzIC0wLjgxMjk1MSA2LjYxMTIwOCAtMC43NzcwODYgNi41NzUzNDIgLTAuNjgxNDQ1QzYuNDY3NzQ2IC0wLjM4MjU2NSA2LjE5Mjc3NyAtMC4xMTk1NTIgNS45MDU4NTMgLTAuMTE5NTUyQzUuNTM1MjQzIC0wLjExOTU1MiA1LjUzNTI0MyAtMC44ODQ2ODIgNS41MzUyNDMgLTEuNjEzOTQ4QzYuNzU0NjcgLTMuMDcyNDc4IDcuMDQxNTk0IC00LjU3ODgyOSA3LjA0MTU5NCAtNC41OTA3ODVDNy4wNDE1OTQgLTQuNjk4MzgxIDYuOTQ1OTUzIC00LjY5ODM4MSA2LjkxMDA4NyAtNC42OTgzODFDNi44MDI0OTEgLTQuNjk4MzgxIDYuNzkwNTM1IC00LjY2MjUxNiA2Ljc0MjcxNSAtNC40NDczMjNDNi41ODcyOTggLTMuOTIxMjk1IDYuMjc2NDYzIC0yLjk4ODc5MiA1LjUzNTI0MyAtMi4wMDg0NjhWLTMuMDI0NjU4Wk00Ljc4MjA2NyAtMS4xNzE2MDZDMy43MzAwMTIgLTAuMjI3MTQ4IDIuNzg1NTU0IC0wLjExOTU1MiAyLjM2NzEyMyAtMC4xMTk1NTJDMS41MTgzMDYgLTAuMTE5NTUyIDEuMjc5MjAzIC0wLjg3MjcyNyAxLjI3OTIwMyAtMS40MzQ2MkMxLjI3OTIwMyAtMS45NDg2OTIgMS41NDIyMTcgLTMuMTY4MTIgMS45MTI4MjcgLTMuODI1NjU0QzIuNDAyOTg5IC00LjY2MjUxNiAzLjA3MjQ3OCAtNS4wMzMxMjYgMy42MTA0NjEgLTUuMDMzMTI2QzQuNzcwMTEyIC01LjAzMzEyNiA0Ljc3MDExMiAtMy41MTQ4MTkgNC43NzAxMTIgLTIuNTEwNTg1QzQuNzcwMTEyIC0yLjIxMTcwNiA0Ljc1ODE1NyAtMS45MDA4NzIgNC43NTgxNTcgLTEuNjAxOTkzQzQuNzU4MTU3IC0xLjM2Mjg4OSA0Ljc3MDExMiAtMS4zMDMxMTMgNC43ODIwNjcgLTEuMTcxNjA2WicgaWQ9J2cxLTExJy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PScwJyB4bGluazpocmVmPScjZzEtMTEnIHk9JzAnLz4KPHVzZSB4PSc3LjQ0NTYwOScgeGxpbms6aHJlZj0nI2cwLTEwNScgeT0nMS43OTMyNjMnLz4KPC9nPgo8L3N2Zz4KPCEtLSBERVBUSD0yIC0tPg==" alt="\alpha_i" style="vertical-align: -2px"/> is the alpha parameter, <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nNi45NDA2MzZwdCcgdmVyc2lvbj0nMS4xJyB2aWV3Qm94PScwIC01LjE0NzM3MyA5LjUzNjU5NSA2Ljk0MDYzNicgd2lkdGg9JzkuNTM2NTk1cHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTIuMzc1MDkzIC00Ljk3MzM1QzIuMzc1MDkzIC01LjE0ODY5MiAyLjI0NzU3MiAtNS4yNzYyMTQgMi4wNjQyNTkgLTUuMjc2MjE0QzEuODU3MDM2IC01LjI3NjIxNCAxLjYyNTkwMyAtNS4wODQ5MzIgMS42MjU5MDMgLTQuODQ1ODI4QzEuNjI1OTAzIC00LjY3MDQ4NiAxLjc1MzQyNSAtNC41NDI5NjQgMS45MzY3MzcgLTQuNTQyOTY0QzIuMTQzOTYgLTQuNTQyOTY0IDIuMzc1MDkzIC00LjczNDI0NyAyLjM3NTA5MyAtNC45NzMzNVpNMS4yMTE0NTcgLTIuMDQ4MzE5TDAuNzgxMDcxIC0wLjk0ODQ0M0MwLjc0MTIyIC0wLjgyODg5MiAwLjcwMTM3IC0wLjczMzI1IDAuNzAxMzcgLTAuNTk3NzU4QzAuNzAxMzcgLTAuMjA3MjIzIDEuMDA0MjM0IDAuMDc5NzAxIDEuNDI2NjUgMC4wNzk3MDFDMi4xOTk3NTEgMC4wNzk3MDEgMi41MjY1MjYgLTEuMDM2MTE1IDIuNTI2NTI2IC0xLjEzOTcyNkMyLjUyNjUyNiAtMS4yMTk0MjcgMi40NjI3NjUgLTEuMjQzMzM3IDIuNDA2OTc0IC0xLjI0MzMzN0MyLjMxMTMzMyAtMS4yNDMzMzcgMi4yOTUzOTIgLTEuMTg3NTQ3IDIuMjcxNDgyIC0xLjEwNzg0NkMyLjA4ODE2OSAtMC40NzAyMzcgMS43NjEzOTUgLTAuMTQzNDYyIDEuNDQyNTkgLTAuMTQzNDYyQzEuMzQ2OTQ5IC0wLjE0MzQ2MiAxLjI1MTMwOCAtMC4xODMzMTMgMS4yNTEzMDggLTAuMzk4NTA2QzEuMjUxMzA4IC0wLjU4OTc4OCAxLjMwNzA5OCAtMC43MzMyNSAxLjQxMDcxIC0wLjk4MDMyNEMxLjQ5MDQxMSAtMS4xOTU1MTcgMS41NzAxMTIgLTEuNDEwNzEgMS42NTc3ODMgLTEuNjI1OTAzTDEuOTA0ODU3IC0yLjI3MTQ4MkMxLjk3NjU4OCAtMi40NTQ3OTUgMi4wNzIyMjkgLTIuNzAxODY4IDIuMDcyMjI5IC0yLjgzNzM2QzIuMDcyMjI5IC0zLjIzNTg2NiAxLjc1MzQyNSAtMy41MTQ4MTkgMS4zNDY5NDkgLTMuNTE0ODE5QzAuNTczODQ4IC0zLjUxNDgxOSAwLjIzOTEwMyAtMi4zOTkwMDQgMC4yMzkxMDMgLTIuMjk1MzkyQzAuMjM5MTAzIC0yLjIyMzY2MSAwLjI5NDg5NCAtMi4xOTE3ODEgMC4zNTg2NTUgLTIuMTkxNzgxQzAuNDYyMjY3IC0yLjE5MTc4MSAwLjQ3MDIzNyAtMi4yMzk2MDEgMC40OTQxNDcgLTIuMzE5MzAzQzAuNzE3MzEgLTMuMDc2NDYzIDEuMDgzOTM1IC0zLjI5MTY1NiAxLjMyMzAzOSAtMy4yOTE2NTZDMS40MzQ2MiAtMy4yOTE2NTYgMS41MTQzMjEgLTMuMjUxODA2IDEuNTE0MzIxIC0zLjAyODY0M0MxLjUxNDMyMSAtMi45NDg5NDEgMS41MDYzNTEgLTIuODM3MzYgMS40MjY2NSAtMi41OTgyNTdMMS4yMTE0NTcgLTIuMDQ4MzE5WicgaWQ9J2cwLTEwNScvPgo8cGF0aCBkPSdNNi4wNzMyMjUgLTQuNTA3MDk4QzYuMjI4NjQzIC00LjUwNzA5OCA2LjYyMzE2MyAtNC41MDcwOTggNi42MjMxNjMgLTQuODg5NjY0QzYuNjIzMTYzIC01LjE1MjY3NyA2LjM5NjAxNSAtNS4xNTI2NzcgNi4xODA4MjIgLTUuMTUyNjc3SDMuNTM4NzNDMS43NDU0NTUgLTUuMTUyNjc3IDAuNDU0Mjk2IC0zLjE1NjE2NCAwLjQ1NDI5NiAtMS43NDU0NTVDMC40NTQyOTYgLTAuNzI5MjY1IDEuMTExODMxIDAuMTE5NTUyIDIuMTg3Nzk2IDAuMTE5NTUyQzMuNTk4NTA2IDAuMTE5NTUyIDUuMTQwNzIyIC0xLjM5ODc1NSA1LjE0MDcyMiAtMy4xOTIwM0M1LjE0MDcyMiAtMy42NTgyODEgNS4wMzMxMjYgLTQuMTEyNTc4IDQuNzQ2MjAyIC00LjUwNzA5OEg2LjA3MzIyNVpNMi4xOTk3NTEgLTAuMTE5NTUyQzEuNTkwMDM3IC0wLjExOTU1MiAxLjE0NzY5NiAtMC41ODU4MDMgMS4xNDc2OTYgLTEuNDEwNzFDMS4xNDc2OTYgLTIuMTI4MDIgMS41NzgwODIgLTQuNTA3MDk4IDMuMzM1NDkyIC00LjUwNzA5OEMzLjg0OTU2NCAtNC41MDcwOTggNC40MjM0MTIgLTQuMjU2MDQgNC40MjM0MTIgLTMuMzM1NDkyQzQuNDIzNDEyIC0yLjkxNzA2MSA0LjIzMjEzIC0xLjkxMjgyNyAzLjgxMzY5OSAtMS4yMTk0MjdDMy4zODMzMTMgLTAuNTE0MDcyIDIuNzM3NzMzIC0wLjExOTU1MiAyLjE5OTc1MSAtMC4xMTk1NTJaJyBpZD0nZzEtMjcnLz4KPC9kZWZzPgo8ZyBpZD0ncGFnZTEnPgo8dXNlIHg9JzAnIHhsaW5rOmhyZWY9JyNnMS0yNycgeT0nMCcvPgo8dXNlIHg9JzYuNjUzNDU1JyB4bGluazpocmVmPScjZzAtMTA1JyB5PScxLjc5MzI2MycvPgo8L2c+Cjwvc3ZnPgo8IS0tIERFUFRIPTIgLS0+" alt="\sigma_i" style="vertical-align: -2px"/> is the standard deviation of the i-th output variable and <img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nMTEuOTU1MTY4cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMCAtOC45NjYzNzYgMzYuNjEyNjMgMTEuOTU1MTY4JyB3aWR0aD0nMzYuNjEyNjNwdCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayc+CjxkZWZzPgo8cGF0aCBkPSdNMy44ODU0MyAyLjkwNTEwNkMzLjg4NTQzIDIuODY5MjQgMy44ODU0MyAyLjg0NTMzIDMuNjgyMTkyIDIuNjQyMDkyQzIuNDg2Njc1IDEuNDM0NjIgMS44MTcxODYgLTAuNTM3OTgzIDEuODE3MTg2IC0yLjk3NjgzN0MxLjgxNzE4NiAtNS4yOTYxMzkgMi4zNzkwNzggLTcuMjkyNjUzIDMuNzY1ODc4IC04LjcwMzM2MkMzLjg4NTQzIC04LjgxMDk1OSAzLjg4NTQzIC04LjgzNDg2OSAzLjg4NTQzIC04Ljg3MDczNUMzLjg4NTQzIC04Ljk0MjQ2NiAzLjgyNTY1NCAtOC45NjYzNzYgMy43Nzc4MzMgLTguOTY2Mzc2QzMuNjIyNDE2IC04Ljk2NjM3NiAyLjY0MjA5MiAtOC4xMDU2MDQgMi4wNTYyODkgLTYuOTMzOTk4QzEuNDQ2NTc1IC01LjcyNjUyNiAxLjE3MTYwNiAtNC40NDczMjMgMS4xNzE2MDYgLTIuOTc2ODM3QzEuMTcxNjA2IC0xLjkxMjgyNyAxLjMzODk3OSAtMC40OTAxNjIgMS45NjA2NDggMC43ODkwNDFDMi42NjYwMDIgMi4yMjM2NjEgMy42NDYzMjYgMy4wMDA3NDcgMy43Nzc4MzMgMy4wMDA3NDdDMy44MjU2NTQgMy4wMDA3NDcgMy44ODU0MyAyLjk3NjgzNyAzLjg4NTQzIDIuOTA1MTA2WicgaWQ9J2cxLTQwJy8+CjxwYXRoIGQ9J00zLjM3MTM1NyAtMi45NzY4MzdDMy4zNzEzNTcgLTMuODg1NDMgMy4yNTE4MDYgLTUuMzY3ODcgMi41ODIzMTYgLTYuNzU0NjdDMS44NzY5NjEgLTguMTg5MjkgMC44OTY2MzggLTguOTY2Mzc2IDAuNzY1MTMxIC04Ljk2NjM3NkMwLjcxNzMxIC04Ljk2NjM3NiAwLjY1NzUzNCAtOC45NDI0NjYgMC42NTc1MzQgLTguODcwNzM1QzAuNjU3NTM0IC04LjgzNDg2OSAwLjY1NzUzNCAtOC44MTA5NTkgMC44NjA3NzIgLTguNjA3NzIxQzIuMDU2Mjg5IC03LjQwMDI0OSAyLjcyNTc3OCAtNS40Mjc2NDYgMi43MjU3NzggLTIuOTg4NzkyQzIuNzI1Nzc4IC0wLjY2OTQ4OSAyLjE2Mzg4NSAxLjMyNzAyNCAwLjc3NzA4NiAyLjczNzczM0MwLjY1NzUzNCAyLjg0NTMzIDAuNjU3NTM0IDIuODY5MjQgMC42NTc1MzQgMi45MDUxMDZDMC42NTc1MzQgMi45NzY4MzcgMC43MTczMSAzLjAwMDc0NyAwLjc2NTEzMSAzLjAwMDc0N0MwLjkyMDU0OCAzLjAwMDc0NyAxLjkwMDg3MiAyLjEzOTk3NSAyLjQ4NjY3NSAwLjk2ODM2OUMzLjA5NjM4OSAtMC4yNTEwNTkgMy4zNzEzNTcgLTEuNTQyMjE3IDMuMzcxMzU3IC0yLjk3NjgzN1onIGlkPSdnMS00MScvPgo8cGF0aCBkPSdNMi4zMzEyNTggMC4wNDc4MjFDMi4zMzEyNTggLTAuNjQ1NTc5IDIuMTA0MTEgLTEuMTU5NjUxIDEuNjEzOTQ4IC0xLjE1OTY1MUMxLjIzMTM4MiAtMS4xNTk2NTEgMS4wNDAxIC0wLjg0ODgxNyAxLjA0MDEgLTAuNTg1ODAzUzEuMjE5NDI3IDAgMS42MjU5MDMgMEMxLjc4MTMyIDAgMS45MTI4MjcgLTAuMDQ3ODIxIDIuMDIwNDIzIC0wLjE1NTQxN0MyLjA0NDMzNCAtMC4xNzkzMjggMi4wNTYyODkgLTAuMTc5MzI4IDIuMDY4MjQ0IC0wLjE3OTMyOEMyLjA5MjE1NCAtMC4xNzkzMjggMi4wOTIxNTQgLTAuMDExOTU1IDIuMDkyMTU0IDAuMDQ3ODIxQzIuMDkyMTU0IDAuNDQyMzQxIDIuMDIwNDIzIDEuMjE5NDI3IDEuMzI3MDI0IDEuOTk2NTEzQzEuMTk1NTE3IDIuMTM5OTc1IDEuMTk1NTE3IDIuMTYzODg1IDEuMTk1NTE3IDIuMTg3Nzk2QzEuMTk1NTE3IDIuMjQ3NTcyIDEuMjU1MjkzIDIuMzA3MzQ3IDEuMzE1MDY4IDIuMzA3MzQ3QzEuNDEwNzEgMi4zMDczNDcgMi4zMzEyNTggMS40MjI2NjUgMi4zMzEyNTggMC4wNDc4MjFaJyBpZD0nZzAtNTknLz4KPHBhdGggZD0nTTEuODc2OTYxIC0wLjg4NDY4MkMxLjc2OTM2NSAtMC40NjYyNTIgMS43NDU0NTUgLTAuMzQ2NyAwLjkwODU5MyAtMC4zNDY3QzAuNjgxNDQ1IC0wLjM0NjcgMC41NjE4OTMgLTAuMzQ2NyAwLjU2MTg5MyAtMC4xMzE1MDdDMC41NjE4OTMgMCAwLjYzMzYyNCAwIDAuODcyNzI3IDBINC42NjI1MTZDNy4wNzc0NiAwIDkuNDMyNjI4IC0yLjQ5ODYzIDkuNDMyNjI4IC01LjE2NDYzM0M5LjQzMjYyOCAtNi44ODYxNzcgOC40MDQ0ODMgLTguMTY1MzggNi42OTQ4OTQgLTguMTY1MzhIMi44NTcyODVDMi42MzAxMzcgLTguMTY1MzggMi41MjI1NCAtOC4xNjUzOCAyLjUyMjU0IC03LjkzODIzMkMyLjUyMjU0IC03LjgxODY4IDIuNjMwMTM3IC03LjgxODY4IDIuODA5NDY1IC03LjgxODY4QzMuNTM4NzMgLTcuODE4NjggMy41Mzg3MyAtNy43MjMwMzkgMy41Mzg3MyAtNy41OTE1MzJDMy41Mzg3MyAtNy41Njc2MjEgMy41Mzg3MyAtNy40OTU4OSAzLjQ5MDkwOSAtNy4zMTY1NjNMMS44NzY5NjEgLTAuODg0NjgyWk00LjM5OTUwMiAtNy4zNTI0MjhDNC41MDcwOTggLTcuNzk0NzcgNC41NTQ5MTkgLTcuODE4NjggNS4wMjExNzEgLTcuODE4NjhINi4zMzYyMzlDNy40NjAwMjUgLTcuODE4NjggOC40ODgxNjkgLTcuMjA4OTY2IDguNDg4MTY5IC01LjU1OTE1M0M4LjQ4ODE2OSAtNC45NjEzOTUgOC4yNDkwNjYgLTIuODgxMTk2IDcuMDg5NDE1IC0xLjU2NjEyN0M2Ljc1NDY3IC0xLjE3MTYwNiA1Ljg0NjA3NyAtMC4zNDY3IDQuNDcxMjMzIC0wLjM0NjdIMy4xMDgzNDRDMi45NDA5NzEgLTAuMzQ2NyAyLjkxNzA2MSAtMC4zNDY3IDIuODQ1MzMgLTAuMzU4NjU1QzIuNzEzODIzIC0wLjM3MDYxIDIuNzAxODY4IC0wLjM5NDUyMSAyLjcwMTg2OCAtMC40OTAxNjJDMi43MDE4NjggLTAuNTczODQ4IDIuNzI1Nzc4IC0wLjY0NTU3OSAyLjc0OTY4OSAtMC43NTMxNzZMNC4zOTk1MDIgLTcuMzUyNDI4WicgaWQ9J2cwLTY4Jy8+CjxwYXRoIGQ9J002LjAxMzQ1IC03Ljk5ODAwN0M2LjAyNTQwNSAtOC4wNDU4MjggNi4wNDkzMTUgLTguMTE3NTU5IDYuMDQ5MzE1IC04LjE3NzMzNUM2LjA0OTMxNSAtOC4yOTY4ODcgNS45Mjk3NjMgLTguMjk2ODg3IDUuOTA1ODUzIC04LjI5Njg4N0M1Ljg5Mzg5OCAtOC4yOTY4ODcgNS4zMDgwOTUgLTguMjQ5MDY2IDUuMjQ4MzE5IC04LjIzNzExMUM1LjA0NTA4MSAtOC4yMjUxNTYgNC44NjU3NTMgLTguMjAxMjQ1IDQuNjUwNTYgLTguMTg5MjlDNC4zNTE2ODEgLTguMTY1MzggNC4yNjc5OTUgLTguMTUzNDI1IDQuMjY3OTk1IC03LjkzODIzMkM0LjI2Nzk5NSAtNy44MTg2OCA0LjM2MzYzNiAtNy44MTg2OCA0LjUzMTAwOSAtNy44MTg2OEM1LjExNjgxMiAtNy44MTg2OCA1LjEyODc2NyAtNy43MTEwODMgNS4xMjg3NjcgLTcuNTkxNTMyQzUuMTI4NzY3IC03LjUxOTgwMSA1LjEwNDg1NyAtNy40MjQxNTkgNS4wOTI5MDIgLTcuMzg4Mjk0TDQuMzYzNjM2IC00LjQ4MzE4OEM0LjIzMjEzIC00Ljc5NDAyMiAzLjkwOTM0IC01LjI3MjIyOSAzLjI4NzY3MSAtNS4yNzIyMjlDMS45MzY3MzcgLTUuMjcyMjI5IDAuNDc4MjA3IC0zLjUyNjc3NSAwLjQ3ODIwNyAtMS43NTc0MUMwLjQ3ODIwNyAtMC41NzM4NDggMS4xNzE2MDYgMC4xMTk1NTIgMS45ODQ1NTggMC4xMTk1NTJDMi42NDIwOTIgMC4xMTk1NTIgMy4yMDM5ODUgLTAuMzk0NTIxIDMuNTM4NzMgLTAuNzg5MDQxQzMuNjU4MjgxIC0wLjA4MzY4NiA0LjIyMDE3NCAwLjExOTU1MiA0LjU3ODgyOSAwLjExOTU1MlM1LjIyNDQwOCAtMC4wOTU2NDEgNS40Mzk2MDEgLTAuNTI2MDI3QzUuNjMwODg0IC0wLjkzMjUwMyA1Ljc5ODI1NyAtMS42NjE3NjggNS43OTgyNTcgLTEuNzA5NTg5QzUuNzk4MjU3IC0xLjc2OTM2NSA1Ljc1MDQzNiAtMS44MTcxODYgNS42Nzg3MDUgLTEuODE3MTg2QzUuNTcxMTA4IC0xLjgxNzE4NiA1LjU1OTE1MyAtMS43NTc0MSA1LjUxMTMzMyAtMS41NzgwODJDNS4zMzIwMDUgLTAuODcyNzI3IDUuMTA0ODU3IC0wLjExOTU1MiA0LjYxNDY5NSAtMC4xMTk1NTJDNC4yNjc5OTUgLTAuMTE5NTUyIDQuMjQ0MDg1IC0wLjQzMDM4NiA0LjI0NDA4NSAtMC42Njk0ODlDNC4yNDQwODUgLTAuNzE3MzEgNC4yNDQwODUgLTAuOTY4MzY5IDQuMzI3NzcxIC0xLjMwMzExM0w2LjAxMzQ1IC03Ljk5ODAwN1pNMy41OTg1MDYgLTEuNDIyNjY1QzMuNTM4NzMgLTEuMjE5NDI3IDMuNTM4NzMgLTEuMTk1NTE3IDMuMzcxMzU3IC0wLjk2ODM2OUMzLjEwODM0NCAtMC42MzM2MjQgMi41ODIzMTYgLTAuMTE5NTUyIDIuMDIwNDIzIC0wLjExOTU1MkMxLjUzMDI2MiAtMC4xMTk1NTIgMS4yNTUyOTMgLTAuNTYxODkzIDEuMjU1MjkzIC0xLjI2NzI0OEMxLjI1NTI5MyAtMS45MjQ3ODIgMS42MjU5MDMgLTMuMjYzNzYxIDEuODUzMDUxIC0zLjc2NTg3OEMyLjI1OTUyNyAtNC42MDI3NCAyLjgyMTQyIC01LjAzMzEyNiAzLjI4NzY3MSAtNS4wMzMxMjZDNC4wNzY3MTIgLTUuMDMzMTI2IDQuMjMyMTMgLTQuMDUyODAyIDQuMjMyMTMgLTMuOTU3MTYxQzQuMjMyMTMgLTMuOTQ1MjA1IDQuMTk2MjY0IC0zLjc4OTc4OCA0LjE4NDMwOSAtMy43NjU4NzhMMy41OTg1MDYgLTEuNDIyNjY1WicgaWQ9J2cwLTEwMCcvPgo8cGF0aCBkPSdNMy4xNDQyMDkgMS4zMzg5NzlDMi44MjE0MiAxLjc5MzI3NSAyLjM1NTE2OCAyLjE5OTc1MSAxLjc2OTM2NSAyLjE5OTc1MUMxLjYyNTkwMyAyLjE5OTc1MSAxLjA1MjA1NSAyLjE3NTg0MSAwLjg3MjcyNyAxLjYyNTkwM0MwLjkwODU5MyAxLjYzNzg1OCAwLjk2ODM2OSAxLjYzNzg1OCAwLjk5MjI3OSAxLjYzNzg1OEMxLjM1MDkzNCAxLjYzNzg1OCAxLjU5MDAzNyAxLjMyNzAyNCAxLjU5MDAzNyAxLjA1MjA1NVMxLjM2Mjg4OSAwLjY4MTQ0NSAxLjE4MzU2MiAwLjY4MTQ0NUMwLjk5MjI3OSAwLjY4MTQ0NSAwLjU3Mzg0OCAwLjgyNDkwNyAwLjU3Mzg0OCAxLjQxMDcxQzAuNTczODQ4IDIuMDIwNDIzIDEuMDg3OTIgMi40Mzg4NTQgMS43NjkzNjUgMi40Mzg4NTRDMi45NjQ4ODIgMi40Mzg4NTQgNC4xNzIzNTQgMS4zMzg5NzkgNC41MDcwOTggMC4wMTE5NTVMNS42Nzg3MDUgLTQuNjUwNTZDNS42OTA2NiAtNC43MTAzMzYgNS43MTQ1NyAtNC43ODIwNjcgNS43MTQ1NyAtNC44NTM3OThDNS43MTQ1NyAtNS4wMzMxMjYgNS41NzExMDggLTUuMTUyNjc3IDUuMzkxNzgxIC01LjE1MjY3N0M1LjI4NDE4NCAtNS4xNTI2NzcgNS4wMzMxMjYgLTUuMTA0ODU3IDQuOTM3NDg0IC00Ljc0NjIwMkw0LjA1MjgwMiAtMS4yMzEzODJDMy45OTMwMjYgLTEuMDE2MTg5IDMuOTkzMDI2IC0wLjk5MjI3OSAzLjg5NzM4NSAtMC44NjA3NzJDMy42NTgyODEgLTAuNTI2MDI3IDMuMjYzNzYxIC0wLjExOTU1MiAyLjY4OTkxMyAtMC4xMTk1NTJDMi4wMjA0MjMgLTAuMTE5NTUyIDEuOTYwNjQ4IC0wLjc3NzA4NiAxLjk2MDY0OCAtMS4wOTk4NzVDMS45NjA2NDggLTEuNzgxMzIgMi4yODM0MzcgLTIuNzAxODY4IDIuNjA2MjI3IC0zLjU2MjY0QzIuNzM3NzMzIC0zLjkwOTM0IDIuODA5NDY1IC00LjA3NjcxMiAyLjgwOTQ2NSAtNC4zMTU4MTZDMi44MDk0NjUgLTQuODE3OTMzIDIuNDUwODA5IC01LjI3MjIyOSAxLjg2NTAwNiAtNS4yNzIyMjlDMC43NjUxMzEgLTUuMjcyMjI5IDAuMzIyNzkgLTMuNTM4NzMgMC4zMjI3OSAtMy40NDMwODhDMC4zMjI3OSAtMy4zOTUyNjggMC4zNzA2MSAtMy4zMzU0OTIgMC40NTQyOTYgLTMuMzM1NDkyQzAuNTYxODkzIC0zLjMzNTQ5MiAwLjU3Mzg0OCAtMy4zODMzMTMgMC42MjE2NjkgLTMuNTUwNjg1QzAuOTA4NTkzIC00LjU1NDkxOSAxLjM2Mjg4OSAtNS4wMzMxMjYgMS44MjkxNDEgLTUuMDMzMTI2QzEuOTM2NzM3IC01LjAzMzEyNiAyLjEzOTk3NSAtNS4wMzMxMjYgMi4xMzk5NzUgLTQuNjM4NjA1QzIuMTM5OTc1IC00LjMyNzc3MSAyLjAwODQ2OCAtMy45ODEwNzEgMS44MjkxNDEgLTMuNTI2Nzc1QzEuMjQzMzM3IC0xLjk2MDY0OCAxLjI0MzMzNyAtMS41NjYxMjcgMS4yNDMzMzcgLTEuMjc5MjAzQzEuMjQzMzM3IC0wLjE0MzQ2MiAyLjA1NjI4OSAwLjExOTU1MiAyLjY1NDA0NyAwLjExOTU1MkMzLjAwMDc0NyAwLjExOTU1MiAzLjQzMTEzMyAwLjAxMTk1NSAzLjg0OTU2NCAtMC40MzAzODZMMy44NjE1MTkgLTAuNDE4NDMxQzMuNjgyMTkyIDAuMjg2OTI0IDMuNTYyNjQgMC43NTMxNzYgMy4xNDQyMDkgMS4zMzg5NzlaJyBpZD0nZzAtMTIxJy8+CjwvZGVmcz4KPGcgaWQ9J3BhZ2UxJz4KPHVzZSB4PScwJyB4bGluazpocmVmPScjZzAtMTAwJyB5PScwJy8+Cjx1c2UgeD0nNi4wODI2OTMnIHhsaW5rOmhyZWY9JyNnMS00MCcgeT0nMCcvPgo8dXNlIHg9JzEwLjYzNTAxOScgeGxpbms6aHJlZj0nI2cwLTEyMScgeT0nMCcvPgo8dXNlIHg9JzE2Ljc3MTY3JyB4bGluazpocmVmPScjZzAtNTknIHk9JzAnLz4KPHVzZSB4PScyMi4wMTU4MjknIHhsaW5rOmhyZWY9JyNnMC02OCcgeT0nMCcvPgo8dXNlIHg9JzMyLjA2MDMwNCcgeGxpbms6aHJlZj0nI2cxLTQxJyB5PScwJy8+CjwvZz4KPC9zdmc+CjwhLS0gREVQVEg9NCAtLT4=" alt="d(y, D)" style="vertical-align: -4px"/> is the distance from y to the critical domain D.
+Setting alphas clears any previously set weight functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>weightAlphas</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Point.html#openturns.Point" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></span></dt><dd><p>Alpha parameters for each output variable of interest.
+The size must be equal to the number of output variables of interest.</p>
+</dd>
+<dt><strong>criticalDomain</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interval</span></code></a></span></dt><dd><p>Critical domain for the sensitivity analysis. The distance to this domain will be used to construct the weight functions. The dimension of the interval must be equal to the number of output variables of interest.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.setWeightFunctions">
+<span class="sig-name descname"><span class="pre">setWeightFunctions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weightFunctions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.setWeightFunctions" title="Link to this definition">¶</a></dt>
+<dd><p>Set the weight functions for the conditional HSIC indices computation.</p>
+<p>Setting weight functions directly clears any previously set weight alphas.
+For most use cases, prefer <a class="reference internal" href="#persalys.DataSensitivityAnalysis.setWeightAlphas" title="persalys.DataSensitivityAnalysis.setWeightAlphas"><code class="xref py py-meth docutils literal notranslate"><span class="pre">setWeightAlphas()</span></code></a> which allows the analysis
+to construct the functions automatically.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>weightFunctions</strong><span class="classifier">collection of <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a></span></dt><dd><p>Collection of weight functions to use for the computation of conditional HSIC indices.
+The size of the collection must be equal to the number of output variables of interest.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataSensitivityAnalysis.useUStatistic">
+<span class="sig-name descname"><span class="pre">useUStatistic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hsicType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataSensitivityAnalysis.useUStatistic" title="Link to this definition">¶</a></dt>
+<dd><p>Whether to use the U-statistic for the computation of HSIC indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hsicType</strong><span class="classifier">int</span></dt><dd><p>Type of HSIC indices (Global, Target or Conditional).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>useUStatistic</strong><span class="classifier">bool</span></dt><dd><p>True if the U-statistic will be used, false if the V-statistic will be used.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.DataAnalysisResult.html"
+                          title="previous chapter">DataAnalysisResult</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.DataSensitivityAnalysisResult.html"
+                          title="next chapter">DataSensitivityAnalysisResult</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.DataSensitivityAnalysis.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.DataSensitivityAnalysisResult.html" title="DataSensitivityAnalysisResult"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.DataAnalysisResult.html" title="DataAnalysisResult"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataSensitivityAnalysis</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

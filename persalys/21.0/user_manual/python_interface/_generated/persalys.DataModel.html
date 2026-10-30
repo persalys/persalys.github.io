@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataModel &#8212; Persalys 21.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="DataFieldModel" href="persalys.DataFieldModel.html" />
+    <link rel="prev" title="FMIPhysicalModel" href="persalys.FMIPhysicalModel.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="../../../index.html">
+      <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.DataFieldModel.html" title="DataFieldModel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FMIPhysicalModel.html" title="FMIPhysicalModel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataModel</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="datamodel">
+<h1>DataModel<a class="headerlink" href="#datamodel" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.DataModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">DataModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel" title="Link to this definition">¶</a></dt>
+<dd><p>Create a data model from an imported dataset.</p>
+<p>The interface allows the user to load data samples and analyse them. They are considered as data models.</p>
+<blockquote>
+<div><p>DataModel(<em>name, physicalModel</em>)</p>
+<p>DataModel(<em>name, importedDataset, inputNames, outputNames</em>)</p>
+<p>DataModel(<em>name, inSample, outSample</em>)</p>
+</div></blockquote>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>physicalModel</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">persalys.PhysicalModel</span></code></a></span></dt><dd><p>Physical model associated to the data model (optional)</p>
+</dd>
+<dt><strong>importedDataset</strong><span class="classifier"><a class="reference internal" href="persalys.ImportedDataset.html#persalys.ImportedDataset" title="persalys.ImportedDataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">persalys.ImportedDataset</span></code></a></span></dt><dd><p>Imported dataset associated to the data model (optional)</p>
+</dd>
+<dt><strong>inputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the input variables (optional)</p>
+</dd>
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the output variables (optional)</p>
+</dd>
+<dt><strong>inSample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Input sample (its description must be a list of input variable names)</p>
+</dd>
+<dt><strong>outSample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Output sample (its description must be a list of output variable names)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getClassName" title="persalys.DataModel.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getEffectiveInputIndices" title="persalys.DataModel.getEffectiveInputIndices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEffectiveInputIndices</span></code></a>()</p></td>
+<td><p>Effective indices accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getFileName" title="persalys.DataModel.getFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFileName</span></code></a>()</p></td>
+<td><p>File name of the imported dataset accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getInputColumns" title="persalys.DataModel.getInputColumns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputColumns</span></code></a>()</p></td>
+<td><p>Indices of the input variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getInputNames" title="persalys.DataModel.getInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputNames</span></code></a>()</p></td>
+<td><p>Names of the input variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getInputSample" title="persalys.DataModel.getInputSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputSample</span></code></a>()</p></td>
+<td><p>Input sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getListXMax" title="persalys.DataModel.getListXMax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getListXMax</span></code></a>()</p></td>
+<td><p>List of input values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getListXMin" title="persalys.DataModel.getListXMin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getListXMin</span></code></a>()</p></td>
+<td><p>List of input values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getMarginalWithoutNaN" title="persalys.DataModel.getMarginalWithoutNaN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMarginalWithoutNaN</span></code></a>(index)</p></td>
+<td><p>Returns a marginal sample with NaN values removed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getName" title="persalys.DataModel.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getOutputNames" title="persalys.DataModel.getOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputNames</span></code></a>()</p></td>
+<td><p>Names of the output variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getOutputSample" title="persalys.DataModel.getOutputSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputSample</span></code></a>()</p></td>
+<td><p>Output sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getPhysicalModel" title="persalys.DataModel.getPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPhysicalModel</span></code></a>()</p></td>
+<td><p>Physical model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getPythonScript" title="persalys.DataModel.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Python script accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getSample" title="persalys.DataModel.getSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSample</span></code></a>()</p></td>
+<td><p>Sample accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.getSampleFromFile" title="persalys.DataModel.getSampleFromFile"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSampleFromFile</span></code></a>()</p></td>
+<td><p>Returns the sample contained inside the imported dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.getType" title="persalys.DataModel.getType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getType</span></code></a>()</p></td>
+<td><p>Type getter.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.hasName" title="persalys.DataModel.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.hasPhysicalModel" title="persalys.DataModel.hasPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasPhysicalModel</span></code></a>()</p></td>
+<td><p>Whether it contains a physical model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.initialize" title="persalys.DataModel.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">initialize</span></code></a>()</p></td>
+<td><p>Empty the input and output samples.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.isValid" title="persalys.DataModel.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>()</p></td>
+<td><p>Whether the model is valid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.setColumns" title="persalys.DataModel.setColumns"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setColumns</span></code></a>(inputColumns, inputNames, ...)</p></td>
+<td><p>Columns and names of variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.setFileName" title="persalys.DataModel.setFileName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFileName</span></code></a>(fileName)</p></td>
+<td><p>Sets the file name of the imported dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.setInputSample" title="persalys.DataModel.setInputSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputSample</span></code></a>(sample)</p></td>
+<td><p>Input sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.setName" title="persalys.DataModel.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.setOutputSample" title="persalys.DataModel.setOutputSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputSample</span></code></a>(sample)</p></td>
+<td><p>Output sample accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.DataModel.setPhysicalModel" title="persalys.DataModel.setPhysicalModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPhysicalModel</span></code></a>(physicalModel)</p></td>
+<td><p>Physical model setter.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.DataModel.setType" title="persalys.DataModel.setType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setType</span></code></a>(type)</p></td>
+<td><p>Type setter.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>getOutputColumns</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>removePhysicalModel</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>setSample</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">openturns</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">persalys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ot</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="o">.</span><span class="n">SetSeed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fileName</span> <span class="o">=</span> <span class="s1">'sample.csv'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">exportToCSVFile</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">importedDataset</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ImportedDataset</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="p">(</span><span class="s1">'dataModel'</span><span class="p">,</span> <span class="n">importedDataset</span><span class="p">,</span> <span class="p">[</span><span class="s1">'var1'</span><span class="p">,</span> <span class="s1">'var2'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'var3'</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="o">.</span><span class="n">MC</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getEffectiveInputIndices">
+<span class="sig-name descname"><span class="pre">getEffectiveInputIndices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getEffectiveInputIndices" title="Link to this definition">¶</a></dt>
+<dd><p>Effective indices accessor.</p>
+<p>Indices of non-const variables in the design.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>indices</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Indices.html#openturns.Indices" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Indices</span></code></a></span></dt><dd><p>Input sample and output sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getFileName">
+<span class="sig-name descname"><span class="pre">getFileName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getFileName" title="Link to this definition">¶</a></dt>
+<dd><p>File name of the imported dataset accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>File name of the imported dataset</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getInputColumns">
+<span class="sig-name descname"><span class="pre">getInputColumns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getInputColumns" title="Link to this definition">¶</a></dt>
+<dd><p>Indices of the input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>columns</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Indices.html#openturns.Indices" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Indices</span></code></a></span></dt><dd><p>Indices of the input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getInputNames">
+<span class="sig-name descname"><span class="pre">getInputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getInputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Names of the input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Names of the input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getInputSample">
+<span class="sig-name descname"><span class="pre">getInputSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getInputSample" title="Link to this definition">¶</a></dt>
+<dd><p>Input sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Input sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getListXMax">
+<span class="sig-name descname"><span class="pre">getListXMax</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getListXMax" title="Link to this definition">¶</a></dt>
+<dd><p>List of input values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>list</strong><span class="classifier">SampleCollection</span></dt><dd><p>List of input values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getListXMin">
+<span class="sig-name descname"><span class="pre">getListXMin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getListXMin" title="Link to this definition">¶</a></dt>
+<dd><p>List of input values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>list</strong><span class="classifier">SampleCollection</span></dt><dd><p>List of input values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getMarginalWithoutNaN">
+<span class="sig-name descname"><span class="pre">getMarginalWithoutNaN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getMarginalWithoutNaN" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a marginal sample with NaN values removed.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>index</strong><span class="classifier">int</span></dt><dd><p>Index of the wanted marginal</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>A subsample of the present sample with the requested marginal
+with NaN values removed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getOutputNames">
+<span class="sig-name descname"><span class="pre">getOutputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getOutputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Names of the output variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Names of the output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getOutputSample">
+<span class="sig-name descname"><span class="pre">getOutputSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getOutputSample" title="Link to this definition">¶</a></dt>
+<dd><p>Output sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Output sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getPhysicalModel">
+<span class="sig-name descname"><span class="pre">getPhysicalModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getPhysicalModel" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getPythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to rebuild the design of experiments</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getSample">
+<span class="sig-name descname"><span class="pre">getSample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getSample" title="Link to this definition">¶</a></dt>
+<dd><p>Sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Input sample and output sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getSampleFromFile">
+<span class="sig-name descname"><span class="pre">getSampleFromFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getSampleFromFile" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the sample contained inside the imported dataset.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Sample contained inside the imported dataset</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.getType" title="Link to this definition">¶</a></dt>
+<dd><p>Type getter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>type</strong><span class="classifier">int</span></dt><dd><dl class="simple">
+<dt>possible values are </dt><dd><p>persalys.DataModel.UK,
+persalys.DataModel.MC,
+persalys.DataModel.QMC,
+persalys.DataModel.RLHS,
+persalys.DataModel.OLHS,
+persalys.DataModel.GRID,
+persalys.DataModel.MORRIS</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.hasPhysicalModel">
+<span class="sig-name descname"><span class="pre">hasPhysicalModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.hasPhysicalModel" title="Link to this definition">¶</a></dt>
+<dd><p>Whether it contains a physical model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasPhysicalModel</strong><span class="classifier">bool</span></dt><dd><p>Whether it contains a physical model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.initialize" title="Link to this definition">¶</a></dt>
+<dd><p>Empty the input and output samples.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.isValid">
+<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.isValid" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the model is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isValid</strong><span class="classifier">bool</span></dt><dd><p>Whether the model is valid</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.setColumns">
+<span class="sig-name descname"><span class="pre">setColumns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputColumns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputNames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputColumns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.setColumns" title="Link to this definition">¶</a></dt>
+<dd><p>Columns and names of variables accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>inputColumns</strong><span class="classifier">sequence of int</span></dt><dd><p>Columns of input variables</p>
+</dd>
+<dt><strong>inNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of input variables</p>
+</dd>
+<dt><strong>outputColumns</strong><span class="classifier">sequence of int</span></dt><dd><p>Columns of output variables</p>
+</dd>
+<dt><strong>outNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.setFileName">
+<span class="sig-name descname"><span class="pre">setFileName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.setFileName" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the file name of the imported dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>File name of the imported dataset</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.setInputSample">
+<span class="sig-name descname"><span class="pre">setInputSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.setInputSample" title="Link to this definition">¶</a></dt>
+<dd><p>Input sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Input sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.setOutputSample">
+<span class="sig-name descname"><span class="pre">setOutputSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.setOutputSample" title="Link to this definition">¶</a></dt>
+<dd><p>Output sample accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>sample</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Output sample</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.setPhysicalModel">
+<span class="sig-name descname"><span class="pre">setPhysicalModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">physicalModel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.setPhysicalModel" title="Link to this definition">¶</a></dt>
+<dd><p>Physical model setter.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>model</strong><span class="classifier"><a class="reference internal" href="persalys.PhysicalModel.html#persalys.PhysicalModel" title="persalys.PhysicalModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhysicalModel</span></code></a></span></dt><dd><p>Physical model to set</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.DataModel.setType">
+<span class="sig-name descname"><span class="pre">setType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.DataModel.setType" title="Link to this definition">¶</a></dt>
+<dd><p>Type setter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>type</strong><span class="classifier">int</span></dt><dd><dl class="simple">
+<dt>possible values are </dt><dd><p>persalys.DataModel.UK,
+persalys.DataModel.MC,
+persalys.DataModel.QMC,
+persalys.DataModel.RLHS,
+persalys.DataModel.OLHS,
+persalys.DataModel.GRID,
+persalys.DataModel.MORRIS</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.FMIPhysicalModel.html"
+                          title="previous chapter">FMIPhysicalModel</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.DataFieldModel.html"
+                          title="next chapter">DataFieldModel</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.DataModel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.DataFieldModel.html" title="DataFieldModel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.FMIPhysicalModel.html" title="FMIPhysicalModel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DataModel</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

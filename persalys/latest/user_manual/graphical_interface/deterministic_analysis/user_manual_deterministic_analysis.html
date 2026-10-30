@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>User manual - Deterministic analyses &#8212; Persalys 20.1dev documentation</title>
+    <title>User manual - Deterministic analyses &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="../data_model/user_manual_data_set.html" title="User manual - Define a data set"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../graphical_interface.html" accesskey="U">User manual for graphical interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">User manual - Deterministic analyses</a></li> 
@@ -331,8 +331,10 @@ when the user selects points on one of these representations, the same points ar
 automatically selected in the other tabs.</p>
 <ul>
 <li><p>The <strong>Summary</strong> tab summarizes the results of the design, for a selected variable (left column):
-sample size, minimum/maximum values, input values at
-the extrema of the outputs, moments estimates and empirical quantiles.</p></li>
+sample size, number of inputs, minimum/maximum values, input values at
+the extrema of the outputs, moments estimates and empirical quantiles.
+For Monte Carlo designs, the moments estimates also display the mean
+confidence intervals.</p></li>
 <li><p>The <strong>PDF/CDF</strong> tab presents the PDF/CDF of the variables
 together with a <a class="reference external" href="http://openturns.github.io/openturns/latest/theory/data_analysis/kernel_smoothing.html">kernel smoothing</a> representation.</p>
 <ul class="simple">
@@ -754,7 +756,7 @@ placed below the table.</p>
 <p>The following window appears (only if a result exists). Variables must
 be checked in the Morris ananlysis result window so they can be used
 in the probabilistic model definition:</p>
-<img alt="../../../_images/morrisResultWizard1.png" class="align-center" src="../../../_images/morrisResultWizard1.png" />
+<img alt="../../../_images/morrisResultWizard.png" class="align-center" src="../../../_images/morrisResultWizard.png" />
 <p>Select the suitable result and click on the <strong>Finish</strong> button.
 The probabilistic model is modified as follows:</p>
 <img alt="../../../_images/probaModelAfter.png" class="align-center" src="../../../_images/probaModelAfter.png" />
@@ -1131,7 +1133,7 @@ The mean is zero. Default standard deviation is 0.1.</p>
 <section id="linear-methods">
 <h4>7-1-2 Linear methods<a class="headerlink" href="#linear-methods" title="Link to this heading">¶</a></h4>
 <p>In the last window set up the confidence interval length of the posterior distribution.</p>
-<img alt="../../../_images/calibrationWizard_lastPage_linear1.png" class="align-center" src="../../../_images/calibrationWizard_lastPage_linear1.png" />
+<img alt="../../../_images/calibrationWizard_lastPage_linear.png" class="align-center" src="../../../_images/calibrationWizard_lastPage_linear.png" />
 </section>
 <section id="non-linear-methods">
 <h4>7-1-3 Non linear methods<a class="headerlink" href="#non-linear-methods" title="Link to this heading">¶</a></h4>
@@ -1408,7 +1410,7 @@ select the data to plot</p></li>
         <li class="right" >
           <a href="../data_model/user_manual_data_set.html" title="User manual - Define a data set"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../graphical_interface.html" >User manual for graphical interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">User manual - Deterministic analyses</a></li> 

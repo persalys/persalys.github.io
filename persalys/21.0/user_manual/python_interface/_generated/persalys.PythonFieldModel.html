@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PythonFieldModel &#8212; Persalys 21.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
+    <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="icon" href="../../../_static/persalys.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FMUInfo" href="persalys.FMUInfo.html" />
+    <link rel="prev" title="PythonPhysicalModel" href="persalys.PythonPhysicalModel.html" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="../../../_static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head><body>
+<div class="header" role="banner">
+  <div class="logo">
+    <a href="../../../index.html">
+      <img class="logo" src="../../../_static/persalys-logo.png" alt="Logo of Persalys"/>
+    </a>
+  </div>
+</div>
+
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="persalys.FMUInfo.html" title="FMUInfo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="persalys.PythonPhysicalModel.html" title="PythonPhysicalModel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PythonFieldModel</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="pythonfieldmodel">
+<h1>PythonFieldModel<a class="headerlink" href="#pythonfieldmodel" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">persalys.</span></span><span class="sig-name descname"><span class="pre">PythonFieldModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel" title="Link to this definition">¶</a></dt>
+<dd><p>Create a physical model defined by Python code and a mesh.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name</p>
+</dd>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables (optional)</p>
+</dd>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables (optional)</p>
+</dd>
+<dt><strong>code</strong><span class="classifier">str</span></dt><dd><p>Code string (optional)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.addCopula" title="persalys.PythonFieldModel.addCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addCopula</span></code></a>(inputNames, copula)</p></td>
+<td><p>Add a copula to the model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.addInput" title="persalys.PythonFieldModel.addInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addInput</span></code></a>(input)</p></td>
+<td><p>Add an input variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.addOutput" title="persalys.PythonFieldModel.addOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addOutput</span></code></a>(output)</p></td>
+<td><p>Add an output variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.clearInputs" title="persalys.PythonFieldModel.clearInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearInputs</span></code></a>()</p></td>
+<td><p>Remove all the input variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.clearOutputs" title="persalys.PythonFieldModel.clearOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearOutputs</span></code></a>()</p></td>
+<td><p>Remove all the output variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.exportStandalonePythonScript" title="persalys.PythonFieldModel.exportStandalonePythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exportStandalonePythonScript</span></code></a>(fileName)</p></td>
+<td><p>Export the model into a Python script.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getClassName" title="persalys.PythonFieldModel.getClassName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getClassName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getCode" title="persalys.PythonFieldModel.getCode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCode</span></code></a>()</p></td>
+<td><p>Code accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getCopula" title="persalys.PythonFieldModel.getCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCopula</span></code></a>()</p></td>
+<td><p>Copula accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getDistribution" title="persalys.PythonFieldModel.getDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDistribution</span></code></a>()</p></td>
+<td><p>Distribution accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getEvalTime" title="persalys.PythonFieldModel.getEvalTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getEvalTime</span></code></a>()</p></td>
+<td><p>Evaluation time accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getFunction" title="persalys.PythonFieldModel.getFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the underlying function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getInputByName" title="persalys.PythonFieldModel.getInputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputByName</span></code></a>(inputName)</p></td>
+<td><p>Input variable accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getInputDimension" title="persalys.PythonFieldModel.getInputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputDimension</span></code></a>()</p></td>
+<td><p>Number of input variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getInputNames" title="persalys.PythonFieldModel.getInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputNames</span></code></a>()</p></td>
+<td><p>Input variable names accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getInputRandomVector" title="persalys.PythonFieldModel.getInputRandomVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputRandomVector</span></code></a>()</p></td>
+<td><p>Input random vector accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getInputs" title="persalys.PythonFieldModel.getInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInputs</span></code></a>()</p></td>
+<td><p>Input variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getMeshModel" title="persalys.PythonFieldModel.getMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMeshModel</span></code></a>()</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getName" title="persalys.PythonFieldModel.getName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getName</span></code></a>()</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getOutputByName" title="persalys.PythonFieldModel.getOutputByName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputByName</span></code></a>(outputName)</p></td>
+<td><p>Output variable accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getOutputDimension" title="persalys.PythonFieldModel.getOutputDimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputDimension</span></code></a>()</p></td>
+<td><p>Number of output variables accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getOutputNames" title="persalys.PythonFieldModel.getOutputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputNames</span></code></a>()</p></td>
+<td><p>Output variable names accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getOutputRandomVector" title="persalys.PythonFieldModel.getOutputRandomVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputRandomVector</span></code></a>(outputNames)</p></td>
+<td><p>Output random vector accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getOutputs" title="persalys.PythonFieldModel.getOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getOutputs</span></code></a>()</p></td>
+<td><p>Output variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getPointToFieldFunction" title="persalys.PythonFieldModel.getPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPointToFieldFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the underlying function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getProcessNumber" title="persalys.PythonFieldModel.getProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getProcessNumber</span></code></a>()</p></td>
+<td><p>Number of concurrent processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getPythonScript" title="persalys.PythonFieldModel.getPythonScript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPythonScript</span></code></a>()</p></td>
+<td><p>Python script accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getRestrictedFunction" title="persalys.PythonFieldModel.getRestrictedFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedFunction</span></code></a>(*args)</p></td>
+<td><p>Accessor to the function restricted to its stochastic inputs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getRestrictedPointToFieldFunction" title="persalys.PythonFieldModel.getRestrictedPointToFieldFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRestrictedPointToFieldFunction</span></code></a>(outputNames)</p></td>
+<td><p>Accessor to the field function restricted to its stochastic inputs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getSelectedOutputsNames" title="persalys.PythonFieldModel.getSelectedOutputsNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSelectedOutputsNames</span></code></a>()</p></td>
+<td><p>Accessor to the selected outputs names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.getStochasticInputNames" title="persalys.PythonFieldModel.getStochasticInputNames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStochasticInputNames</span></code></a>()</p></td>
+<td><p>Accessor to the names of the stochastic input variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.hasInputNamed" title="persalys.PythonFieldModel.hasInputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasInputNamed</span></code></a>(inputName)</p></td>
+<td><p>Check if an input has the given name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.hasMesh" title="persalys.PythonFieldModel.hasMesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasMesh</span></code></a>()</p></td>
+<td><p>Whether the model has a mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.hasName" title="persalys.PythonFieldModel.hasName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasName</span></code></a>()</p></td>
+<td><p>Test if the object is named.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.hasOutputNamed" title="persalys.PythonFieldModel.hasOutputNamed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasOutputNamed</span></code></a>(outputName)</p></td>
+<td><p>Check if an output has the given name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.hasStochasticInputs" title="persalys.PythonFieldModel.hasStochasticInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hasStochasticInputs</span></code></a>()</p></td>
+<td><p>Whether it contains stochastic variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.isParallel" title="persalys.PythonFieldModel.isParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isParallel</span></code></a>()</p></td>
+<td><p>Whether the evaluations of the model are parallelized.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.isValid" title="persalys.PythonFieldModel.isValid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isValid</span></code></a>()</p></td>
+<td><p>Whether it is valid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.removeInput" title="persalys.PythonFieldModel.removeInput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeInput</span></code></a>(inputName)</p></td>
+<td><p>Remove an input variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.removeOutput" title="persalys.PythonFieldModel.removeOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeOutput</span></code></a>(outputName)</p></td>
+<td><p>Remove an output variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.selectOutput" title="persalys.PythonFieldModel.selectOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">selectOutput</span></code></a>(outputName, selected)</p></td>
+<td><p>Select output.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setBlockIndependentCopula" title="persalys.PythonFieldModel.setBlockIndependentCopula"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlockIndependentCopula</span></code></a>(copula)</p></td>
+<td><p>blockIndependentCopula accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setCode" title="persalys.PythonFieldModel.setCode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setCode</span></code></a>(code)</p></td>
+<td><p>Code accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setDistribution" title="persalys.PythonFieldModel.setDistribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistribution</span></code></a>(inputName, distribution)</p></td>
+<td><p>Input distribution accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setDistributionParametersType" title="persalys.PythonFieldModel.setDistributionParametersType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDistributionParametersType</span></code></a>(inputName, ...)</p></td>
+<td><p>Input distribution parameter type accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setEvalTime" title="persalys.PythonFieldModel.setEvalTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setEvalTime</span></code></a>(evalTime)</p></td>
+<td><p>Evaluation time accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setFiniteDifferenceStep" title="persalys.PythonFieldModel.setFiniteDifferenceStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFiniteDifferenceStep</span></code></a>(inputName, step)</p></td>
+<td><p>Finite difference step accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setInputDescription" title="persalys.PythonFieldModel.setInputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputDescription</span></code></a>(inputName, description)</p></td>
+<td><p>Input description accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setInputName" title="persalys.PythonFieldModel.setInputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputName</span></code></a>(inputName, newName)</p></td>
+<td><p>Input variable name accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setInputStochastic" title="persalys.PythonFieldModel.setInputStochastic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputStochastic</span></code></a>(inputName, stoch)</p></td>
+<td><p>Whether the input variable is stochastic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setInputValue" title="persalys.PythonFieldModel.setInputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputValue</span></code></a>(inputName, value)</p></td>
+<td><p>Input variable value accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setInputs" title="persalys.PythonFieldModel.setInputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setInputs</span></code></a>(inputs)</p></td>
+<td><p>Input variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setMeshModel" title="persalys.PythonFieldModel.setMeshModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMeshModel</span></code></a>(meshModel)</p></td>
+<td><p>Mesh model accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setName" title="persalys.PythonFieldModel.setName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setName</span></code></a>(name)</p></td>
+<td><p>Accessor to the object's name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setOutputDescription" title="persalys.PythonFieldModel.setOutputDescription"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputDescription</span></code></a>(outputName, description)</p></td>
+<td><p>Output description accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setOutputName" title="persalys.PythonFieldModel.setOutputName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputName</span></code></a>(outputName, newName)</p></td>
+<td><p>Output variable name accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setOutputValue" title="persalys.PythonFieldModel.setOutputValue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputValue</span></code></a>(outputName, value)</p></td>
+<td><p>Output variable name accessor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setOutputs" title="persalys.PythonFieldModel.setOutputs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setOutputs</span></code></a>(outputs)</p></td>
+<td><p>Output variables accessor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setParallel" title="persalys.PythonFieldModel.setParallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setParallel</span></code></a>(flag)</p></td>
+<td><p>Whether the evaluations of the model are parallelized.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#persalys.PythonFieldModel.setProcessNumber" title="persalys.PythonFieldModel.setProcessNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setProcessNumber</span></code></a>(processNumber)</p></td>
+<td><p>Number of concurrent processes.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The code string must contain a function named ‘_exec’ that takes float
+arguments and return sequences of floats. The mesh is set as a global
+variable of type <a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Mesh.html#openturns.Mesh" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Mesh</span></code></a> named ‘mesh’.
+The code can use this variable and retrieve the mesh vertices as follows:
+<img class="math" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDIuMy41IC0tPgo8c3ZnIGhlaWdodD0nMTEuOTU1MTY4cHQnIHZlcnNpb249JzEuMScgdmlld0JveD0nMCAtOC45NjYzNzYgMTcwLjc5ODI1NCAxMS45NTUxNjgnIHdpZHRoPScxNzAuNzk4MjU0cHQnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZycgeG1sbnM6eGxpbms9J2h0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsnPgo8ZGVmcz4KPHBhdGggZD0nTTMuODg1NDMgMi45MDUxMDZDMy44ODU0MyAyLjg2OTI0IDMuODg1NDMgMi44NDUzMyAzLjY4MjE5MiAyLjY0MjA5MkMyLjQ4NjY3NSAxLjQzNDYyIDEuODE3MTg2IC0wLjUzNzk4MyAxLjgxNzE4NiAtMi45NzY4MzdDMS44MTcxODYgLTUuMjk2MTM5IDIuMzc5MDc4IC03LjI5MjY1MyAzLjc2NTg3OCAtOC43MDMzNjJDMy44ODU0MyAtOC44MTA5NTkgMy44ODU0MyAtOC44MzQ4NjkgMy44ODU0MyAtOC44NzA3MzVDMy44ODU0MyAtOC45NDI0NjYgMy44MjU2NTQgLTguOTY2Mzc2IDMuNzc3ODMzIC04Ljk2NjM3NkMzLjYyMjQxNiAtOC45NjYzNzYgMi42NDIwOTIgLTguMTA1NjA0IDIuMDU2Mjg5IC02LjkzMzk5OEMxLjQ0NjU3NSAtNS43MjY1MjYgMS4xNzE2MDYgLTQuNDQ3MzIzIDEuMTcxNjA2IC0yLjk3NjgzN0MxLjE3MTYwNiAtMS45MTI4MjcgMS4zMzg5NzkgLTAuNDkwMTYyIDEuOTYwNjQ4IDAuNzg5MDQxQzIuNjY2MDAyIDIuMjIzNjYxIDMuNjQ2MzI2IDMuMDAwNzQ3IDMuNzc3ODMzIDMuMDAwNzQ3QzMuODI1NjU0IDMuMDAwNzQ3IDMuODg1NDMgMi45NzY4MzcgMy44ODU0MyAyLjkwNTEwNlonIGlkPSdnMS00MCcvPgo8cGF0aCBkPSdNMy4zNzEzNTcgLTIuOTc2ODM3QzMuMzcxMzU3IC0zLjg4NTQzIDMuMjUxODA2IC01LjM2Nzg3IDIuNTgyMzE2IC02Ljc1NDY3QzEuODc2OTYxIC04LjE4OTI5IDAuODk2NjM4IC04Ljk2NjM3NiAwLjc2NTEzMSAtOC45NjYzNzZDMC43MTczMSAtOC45NjYzNzYgMC42NTc1MzQgLTguOTQyNDY2IDAuNjU3NTM0IC04Ljg3MDczNUMwLjY1NzUzNCAtOC44MzQ4NjkgMC42NTc1MzQgLTguODEwOTU5IDAuODYwNzcyIC04LjYwNzcyMUMyLjA1NjI4OSAtNy40MDAyNDkgMi43MjU3NzggLTUuNDI3NjQ2IDIuNzI1Nzc4IC0yLjk4ODc5MkMyLjcyNTc3OCAtMC42Njk0ODkgMi4xNjM4ODUgMS4zMjcwMjQgMC43NzcwODYgMi43Mzc3MzNDMC42NTc1MzQgMi44NDUzMyAwLjY1NzUzNCAyLjg2OTI0IDAuNjU3NTM0IDIuOTA1MTA2QzAuNjU3NTM0IDIuOTc2ODM3IDAuNzE3MzEgMy4wMDA3NDcgMC43NjUxMzEgMy4wMDA3NDdDMC45MjA1NDggMy4wMDA3NDcgMS45MDA4NzIgMi4xMzk5NzUgMi40ODY2NzUgMC45NjgzNjlDMy4wOTYzODkgLTAuMjUxMDU5IDMuMzcxMzU3IC0xLjU0MjIxNyAzLjM3MTM1NyAtMi45NzY4MzdaJyBpZD0nZzEtNDEnLz4KPHBhdGggZD0nTTguMDY5NzM4IC0zLjg3MzQ3NEM4LjIzNzExMSAtMy44NzM0NzQgOC40NTIzMDQgLTMuODczNDc0IDguNDUyMzA0IC00LjA4ODY2N0M4LjQ1MjMwNCAtNC4zMTU4MTYgOC4yNDkwNjYgLTQuMzE1ODE2IDguMDY5NzM4IC00LjMxNTgxNkgxLjAyODE0NEMwLjg2MDc3MiAtNC4zMTU4MTYgMC42NDU1NzkgLTQuMzE1ODE2IDAuNjQ1NTc5IC00LjEwMDYyM0MwLjY0NTU3OSAtMy44NzM0NzQgMC44NDg4MTcgLTMuODczNDc0IDEuMDI4MTQ0IC0zLjg3MzQ3NEg4LjA2OTczOFpNOC4wNjk3MzggLTEuNjQ5ODEzQzguMjM3MTExIC0xLjY0OTgxMyA4LjQ1MjMwNCAtMS42NDk4MTMgOC40NTIzMDQgLTEuODY1MDA2QzguNDUyMzA0IC0yLjA5MjE1NCA4LjI0OTA2NiAtMi4wOTIxNTQgOC4wNjk3MzggLTIuMDkyMTU0SDEuMDI4MTQ0QzAuODYwNzcyIC0yLjA5MjE1NCAwLjY0NTU3OSAtMi4wOTIxNTQgMC42NDU1NzkgLTEuODc2OTYxQzAuNjQ1NTc5IC0xLjY0OTgxMyAwLjg0ODgxNyAtMS42NDk4MTMgMS4wMjgxNDQgLTEuNjQ5ODEzSDguMDY5NzM4WicgaWQ9J2cxLTYxJy8+CjxwYXRoIGQ9J00yLjE5OTc1MSAtMC41NzM4NDhDMi4xOTk3NTEgLTAuOTIwNTQ4IDEuOTEyODI3IC0xLjE1OTY1MSAxLjYyNTkwMyAtMS4xNTk2NTFDMS4yNzkyMDMgLTEuMTU5NjUxIDEuMDQwMSAtMC44NzI3MjcgMS4wNDAxIC0wLjU4NTgwM0MxLjA0MDEgLTAuMjM5MTAzIDEuMzI3MDI0IDAgMS42MTM5NDggMEMxLjk2MDY0OCAwIDIuMTk5NzUxIC0wLjI4NjkyNCAyLjE5OTc1MSAtMC41NzM4NDhaJyBpZD0nZzAtNTgnLz4KPHBhdGggZD0nTTEwLjg1NTI5MyAtNy4yOTI2NTNDMTAuOTYyODg5IC03LjY5OTEyOCAxMC45ODY4IC03LjgxODY4IDExLjgzNTYxNiAtNy44MTg2OEMxMi4wNjI3NjUgLTcuODE4NjggMTIuMTcwMzYxIC03LjgxODY4IDEyLjE3MDM2MSAtOC4wNDU4MjhDMTIuMTcwMzYxIC04LjE2NTM4IDEyLjA4NjY3NSAtOC4xNjUzOCAxMS44NTk1MjcgLTguMTY1MzhIMTAuNDI0OTA3QzEwLjEyNjAyNyAtOC4xNjUzOCAxMC4xMTQwNzIgLTguMTUzNDI1IDkuOTgyNTY1IC03Ljk2MjE0Mkw1LjYxODkyOSAtMS4wNjQwMUw0LjcyMjI5MSAtNy45MDIzNjZDNC42ODY0MjYgLTguMTY1MzggNC42NzQ0NzEgLTguMTY1MzggNC4zNjM2MzYgLTguMTY1MzhIMi44ODExOTZDMi42NTQwNDcgLTguMTY1MzggMi41NDY0NTEgLTguMTY1MzggMi41NDY0NTEgLTcuOTM4MjMyQzIuNTQ2NDUxIC03LjgxODY4IDIuNjU0MDQ3IC03LjgxODY4IDIuODMzMzc1IC03LjgxODY4QzMuNTYyNjQgLTcuODE4NjggMy41NjI2NCAtNy43MjMwMzkgMy41NjI2NCAtNy41OTE1MzJDMy41NjI2NCAtNy41Njc2MjEgMy41NjI2NCAtNy40OTU4OSAzLjUxNDgxOSAtNy4zMTY1NjNMMS45ODQ1NTggLTEuMjE5NDI3QzEuODQxMDk2IC0wLjY0NTU3OSAxLjU2NjEyNyAtMC4zODI1NjUgMC43NjUxMzEgLTAuMzQ2N0MwLjcyOTI2NSAtMC4zNDY3IDAuNTg1ODAzIC0wLjMzNDc0NSAwLjU4NTgwMyAtMC4xMzE1MDdDMC41ODU4MDMgMCAwLjY5MzQgMCAwLjc0MTIyIDBDMC45ODAzMjQgMCAxLjU5MDAzNyAtMC4wMjM5MSAxLjgyOTE0MSAtMC4wMjM5MUgyLjQwMjk4OUMyLjU3MDM2MSAtMC4wMjM5MSAyLjc3MzU5OSAwIDIuOTQwOTcxIDBDMy4wMjQ2NTggMCAzLjE1NjE2NCAwIDMuMTU2MTY0IC0wLjIyNzE0OEMzLjE1NjE2NCAtMC4zMzQ3NDUgMy4wMzY2MTMgLTAuMzQ2NyAyLjk4ODc5MiAtMC4zNDY3QzIuNTk0MjcxIC0wLjM1ODY1NSAyLjIxMTcwNiAtMC40MzAzODYgMi4yMTE3MDYgLTAuODYwNzcyQzIuMjExNzA2IC0wLjk4MDMyNCAyLjIxMTcwNiAtMC45OTIyNzkgMi4yNTk1MjcgLTEuMTU5NjUxTDMuOTA5MzQgLTcuNzQ2OTQ5SDMuOTIxMjk1TDQuOTEzNTc0IC0wLjMyMjc5QzQuOTQ5NDQgLTAuMDM1ODY2IDQuOTYxMzk1IDAgNS4wNjg5OTEgMEM1LjIwMDQ5OCAwIDUuMjYwMjc0IC0wLjA5NTY0MSA1LjMyMDA1IC0wLjIwMzIzOEwxMC4xMjYwMjcgLTcuODA2NzI1SDEwLjEzNzk4M0w4LjQwNDQ4MyAtMC44ODQ2ODJDOC4yOTY4ODcgLTAuNDY2MjUyIDguMjcyOTc2IC0wLjM0NjcgNy40MzYxMTUgLTAuMzQ2N0M3LjIwODk2NiAtMC4zNDY3IDcuMDg5NDE1IC0wLjM0NjcgNy4wODk0MTUgLTAuMTMxNTA3QzcuMDg5NDE1IDAgNy4xOTcwMTEgMCA3LjI2ODc0MiAwQzcuNDcxOTggMCA3LjcxMTA4MyAtMC4wMjM5MSA3LjkxNDMyMSAtMC4wMjM5MUg5LjMyNTAzMUM5LjUyODI2OSAtMC4wMjM5MSA5Ljc3OTMyOCAwIDkuOTgyNTY1IDBDMTAuMDc4MjA3IDAgMTAuMjA5NzE0IDAgMTAuMjA5NzE0IC0wLjIyNzE0OEMxMC4yMDk3MTQgLTAuMzQ2NyAxMC4xMDIxMTcgLTAuMzQ2NyA5LjkyMjc5IC0wLjM0NjdDOS4xOTM1MjQgLTAuMzQ2NyA5LjE5MzUyNCAtMC40NDIzNDEgOS4xOTM1MjQgLTAuNTYxODkzQzkuMTkzNTI0IC0wLjU3Mzg0OCA5LjE5MzUyNCAtMC42NTc1MzQgOS4yMTc0MzUgLTAuNzUzMTc2TDEwLjg1NTI5MyAtNy4yOTI2NTNaJyBpZD0nZzAtNzcnLz4KPHBhdGggZD0nTTcuNDAwMjQ5IC02LjgzODM1NkM3LjgwNjcyNSAtNy40ODM5MzUgOC4xNzczMzUgLTcuNzcwODU5IDguNzg3MDQ5IC03LjgxODY4QzguOTA2NiAtNy44MzA2MzUgOS4wMDIyNDIgLTcuODMwNjM1IDkuMDAyMjQyIC04LjA0NTgyOEM5LjAwMjI0MiAtOC4wOTM2NDkgOC45NzgzMzEgLTguMTY1MzggOC44NzA3MzUgLTguMTY1MzhDOC42NTU1NDIgLTguMTY1MzggOC4xNDE0NjkgLTguMTQxNDY5IDcuOTI2Mjc2IC04LjE0MTQ2OUM3LjU3OTU3NyAtOC4xNDE0NjkgNy4yMjA5MjIgLTguMTY1MzggNi44ODYxNzcgLTguMTY1MzhDNi43OTA1MzUgLTguMTY1MzggNi42NzA5ODQgLTguMTY1MzggNi42NzA5ODQgLTcuOTM4MjMyQzYuNjcwOTg0IC03LjgzMDYzNSA2Ljc3ODU4IC03LjgxODY4IDYuODI2NDAxIC03LjgxODY4QzcuMjY4NzQyIC03Ljc4MjgxNCA3LjMxNjU2MyAtNy41Njc2MjEgNy4zMTY1NjMgLTcuNDI0MTU5QzcuMzE2NTYzIC03LjI0NDgzMiA3LjE0OTE5MSAtNi45Njk4NjMgNy4xMzcyMzUgLTYuOTU3OTA4TDMuMzgzMzEzIC0xLjAwNDIzNEwyLjU0NjQ1MSAtNy40NDgwN0MyLjU0NjQ1MSAtNy43OTQ3NyAzLjE2ODEyIC03LjgxODY4IDMuMjk5NjI2IC03LjgxODY4QzMuNDc4OTU0IC03LjgxODY4IDMuNTg2NTUgLTcuODE4NjggMy41ODY1NSAtOC4wNDU4MjhDMy41ODY1NSAtOC4xNjUzOCAzLjQ1NTA0NCAtOC4xNjUzOCAzLjQxOTE3OCAtOC4xNjUzOEMzLjIxNTk0IC04LjE2NTM4IDIuOTc2ODM3IC04LjE0MTQ2OSAyLjc3MzU5OSAtOC4xNDE0NjlIMi4xMDQxMUMxLjIzMTM4MiAtOC4xNDE0NjkgMC44NzI3MjcgLTguMTY1MzggMC44NjA3NzIgLTguMTY1MzhDMC43ODkwNDEgLTguMTY1MzggMC42NDU1NzkgLTguMTY1MzggMC42NDU1NzkgLTcuOTUwMTg3QzAuNjQ1NTc5IC03LjgxODY4IDAuNzI5MjY1IC03LjgxODY4IDAuOTIwNTQ4IC03LjgxODY4QzEuNTMwMjYyIC03LjgxODY4IDEuNTY2MTI3IC03LjcxMTA4MyAxLjYwMTk5MyAtNy40MTIyMDRMMi41NTg0MDYgLTAuMDM1ODY2QzIuNTk0MjcxIDAuMjE1MTkzIDIuNTk0MjcxIDAuMjUxMDU5IDIuNzYxNjQ0IDAuMjUxMDU5QzIuOTA1MTA2IDAuMjUxMDU5IDIuOTY0ODgyIDAuMjE1MTkzIDMuMDg0NDMzIDAuMDIzOTFMNy40MDAyNDkgLTYuODM4MzU2WicgaWQ9J2cwLTg2Jy8+CjxwYXRoIGQ9J00zLjU5ODUwNiAtMS40MjI2NjVDMy41Mzg3MyAtMS4yMTk0MjcgMy41Mzg3MyAtMS4xOTU1MTcgMy4zNzEzNTcgLTAuOTY4MzY5QzMuMTA4MzQ0IC0wLjYzMzYyNCAyLjU4MjMxNiAtMC4xMTk1NTIgMi4wMjA0MjMgLTAuMTE5NTUyQzEuNTMwMjYyIC0wLjExOTU1MiAxLjI1NTI5MyAtMC41NjE4OTMgMS4yNTUyOTMgLTEuMjY3MjQ4QzEuMjU1MjkzIC0xLjkyNDc4MiAxLjYyNTkwMyAtMy4yNjM3NjEgMS44NTMwNTEgLTMuNzY1ODc4QzIuMjU5NTI3IC00LjYwMjc0IDIuODIxNDIgLTUuMDMzMTI2IDMuMjg3NjcxIC01LjAzMzEyNkM0LjA3NjcxMiAtNS4wMzMxMjYgNC4yMzIxMyAtNC4wNTI4MDIgNC4yMzIxMyAtMy45NTcxNjFDNC4yMzIxMyAtMy45NDUyMDUgNC4xOTYyNjQgLTMuNzg5Nzg4IDQuMTg0MzA5IC0zLjc2NTg3OEwzLjU5ODUwNiAtMS40MjI2NjVaTTQuMzYzNjM2IC00LjQ4MzE4OEM0LjIzMjEzIC00Ljc5NDAyMiAzLjkwOTM0IC01LjI3MjIyOSAzLjI4NzY3MSAtNS4yNzIyMjlDMS45MzY3MzcgLTUuMjcyMjI5IDAuNDc4MjA3IC0zLjUyNjc3NSAwLjQ3ODIwNyAtMS43NTc0MUMwLjQ3ODIwNyAtMC41NzM4NDggMS4xNzE2MDYgMC4xMTk1NTIgMS45ODQ1NTggMC4xMTk1NTJDMi42NDIwOTIgMC4xMTk1NTIgMy4yMDM5ODUgLTAuMzk0NTIxIDMuNTM4NzMgLTAuNzg5MDQxQzMuNjU4MjgxIC0wLjA4MzY4NiA0LjIyMDE3NCAwLjExOTU1MiA0LjU3ODgyOSAwLjExOTU1MlM1LjIyNDQwOCAtMC4wOTU2NDEgNS40Mzk2MDEgLTAuNTI2MDI3QzUuNjMwODg0IC0wLjkzMjUwMyA1Ljc5ODI1NyAtMS42NjE3NjggNS43OTgyNTcgLTEuNzA5NTg5QzUuNzk4MjU3IC0xLjc2OTM2NSA1Ljc1MDQzNiAtMS44MTcxODYgNS42Nzg3MDUgLTEuODE3MTg2QzUuNTcxMTA4IC0xLjgxNzE4NiA1LjU1OTE1MyAtMS43NTc0MSA1LjUxMTMzMyAtMS41NzgwODJDNS4zMzIwMDUgLTAuODcyNzI3IDUuMTA0ODU3IC0wLjExOTU1MiA0LjYxNDY5NSAtMC4xMTk1NTJDNC4yNjc5OTUgLTAuMTE5NTUyIDQuMjQ0MDg1IC0wLjQzMDM4NiA0LjI0NDA4NSAtMC42Njk0ODlDNC4yNDQwODUgLTAuOTQ0NDU4IDQuMjc5OTUgLTEuMDc1OTY1IDQuMzg3NTQ3IC0xLjU0MjIxN0M0LjQ3MTIzMyAtMS44NDEwOTYgNC41MzEwMDkgLTIuMTA0MTEgNC42MjY2NSAtMi40NTA4MDlDNS4wNjg5OTEgLTQuMjQ0MDg1IDUuMTc2NTg4IC00LjY3NDQ3MSA1LjE3NjU4OCAtNC43NDYyMDJDNS4xNzY1ODggLTQuOTEzNTc0IDUuMDQ1MDgxIC01LjA0NTA4MSA0Ljg2NTc1MyAtNS4wNDUwODFDNC40ODMxODggLTUuMDQ1MDgxIDQuMzg3NTQ3IC00LjYyNjY1IDQuMzYzNjM2IC00LjQ4MzE4OFonIGlkPSdnMC05NycvPgo8cGF0aCBkPSdNNC42NzQ0NzEgLTQuNDk1MTQzQzQuNDQ3MzIzIC00LjQ5NTE0MyA0LjMzOTcyNiAtNC40OTUxNDMgNC4xNzIzNTQgLTQuMzUxNjgxQzQuMTAwNjIzIC00LjI5MTkwNSAzLjk2OTExNiAtNC4xMTI1NzggMy45NjkxMTYgLTMuOTIxMjk1QzMuOTY5MTE2IC0zLjY4MjE5MiA0LjE0ODQ0MyAtMy41Mzg3MyA0LjM3NTU5MiAtMy41Mzg3M0M0LjY2MjUxNiAtMy41Mzg3MyA0Ljk4NTMwNSAtMy43Nzc4MzMgNC45ODUzMDUgLTQuMjU2MDRDNC45ODUzMDUgLTQuODI5ODg4IDQuNDM1MzY3IC01LjI3MjIyOSAzLjYxMDQ2MSAtNS4yNzIyMjlDMi4wNDQzMzQgLTUuMjcyMjI5IDAuNDc4MjA3IC0zLjU2MjY0IDAuNDc4MjA3IC0xLjg2NTAwNkMwLjQ3ODIwNyAtMC44MjQ5MDcgMS4xMjM3ODYgMC4xMTk1NTIgMi4zNDMyMTMgMC4xMTk1NTJDMy45NjkxMTYgMC4xMTk1NTIgNC45OTcyNiAtMS4xNDc2OTYgNC45OTcyNiAtMS4zMDMxMTNDNC45OTcyNiAtMS4zNzQ4NDQgNC45MjU1MjkgLTEuNDM0NjIgNC44Nzc3MDkgLTEuNDM0NjJDNC44NDE4NDMgLTEuNDM0NjIgNC44Mjk4ODggLTEuNDIyNjY1IDQuNzIyMjkxIC0xLjMxNTA2OEMzLjk1NzE2MSAtMC4yOTg4NzkgMi44MjE0MiAtMC4xMTk1NTIgMi4zNjcxMjMgLTAuMTE5NTUyQzEuNTQyMjE3IC0wLjExOTU1MiAxLjI3OTIwMyAtMC44MzY4NjIgMS4yNzkyMDMgLTEuNDM0NjJDMS4yNzkyMDMgLTEuODUzMDUxIDEuNDgyNDQxIC0zLjAxMjcwMiAxLjkxMjgyNyAtMy44MjU2NTRDMi4yMjM2NjEgLTQuMzg3NTQ3IDIuODY5MjQgLTUuMDMzMTI2IDMuNjIyNDE2IC01LjAzMzEyNkMzLjc3NzgzMyAtNS4wMzMxMjYgNC40MzUzNjcgLTUuMDA5MjE1IDQuNjc0NDcxIC00LjQ5NTE0M1onIGlkPSdnMC05OScvPgo8cGF0aCBkPSdNMi4xMzk5NzUgLTIuNzczNTk5QzIuNDYyNzY1IC0yLjc3MzU5OSAzLjI3NTcxNiAtMi43OTc1MDkgMy44NDk1NjQgLTMuMDEyNzAyQzQuNzU4MTU3IC0zLjM1OTQwMiA0Ljg0MTg0MyAtNC4wNTI4MDIgNC44NDE4NDMgLTQuMjY3OTk1QzQuODQxODQzIC00Ljc5NDAyMiA0LjM4NzU0NyAtNS4yNzIyMjkgMy41OTg1MDYgLTUuMjcyMjI5QzIuMzQzMjEzIC01LjI3MjIyOSAwLjUzNzk4MyAtNC4xMzY0ODggMC41Mzc5ODMgLTIuMDA4NDY4QzAuNTM3OTgzIC0wLjc1MzE3NiAxLjI1NTI5MyAwLjExOTU1MiAyLjM0MzIxMyAwLjExOTU1MkMzLjk2OTExNiAwLjExOTU1MiA0Ljk5NzI2IC0xLjE0NzY5NiA0Ljk5NzI2IC0xLjMwMzExM0M0Ljk5NzI2IC0xLjM3NDg0NCA0LjkyNTUyOSAtMS40MzQ2MiA0Ljg3NzcwOSAtMS40MzQ2MkM0Ljg0MTg0MyAtMS40MzQ2MiA0LjgyOTg4OCAtMS40MjI2NjUgNC43MjIyOTEgLTEuMzE1MDY4QzMuOTU3MTYxIC0wLjI5ODg3OSAyLjgyMTQyIC0wLjExOTU1MiAyLjM2NzEyMyAtMC4xMTk1NTJDMS42ODU2NzkgLTAuMTE5NTUyIDEuMzI3MDI0IC0wLjY1NzUzNCAxLjMyNzAyNCAtMS41NDIyMTdDMS4zMjcwMjQgLTEuNzA5NTg5IDEuMzI3MDI0IC0yLjAwODQ2OCAxLjUwNjM1MSAtMi43NzM1OTlIMi4xMzk5NzVaTTEuNTY2MTI3IC0zLjAxMjcwMkMyLjA4MDE5OSAtNC44NTM3OTggMy4yMTU5NCAtNS4wMzMxMjYgMy41OTg1MDYgLTUuMDMzMTI2QzQuMTI0NTMzIC01LjAzMzEyNiA0LjQ4MzE4OCAtNC43MjIyOTEgNC40ODMxODggLTQuMjY3OTk1QzQuNDgzMTg4IC0zLjAxMjcwMiAyLjU3MDM2MSAtMy4wMTI3MDIgMi4wNjgyNDQgLTMuMDEyNzAySDEuNTY2MTI3WicgaWQ9J2cwLTEwMScvPgo8cGF0aCBkPSdNNC4wNDA4NDcgLTEuNTE4MzA2QzMuOTkzMDI2IC0xLjMyNzAyNCAzLjk2OTExNiAtMS4yNzkyMDMgMy44MTM2OTkgLTEuMDk5ODc1QzMuMzIzNTM3IC0wLjQ2NjI1MiAyLjgyMTQyIC0wLjIzOTEwMyAyLjQ1MDgwOSAtMC4yMzkxMDNDMi4wNTYyODkgLTAuMjM5MTAzIDEuNjg1Njc5IC0wLjU0OTkzOCAxLjY4NTY3OSAtMS4zNzQ4NDRDMS42ODU2NzkgLTIuMDA4NDY4IDIuMDQ0MzM0IC0zLjM0NzQ0NyAyLjMwNzM0NyAtMy44ODU0M0MyLjY1NDA0NyAtNC41NTQ5MTkgMy4xOTIwMyAtNS4wMzMxMjYgMy42OTQxNDcgLTUuMDMzMTI2QzQuNDgzMTg4IC01LjAzMzEyNiA0LjYzODYwNSAtNC4wNTI4MDIgNC42Mzg2MDUgLTMuOTgxMDcxTDQuNjAyNzQgLTMuODEzNjk5TDQuMDQwODQ3IC0xLjUxODMwNlpNNC43ODIwNjcgLTQuNDgzMTg4QzQuNjI2NjUgLTQuODI5ODg4IDQuMjkxOTA1IC01LjI3MjIyOSAzLjY5NDE0NyAtNS4yNzIyMjlDMi4zOTEwMzQgLTUuMjcyMjI5IDAuOTA4NTkzIC0zLjYzNDM3MSAwLjkwODU5MyAtMS44NTMwNTFDMC45MDg1OTMgLTAuNjA5NzE0IDEuNjYxNzY4IDAgMi40MjY4OTkgMEMzLjA2MDUyMyAwIDMuNjIyNDE2IC0wLjUwMjExNyAzLjgzNzYwOSAtMC43NDEyMkwzLjU3NDU5NSAwLjMzNDc0NUMzLjQwNzIyMyAwLjk5MjI3OSAzLjMzNTQ5MiAxLjI5MTE1OCAyLjkwNTEwNiAxLjcwOTU4OUMyLjQxNDk0NCAyLjE5OTc1MSAxLjk2MDY0OCAyLjE5OTc1MSAxLjY5NzYzNCAyLjE5OTc1MUMxLjMzODk3OSAyLjE5OTc1MSAxLjA0MDEgMi4xNzU4NDEgMC43NDEyMiAyLjA4MDE5OUMxLjEyMzc4NiAxLjk3MjYwMyAxLjIxOTQyNyAxLjYzNzg1OCAxLjIxOTQyNyAxLjUwNjM1MUMxLjIxOTQyNyAxLjMxNTA2OCAxLjA3NTk2NSAxLjEyMzc4NiAwLjgxMjk1MSAxLjEyMzc4NkMwLjUyNjAyNyAxLjEyMzc4NiAwLjIxNTE5MyAxLjM2Mjg4OSAwLjIxNTE5MyAxLjc1NzQxQzAuMjE1MTkzIDIuMjQ3NTcyIDAuNzA1MzU1IDIuNDM4ODU0IDEuNzIxNTQ0IDIuNDM4ODU0QzMuMjYzNzYxIDIuNDM4ODU0IDQuMDY0NzU3IDEuNDQ2NTc1IDQuMjIwMTc0IDAuODAwOTk2TDUuNTQ3MTk4IC00LjU1NDkxOUM1LjU4MzA2NCAtNC42OTgzODEgNS41ODMwNjQgLTQuNzIyMjkxIDUuNTgzMDY0IC00Ljc0NjIwMkM1LjU4MzA2NCAtNC45MTM1NzQgNS40NTE1NTcgLTUuMDQ1MDgxIDUuMjcyMjI5IC01LjA0NTA4MUM0Ljk4NTMwNSAtNS4wNDUwODEgNC44MTc5MzMgLTQuODA1OTc4IDQuNzgyMDY3IC00LjQ4MzE4OFonIGlkPSdnMC0xMDMnLz4KPHBhdGggZD0nTTMuMzU5NDAyIC03Ljk5ODAwN0MzLjM3MTM1NyAtOC4wNDU4MjggMy4zOTUyNjggLTguMTE3NTU5IDMuMzk1MjY4IC04LjE3NzMzNUMzLjM5NTI2OCAtOC4yOTY4ODcgMy4yNzU3MTYgLTguMjk2ODg3IDMuMjUxODA2IC04LjI5Njg4N0MzLjIzOTg1MSAtOC4yOTY4ODcgMi42NTQwNDcgLTguMjQ5MDY2IDIuNTk0MjcxIC04LjIzNzExMUMyLjM5MTAzNCAtOC4yMjUxNTYgMi4yMTE3MDYgLTguMjAxMjQ1IDEuOTk2NTEzIC04LjE4OTI5QzEuNjk3NjM0IC04LjE2NTM4IDEuNjEzOTQ4IC04LjE1MzQyNSAxLjYxMzk0OCAtNy45MzgyMzJDMS42MTM5NDggLTcuODE4NjggMS43MDk1ODkgLTcuODE4NjggMS44NzY5NjEgLTcuODE4NjhDMi40NjI3NjUgLTcuODE4NjggMi40NzQ3MiAtNy43MTEwODMgMi40NzQ3MiAtNy41OTE1MzJDMi40NzQ3MiAtNy41MTk4MDEgMi40NTA4MDkgLTcuNDI0MTU5IDIuNDM4ODU0IC03LjM4ODI5NEwwLjcwNTM1NSAtMC40NjYyNTJDMC42NTc1MzQgLTAuMjg2OTI0IDAuNjU3NTM0IC0wLjI2MzAxNCAwLjY1NzUzNCAtMC4xOTEyODNDMC42NTc1MzQgMC4wNzE3MzEgMC44NjA3NzIgMC4xMTk1NTIgMC45ODAzMjQgMC4xMTk1NTJDMS4xODM1NjIgMC4xMTk1NTIgMS4zMzg5NzkgLTAuMDM1ODY2IDEuMzk4NzU1IC0wLjE2NzM3MkwxLjkzNjczNyAtMi4zMzEyNThDMS45OTY1MTMgLTIuNTk0MjcxIDIuMDY4MjQ0IC0yLjg0NTMzIDIuMTI4MDIgLTMuMTA4MzQ0QzIuMjU5NTI3IC0zLjYxMDQ2MSAyLjI1OTUyNyAtMy42MjI0MTYgMi40ODY2NzUgLTMuOTY5MTE2UzMuMjUxODA2IC01LjAzMzEyNiA0LjE3MjM1NCAtNS4wMzMxMjZDNC42NTA1NiAtNS4wMzMxMjYgNC44MTc5MzMgLTQuNjc0NDcxIDQuODE3OTMzIC00LjE5NjI2NEM0LjgxNzkzMyAtMy41MjY3NzUgNC4zNTE2ODEgLTIuMjIzNjYxIDQuMDg4NjY3IC0xLjUwNjM1MUMzLjk4MTA3MSAtMS4yMTk0MjcgMy45MjEyOTUgLTEuMDY0MDEgMy45MjEyOTUgLTAuODQ4ODE3QzMuOTIxMjk1IC0wLjMxMDgzNCA0LjI5MTkwNSAwLjExOTU1MiA0Ljg2NTc1MyAwLjExOTU1MkM1Ljk3NzU4NCAwLjExOTU1MiA2LjM5NjAxNSAtMS42Mzc4NTggNi4zOTYwMTUgLTEuNzA5NTg5QzYuMzk2MDE1IC0xLjc2OTM2NSA2LjM0ODE5NCAtMS44MTcxODYgNi4yNzY0NjMgLTEuODE3MTg2QzYuMTY4ODY3IC0xLjgxNzE4NiA2LjE1NjkxMiAtMS43ODEzMiA2LjA5NzEzNiAtMS41NzgwODJDNS44MjIxNjcgLTAuNjIxNjY5IDUuMzc5ODI2IC0wLjExOTU1MiA0LjkwMTYxOSAtMC4xMTk1NTJDNC43ODIwNjcgLTAuMTE5NTUyIDQuNTkwNzg1IC0wLjEzMTUwNyA0LjU5MDc4NSAtMC41MTQwNzJDNC41OTA3ODUgLTAuODI0OTA3IDQuNzM0MjQ3IC0xLjIwNzQ3MiA0Ljc4MjA2NyAtMS4zMzg5NzlDNC45OTcyNiAtMS45MTI4MjcgNS41MzUyNDMgLTMuMzIzNTM3IDUuNTM1MjQzIC00LjAxNjkzNkM1LjUzNTI0MyAtNC43MzQyNDcgNS4xMTY4MTIgLTUuMjcyMjI5IDQuMjA4MjE5IC01LjI3MjIyOUMzLjUyNjc3NSAtNS4yNzIyMjkgMi45MjkwMTYgLTQuOTQ5NDQgMi40Mzg4NTQgLTQuMzI3NzcxTDMuMzU5NDAyIC03Ljk5ODAwN1onIGlkPSdnMC0xMDQnLz4KPHBhdGggZD0nTTMuMzgzMzEzIC0xLjcwOTU4OUMzLjM4MzMxMyAtMS43NjkzNjUgMy4zMzU0OTIgLTEuODE3MTg2IDMuMjYzNzYxIC0xLjgxNzE4NkMzLjE1NjE2NCAtMS44MTcxODYgMy4xNDQyMDkgLTEuNzgxMzIgMy4wODQ0MzMgLTEuNTc4MDgyQzIuNzczNTk5IC0wLjQ5MDE2MiAyLjI4MzQzNyAtMC4xMTk1NTIgMS44ODg5MTcgLTAuMTE5NTUyQzEuNzQ1NDU1IC0wLjExOTU1MiAxLjU3ODA4MiAtMC4xNTU0MTcgMS41NzgwODIgLTAuNTE0MDcyQzEuNTc4MDgyIC0wLjgzNjg2MiAxLjcyMTU0NCAtMS4xOTU1MTcgMS44NTMwNTEgLTEuNTU0MTcyTDIuNjg5OTEzIC0zLjc3NzgzM0MyLjcyNTc3OCAtMy44NzM0NzQgMi44MDk0NjUgLTQuMDg4NjY3IDIuODA5NDY1IC00LjMxNTgxNkMyLjgwOTQ2NSAtNC44MTc5MzMgMi40NTA4MDkgLTUuMjcyMjI5IDEuODY1MDA2IC01LjI3MjIyOUMwLjc2NTEzMSAtNS4yNzIyMjkgMC4zMjI3OSAtMy41Mzg3MyAwLjMyMjc5IC0zLjQ0MzA4OEMwLjMyMjc5IC0zLjM5NTI2OCAwLjM3MDYxIC0zLjMzNTQ5MiAwLjQ1NDI5NiAtMy4zMzU0OTJDMC41NjE4OTMgLTMuMzM1NDkyIDAuNTczODQ4IC0zLjM4MzMxMyAwLjYyMTY2OSAtMy41NTA2ODVDMC45MDg1OTMgLTQuNTU0OTE5IDEuMzYyODg5IC01LjAzMzEyNiAxLjgyOTE0MSAtNS4wMzMxMjZDMS45MzY3MzcgLTUuMDMzMTI2IDIuMTM5OTc1IC01LjAyMTE3MSAyLjEzOTk3NSAtNC42Mzg2MDVDMi4xMzk5NzUgLTQuMzI3NzcxIDEuOTg0NTU4IC0zLjkzMzI1IDEuODg4OTE3IC0zLjY3MDIzN0wxLjA1MjA1NSAtMS40NDY1NzVDMC45ODAzMjQgLTEuMjU1MjkzIDAuOTA4NTkzIC0xLjA2NDAxIDAuOTA4NTkzIC0wLjg0ODgxN0MwLjkwODU5MyAtMC4zMTA4MzQgMS4yNzkyMDMgMC4xMTk1NTIgMS44NTMwNTEgMC4xMTk1NTJDMi45NTI5MjcgMC4xMTk1NTIgMy4zODMzMTMgLTEuNjI1OTAzIDMuMzgzMzEzIC0xLjcwOTU4OVpNMy4yODc2NzEgLTcuNDYwMDI1QzMuMjg3NjcxIC03LjYzOTM1MiAzLjE0NDIwOSAtNy44NTQ1NDUgMi44ODExOTYgLTcuODU0NTQ1QzIuNjA2MjI3IC03Ljg1NDU0NSAyLjI5NTM5MiAtNy41OTE1MzIgMi4yOTUzOTIgLTcuMjgwNjk3QzIuMjk1MzkyIC02Ljk4MTgxOCAyLjU0NjQ1MSAtNi44ODYxNzcgMi42ODk5MTMgLTYuODg2MTc3QzMuMDEyNzAyIC02Ljg4NjE3NyAzLjI4NzY3MSAtNy4xOTcwMTEgMy4yODc2NzEgLTcuNDYwMDI1WicgaWQ9J2cwLTEwNScvPgo8cGF0aCBkPSdNNC42NTA1NiAtNC44ODk2NjRDNC4yNzk5NSAtNC44MTc5MzMgNC4wODg2NjcgLTQuNTU0OTE5IDQuMDg4NjY3IC00LjI5MTkwNUM0LjA4ODY2NyAtNC4wMDQ5ODEgNC4zMTU4MTYgLTMuOTA5MzQgNC40ODMxODggLTMuOTA5MzRDNC44MTc5MzMgLTMuOTA5MzQgNS4wOTI5MDIgLTQuMTk2MjY0IDUuMDkyOTAyIC00LjU1NDkxOUM1LjA5MjkwMiAtNC45Mzc0ODQgNC43MjIyOTEgLTUuMjcyMjI5IDQuMTI0NTMzIC01LjI3MjIyOUMzLjY0NjMyNiAtNS4yNzIyMjkgMy4wOTYzODkgLTUuMDU3MDM2IDIuNTk0MjcxIC00LjMyNzc3MUMyLjUxMDU4NSAtNC45NjEzOTUgMi4wMzIzNzkgLTUuMjcyMjI5IDEuNTU0MTcyIC01LjI3MjIyOUMxLjA4NzkyIC01LjI3MjIyOSAwLjg0ODgxNyAtNC45MTM1NzQgMC43MDUzNTUgLTQuNjUwNTZDMC41MDIxMTcgLTQuMjIwMTc0IDAuMzIyNzkgLTMuNTAyODY0IDAuMzIyNzkgLTMuNDQzMDg4QzAuMzIyNzkgLTMuMzk1MjY4IDAuMzcwNjEgLTMuMzM1NDkyIDAuNDU0Mjk2IC0zLjMzNTQ5MkMwLjU0OTkzOCAtMy4zMzU0OTIgMC41NjE4OTMgLTMuMzQ3NDQ3IDAuNjMzNjI0IC0zLjYyMjQxNkMwLjgxMjk1MSAtNC4zMzk3MjYgMS4wNDAxIC01LjAzMzEyNiAxLjUxODMwNiAtNS4wMzMxMjZDMS44MDUyMyAtNS4wMzMxMjYgMS44ODg5MTcgLTQuODI5ODg4IDEuODg4OTE3IC00LjQ4MzE4OEMxLjg4ODkxNyAtNC4yMjAxNzQgMS43NjkzNjUgLTMuNzUzOTIzIDEuNjg1Njc5IC0zLjM4MzMxM0wxLjM1MDkzNCAtMi4wOTIxNTRDMS4zMDMxMTMgLTEuODY1MDA2IDEuMTcxNjA2IC0xLjMyNzAyNCAxLjExMTgzMSAtMS4xMTE4MzFDMS4wMjgxNDQgLTAuODAwOTk2IDAuODk2NjM4IC0wLjIzOTEwMyAwLjg5NjYzOCAtMC4xNzkzMjhDMC44OTY2MzggLTAuMDExOTU1IDEuMDI4MTQ0IDAuMTE5NTUyIDEuMjA3NDcyIDAuMTE5NTUyQzEuMzM4OTc5IDAuMTE5NTUyIDEuNTY2MTI3IDAuMDM1ODY2IDEuNjM3ODU4IC0wLjIwMzIzOEMxLjY3MzcyNCAtMC4yOTg4NzkgMi4xMTYwNjUgLTIuMTA0MTEgMi4xODc3OTYgLTIuMzc5MDc4QzIuMjQ3NTcyIC0yLjY0MjA5MiAyLjMxOTMwMyAtMi44OTMxNTEgMi4zNzkwNzggLTMuMTU2MTY0QzIuNDI2ODk5IC0zLjMyMzUzNyAyLjQ3NDcyIC0zLjUxNDgxOSAyLjUxMDU4NSAtMy42NzAyMzdDMi41NDY0NTEgLTMuNzc3ODMzIDIuODY5MjQgLTQuMzYzNjM2IDMuMTY4MTIgLTQuNjI2NjVDMy4zMTE1ODIgLTQuNzU4MTU3IDMuNjIyNDE2IC01LjAzMzEyNiA0LjExMjU3OCAtNS4wMzMxMjZDNC4zMDM4NjEgLTUuMDMzMTI2IDQuNDk1MTQzIC00Ljk5NzI2IDQuNjUwNTYgLTQuODg5NjY0WicgaWQ9J2cwLTExNCcvPgo8cGF0aCBkPSdNMi43MjU3NzggLTIuMzkxMDM0QzIuOTI5MDE2IC0yLjM1NTE2OCAzLjI1MTgwNiAtMi4yODM0MzcgMy4zMjM1MzcgLTIuMjcxNDgyQzMuNDc4OTU0IC0yLjIyMzY2MSA0LjAxNjkzNiAtMi4wMzIzNzkgNC4wMTY5MzYgLTEuNDU4NTMxQzQuMDE2OTM2IC0xLjA4NzkyIDMuNjgyMTkyIC0wLjExOTU1MiAyLjI5NTM5MiAtMC4xMTk1NTJDMi4wNDQzMzQgLTAuMTE5NTUyIDEuMTQ3Njk2IC0wLjE1NTQxNyAwLjkwODU5MyAtMC44MTI5NTFDMS4zODY4IC0wLjc1MzE3NiAxLjYyNTkwMyAtMS4xMjM3ODYgMS42MjU5MDMgLTEuMzg2OEMxLjYyNTkwMyAtMS42Mzc4NTggMS40NTg1MzEgLTEuNzY5MzY1IDEuMjE5NDI3IC0xLjc2OTM2NUMwLjk1NjQxMyAtMS43NjkzNjUgMC42MDk3MTQgLTEuNTY2MTI3IDAuNjA5NzE0IC0xLjAyODE0NEMwLjYwOTcxNCAtMC4zMjI3OSAxLjMyNzAyNCAwLjExOTU1MiAyLjI4MzQzNyAwLjExOTU1MkM0LjEwMDYyMyAwLjExOTU1MiA0LjYzODYwNSAtMS4yMTk0MjcgNC42Mzg2MDUgLTEuODQxMDk2QzQuNjM4NjA1IC0yLjAyMDQyMyA0LjYzODYwNSAtMi4zNTUxNjggNC4yNTYwNCAtMi43Mzc3MzNDMy45NTcxNjEgLTMuMDI0NjU4IDMuNjcwMjM3IC0zLjA4NDQzMyAzLjAyNDY1OCAtMy4yMTU5NEMyLjcwMTg2OCAtMy4yODc2NzEgMi4xODc3OTYgLTMuMzk1MjY4IDIuMTg3Nzk2IC0zLjkzMzI1QzIuMTg3Nzk2IC00LjE3MjM1NCAyLjQwMjk4OSAtNS4wMzMxMjYgMy41Mzg3MyAtNS4wMzMxMjZDNC4wNDA4NDcgLTUuMDMzMTI2IDQuNTMxMDA5IC00Ljg0MTg0MyA0LjY1MDU2IC00LjQxMTQ1N0M0LjEyNDUzMyAtNC40MTE0NTcgNC4xMDA2MjMgLTMuOTU3MTYxIDQuMTAwNjIzIC0zLjk0NTIwNUM0LjEwMDYyMyAtMy42OTQxNDcgNC4zMjc3NzEgLTMuNjIyNDE2IDQuNDM1MzY3IC0zLjYyMjQxNkM0LjYwMjc0IC0zLjYyMjQxNiA0LjkzNzQ4NCAtMy43NTM5MjMgNC45Mzc0ODQgLTQuMjU2MDRTNC40ODMxODggLTUuMjcyMjI5IDMuNTUwNjg1IC01LjI3MjIyOUMxLjk4NDU1OCAtNS4yNzIyMjkgMS41NjYxMjcgLTQuMDQwODQ3IDEuNTY2MTI3IC0zLjU1MDY4NUMxLjU2NjEyNyAtMi42NDIwOTIgMi40NTA4MDkgLTIuNDUwODA5IDIuNzI1Nzc4IC0yLjM5MTAzNFonIGlkPSdnMC0xMTUnLz4KPHBhdGggZD0nTTIuNDAyOTg5IC00LjgwNTk3OEgzLjUwMjg2NEMzLjczMDAxMiAtNC44MDU5NzggMy44NDk1NjQgLTQuODA1OTc4IDMuODQ5NTY0IC01LjAyMTE3MUMzLjg0OTU2NCAtNS4xNTI2NzcgMy43Nzc4MzMgLTUuMTUyNjc3IDMuNTM4NzMgLTUuMTUyNjc3SDIuNDg2Njc1TDIuOTI5MDE2IC02Ljg5ODEzMkMyLjk3NjgzNyAtNy4wNjU1MDQgMi45NzY4MzcgLTcuMDg5NDE1IDIuOTc2ODM3IC03LjE3MzEwMUMyLjk3NjgzNyAtNy4zNjQzODQgMi44MjE0MiAtNy40NzE5OCAyLjY2NjAwMiAtNy40NzE5OEMyLjU3MDM2MSAtNy40NzE5OCAyLjI5NTM5MiAtNy40MzYxMTUgMi4xOTk3NTEgLTcuMDUzNTQ5TDEuNzMzNDk5IC01LjE1MjY3N0gwLjYwOTcxNEMwLjM3MDYxIC01LjE1MjY3NyAwLjI2MzAxNCAtNS4xNTI2NzcgMC4yNjMwMTQgLTQuOTI1NTI5QzAuMjYzMDE0IC00LjgwNTk3OCAwLjM0NjcgLTQuODA1OTc4IDAuNTczODQ4IC00LjgwNTk3OEgxLjYzNzg1OEwwLjg0ODgxNyAtMS42NDk4MTNDMC43NTMxNzYgLTEuMjMxMzgyIDAuNzE3MzEgLTEuMTExODMxIDAuNzE3MzEgLTAuOTU2NDEzQzAuNzE3MzEgLTAuMzk0NTIxIDEuMTExODMxIDAuMTE5NTUyIDEuNzgxMzIgMC4xMTk1NTJDMi45ODg3OTIgMC4xMTk1NTIgMy42MzQzNzEgLTEuNjI1OTAzIDMuNjM0MzcxIC0xLjcwOTU4OUMzLjYzNDM3MSAtMS43ODEzMiAzLjU4NjU1IC0xLjgxNzE4NiAzLjUxNDgxOSAtMS44MTcxODZDMy40OTA5MDkgLTEuODE3MTg2IDMuNDQzMDg4IC0xLjgxNzE4NiAzLjQxOTE3OCAtMS43NjkzNjVDMy40MDcyMjMgLTEuNzU3NDEgMy4zOTUyNjggLTEuNzQ1NDU1IDMuMzExNTgyIC0xLjU1NDE3MkMzLjA2MDUyMyAtMC45NTY0MTMgMi41MTA1ODUgLTAuMTE5NTUyIDEuODE3MTg2IC0wLjExOTU1MkMxLjQ1ODUzMSAtMC4xMTk1NTIgMS40MzQ2MiAtMC40MTg0MzEgMS40MzQ2MiAtMC42ODE0NDVDMS40MzQ2MiAtMC42OTM0IDEuNDM0NjIgLTAuOTIwNTQ4IDEuNDcwNDg2IC0xLjA2NDAxTDIuNDAyOTg5IC00LjgwNTk3OFonIGlkPSdnMC0xMTYnLz4KPC9kZWZzPgo8ZyBpZD0ncGFnZTEnPgo8dXNlIHg9JzAnIHhsaW5rOmhyZWY9JyNnMC05NycgeT0nMCcvPgo8dXNlIHg9JzYuMTQ0OTQ0JyB4bGluazpocmVmPScjZzAtODYnIHk9JzAnLz4KPHVzZSB4PScxNS41NzA2MjMnIHhsaW5rOmhyZWY9JyNnMC05NycgeT0nMCcvPgo8dXNlIHg9JzIxLjcxNTU2OCcgeGxpbms6aHJlZj0nI2cwLTExNCcgeT0nMCcvPgo8dXNlIHg9JzMwLjYzNjg3JyB4bGluazpocmVmPScjZzEtNjEnIHk9JzAnLz4KPHVzZSB4PSc0My4wNjIzNTEnIHhsaW5rOmhyZWY9JyNnMC0xMDMnIHk9JzAnLz4KPHVzZSB4PSc0OS4wOTY2MDcnIHhsaW5rOmhyZWY9JyNnMC0xMDEnIHk9JzAnLz4KPHVzZSB4PSc1NC41MjIwNDgnIHhsaW5rOmhyZWY9JyNnMC0xMTYnIHk9JzAnLz4KPHVzZSB4PSc1OC43NDkyMDcnIHhsaW5rOmhyZWY9JyNnMC03NycgeT0nMCcvPgo8dXNlIHg9JzcxLjMyMjgxNCcgeGxpbms6aHJlZj0nI2cwLTEwMScgeT0nMCcvPgo8dXNlIHg9Jzc2Ljc0ODI1NCcgeGxpbms6aHJlZj0nI2cwLTExNScgeT0nMCcvPgo8dXNlIHg9JzgyLjI2MjI2JyB4bGluazpocmVmPScjZzAtMTA0JyB5PScwJy8+Cjx1c2UgeD0nODkuMDAwODE1JyB4bGluazpocmVmPScjZzEtNDAnIHk9JzAnLz4KPHVzZSB4PSc5My41NTMxNDEnIHhsaW5rOmhyZWY9JyNnMS00MScgeT0nMCcvPgo8dXNlIHg9Jzk4LjEwNTQ2NicgeGxpbms6aHJlZj0nI2cwLTU4JyB5PScwJy8+Cjx1c2UgeD0nMTAxLjM1NzEyOCcgeGxpbms6aHJlZj0nI2cwLTEwMycgeT0nMCcvPgo8dXNlIHg9JzEwNy4zOTEzODQnIHhsaW5rOmhyZWY9JyNnMC0xMDEnIHk9JzAnLz4KPHVzZSB4PScxMTIuODE2ODI0JyB4bGluazpocmVmPScjZzAtMTE2JyB5PScwJy8+Cjx1c2UgeD0nMTE3LjA0Mzk4NCcgeGxpbms6aHJlZj0nI2cwLTg2JyB5PScwJy8+Cjx1c2UgeD0nMTI2LjQ2OTY2MycgeGxpbms6aHJlZj0nI2cwLTEwMScgeT0nMCcvPgo8dXNlIHg9JzEzMS44OTUxMDMnIHhsaW5rOmhyZWY9JyNnMC0xMTQnIHk9JzAnLz4KPHVzZSB4PScxMzcuNDk1NTc2JyB4bGluazpocmVmPScjZzAtMTE2JyB5PScwJy8+Cjx1c2UgeD0nMTQxLjcyMjczNicgeGxpbms6aHJlZj0nI2cwLTEwNScgeT0nMCcvPgo8dXNlIHg9JzE0NS43MTYxNjgnIHhsaW5rOmhyZWY9JyNnMC05OScgeT0nMCcvPgo8dXNlIHg9JzE1MC43NTQxNTcnIHhsaW5rOmhyZWY9JyNnMC0xMDEnIHk9JzAnLz4KPHVzZSB4PScxNTYuMTc5NTk3JyB4bGluazpocmVmPScjZzAtMTE1JyB5PScwJy8+Cjx1c2UgeD0nMTYxLjY5MzYwMicgeGxpbms6aHJlZj0nI2cxLTQwJyB5PScwJy8+Cjx1c2UgeD0nMTY2LjI0NTkyOCcgeGxpbms6aHJlZj0nI2cxLTQxJyB5PScwJy8+CjwvZz4KPC9zdmc+CjwhLS0gREVQVEg9NCAtLT4=" alt="aVar = getMesh().getVertices()" style="vertical-align: -4px"/></p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">openturns</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">persalys</span>
+</pre></div>
+</div>
+<p>Create the mesh model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">meshModel</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">GridMeshModel</span><span class="p">([</span><span class="n">persalys</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'aDescription'</span><span class="p">)],</span> <span class="n">ot</span><span class="o">.</span><span class="n">Interval</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">),</span> <span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Create the model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'z0'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v0</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'v0'</span><span class="p">,</span> <span class="mi">55</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'m'</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="s1">'c'</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">code</span> <span class="o">=</span> <span class="s1">'from math import exp</span><span class="se">\n\n</span><span class="s1">def _exec(z0,v0,m,c):</span><span class="se">\n</span><span class="s1">    g = 9.81</span><span class="se">\n</span><span class="s1">    zmin = 0.</span><span class="se">\n</span><span class="s1">    tau = m / c</span><span class="se">\n</span><span class="s1">    vinf = -m * g / c</span><span class="se">\n\n</span><span class="s1">    # mesh nodes</span><span class="se">\n</span><span class="s1">    t = getMesh().getVertices()</span><span class="se">\n\n</span><span class="s1">    z = [max(z0 + vinf * t_i[0] + tau * (v0 - vinf) * (1 - exp(-t_i[0] / tau)), zmin) for t_i in t]</span><span class="se">\n</span><span class="s1">    return z'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">PythonFieldModel</span><span class="p">(</span><span class="s1">'aModel'</span><span class="p">,</span> <span class="n">meshModel</span><span class="p">,</span> <span class="p">[</span><span class="n">z0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">],</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">code</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getPointToFieldFunction</span><span class="p">()([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.__init__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.addCopula">
+<span class="sig-name descname"><span class="pre">addCopula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputNames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copula</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.addCopula" title="Link to this definition">¶</a></dt>
+<dd><p>Add a copula to the model.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the inputs involved in the copula</p>
+</dd>
+<dt><strong>copula</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>The copula distribution to be added</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.addInput">
+<span class="sig-name descname"><span class="pre">addInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.addInput" title="Link to this definition">¶</a></dt>
+<dd><p>Add an input variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>New variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.addOutput">
+<span class="sig-name descname"><span class="pre">addOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.addOutput" title="Link to this definition">¶</a></dt>
+<dd><p>Add an output variable.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>output</strong><span class="classifier"><a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>New variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.clearInputs">
+<span class="sig-name descname"><span class="pre">clearInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.clearInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Remove all the input variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.clearOutputs">
+<span class="sig-name descname"><span class="pre">clearOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.clearOutputs" title="Link to this definition">¶</a></dt>
+<dd><p>Remove all the output variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.exportStandalonePythonScript">
+<span class="sig-name descname"><span class="pre">exportStandalonePythonScript</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.exportStandalonePythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Export the model into a Python script.</p>
+<p>In the case of metamodels the script only depends on OpenTURNS
+and is meant to be used out of Persalys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fileName</strong><span class="classifier">str</span></dt><dd><p>Path of the exported script</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getClassName">
+<span class="sig-name descname"><span class="pre">getClassName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getClassName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>class_name</strong><span class="classifier">str</span></dt><dd><p>The object class name (<cite>object.__class__.__name__</cite>).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getCode">
+<span class="sig-name descname"><span class="pre">getCode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getCode" title="Link to this definition">¶</a></dt>
+<dd><p>Code accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>code</strong><span class="classifier">str</span></dt><dd><p>Code text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getCopula">
+<span class="sig-name descname"><span class="pre">getCopula</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getCopula" title="Link to this definition">¶</a></dt>
+<dd><p>Copula accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>copula</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>The copula</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getDistribution">
+<span class="sig-name descname"><span class="pre">getDistribution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getDistribution" title="Link to this definition">¶</a></dt>
+<dd><p>Distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>Distribution</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.JointDistribution.html#openturns.JointDistribution" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.JointDistribution</span></code></a></span></dt><dd><p>The composed distribution (marginals and dependence)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getEvalTime">
+<span class="sig-name descname"><span class="pre">getEvalTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getEvalTime" title="Link to this definition">¶</a></dt>
+<dd><p>Evaluation time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>evalTime</strong><span class="classifier">float</span></dt><dd><p>Evaluation time</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getFunction">
+<span class="sig-name descname"><span class="pre">getFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying function.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the outputs to be evaluated (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>function</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Function evaluating the outputs</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getInputByName">
+<span class="sig-name descname"><span class="pre">getInputByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getInputByName" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getInputDimension">
+<span class="sig-name descname"><span class="pre">getInputDimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getInputDimension" title="Link to this definition">¶</a></dt>
+<dd><p>Number of input variables accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dimension</strong><span class="classifier">int</span></dt><dd><p>Number of input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getInputNames">
+<span class="sig-name descname"><span class="pre">getInputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getInputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Input variable names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getInputRandomVector">
+<span class="sig-name descname"><span class="pre">getInputRandomVector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getInputRandomVector" title="Link to this definition">¶</a></dt>
+<dd><p>Input random vector accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.RandomVector</span></code></a></span></dt><dd><p>Input random vector</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getInputs">
+<span class="sig-name descname"><span class="pre">getInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getMeshModel">
+<span class="sig-name descname"><span class="pre">getMeshModel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getMeshModel" title="Link to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getOutputByName">
+<span class="sig-name descname"><span class="pre">getOutputByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getOutputByName" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>input</strong><span class="classifier"><a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variable</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getOutputDimension">
+<span class="sig-name descname"><span class="pre">getOutputDimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getOutputDimension" title="Link to this definition">¶</a></dt>
+<dd><p>Number of output variables accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dimension</strong><span class="classifier">int</span></dt><dd><p>Number of output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getOutputNames">
+<span class="sig-name descname"><span class="pre">getOutputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getOutputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable names accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Output variable names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getOutputRandomVector">
+<span class="sig-name descname"><span class="pre">getOutputRandomVector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getOutputRandomVector" title="Link to this definition">¶</a></dt>
+<dd><p>Output random vector accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.RandomVector.html#openturns.RandomVector" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.RandomVector</span></code></a></span></dt><dd><p>Output random vector</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getOutputs">
+<span class="sig-name descname"><span class="pre">getOutputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getOutputs" title="Link to this definition">¶</a></dt>
+<dd><p>Output variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getPointToFieldFunction">
+<span class="sig-name descname"><span class="pre">getPointToFieldFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getPointToFieldFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the underlying function.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Names of the outputs to be evaluated (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>function</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.PointToFieldFunction.html#openturns.PointToFieldFunction" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointToFieldFunction</span></code></a></span></dt><dd><p>Function evaluating the outputs along the mesh nodes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getProcessNumber">
+<span class="sig-name descname"><span class="pre">getProcessNumber</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getProcessNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getPythonScript">
+<span class="sig-name descname"><span class="pre">getPythonScript</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getPythonScript" title="Link to this definition">¶</a></dt>
+<dd><p>Python script accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>script</strong><span class="classifier">str</span></dt><dd><p>Python script to replay the model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getRestrictedFunction">
+<span class="sig-name descname"><span class="pre">getRestrictedFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getRestrictedFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the function restricted to its stochastic inputs.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Output variables (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>restricted</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Function.html#openturns.Function" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Function</span></code></a></span></dt><dd><p>Stochastic function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getRestrictedPointToFieldFunction">
+<span class="sig-name descname"><span class="pre">getRestrictedPointToFieldFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getRestrictedPointToFieldFunction" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the field function restricted to its stochastic inputs.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>outputNames</strong><span class="classifier">sequence of str</span></dt><dd><p>Output variables (optional)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>restricted</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.PointToFieldFunction.html#openturns.PointToFieldFunction" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.PointToFieldFunction</span></code></a></span></dt><dd><p>Stochastic field function (for model with mesh)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getSelectedOutputsNames">
+<span class="sig-name descname"><span class="pre">getSelectedOutputsNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getSelectedOutputsNames" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the selected outputs names.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Selected outputs names</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.getStochasticInputNames">
+<span class="sig-name descname"><span class="pre">getStochasticInputNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.getStochasticInputNames" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the names of the stochastic input variables.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>names</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Description.html#openturns.Description" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Description</span></code></a></span></dt><dd><p>Names of the stochastic input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.hasInputNamed">
+<span class="sig-name descname"><span class="pre">hasInputNamed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.hasInputNamed" title="Link to this definition">¶</a></dt>
+<dd><p>Check if an input has the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether an input has the given name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.hasMesh">
+<span class="sig-name descname"><span class="pre">hasMesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.hasMesh" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the model has a mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasMesh</strong><span class="classifier">bool</span></dt><dd><p>Whether the model has a mesh</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.hasName">
+<span class="sig-name descname"><span class="pre">hasName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.hasName" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the object is named.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>hasName</strong><span class="classifier">bool</span></dt><dd><p>True if the name is not empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.hasOutputNamed">
+<span class="sig-name descname"><span class="pre">hasOutputNamed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.hasOutputNamed" title="Link to this definition">¶</a></dt>
+<dd><p>Check if an output has the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether an output has the given name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.hasStochasticInputs">
+<span class="sig-name descname"><span class="pre">hasStochasticInputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.hasStochasticInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Whether it contains stochastic variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>has</strong><span class="classifier">bool</span></dt><dd><p>Whether it contains stochastic variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.isParallel">
+<span class="sig-name descname"><span class="pre">isParallel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.isParallel" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the evaluations of the model are parallelized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isParallel</strong><span class="classifier">bool</span></dt><dd><p>Whether the evaluations of the model are parallelized (available only for the Python model)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.isValid">
+<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.isValid" title="Link to this definition">¶</a></dt>
+<dd><p>Whether it is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isValid</strong><span class="classifier">bool</span></dt><dd><p>Whether it is valid</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.removeInput">
+<span class="sig-name descname"><span class="pre">removeInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.removeInput" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an input variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.removeOutput">
+<span class="sig-name descname"><span class="pre">removeOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.removeOutput" title="Link to this definition">¶</a></dt>
+<dd><p>Remove an output variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.selectOutput">
+<span class="sig-name descname"><span class="pre">selectOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.selectOutput" title="Link to this definition">¶</a></dt>
+<dd><p>Select output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Output name</p>
+</dd>
+<dt><strong>isSelected</strong><span class="classifier">bool</span></dt><dd><p>Whether it is selected</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setBlockIndependentCopula">
+<span class="sig-name descname"><span class="pre">setBlockIndependentCopula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">copula</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setBlockIndependentCopula" title="Link to this definition">¶</a></dt>
+<dd><p>blockIndependentCopula accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>blockIndependentCopula</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.BlockIndependentCopula.html#openturns.BlockIndependentCopula" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.BlockIndependentCopula</span></code></a></span></dt><dd><p>The block independent copula to be set</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setCode">
+<span class="sig-name descname"><span class="pre">setCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setCode" title="Link to this definition">¶</a></dt>
+<dd><p>Code accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>code</strong><span class="classifier">str</span></dt><dd><p>Code text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setDistribution">
+<span class="sig-name descname"><span class="pre">setDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setDistribution" title="Link to this definition">¶</a></dt>
+<dd><p>Input distribution accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="https://openturns.github.io/openturns/master/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Variable distribution</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setDistributionParametersType">
+<span class="sig-name descname"><span class="pre">setDistributionParametersType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distributionParametersType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setDistributionParametersType" title="Link to this definition">¶</a></dt>
+<dd><p>Input distribution parameter type accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>parametersType</strong><span class="classifier">int</span></dt><dd><p>Distribution parameter type accessor</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setEvalTime">
+<span class="sig-name descname"><span class="pre">setEvalTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evalTime</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setEvalTime" title="Link to this definition">¶</a></dt>
+<dd><p>Evaluation time accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>evalTime</strong><span class="classifier">float</span></dt><dd><p>Evaluation time</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setFiniteDifferenceStep">
+<span class="sig-name descname"><span class="pre">setFiniteDifferenceStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setFiniteDifferenceStep" title="Link to this definition">¶</a></dt>
+<dd><p>Finite difference step accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>step</strong><span class="classifier">float</span></dt><dd><p>Finite difference step used to define the gradient of the model’s function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setInputDescription">
+<span class="sig-name descname"><span class="pre">setInputDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setInputDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Input description accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Description text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setInputName">
+<span class="sig-name descname"><span class="pre">setInputName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setInputName" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>newName</strong><span class="classifier">str</span></dt><dd><p>New name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setInputStochastic">
+<span class="sig-name descname"><span class="pre">setInputStochastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setInputStochastic" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the input variable is stochastic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>isStochastic</strong><span class="classifier">bool</span></dt><dd><p>Whether the input variable is stochastic</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setInputValue">
+<span class="sig-name descname"><span class="pre">setInputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setInputValue" title="Link to this definition">¶</a></dt>
+<dd><p>Input variable value accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>New value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setInputs">
+<span class="sig-name descname"><span class="pre">setInputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setInputs" title="Link to this definition">¶</a></dt>
+<dd><p>Input variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>inputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Input.html#persalys.Input" title="persalys.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">Input</span></code></a></span></dt><dd><p>Input variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setMeshModel">
+<span class="sig-name descname"><span class="pre">setMeshModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meshModel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setMeshModel" title="Link to this definition">¶</a></dt>
+<dd><p>Mesh model accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="persalys.MeshModel.html#persalys.MeshModel" title="persalys.MeshModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeshModel</span></code></a></span></dt><dd><p>Mesh model</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setName" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the object’s name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The name of the object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setOutputDescription">
+<span class="sig-name descname"><span class="pre">setOutputDescription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setOutputDescription" title="Link to this definition">¶</a></dt>
+<dd><p>Output description accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>description</strong><span class="classifier">str</span></dt><dd><p>Description text</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setOutputName">
+<span class="sig-name descname"><span class="pre">setOutputName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setOutputName" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>newName</strong><span class="classifier">str</span></dt><dd><p>New name</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setOutputValue">
+<span class="sig-name descname"><span class="pre">setOutputValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setOutputValue" title="Link to this definition">¶</a></dt>
+<dd><p>Output variable name accessor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Variable name</p>
+</dd>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>New value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setOutputs">
+<span class="sig-name descname"><span class="pre">setOutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setOutputs" title="Link to this definition">¶</a></dt>
+<dd><p>Output variables accessor.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>outputs</strong><span class="classifier">sequence of <a class="reference internal" href="persalys.Output.html#persalys.Output" title="persalys.Output"><code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></a></span></dt><dd><p>Output variables</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setParallel">
+<span class="sig-name descname"><span class="pre">setParallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setParallel" title="Link to this definition">¶</a></dt>
+<dd><p>Whether the evaluations of the model are parallelized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>isParallel</strong><span class="classifier">bool</span></dt><dd><p>Whether the evaluations of the model are parallelized</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This is only implemented for the Python model.
+Also, on Windows platforms, ProcessPoolExecutor startup time being much higher,
+you may want to evaluate enough points in batch rather than many small blocks.
+Refer to the <em>setBlockSize</em> method of the various algorithms.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="persalys.PythonFieldModel.setProcessNumber">
+<span class="sig-name descname"><span class="pre">setProcessNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processNumber</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#persalys.PythonFieldModel.setProcessNumber" title="Link to this definition">¶</a></dt>
+<dd><p>Number of concurrent processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>process_number</strong><span class="classifier">int</span></dt><dd><p>Maximum number of processes</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="persalys.PythonPhysicalModel.html"
+                          title="previous chapter">PythonPhysicalModel</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="persalys.FMUInfo.html"
+                          title="next chapter">FMUInfo</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/user_manual/python_interface/_generated/persalys.PythonFieldModel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="persalys.FMUInfo.html" title="FMUInfo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="persalys.PythonPhysicalModel.html" title="PythonPhysicalModel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PythonFieldModel</a></li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
+
+  </body>
+</html>

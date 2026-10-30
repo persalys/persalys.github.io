@@ -1,0 +1,12 @@
+﻿FunctionalChaosAnalysis
+================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: FunctionalChaosAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

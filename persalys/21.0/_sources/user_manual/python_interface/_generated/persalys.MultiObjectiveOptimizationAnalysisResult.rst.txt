@@ -1,0 +1,12 @@
+﻿MultiObjectiveOptimizationAnalysisResult
+=================================================
+
+.. currentmodule:: persalys
+
+.. autoclass:: MultiObjectiveOptimizationAnalysisResult
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+

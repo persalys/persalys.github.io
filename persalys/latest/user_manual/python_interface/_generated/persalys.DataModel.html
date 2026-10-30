@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>DataModel &#8212; Persalys 20.1dev documentation</title>
+    <title>DataModel &#8212; Persalys 21.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/pyramid.css?v=424f8d56" />
     <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
-    <script src="../../../_static/documentation_options.js?v=1da01a7e"></script>
+    <script src="../../../_static/documentation_options.js?v=c0d15a50"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="icon" href="../../../_static/persalys.ico"/>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="persalys.FMIPhysicalModel.html" title="FMIPhysicalModel"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" accesskey="U">User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">DataModel</a></li> 
@@ -194,11 +194,11 @@
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">openturns</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">persalys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ot</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="o">.</span><span class="n">SetSeed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fileName</span> <span class="o">=</span> <span class="s1">&#39;sample.csv&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fileName</span> <span class="o">=</span> <span class="s1">'sample.csv'</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">getSample</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sample</span><span class="o">.</span><span class="n">exportToCSVFile</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">importedDataset</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">ImportedDataset</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="p">(</span><span class="s1">&#39;dataModel&#39;</span><span class="p">,</span> <span class="n">importedDataset</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;var1&#39;</span><span class="p">,</span> <span class="s1">&#39;var2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;var3&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="p">(</span><span class="s1">'dataModel'</span><span class="p">,</span> <span class="n">importedDataset</span><span class="p">,</span> <span class="p">[</span><span class="s1">'var1'</span><span class="p">,</span> <span class="s1">'var2'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'var3'</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">persalys</span><span class="o">.</span><span class="n">DataModel</span><span class="o">.</span><span class="n">MC</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -677,7 +677,7 @@ persalys.DataModel.MORRIS</p>
         <li class="right" >
           <a href="persalys.FMIPhysicalModel.html" title="FMIPhysicalModel"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 20.1dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Persalys 21.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../user_manual.html" >User manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../python_interface.html" >User manual for the Python interface</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">DataModel</a></li> 

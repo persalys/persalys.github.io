@@ -1,0 +1,12 @@
+﻿KrigingAnalysis
+========================
+
+.. currentmodule:: persalys
+
+.. autoclass:: KrigingAnalysis
+   :exclude-members: __call__, thisown
+
+   
+   .. automethod:: __init__
+   
+
